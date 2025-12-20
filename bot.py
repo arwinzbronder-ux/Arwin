@@ -170,11 +170,11 @@ def _blocking_sync(data):
         return
 
     # 1. Generate the content
-    codes = []
+    codes = set()
     for user_id, info in data.items():
         if info.get('friend_code') and info.get('status') == 'online':
-            codes.append(info['friend_code'])
-    file_content = "\n".join(codes)
+            codes.add(info['friend_code'])
+    file_content = "\n".join(sorted(list(codes)))
 
     try:
         auth = Auth.Token(GITHUB_TOKEN) # Fixed Deprecation
@@ -184,11 +184,11 @@ def _blocking_sync(data):
         # 2. Try to get the existing file (we need its 'sha' to update it)
         try:
             contents = repo.get_contents("ids.txt")
-            repo.update_file(contents.path, "Bot: Update active IDs", file_content, contents.sha)
+            repo.update_file(contents.path, "Bot: Update active IDs [skip ci]", file_content, contents.sha) # Added [skip ci]
             print("🚀 Pushed to GitHub (Updated)!", flush=True)
         except Exception:
             # File doesn't exist, create it
-            repo.create_file("ids.txt", "Bot: Create IDs file", file_content)
+            repo.create_file("ids.txt", "Bot: Create IDs file [skip ci]", file_content) # Added [skip ci]
             print("🚀 Pushed to GitHub (Created)!", flush=True)
             
     except Exception as e:
@@ -229,9 +229,9 @@ def _blocking_upload(data):
         repo = g.get_repo(REPO_NAME)
         try:
             contents = repo.get_contents(DATA_FILE)
-            repo.update_file(contents.path, "Bot: Save User DB", json_content, contents.sha)
+            repo.update_file(contents.path, "Bot: Save User DB [skip ci]", json_content, contents.sha) # Added [skip ci]
         except Exception:
-            repo.create_file(DATA_FILE, "Bot: Create User DB", json_content)
+            repo.create_file(DATA_FILE, "Bot: Create User DB [skip ci]", json_content) # Added [skip ci]
         print(f"💾 Saved {DATA_FILE} to GitHub", flush=True)
     except Exception as e:
         print(f"❌ Failed to save {DATA_FILE} to GitHub: {e}", flush=True)
@@ -431,7 +431,7 @@ async def rg_unadd_user(interaction: discord.Interaction):
     if user_id in data:
         del data[user_id]
         await save_data_async(data) # Updated to async save
-        await sync_to_github(data) # Updated to async sync
+        await sync_to_github(data) # Reverted to sync_to_github (Updates ids.txt)
         await interaction.followup.send("🗑️ **Unregistered.** Your data has been wiped. You can now register a new ID.")
     else:
         await interaction.followup.send("❌ You are not registered.", ephemeral=True)
@@ -447,9 +447,14 @@ async def rg_online(interaction: discord.Interaction):
         await interaction.followup.send("❌ You are not registered! proper use: `/rg_add_user` first.", ephemeral=True)
         return
 
+    # Check if already online
+    if data[user_id].get('status') == 'online':
+        await interaction.followup.send("⚠️ **Already Online!** You are already in the queue.", ephemeral=True)
+        return
+
     data[user_id]['status'] = 'online'
-    await save_data_async(data) # Updated to async save
-    await sync_to_github(data) # Updated to async sync
+    await save_data_async(data) # Update DB
+    await sync_to_github(data) # Reverted to sync_to_github (Updates ids.txt)
 
     await interaction.followup.send(
         f"🟢 **Online!** {interaction.user.mention} is now accepting friend requests.\n"
@@ -464,9 +469,14 @@ async def rg_offline(interaction: discord.Interaction):
     data = load_data()
     
     if user_id in data:
+        # Check if already offline
+        if data[user_id].get('status') == 'offline':
+            await interaction.followup.send("⚠️ **Already Offline!** You are not in the queue.", ephemeral=True)
+            return
+
         data[user_id]['status'] = 'offline'
-        await save_data_async(data) # Updated to async save
-        await sync_to_github(data) # Updated to async sync
+        await save_data_async(data) # Update DB
+        await sync_to_github(data) # Reverted to sync_to_github (Updates ids.txt)
     
     await interaction.followup.send(
         f"🔴 **Offline.** {interaction.user.mention} has stopped accepting requests.\n"
