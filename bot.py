@@ -8,6 +8,7 @@ import json
 from aiohttp import web
 import aiohttp
 from datetime import datetime, timedelta
+import re
 import io
 from PIL import Image, ImageDraw, ImageFont
 
@@ -19,6 +20,7 @@ CATEGORY_NAME = "Member Channels"
 DATA_FILE = "users.json"
 CHECKIN_CHANNEL_NAME = "check-in"
 WATERMARK_CHANNEL_NAME = "🏆︱live-godpacks-showcase"
+SOURCE_CHANNEL_NAME = "🎰︱group-packs"
 
 # --- HELPER FUNCTIONS ---
 
@@ -30,6 +32,46 @@ def load_data():
             return json.load(f)
     except Exception:
         return {}
+        
+def _blocking_update_vip(new_id):
+    if not GITHUB_TOKEN: return
+    try:
+        auth = Auth.Token(GITHUB_TOKEN)
+        g = Github(auth=auth)
+        repo = g.get_repo(REPO_NAME)
+        
+        # 1. Get current VIP IDs
+        ids = set()
+        file_sha = None
+        try:
+            contents = repo.get_contents("vip_ids.txt")
+            file_sha = contents.sha
+            existing_text = contents.decoded_content.decode()
+            ids = set(existing_text.splitlines())
+        except Exception:
+            pass # File might not exist yet
+            
+        # 2. Add New ID
+        if new_id not in ids:
+            ids.add(new_id)
+            new_content = "\n".join(sorted(list(ids)))
+            
+            # 3. Save back
+            if file_sha:
+                repo.update_file("vip_ids.txt", "[skip ci] [skip render] Bot: Update VIP IDs", new_content, file_sha)
+                print(f"💎 Added VIP ID {new_id} to vip_ids.txt (Updated)", flush=True)
+            else:
+                repo.create_file("vip_ids.txt", "[skip ci] [skip render] Bot: Create VIP IDs", new_content)
+                print(f"💎 Added VIP ID {new_id} to vip_ids.txt (Created)", flush=True)
+        else:
+            print(f"ℹ️ VIP ID {new_id} already exists.", flush=True)
+            
+    except Exception as e:
+        print(f"❌ Failed to update vip_ids.txt: {e}", flush=True)
+
+async def update_vip_list(new_id):
+    loop = asyncio.get_running_loop()
+    await loop.run_in_executor(None, _blocking_update_vip, new_id)
 
 def count_online_users(data):
     count = 0
@@ -311,9 +353,19 @@ class MyBot(commands.Bot):
             await save_data_async(data)
 
     async def on_message(self, message):
+        # 1. VIP ID Extraction (Webhook Messages in Group Packs)
+        if message.channel.name == SOURCE_CHANNEL_NAME:
+            # Look for 16-digit ID in parenthesis: e.g. (9075827188388472)
+            match = re.search(r'\((\d{16})\)', message.content)
+            if match:
+                vip_id = match.group(1)
+                print(f"🔍 Detected VIP ID: {vip_id}", flush=True)
+                await update_vip_list(vip_id)
+
         if message.author == self.user:
             return
 
+        # 2. Watermarking (Images in Godpacks Showcase)
         if message.channel.name == WATERMARK_CHANNEL_NAME and message.attachments:
             processed_files = []
             for attachment in message.attachments:
