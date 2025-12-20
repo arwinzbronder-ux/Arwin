@@ -389,7 +389,9 @@ async def rg_add_user(interaction: discord.Interaction, friend_code: str, instan
             f"❌ **You are already registered!**\n"
             f"• Friend Code: `{current_code}`\n"
             f"• Status: `{current_status}`\n\n"
-            f"To change this, run `/rg_unadd_user` first, then register again.",
+            f"• Prior Status: `{current_status}`\n\n"
+            f"💡 **Want to go Online?** Run `/rg_online`.\n"
+            f"💡 **Want to change ID?** Run `/rg_unadd_user` first.",
             ephemeral=True
         )
         return
@@ -435,6 +437,52 @@ async def rg_unadd_user(interaction: discord.Interaction):
         await interaction.followup.send("🗑️ **Unregistered.** Your data has been wiped. You can now register a new ID.")
     else:
         await interaction.followup.send("❌ You are not registered.", ephemeral=True)
+
+@bot.tree.command(name="rg_change_id", description="Update your Friend Code without losing your status")
+@app_commands.describe(new_code="Your NEW 16-digit Friend Code")
+async def rg_change_id(interaction: discord.Interaction, new_code: str):
+    # Validation
+    if not new_code.isdigit() or len(new_code) != 16:
+        await interaction.response.send_message(
+            f"❌ **Error**: Friend Code must be exactly 16 digits.",
+            ephemeral=True
+        )
+        return
+
+    await interaction.response.defer(ephemeral=False)
+    
+    user_id = str(interaction.user.id)
+    data = load_data()
+    
+    # Check registration
+    if user_id not in data:
+        await interaction.followup.send("❌ You are not registered! proper use: `/rg_add_user` first.", ephemeral=True)
+        return
+
+    # Check Global Uniqueness
+    for existing_id, info in data.items():
+        if info.get('friend_code') == new_code and existing_id != user_id:
+            await interaction.followup.send(
+                f"❌ **Error**: This Friend Code is already registered by another user.",
+                ephemeral=True
+            )
+            return
+
+    old_code = data[user_id].get('friend_code')
+    
+    # Update Data
+    data[user_id]['friend_code'] = new_code
+    await save_data_async(data) # Update DB
+    
+    # If Online, we must update the public list immediately
+    if data[user_id].get('status') == 'online':
+        await sync_to_github(data)
+        
+    await interaction.followup.send(
+        f"✅ **ID Updated!**\n"
+        f"Old: `{old_code}`\n"
+        f"New: `{new_code}`"
+    )
 
 @bot.tree.command(name="rg_online", description="Set your status to ONLINE and start accepting requests")
 async def rg_online(interaction: discord.Interaction):
