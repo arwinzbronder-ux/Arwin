@@ -1,3 +1,4 @@
 discord.py
 PyGithub
 aiohttp
+Pillow
