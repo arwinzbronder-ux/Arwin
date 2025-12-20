@@ -18,7 +18,7 @@ REPO_NAME = "arwinzbronder-ux/Arwin" # Format: username/repo
 CATEGORY_NAME = "Member Channels"
 DATA_FILE = "users.json"
 CHECKIN_CHANNEL_NAME = "check-in"
-WATERMARK_CHANNEL_NAME = "🎰︱group-packs"
+WATERMARK_CHANNEL_NAME = "🏆︱live-godpacks-showcase"
 
 # --- HELPER FUNCTIONS ---
 
@@ -56,10 +56,10 @@ def add_watermark(image_bytes):
             draw = ImageDraw.Draw(txt_layer)
             text = "EternalGP"
             
-            # Calculate dynamic font size (20% of height)
+            # Calculate dynamic font size (10% of height - Smaller)
             width, height = img.size
-            font_size = int(height * 0.20) 
-            if font_size < 40: font_size = 40
+            font_size = int(height * 0.10) 
+            if font_size < 20: font_size = 20
             
             try:
                  font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", font_size)
