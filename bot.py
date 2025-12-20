@@ -185,11 +185,11 @@ def _blocking_sync(data):
         # 2. Try to get the existing file (we need its 'sha' to update it)
         try:
             contents = repo.get_contents("ids.txt")
-            repo.update_file(contents.path, "Bot: Update active IDs [skip ci]", file_content, contents.sha) # Added [skip ci]
+            repo.update_file(contents.path, "[skip ci] [skip render] Bot: Update active IDs", file_content, contents.sha) # Added [skip ci]
             print("🚀 Pushed to GitHub (Updated)!", flush=True)
         except Exception:
             # File doesn't exist, create it
-            repo.create_file("ids.txt", "Bot: Create IDs file [skip ci]", file_content) # Added [skip ci]
+            repo.create_file("ids.txt", "[skip ci] [skip render] Bot: Create IDs file", file_content) # Added [skip ci]
             print("🚀 Pushed to GitHub (Created)!", flush=True)
             
     except Exception as e:
@@ -264,9 +264,9 @@ def _blocking_upload(data):
         repo = g.get_repo(REPO_NAME)
         try:
             contents = repo.get_contents(DATA_FILE)
-            repo.update_file(contents.path, "Bot: Save User DB [skip ci]", json_content, contents.sha) # Added [skip ci]
+            repo.update_file(contents.path, "[skip ci] [skip render] Bot: Save User DB", json_content, contents.sha)
         except Exception:
-            repo.create_file(DATA_FILE, "Bot: Create User DB [skip ci]", json_content) # Added [skip ci]
+            repo.create_file(DATA_FILE, "[skip ci] [skip render] Bot: Create User DB", json_content)
         print(f"💾 Saved {DATA_FILE} to GitHub", flush=True)
     except Exception as e:
         print(f"❌ Failed to save {DATA_FILE} to GitHub: {e}", flush=True)
@@ -535,14 +535,43 @@ async def rg_online(interaction: discord.Interaction):
         await interaction.followup.send("⚠️ **Already Online!** You are already in the queue.", ephemeral=True)
         return
 
+import aiohttp # Added import
+
+# ... (Configuration stays same) ...
+# Line 8 was from aiohttp import web. I will inject import aiohttp before it if needed, or assume it's there. 
+# Wait, I can only replace valid blocks.
+# I will replace standard imports to include aiohttp.
+
+# ... (At rg_online) ...
     data[user_id]['status'] = 'online'
     await save_data_async(data) # Update DB
     await sync_to_github(data) # Reverted to sync_to_github (Updates ids.txt)
 
-    await interaction.followup.send(
-        f"🟢 **Online!** {interaction.user.mention} is now accepting friend requests.\n"
-        f"Your ID has been added to the global list."
-    )
+    # Verification Step
+    msg = await interaction.followup.send(f"⏳ **Verifying accessibility...** (Checking https://arwin.de/ids.txt)")
+    
+    verified = False
+    friend_code = data[user_id]['friend_code']
+    
+    for i in range(12): # Try for 60 seconds
+        try:
+            async with aiohttp.ClientSession() as session:
+                # Add timestamp to bypass cache
+                async with session.get(f"https://arwin.de/ids.txt?t={int(datetime.now().timestamp())}") as response:
+                    if response.status == 200:
+                        text = await response.text()
+                        if friend_code in text:
+                            verified = True
+                            break
+        except Exception as e:
+            print(f"Verification Check Failed: {e}", flush=True)
+            
+        await asyncio.sleep(5)
+    
+    if verified:
+        await msg.edit(content=f"🟢 **Online!** {interaction.user.mention} is now accepting friend requests.\n✅ **Verified:** Your ID is visible on the public list.")
+    else:
+        await msg.edit(content=f"⚠️ **Pushed directly to GitHub**, but `arwin.de` is taking a while to update.\nYour ID *will* appear shortly.")
 
 @bot.tree.command(name="rg_offline", description="Set your status to OFFLINE")
 async def rg_offline(interaction: discord.Interaction):
