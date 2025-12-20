@@ -160,12 +160,13 @@ async def start_dummy_server():
     port = int(os.environ.get("PORT", 8080))
     site = web.TCPSite(runner, '0.0.0.0', port)
     await site.start()
-    print(f"🌍 Dummy server started on port {port}")
+    print(f"🌍 Dummy server started on port {port}", flush=True)
 
 # Helper function to auto-push to GitHub via API
-def sync_to_github(data):
+# BLOCKING function (will be run in executor)
+def _blocking_sync(data):
     if not GITHUB_TOKEN:
-        print("⚠️ GITHUB_TOKEN not found. Skipping sync.")
+        print("⚠️ GITHUB_TOKEN not found. Skipping sync.", flush=True)
         return
 
     # 1. Generate the content
@@ -184,21 +185,23 @@ def sync_to_github(data):
         try:
             contents = repo.get_contents("ids.txt")
             repo.update_file(contents.path, "Bot: Update active IDs", file_content, contents.sha)
-            print("🚀 Pushed to GitHub (Updated)!")
+            print("🚀 Pushed to GitHub (Updated)!", flush=True)
         except Exception:
             # File doesn't exist, create it
             repo.create_file("ids.txt", "Bot: Create IDs file", file_content)
-            print("🚀 Pushed to GitHub (Created)!")
+            print("🚀 Pushed to GitHub (Created)!", flush=True)
             
     except Exception as e:
-        print(f"❌ GitHub API Error: {e}")
+        print(f"❌ GitHub API Error: {e}", flush=True)
 
-# ... (load_data / save_data stay same) ...
-
-# ... (Configuration) ...
+# ASYNC wrapper calls the blocking one in a thread
+async def sync_to_github(data):
+    loop = asyncio.get_running_loop()
+    await loop.run_in_executor(None, _blocking_sync, data)
 
 # Helper to download users.json from GitHub (Persistence)
-def download_users_from_github():
+# BLOCKING download
+def _blocking_download():
     if not GITHUB_TOKEN: return
     try:
         auth = Auth.Token(GITHUB_TOKEN) # Fixed Deprecation
@@ -207,12 +210,17 @@ def download_users_from_github():
         contents = repo.get_contents(DATA_FILE)
         with open(DATA_FILE, "wb") as f:
             f.write(contents.decoded_content)
-        print(f"✅ Downloaded {DATA_FILE} from GitHub")
+        print(f"✅ Downloaded {DATA_FILE} from GitHub", flush=True)
     except Exception as e:
-        print(f"⚠️ Could not download {DATA_FILE} (starting fresh): {e}")
+        print(f"⚠️ Could not download {DATA_FILE} (starting fresh): {e}", flush=True)
+
+async def download_users_from_github():
+    loop = asyncio.get_running_loop()
+    await loop.run_in_executor(None, _blocking_download)
 
 # Helper to upload users.json to GitHub (Persistence)
-def upload_users_to_github(data):
+# BLOCKING upload
+def _blocking_upload(data):
     if not GITHUB_TOKEN: return
     json_content = json.dumps(data, indent=4)
     try:
@@ -224,9 +232,13 @@ def upload_users_to_github(data):
             repo.update_file(contents.path, "Bot: Save User DB", json_content, contents.sha)
         except Exception:
             repo.create_file(DATA_FILE, "Bot: Create User DB", json_content)
-        print(f"💾 Saved {DATA_FILE} to GitHub")
+        print(f"💾 Saved {DATA_FILE} to GitHub", flush=True)
     except Exception as e:
-        print(f"❌ Failed to save {DATA_FILE} to GitHub: {e}")
+        print(f"❌ Failed to save {DATA_FILE} to GitHub: {e}", flush=True)
+
+async def upload_users_to_github(data):
+    loop = asyncio.get_running_loop()
+    await loop.run_in_executor(None, _blocking_upload, data)
 
 def load_data():
     if not os.path.exists(DATA_FILE):
@@ -237,15 +249,20 @@ def load_data():
     except Exception:
         return {}
 
-def save_data(data):
+# Updated to use ASYNC upload - Caller must await this!
+async def save_data_async(data):
     # 1. Save locally
     with open(DATA_FILE, "w") as f:
         json.dump(data, f, indent=4)
-    # 2. Sync to Cloud
-    upload_users_to_github(data)
+    # 2. Sync to Cloud (Async)
+    await upload_users_to_github(data)
 
-
-# ... (MyBot Class and on_member_join stay same) ...
+# Legacy save (sync) for non-async contexts (if any) - Renamed from save_data
+def save_data_sync(data):
+    with open(DATA_FILE, "w") as f:
+        json.dump(data, f, indent=4)
+    # Cannot await upload_users_to_github here without a loop
+    # Ideally all saves should be async now.
 
 # The MyBot class definition is duplicated in the original content,
 # I will keep the first one and remove the second one as it's redundant.
@@ -292,7 +309,7 @@ async def sync(ctx):
 @bot.event
 async def on_member_join(member):
     guild = member.guild
-    print(f"Member joined: {member.name}")
+    print(f"Member joined: {member.name}", flush=True)
 
     overwrites = {
         guild.default_role: discord.PermissionOverwrite(read_messages=False),
@@ -325,10 +342,10 @@ async def on_member_join(member):
             f"Go to {CHECKIN_CHANNEL_NAME} for instructions FIRST."
         )
         await private_channel.send(setup_msg)
-        print(f"Created channel for {member.name}")
+        print(f"Created channel for {member.name}", flush=True)
         
     except Exception as e:
-        print(f"Error creating channel: {e}")
+        print(f"Error creating channel: {e}", flush=True)
 
     # 3. Ping them in the CHECK-IN channel (The Landing Pad)
     checkin_channel = discord.utils.get(guild.text_channels, name=CHECKIN_CHANNEL_NAME)
@@ -341,7 +358,7 @@ async def on_member_join(member):
             )
             await checkin_channel.send(welcome_ping)
         except Exception as e:
-            print(f"Could not ping in check-in: {e}")
+            print(f"Could not ping in check-in: {e}", flush=True)
 
 # --- SLASH COMMANDS ---
 
@@ -364,7 +381,20 @@ async def rg_add_user(interaction: discord.Interaction, friend_code: str, instan
     user_id = str(interaction.user.id)
     data = load_data()
 
-    # Check for Duplicates (Global Uniqueness)
+    # 1. Existing User Check (Prevent Re-registration)
+    if user_id in data:
+        current_code = data[user_id].get('friend_code', 'Not Set')
+        current_status = data[user_id].get('status', 'offline')
+        await interaction.followup.send(
+            f"❌ **You are already registered!**\n"
+            f"• Friend Code: `{current_code}`\n"
+            f"• Status: `{current_status}`\n\n"
+            f"To change this, run `/rg_unadd_user` first, then register again.",
+            ephemeral=True
+        )
+        return
+
+    # 2. Check for Duplicates (Global Uniqueness)
     for existing_id, info in data.items():
         if info.get('friend_code') == friend_code and existing_id != user_id:
             await interaction.followup.send(
@@ -381,7 +411,7 @@ async def rg_add_user(interaction: discord.Interaction, friend_code: str, instan
         "prefix": prefix,
         "status": "offline" # Default status is offline
     }
-    save_data(data)
+    await save_data_async(data) # Updated to async save
 
     await interaction.followup.send(
         f"✅ **Registered & Saved!**\n"
@@ -400,8 +430,8 @@ async def rg_unadd_user(interaction: discord.Interaction):
     
     if user_id in data:
         del data[user_id]
-        save_data(data)
-        sync_to_github(data)
+        await save_data_async(data) # Updated to async save
+        await sync_to_github(data) # Updated to async sync
         await interaction.followup.send("🗑️ **Unregistered.** Your data has been wiped. You can now register a new ID.")
     else:
         await interaction.followup.send("❌ You are not registered.", ephemeral=True)
@@ -418,8 +448,8 @@ async def rg_online(interaction: discord.Interaction):
         return
 
     data[user_id]['status'] = 'online'
-    save_data(data)
-    sync_to_github(data) # Trigger GitHub Sync
+    await save_data_async(data) # Updated to async save
+    await sync_to_github(data) # Updated to async sync
 
     await interaction.followup.send(
         f"🟢 **Online!** {interaction.user.mention} is now accepting friend requests.\n"
@@ -435,8 +465,8 @@ async def rg_offline(interaction: discord.Interaction):
     
     if user_id in data:
         data[user_id]['status'] = 'offline'
-        save_data(data)
-        sync_to_github(data) # Trigger GitHub Sync
+        await save_data_async(data) # Updated to async save
+        await sync_to_github(data) # Updated to async sync
     
     await interaction.followup.send(
         f"🔴 **Offline.** {interaction.user.mention} has stopped accepting requests.\n"
@@ -459,12 +489,16 @@ async def rg_update_bot(interaction: discord.Interaction, file: discord.Attachme
         # Determine strict file path for bot.py in the repo root
         file_path = "bot.py"
         
-        auth = Auth.Token(GITHUB_TOKEN)
-        g = Github(auth=auth)
-        repo = g.get_repo(REPO_NAME)
-        
-        contents = repo.get_contents(file_path)
-        repo.update_file(contents.path, f"Bot: Remote Update by {interaction.user.name}", content, contents.sha)
+        # Use blocking helper for GitHub API call
+        def _blocking_update_bot_file():
+            auth = Auth.Token(GITHUB_TOKEN)
+            g = Github(auth=auth)
+            repo = g.get_repo(REPO_NAME)
+            contents = repo.get_contents(file_path)
+            repo.update_file(contents.path, f"Bot: Remote Update by {interaction.user.name}", content, contents.sha)
+
+        loop = asyncio.get_running_loop()
+        await loop.run_in_executor(None, _blocking_update_bot_file)
         
         await interaction.followup.send("✅ **Update Pushed!** Render should restart the bot automatically in ~1 minute.")
     except Exception as e:
@@ -473,6 +507,6 @@ async def rg_update_bot(interaction: discord.Interaction, file: discord.Attachme
 # ... (Run Check stays the same) ...
 if __name__ == "__main__":
     if TOKEN == "PASTE_YOUR_TOKEN_HERE":
-        print("ERROR: Please put your bot token in the bot.py file on line 6.")
+        print("ERROR: Please put your bot token in the bot.py file on line 6.", flush=True)
     else:
         bot.run(TOKEN)
