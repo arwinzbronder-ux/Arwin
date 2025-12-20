@@ -142,7 +142,7 @@ async def mod_error(interaction: discord.Interaction, error):
 # --- CONFIGURATION ---
 TOKEN = os.getenv("DISCORD_TOKEN")
 GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
-REPO_NAME = "arwin030/Arwin" # Format: username/repo
+REPO_NAME = "arwinzbronder-ux/Arwin" # Format: username/repo
 CATEGORY_NAME = "Member Channels" 
 DATA_FILE = "users.json"
 CHECKIN_CHANNEL_NAME = "check-in" # The channel where users should land first
