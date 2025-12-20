@@ -56,89 +56,47 @@ class MyBot(commands.Bot):
                         if self.guilds:
                             guild = self.guilds[0]
                             member = guild.get_member(int(user_id))
-                            channel = discord.utils.get(guild.text_channels, name=CHECKIN_CHANNEL_NAME)
-                            if member and channel:
-                                # Reset their permissions in the check-in channel
-                                await channel.set_permissions(member, overwrite=None)
-                                print(f"🔓 Unbanned {member.name}")
-                except Exception as e:
-                    print(f"Error checking ban for {user_id}: {e}")
-
-        if changed:
-            save_data(data)
-
-    async def on_message(self, message):
-        if message.content == "!sync":
-            await self.tree.sync()
-            await message.channel.send("Synced commands globally!")
-        await super().on_message(message)
-
-bot = MyBot()
-
-# ... (on_member_join and existing commands stay same) ...
-
-# --- MODERATION COMMANDS ---
-
-@bot.tree.command(name="rg_remove_id", description="[Admin] Remove a Friend Code from the database")
-@app_commands.describe(friend_code="The 16-digit ID to remove")
-@app_commands.checks.has_permissions(manage_messages=True)
-async def rg_remove_id(interaction: discord.Interaction, friend_code: str):
-    await interaction.response.defer(ephemeral=False) # Defer immediately
-
-    data = load_data()
-    found_user_id = None
-    
-    # Find the user owning this code
-    for user_id, info in data.items():
-        if info.get('friend_code') == friend_code:
-            found_user_id = user_id
-            break
-    
-    if found_user_id:
-        # Clear their code and set offline
-        data[found_user_id]['friend_code'] = None
-        data[found_user_id]['status'] = 'offline'
-        save_data(data)
-        sync_to_github(data)
-        await interaction.followup.send(f"🗑️ Removed ID `{friend_code}` from the list and set user to Offline.")
-        await update_channel_status(interaction.client)
-    else:
-        await interaction.followup.send(f"❌ ID `{friend_code}` not found in database.", ephemeral=True)
-
-@bot.tree.command(name="rg_tempban", description="[Admin] Ban a user from the check-in channel for 48h")
-@app_commands.describe(member="The user to ban")
-@app_commands.checks.has_permissions(manage_messages=True)
-async def rg_tempban(interaction: discord.Interaction, member: discord.Member):
-    await interaction.response.defer(ephemeral=False) # Defer immediately
-
-    # Calculate expiry
-    expiry_time = datetime.now() + timedelta(hours=48)
-    
-    # Update Data
-    data = load_data()
-    user_id = str(member.id)
-    if user_id not in data:
-         data[user_id] = {} # Create entry if doesn't exist
-    
-    data[user_id]["ban_expiry"] = expiry_time.isoformat()
-    # Also force them offline if they were online
-    if data[user_id].get('status') == 'online':
-        data[user_id]['status'] = 'offline'
-        sync_to_github(data)
-        await update_channel_status(interaction.client)
-    
-    save_data(data)
-    
-    # Apply Discord Permission Override
-    channel = discord.utils.get(member.guild.text_channels, name=CHECKIN_CHANNEL_NAME)
-    if channel:
-        await channel.set_permissions(member, send_messages=False, read_messages=False)
-        await interaction.followup.send(f"🚫 Banned {member.mention} from {channel.mention} for 48 hours.")
-    else:
-        await interaction.followup.send(f"⚠️ Could not find channel `{CHECKIN_CHANNEL_NAME}` to apply ban.", ephemeral=True)
+# Helper to find check-in channel (ignoring status prefix)
+def get_checkin_channel(guild):
+    for ch in guild.text_channels:
+        if ch.name == CHECKIN_CHANNEL_NAME or \
+           ch.name == f"🟢-{CHECKIN_CHANNEL_NAME}" or \
+           ch.name == f"🔴-{CHECKIN_CHANNEL_NAME}":
+            return ch
+    return None
 
 # Helper to count online users
 def count_online_users(data):
+# ... (existing count_online_users) ...
+
+# ... (In check_bans) ...
+                            member = guild.get_member(int(user_id))
+                            channel = get_checkin_channel(guild)
+                            if member and channel:
+# ...
+
+# ... (In rg_tempban) ...
+    # Apply Discord Permission Override
+    channel = get_checkin_channel(member.guild)
+    if channel:
+# ...
+
+# ... (In on_member_join) ...
+            f"Here is your personal webhook URL: ||{webhook.url}||\n\n"
+            f"🛑 **STOP!** Have you set up your bot yet?\n"
+            f"Go to the **check-in** channel for instructions FIRST."
+        )
+        await private_channel.send(setup_msg)
+        print(f"Created channel for {member.name}", flush=True)
+        
+    except Exception as e:
+        print(f"Error creating channel: {e}", flush=True)
+
+    # 3. Ping them in the CHECK-IN channel (The Landing Pad)
+    checkin_channel = get_checkin_channel(guild)
+    if checkin_channel:
+        try:
+# ...
     count = 0
     for info in data.values():
         if info.get('status') == 'online':
@@ -188,9 +146,99 @@ GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
 REPO_NAME = "arwinzbronder-ux/Arwin" # Format: username/repo
 CATEGORY_NAME = "Member Channels" 
 DATA_FILE = "users.json"
-CHECKIN_CHANNEL_NAME = "check-in" # The channel where users should land first
+import io
+from PIL import Image, ImageDraw, ImageFont
 
-# --- DUMMY WEB SERVER (For Render Free Tier) ---
+# ... (Previous imports) ...
+
+# ... (In Configuration) ...
+CHECKIN_CHANNEL_NAME = "check-in" 
+WATERMARK_CHANNEL_NAME = "🎰︱group-packs"
+
+# ... (Helper functions) ...
+
+def add_watermark(image_bytes):
+    try:
+        with Image.open(io.BytesIO(image_bytes)) as img:
+            img = img.convert("RGBA")
+            
+            # Create a transparent text layer
+            txt_layer = Image.new('RGBA', img.size, (255, 255, 255, 0))
+            draw = ImageDraw.Draw(txt_layer)
+            text = "EternalGP"
+            
+            # Calculate dynamic font size (20% of height)
+            width, height = img.size
+            font_size = int(height * 0.20) 
+            if font_size < 40: font_size = 40
+            
+            try:
+                 font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", font_size)
+            except:
+                 font = ImageFont.load_default()
+
+            # Calculate position (Center)
+            left, top, right, bottom = draw.textbbox((0, 0), text, font=font)
+            text_width = right - left
+            text_height = bottom - top
+            
+            x = (width - text_width) / 2
+            y = (height - text_height) / 2
+            
+            # Calculate dynamic stroke width
+            stroke_width = max(1, int(font_size / 25))
+            
+            # Draw Opaque Text with Outline
+            draw.text((x, y), text, font=font, fill=(255, 255, 255, 255), stroke_width=stroke_width, stroke_fill=(0, 0, 0, 255))
+            
+            # Apply Global Transparency (e.g. 35% Opacity)
+            # Split channels, multiply alpha by 0.35, merge back
+            r, g, b, a = txt_layer.split()
+            a = a.point(lambda p: int(p * 0.35))
+            txt_layer = Image.merge('RGBA', (r, g, b, a))
+            
+            # Composite
+            combined = Image.alpha_composite(img, txt_layer)
+            
+            output = io.BytesIO()
+            combined.save(output, format="PNG")
+            output.seek(0)
+            return output
+    except Exception as e:
+        print(f"Error processing image: {e}", flush=True)
+        return None
+
+# ... (Inside on_message) ...
+    async def on_message(self, message):
+        if message.author == self.user:
+            return
+
+        if message.channel.name == WATERMARK_CHANNEL_NAME and message.attachments:
+            processed_files = []
+            for attachment in message.attachments:
+                if attachment.content_type and "image" in attachment.content_type:
+                    try:
+                        image_bytes = await attachment.read()
+                        
+                        # Process in executor to avoid blocking
+                        loop = asyncio.get_running_loop()
+                        watermarked_io = await loop.run_in_executor(None, add_watermark, image_bytes)
+                        
+                        if watermarked_io:
+                            processed_files.append(discord.File(fp=watermarked_io, filename=f"watermarked_{attachment.filename}"))
+                    except Exception as e:
+                        print(f"Failed to watermark attachment: {e}", flush=True)
+            
+            if processed_files:
+                await message.channel.send(
+                    f"📸 **Image by {message.author.mention}**", 
+                    files=processed_files
+                )
+                await message.delete()
+                return
+
+        if message.content == "!sync":
+# ...
 async def health_check(request):
     return web.Response(text="Bot is ALIVE!")
 
