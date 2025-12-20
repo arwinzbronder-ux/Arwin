@@ -31,6 +31,7 @@ class MyBot(commands.Bot):
     async def on_ready(self):
         print(f"Logged in as {self.user} (ID: {self.user.id})", flush=True)
         print("------", flush=True)
+        await update_channel_status(self)
        
     # Background task to check for expired bans every 10 minutes
     @tasks.loop(minutes=10)
@@ -100,6 +101,7 @@ async def rg_remove_id(interaction: discord.Interaction, friend_code: str):
         save_data(data)
         sync_to_github(data)
         await interaction.followup.send(f"🗑️ Removed ID `{friend_code}` from the list and set user to Offline.")
+        await update_channel_status(interaction.client)
     else:
         await interaction.followup.send(f"❌ ID `{friend_code}` not found in database.", ephemeral=True)
 
@@ -123,12 +125,18 @@ async def rg_tempban(interaction: discord.Interaction, member: discord.Member):
     if data[user_id].get('status') == 'online':
         data[user_id]['status'] = 'offline'
         sync_to_github(data)
+        await update_channel_status(interaction.client)
     
     save_data(data)
     
     # Apply Discord Permission Override
     channel = discord.utils.get(member.guild.text_channels, name=CHECKIN_CHANNEL_NAME)
     if channel:
+        await channel.set_permissions(member, send_messages=False, read_messages=False)
+        await interaction.followup.send(f"🚫 Banned {member.mention} from {channel.mention} for 48 hours.")
+    else:
+        await interaction.followup.send(f"⚠️ Could not find channel `{CHECKIN_CHANNEL_NAME}` to apply ban.", ephemeral=True)
+
 # Helper to count online users
 def count_online_users(data):
     count = 0
@@ -165,44 +173,7 @@ async def update_channel_status(bot_instance):
                     print(f"🔄 Renamed channel to: {new_name}", flush=True)
                 except Exception as e:
                     print(f"⚠️ Channel Rename Rate Limited or Failed: {e}", flush=True)
-                break 
-
-# ... (Calls to be inserted below) ...
-
-# 1. In on_ready (Initial Sync)
-    async def on_ready(self):
-        print(f"Logged in as {self.user} (ID: {self.user.id})", flush=True)
-        print("------", flush=True)
-        await update_channel_status(self)
-
-# 2. In rg_online (after verification)
-    if verified:
-        await msg.edit(content=f"🟢 **Online!** {interaction.user.mention} is now accepting friend requests.\n✅ **Verified:** Your ID is visible on the public list.")
-        # Trigger Status Update
-        await update_channel_status(interaction.client)
-
-# 3. In rg_offline
-    await interaction.followup.send(
-        f"🔴 **Offline.** {interaction.user.mention} has stopped accepting requests.\n"
-        f"Your ID has been removed from the global list."
-    )
-    # Trigger Status Update
-    await update_channel_status(interaction.client)
-    
-# 4. In rg_remove_id
-        save_data(data)
-        sync_to_github(data)
-        await interaction.followup.send(f"🗑️ Removed ID `{friend_code}` from the list and set user to Offline.")
-        # Trigger Status Update
-        await update_channel_status(interaction.client)
-
-# 5. In rg_tempban
-    if data[user_id].get('status') == 'online':
-        data[user_id]['status'] = 'offline'
-        sync_to_github(data)
-        # Trigger Status Update (Ideally await, but sync context here?) 
-        # Wait, rg_tempban is async.
-        await update_channel_status(interaction.client)
+                break
 
 # Error handler for missing permissions
 @rg_remove_id.error
@@ -633,6 +604,7 @@ async def rg_online(interaction: discord.Interaction):
     
     if verified:
         await msg.edit(content=f"🟢 **Online!** {interaction.user.mention} is now accepting friend requests.\n✅ **Verified:** Your ID is visible on the public list.")
+        await update_channel_status(interaction.client)
     else:
         await msg.edit(content=f"⚠️ **Pushed directly to GitHub**, but `arwin.de` is taking a while to update.\nYour ID *will* appear shortly.")
 
@@ -657,6 +629,7 @@ async def rg_offline(interaction: discord.Interaction):
         f"🔴 **Offline.** {interaction.user.mention} has stopped accepting requests.\n"
         f"Your ID has been removed from the global list."
     )
+    await update_channel_status(interaction.client)
 
 @bot.tree.command(name="rg_update_bot", description="[Admin] Upload a new bot.py file to update the bot remotely")
 @app_commands.describe(file="The new bot.py file")
