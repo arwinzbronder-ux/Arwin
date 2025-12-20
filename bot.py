@@ -56,10 +56,10 @@ def add_watermark(image_bytes):
             draw = ImageDraw.Draw(txt_layer)
             text = "EternalGP"
             
-            # Calculate dynamic font size (10% of height - Smaller)
+            # Calculate dynamic font size (9% of height - Fine tuned)
             width, height = img.size
-            font_size = int(height * 0.10) 
-            if font_size < 20: font_size = 20
+            font_size = int(height * 0.09) 
+            if font_size < 15: font_size = 15
             
             try:
                  font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", font_size)
