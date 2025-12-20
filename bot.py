@@ -18,7 +18,7 @@ class MyBot(commands.Bot):
 
     async def setup_hook(self):
         # Restore DB from Cloud first!
-        download_users_from_github()
+        await download_users_from_github()
         
         # Sync globally (still useful for future)
         await self.tree.sync()
@@ -199,24 +199,58 @@ async def sync_to_github(data):
     loop = asyncio.get_running_loop()
     await loop.run_in_executor(None, _blocking_sync, data)
 
-# Helper to download users.json from GitHub (Persistence)
-# BLOCKING download
-def _blocking_download():
+# Helper to sync state from GitHub (Persistence + Self-Healing)
+# BLOCKING sync
+def _blocking_initial_sync():
     if not GITHUB_TOKEN: return
     try:
-        auth = Auth.Token(GITHUB_TOKEN) # Fixed Deprecation
+        auth = Auth.Token(GITHUB_TOKEN)
         g = Github(auth=auth)
         repo = g.get_repo(REPO_NAME)
-        contents = repo.get_contents(DATA_FILE)
-        with open(DATA_FILE, "wb") as f:
-            f.write(contents.decoded_content)
-        print(f"✅ Downloaded {DATA_FILE} from GitHub", flush=True)
+        
+        # 1. Download users.json
+        data = {}
+        try:
+            contents = repo.get_contents(DATA_FILE)
+            with open(DATA_FILE, "wb") as f:
+                f.write(contents.decoded_content)
+            with open(DATA_FILE, "r") as f:
+                data = json.load(f)
+            print(f"✅ Downloaded {DATA_FILE}", flush=True)
+        except Exception as e:
+            print(f"⚠️ Could not download {DATA_FILE}: {e}", flush=True)
+
+        # 2. Download ids.txt and Sync Status
+        try:
+            ids_content = repo.get_contents("ids.txt")
+            online_ids = set(ids_content.decoded_content.decode().splitlines())
+            
+            updated = False
+            for user_id, info in data.items():
+                code = info.get('friend_code')
+                if code in online_ids:
+                    if info.get('status') != 'online':
+                        info['status'] = 'online'
+                        updated = True
+                else:
+                    if info.get('status') == 'online':
+                        info['status'] = 'offline'
+                        updated = True
+            
+            if updated:
+                with open(DATA_FILE, "w") as f:
+                    json.dump(data, f, indent=4)
+                print("🔄 Synced local statuses with ids.txt", flush=True)
+                
+        except Exception as e:
+            print(f"⚠️ Could not sync with ids.txt: {e}", flush=True)
+
     except Exception as e:
-        print(f"⚠️ Could not download {DATA_FILE} (starting fresh): {e}", flush=True)
+        print(f"❌ GitHub Init Error: {e}", flush=True)
 
 async def download_users_from_github():
     loop = asyncio.get_running_loop()
-    await loop.run_in_executor(None, _blocking_download)
+    await loop.run_in_executor(None, _blocking_initial_sync)
 
 # Helper to upload users.json to GitHub (Persistence)
 # BLOCKING upload
