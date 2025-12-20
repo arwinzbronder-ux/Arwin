@@ -257,12 +257,31 @@ class MyBot(commands.Bot):
         print("Synced slash commands globally!", flush=True)
         self.loop.create_task(start_dummy_server())
         self.check_bans.start()
+        self.cleanup_checkin.start()
 
     async def on_ready(self):
         print(f"Logged in as {self.user} (ID: {self.user.id})", flush=True)
         print("------", flush=True)
         await update_channel_status(self)
        
+    @tasks.loop(hours=1)
+    async def cleanup_checkin(self):
+        cutoff = datetime.now() - timedelta(hours=48)
+        for guild in self.guilds:
+            channel = get_checkin_channel(guild)
+            if channel:
+                try:
+                    # Purge bot messages older than 48h
+                    deleted = await channel.purge(
+                        limit=None, 
+                        check=lambda m: m.author == self.user, 
+                        before=cutoff
+                    )
+                    if deleted:
+                        print(f"🧹 Cleaned {len(deleted)} old messages in {channel.name}", flush=True)
+                except Exception as e:
+                    print(f"Failed to cleanup {channel.name}: {e}", flush=True)
+
     @tasks.loop(minutes=10)
     async def check_bans(self):
         data = load_data()
