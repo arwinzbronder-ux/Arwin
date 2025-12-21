@@ -26,5 +26,12 @@
         "instances": 1,
         "prefix": "leter",
         "status": "online"
+    },
+    "693132470174089296": {
+        "username": "zekasilva",
+        "friend_code": "1467335724678192",
+        "instances": 2,
+        "prefix": "ZK",
+        "status": "offline"
     }
 }
