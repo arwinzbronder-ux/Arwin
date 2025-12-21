@@ -21,6 +21,8 @@ DATA_FILE = "users.json"
 CHECKIN_CHANNEL_NAME = "check-in"
 WATERMARK_CHANNEL_NAME = "🏆︱live-godpacks-showcase"
 SOURCE_CHANNEL_NAME = "🎰︱group-packs"
+ROLE_REROLLING = "Rerolling"
+ROLE_NOT_REROLLING = "Not Rerolling"
 
 # --- HELPER FUNCTIONS ---
 
@@ -32,6 +34,40 @@ def load_data():
             return json.load(f)
     except Exception:
         return {}
+
+async def manage_roles(member, status):
+    if member.bot: return
+    
+    guild = member.guild
+    role_rerolling = discord.utils.get(guild.roles, name=ROLE_REROLLING)
+    role_not_rerolling = discord.utils.get(guild.roles, name=ROLE_NOT_REROLLING)
+
+    # Auto-Create Roles if Missing (Permissions.none() ensures no unexpected rights)
+    if not role_rerolling:
+        try:
+            role_rerolling = await guild.create_role(name=ROLE_REROLLING, color=discord.Color.green(), hoist=True, permissions=discord.Permissions.none())
+            print(f"Created role: {ROLE_REROLLING}", flush=True)
+        except Exception as e:
+            print(f"Failed to create role {ROLE_REROLLING}: {e}", flush=True)
+
+    if not role_not_rerolling:
+        try:
+            role_not_rerolling = await guild.create_role(name=ROLE_NOT_REROLLING, color=discord.Color.red(), hoist=True, permissions=discord.Permissions.none())
+            print(f"Created role: {ROLE_NOT_REROLLING}", flush=True)
+        except Exception as e:
+            print(f"Failed to create role {ROLE_NOT_REROLLING}: {e}", flush=True)
+
+    try:
+        if status == 'online':
+            if role_rerolling: await member.add_roles(role_rerolling)
+            if role_not_rerolling: await member.remove_roles(role_not_rerolling)
+        else:
+             # Default state (Offline / Unregistered / Removed)
+            if role_not_rerolling: await member.add_roles(role_not_rerolling)
+            if role_rerolling: await member.remove_roles(role_rerolling)
+            
+    except Exception as e:
+        print(f"Failed to update roles for {member.name}: {e}", flush=True)
         
 def _blocking_update_vip(new_id):
     if not GITHUB_TOKEN: return
@@ -306,6 +342,20 @@ class MyBot(commands.Bot):
         print(f"Logged in as {self.user} (ID: {self.user.id})", flush=True)
         print("------", flush=True)
         await update_channel_status(self)
+        
+        # Sync Roles for ALL Members (Startup)
+        data = load_data()
+        online_users = {uid for uid, info in data.items() if info.get('status') == 'online'}
+        
+        print("🔄 Syncing roles for all members...", flush=True)
+        for guild in self.guilds:
+            for member in guild.members:
+                if member.bot: continue
+                
+                status = 'online' if str(member.id) in online_users else 'offline'
+                # We spin this off to not block
+                self.loop.create_task(manage_roles(member, status))
+        print("✅ Role sync initiated.", flush=True)
        
     @tasks.loop(hours=1)
     async def cleanup_checkin(self):
@@ -445,6 +495,9 @@ async def on_member_join(member):
     except Exception as e:
         print(f"Error creating channel: {e}", flush=True)
 
+    # 4. Assign Default Role (Not Rerolling)
+    await manage_roles(member, 'offline')
+
     checkin_channel = get_checkin_channel(guild)
     if checkin_channel:
         try:
@@ -502,6 +555,8 @@ async def rg_add_user(interaction: discord.Interaction, friend_code: str, instan
     }
     await save_data_async(data)
 
+    await manage_roles(interaction.user, 'offline')
+
     await interaction.followup.send(
         f"✅ **Registered & Saved!**\n"
         f"• Friend Code: `{friend_code}`\n"
@@ -520,6 +575,7 @@ async def rg_unadd_user(interaction: discord.Interaction):
         del data[user_id]
         await save_data_async(data)
         await sync_to_github(data)
+        await manage_roles(interaction.user, 'offline')
         await interaction.followup.send("🗑️ **Unregistered.** Your data has been wiped. You can now register a new ID.")
         await update_channel_status(interaction.client)
     else:
@@ -603,6 +659,7 @@ async def rg_online(interaction: discord.Interaction):
     
     if verified:
         await msg.edit(content=f"🟢 **Online!** {interaction.user.mention} is now accepting friend requests.\n✅ **Verified:** Your ID is visible on the public list.")
+        await manage_roles(interaction.user, 'online')
         await update_channel_status(interaction.client)
     else:
         await msg.edit(content=f"⚠️ **Pushed directly to GitHub**, but `arwin.de` is taking a while to update.\nYour ID *will* appear shortly.")
@@ -622,6 +679,7 @@ async def rg_offline(interaction: discord.Interaction):
         data[user_id]['status'] = 'offline'
         await save_data_async(data)
         await sync_to_github(data)
+        await manage_roles(interaction.user, 'offline')
     
     await interaction.followup.send(
         f"🔴 **Offline.** {interaction.user.mention} has stopped accepting requests.\n"
@@ -649,6 +707,10 @@ async def rg_remove_id(interaction: discord.Interaction, friend_code: str):
         await save_data_async(data)
         await sync_to_github(data)
         
+        member = interaction.guild.get_member(int(found_user_id))
+        if member:
+            await manage_roles(member, 'offline')
+        
         await interaction.followup.send(f"🗑️ Removed ID `{friend_code}` from the list and set user to Offline.")
         await update_channel_status(interaction.client)
     else:
@@ -670,6 +732,7 @@ async def rg_tempban(interaction: discord.Interaction, member: discord.Member):
     if data[user_id].get('status') == 'online':
         data[user_id]['status'] = 'offline'
         await sync_to_github(data)
+        await manage_roles(member, 'offline')
         await update_channel_status(interaction.client)
     
     await save_data_async(data)
