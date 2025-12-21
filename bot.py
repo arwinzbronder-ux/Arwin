@@ -650,7 +650,11 @@ async def rg_change_id(interaction: discord.Interaction, new_code: str):
 
 @bot.tree.command(name="rg_online", description="Set your status to ONLINE and start accepting requests")
 async def rg_online(interaction: discord.Interaction):
-    await interaction.response.defer(ephemeral=False)
+    try:
+        await interaction.response.defer(ephemeral=False)
+    except Exception as e:
+        print(f"⚠️ Defer Failed (Unknown Interaction?): {e}", flush=True)
+        return
 
     user_id = str(interaction.user.id)
     data = load_data()
@@ -672,26 +676,35 @@ async def rg_online(interaction: discord.Interaction):
     verified = False
     friend_code = data[user_id]['friend_code']
     
-    # Wait up to 90 seconds (18 * 5s)
-    for i in range(18):
-        try:
-            async with aiohttp.ClientSession() as session:
-                async with session.get(f"https://arwin.de/ids.txt?t={int(datetime.now().timestamp())}") as response:
-                    if response.status == 200:
-                        text = await response.text()
-                        if friend_code in text:
-                            verified = True
-                            break
-        except Exception as e:
-            print(f"Verification Check Failed: {e}", flush=True)
-        await asyncio.sleep(5)
+    # Use a single session with a timeout
+    try:
+        async with aiohttp.ClientSession(timeout=aiohttp.ClientTimeout(total=4)) as session:
+            # Wait up to 90 seconds (18 * 5s)
+            for i in range(18):
+                print(f"🔍 Verification Attempt {i+1}/18 for {friend_code}", flush=True)
+                try:
+                    async with session.get(f"https://arwin.de/ids.txt?t={int(datetime.now().timestamp())}") as response:
+                        if response.status == 200:
+                            text = await response.text()
+                            if friend_code in text:
+                                verified = True
+                                break
+                except Exception as e:
+                    print(f"Verification Check Failed (Attempt {i+1}): {e}", flush=True)
+                
+                await asyncio.sleep(5)
+    except Exception as e:
+        print(f"Session Error: {e}", flush=True)
     
-    if verified:
-        await msg.edit(content=f"🟢 **Online!** {interaction.user.mention} is now accepting friend requests.\n✅ **Verified:** Your ID is visible on the public list.")
-        await manage_roles(interaction.user, 'online')
-        await update_channel_status(interaction.client)
-    else:
-        await msg.edit(content=f"⚠️ **Pushed directly to GitHub**, but `arwin.de` is taking a while to update.\nYour ID *will* appear shortly.")
+    try:
+        if verified:
+            await msg.edit(content=f"🟢 **Online!** {interaction.user.mention} is now accepting friend requests.\n✅ **Verified:** Your ID is visible on the public list.")
+            await manage_roles(interaction.user, 'online')
+            await update_channel_status(interaction.client)
+        else:
+            await msg.edit(content=f"⚠️ **Pushed directly to GitHub**, but `arwin.de` is taking a while to update.\nYour ID *will* appear shortly. (Timed out after 90s)")
+    except Exception as e:
+         print(f"Failed to edit message: {e}", flush=True)
 
 @bot.tree.command(name="rg_offline", description="Set your status to OFFLINE")
 async def rg_offline(interaction: discord.Interaction):
