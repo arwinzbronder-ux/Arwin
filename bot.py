@@ -772,6 +772,54 @@ async def rg_update_bot(interaction: discord.Interaction, file: discord.Attachme
     except Exception as e:
         await interaction.followup.send(f"❌ Update failed: {e}", ephemeral=True)
 
+@bot.tree.command(name="rg_remove_vip", description="[Admin] Remove a VIP ID from vip_ids.txt without redeploying")
+@app_commands.describe(vip_id="The 16-digit VIP ID to remove")
+@app_commands.checks.has_permissions(manage_messages=True)
+async def rg_remove_vip(interaction: discord.Interaction, vip_id: str):
+    if not vip_id.isdigit() or len(vip_id) != 16:
+        await interaction.response.send_message("❌ Error: VIP ID must be 16 digits.", ephemeral=True)
+        return
+        
+    await interaction.response.defer(ephemeral=False)
+    
+    def _blocking_remove_vip_id():
+        if not GITHUB_TOKEN: return False, "No GitHub Token"
+        try:
+            auth = Auth.Token(GITHUB_TOKEN)
+            g = Github(auth=auth)
+            repo = g.get_repo(REPO_NAME)
+            
+            try:
+                contents = repo.get_contents("vip_ids.txt")
+                file_sha = contents.sha
+                existing_text = contents.decoded_content.decode()
+                ids = set(existing_text.splitlines())
+                
+                if vip_id in ids:
+                    ids.remove(vip_id)
+                    new_content = "\n".join(sorted(list(ids)))
+                    repo.update_file("vip_ids.txt", "[skip ci] [skip render] Bot: Remove VIP ID", new_content, file_sha)
+                    return True, "Removed"
+                else:
+                    return False, "ID not found in list"
+            except Exception as e:
+                return False, str(e)
+        except Exception as e:
+            return False, str(e)
+
+    loop = asyncio.get_running_loop()
+    success, msg = await loop.run_in_executor(None, _blocking_remove_vip_id)
+    
+    if success:
+        await interaction.followup.send(f"🗑️ **VIP ID Removed!** `{vip_id}` is gone. No redeploy triggered.")
+    else:
+        await interaction.followup.send(f"❌ Failed: {msg}", ephemeral=True)
+
+@rg_update_bot.error
+@rg_remove_vip.error
+async def admin_error(interaction: discord.Interaction, error):
+    pass # handled by global mod_error or just ignore
+
 @rg_remove_id.error
 @rg_tempban.error
 async def mod_error(interaction: discord.Interaction, error):
