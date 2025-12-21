@@ -672,7 +672,8 @@ async def rg_online(interaction: discord.Interaction):
     verified = False
     friend_code = data[user_id]['friend_code']
     
-    for i in range(12):
+    # Wait up to 90 seconds (18 * 5s)
+    for i in range(18):
         try:
             async with aiohttp.ClientSession() as session:
                 async with session.get(f"https://arwin.de/ids.txt?t={int(datetime.now().timestamp())}") as response:
@@ -843,8 +844,56 @@ async def rg_remove_vip(interaction: discord.Interaction, vip_id: str):
     else:
         await interaction.followup.send(f"❌ Failed: {msg}", ephemeral=True)
 
+@bot.tree.command(name="rg_startingtime", description="[Admin] Set the daily start time channel name")
+@app_commands.describe(time="The time to display (e.g. 14:30)")
+@app_commands.checks.has_permissions(administrator=True)
+async def rg_startingtime(interaction: discord.Interaction, time: str):
+    await interaction.response.defer(ephemeral=False)
+    
+    guild = interaction.guild
+    # Sanitized time for Text Channel (lowercase, dashes only)
+    clean_time = time.replace(":", "-").replace(" ", "-").lower()
+    channel_name = f"todays-start-{clean_time}-utc"
+    
+    # 1. Find/Create Setup Category
+    SETUP_CATEGORY_NAME = "Setup"
+    category = discord.utils.get(guild.categories, name=SETUP_CATEGORY_NAME)
+    
+    if not category:
+        try:
+            category = await guild.create_category(SETUP_CATEGORY_NAME)
+            print(f"Created category: {SETUP_CATEGORY_NAME}", flush=True)
+        except Exception as e:
+            await interaction.followup.send(f"❌ Failed to create category '{SETUP_CATEGORY_NAME}': {e}", ephemeral=True)
+            return
+
+    # 2. Find Existing Channel
+    target_channel = None
+    for channel in category.text_channels:
+        if channel.name.startswith("todays-start"):
+            target_channel = channel
+            break
+            
+    # 3. Rename or Create
+    try:
+        if target_channel:
+            if target_channel.name != channel_name:
+                await target_channel.edit(name=channel_name)
+                await interaction.followup.send(f"✅ Updated channel to: {target_channel.mention}")
+            else:
+                await interaction.followup.send(f"⚠️ Channel is already named {target_channel.mention}")
+        else:
+            # Create new
+            target_channel = await guild.create_text_channel(channel_name, category=category)
+            await target_channel.set_permissions(guild.default_role, send_messages=False) # Read-only
+            await interaction.followup.send(f"✅ Created channel: {target_channel.mention}")
+            
+    except Exception as e:
+        await interaction.followup.send(f"❌ Failed to update/create channel: {e}", ephemeral=True)
+
 @rg_update_bot.error
 @rg_remove_vip.error
+@rg_startingtime.error
 async def admin_error(interaction: discord.Interaction, error):
     pass # handled by global mod_error or just ignore
 
