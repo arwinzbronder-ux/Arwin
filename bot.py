@@ -88,7 +88,164 @@ def get_checkin_channel(guild):
             return ch
     return None
 
-# ... (Previous helper functions) ...
+def add_watermark(image_bytes):
+    try:
+        with Image.open(io.BytesIO(image_bytes)) as img:
+            img = img.convert("RGBA")
+            
+            # Create a transparent text layer
+            txt_layer = Image.new('RGBA', img.size, (255, 255, 255, 0))
+            draw = ImageDraw.Draw(txt_layer)
+            text = "EternalGP"
+            
+            # Calculate dynamic font size (9% of height - Fine tuned)
+            width, height = img.size
+            font_size = int(height * 0.09) 
+            if font_size < 15: font_size = 15
+            
+            try:
+                 font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", font_size)
+            except:
+                 font = ImageFont.load_default()
+
+            # Calculate position (Center)
+            left, top, right, bottom = draw.textbbox((0, 0), text, font=font)
+            text_width = right - left
+            text_height = bottom - top
+            
+            x = (width - text_width) / 2
+            y = (height - text_height) / 2
+            
+            # Calculate dynamic stroke width
+            stroke_width = max(1, int(font_size / 25))
+            
+            # Draw Opaque Text with Outline
+            draw.text((x, y), text, font=font, fill=(255, 255, 255, 255), stroke_width=stroke_width, stroke_fill=(0, 0, 0, 255))
+            
+            # Apply Global Transparency (e.g. 35% Opacity)
+            r, g, b, a = txt_layer.split()
+            a = a.point(lambda p: int(p * 0.35))
+            txt_layer = Image.merge('RGBA', (r, g, b, a))
+            
+            # Composite
+            combined = Image.alpha_composite(img, txt_layer)
+            
+            output = io.BytesIO()
+            combined.save(output, format="PNG")
+            output.seek(0)
+            return output
+    except Exception as e:
+        print(f"Error processing image: {e}", flush=True)
+        return None
+
+# --- GITHUB SYNC FUNCTIONS ---
+
+def _blocking_sync(data):
+    if not GITHUB_TOKEN:
+        print("⚠️ GITHUB_TOKEN not found. Skipping sync.", flush=True)
+        return
+
+    codes = set()
+    for user_id, info in data.items():
+        if info.get('friend_code') and info.get('status') == 'online':
+            codes.add(info['friend_code'])
+    file_content = "\n".join(sorted(list(codes)))
+
+    try:
+        auth = Auth.Token(GITHUB_TOKEN)
+        g = Github(auth=auth)
+        repo = g.get_repo(REPO_NAME)
+        
+        try:
+            contents = repo.get_contents("ids.txt")
+            repo.update_file(contents.path, "[skip ci] [skip render] Bot: Update active IDs", file_content, contents.sha)
+            print("🚀 Pushed to GitHub (Updated)!", flush=True)
+        except Exception:
+            repo.create_file("ids.txt", "[skip ci] [skip render] Bot: Create IDs file", file_content)
+            print("🚀 Pushed to GitHub (Created)!", flush=True)
+            
+    except Exception as e:
+        print(f"❌ GitHub API Error: {e}", flush=True)
+
+async def sync_to_github(data):
+    loop = asyncio.get_running_loop()
+    await loop.run_in_executor(None, _blocking_sync, data)
+
+def _blocking_initial_sync():
+    if not GITHUB_TOKEN: return
+    try:
+        auth = Auth.Token(GITHUB_TOKEN)
+        g = Github(auth=auth)
+        repo = g.get_repo(REPO_NAME)
+        
+        # 1. Download users.json
+        data = {}
+        try:
+            contents = repo.get_contents(DATA_FILE)
+            with open(DATA_FILE, "wb") as f:
+                f.write(contents.decoded_content)
+            with open(DATA_FILE, "r") as f:
+                data = json.load(f)
+            print(f"✅ Downloaded {DATA_FILE}", flush=True)
+        except Exception as e:
+            print(f"⚠️ Could not download {DATA_FILE}: {e}", flush=True)
+
+        # 2. Download ids.txt and Sync Status
+        try:
+            ids_content = repo.get_contents("ids.txt")
+            online_ids = set(ids_content.decoded_content.decode().splitlines())
+            
+            updated = False
+            for user_id, info in data.items():
+                code = info.get('friend_code')
+                if code in online_ids:
+                    if info.get('status') != 'online':
+                        info['status'] = 'online'
+                        updated = True
+                else:
+                    if info.get('status') == 'online':
+                        info['status'] = 'offline'
+                        updated = True
+            
+            if updated:
+                with open(DATA_FILE, "w") as f:
+                    json.dump(data, f, indent=4)
+                print("🔄 Synced local statuses with ids.txt", flush=True)
+                
+        except Exception as e:
+            print(f"⚠️ Could not sync with ids.txt: {e}", flush=True)
+
+    except Exception as e:
+        print(f"❌ GitHub Init Error: {e}", flush=True)
+
+async def download_users_from_github():
+    loop = asyncio.get_running_loop()
+    await loop.run_in_executor(None, _blocking_initial_sync)
+
+def _blocking_upload(data):
+    if not GITHUB_TOKEN: return
+    json_content = json.dumps(data, indent=4)
+    try:
+        auth = Auth.Token(GITHUB_TOKEN)
+        g = Github(auth=auth)
+        repo = g.get_repo(REPO_NAME)
+        try:
+            contents = repo.get_contents(DATA_FILE)
+            repo.update_file(contents.path, "[skip ci] [skip render] Bot: Save User DB", json_content, contents.sha)
+        except Exception:
+            repo.create_file(DATA_FILE, "[skip ci] [skip render] Bot: Create User DB", json_content)
+        print(f"💾 Saved {DATA_FILE} to GitHub", flush=True)
+    except Exception as e:
+        print(f"❌ Failed to save {DATA_FILE} to GitHub: {e}", flush=True)
+
+async def upload_users_to_github(data):
+    loop = asyncio.get_running_loop()
+    await loop.run_in_executor(None, _blocking_upload, data)
+
+async def save_data_async(data):
+    with open(DATA_FILE, "w") as f:
+        json.dump(data, f, indent=4)
+    await upload_users_to_github(data)
 
 async def update_channel_status(bot_instance):
     data = load_data()
@@ -113,11 +270,165 @@ async def update_channel_status(bot_instance):
             except Exception as e:
                 print(f"⚠️ Channel Rename Rate Limited (Ignored): {e}", flush=True)
 
-# ... (Server and Bot Class) ...
+# --- SERVER ---
 
-# ... (Inside on_member_join) ...
+async def health_check(request):
+    return web.Response(text="Bot is ALIVE!")
 
-    # 2. Create Private Channel
+async def start_dummy_server():
+    app = web.Application()
+    app.router.add_get('/', health_check)
+    runner = web.AppRunner(app)
+    await runner.setup()
+    port = int(os.environ.get("PORT", 8080))
+    site = web.TCPSite(runner, '0.0.0.0', port)
+    await site.start()
+    print(f"🌍 Dummy server started on port {port}", flush=True)
+
+# --- BOT CLASS ---
+
+class MyBot(commands.Bot):
+    def __init__(self):
+        intents = discord.Intents.default()
+        intents.members = True
+        intents.message_content = True
+        super().__init__(command_prefix="!", intents=intents)
+
+    async def setup_hook(self):
+        await download_users_from_github()
+        await self.tree.sync()
+        print("Synced slash commands globally!", flush=True)
+        self.loop.create_task(start_dummy_server())
+        self.check_bans.start()
+        self.cleanup_checkin.start()
+
+    async def on_ready(self):
+        print(f"Logged in as {self.user} (ID: {self.user.id})", flush=True)
+        print("------", flush=True)
+        await update_channel_status(self)
+       
+    @tasks.loop(hours=1)
+    async def cleanup_checkin(self):
+        cutoff = datetime.now() - timedelta(hours=48)
+        for guild in self.guilds:
+            channel = get_checkin_channel(guild)
+            if channel:
+                try:
+                    # Purge bot messages older than 48h
+                    deleted = await channel.purge(
+                        limit=None, 
+                        check=lambda m: m.author == self.user, 
+                        before=cutoff
+                    )
+                    if deleted:
+                        print(f"🧹 Cleaned {len(deleted)} old messages in {channel.name}", flush=True)
+                except Exception as e:
+                    print(f"Failed to cleanup {channel.name}: {e}", flush=True)
+
+    @tasks.loop(minutes=10)
+    async def check_bans(self):
+        data = load_data()
+        changed = False
+        current_time = datetime.now()
+        
+        for user_id, info in list(data.items()):
+            ban_expiry_str = info.get("ban_expiry")
+            if ban_expiry_str:
+                try:
+                    ban_expiry = datetime.fromisoformat(ban_expiry_str)
+                    if current_time > ban_expiry:
+                        del data[user_id]["ban_expiry"]
+                        changed = True
+                        
+                        if self.guilds:
+                            guild = self.guilds[0]
+                            member = guild.get_member(int(user_id))
+                            channel = get_checkin_channel(guild)
+                            if member and channel:
+                                await channel.set_permissions(member, overwrite=None)
+                                print(f"🔓 Unbanned {member.name}")
+                except Exception as e:
+                    print(f"Error checking ban for {user_id}: {e}", flush=True)
+
+        if changed:
+            await save_data_async(data)
+
+    async def on_message(self, message):
+        # 1. VIP ID Extraction (Webhook Messages in Group Packs)
+        if message.channel.name == SOURCE_CHANNEL_NAME:
+            # Look for 16-digit ID in parenthesis: e.g. (9075827188388472)
+            match = re.search(r'\((\d{16})\)', message.content)
+            if match:
+                vip_id = match.group(1)
+                print(f"🔍 Detected VIP ID: {vip_id}", flush=True)
+                await update_vip_list(vip_id)
+
+        if message.author == self.user:
+            return
+
+        # 2. Watermarking (Images in Godpacks Showcase)
+        if message.channel.name == WATERMARK_CHANNEL_NAME and message.attachments:
+            processed_files = []
+            for attachment in message.attachments:
+                if attachment.content_type and "image" in attachment.content_type:
+                    try:
+                        image_bytes = await attachment.read()
+                        loop = asyncio.get_running_loop()
+                        watermarked_io = await loop.run_in_executor(None, add_watermark, image_bytes)
+                        if watermarked_io:
+                            processed_files.append(discord.File(fp=watermarked_io, filename=f"watermarked_{attachment.filename}"))
+                    except Exception as e:
+                        print(f"Failed to watermark attachment: {e}", flush=True)
+            
+            if processed_files:
+                await message.channel.send(
+                    f"📸 **Image by {message.author.mention}**", 
+                    files=processed_files
+                )
+                await message.delete()
+                return
+
+        if message.content == "!sync":
+            await self.tree.sync()
+            await message.channel.send("Synced commands globally!")
+        await super().on_message(message)
+
+# CREATE BOT INSTANCE HERE (BEFORE COMMANDS)
+bot = MyBot()
+
+# --- COMMANDS ---
+
+@bot.command()
+async def sync(ctx):
+    print(f"Manual sync triggered by {ctx.author}", flush=True)
+    if ctx.guild:
+        bot.tree.copy_global_to(guild=ctx.guild)
+        await bot.tree.sync(guild=ctx.guild)
+        await ctx.send(f"✅ **Force Synced!** Commands available in **{ctx.guild.name}** immediately.")
+    else:
+        await bot.tree.sync()
+        await ctx.send("Synced globally.")
+
+@bot.event
+async def on_member_join(member):
+    guild = member.guild
+    print(f"Member joined: {member.name}", flush=True)
+
+    overwrites = {
+        guild.default_role: discord.PermissionOverwrite(read_messages=False),
+        guild.me: discord.PermissionOverwrite(read_messages=True, manage_channels=True, manage_webhooks=True),
+        member: discord.PermissionOverwrite(read_messages=True, send_messages=True)
+    }
+
+    category = None
+    if CATEGORY_NAME:
+        category = discord.utils.get(guild.categories, name=CATEGORY_NAME)
+        if not category:
+            try:
+                category = await guild.create_category(CATEGORY_NAME)
+            except Exception:
+                pass
+
     channel_name = f"home-{member.name}"
     private_channel = None
     try:
@@ -134,7 +445,6 @@ async def update_channel_status(bot_instance):
     except Exception as e:
         print(f"Error creating channel: {e}", flush=True)
 
-    # 3. Ping them in the CHECK-IN channel
     checkin_channel = get_checkin_channel(guild)
     if checkin_channel:
         try:
