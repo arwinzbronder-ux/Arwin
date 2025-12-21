@@ -306,6 +306,31 @@ async def update_channel_status(bot_instance):
             except Exception as e:
                 print(f"⚠️ Channel Rename Rate Limited (Ignored): {e}", flush=True)
 
+async def cleanup_duplicate_roles(guild):
+    # Cleanup Rerolling Duplicates
+    rerolling_roles = [r for r in guild.roles if r.name == ROLE_REROLLING]
+    if len(rerolling_roles) > 1:
+        print(f"⚠️ Found {len(rerolling_roles)} roles named '{ROLE_REROLLING}'. Cleaning up...", flush=True)
+        # Keep the one with the highest position (or just the first one)
+        # We'll just keep the first one and delete the rest
+        for role in rerolling_roles[1:]:
+            try:
+                await role.delete(reason="Bot Cleanup: Duplicate Role")
+                print(f"🗑️ Deleted duplicate role '{ROLE_REROLLING}' (ID: {role.id})", flush=True)
+            except Exception as e:
+                print(f"Failed to delete duplicate role: {e}", flush=True)
+
+    # Cleanup Not Rerolling Duplicates
+    not_rerolling_roles = [r for r in guild.roles if r.name == ROLE_NOT_REROLLING]
+    if len(not_rerolling_roles) > 1:
+        print(f"⚠️ Found {len(not_rerolling_roles)} roles named '{ROLE_NOT_REROLLING}'. Cleaning up...", flush=True)
+        for role in not_rerolling_roles[1:]:
+            try:
+                await role.delete(reason="Bot Cleanup: Duplicate Role")
+                print(f"🗑️ Deleted duplicate role '{ROLE_NOT_REROLLING}' (ID: {role.id})", flush=True)
+            except Exception as e:
+                print(f"Failed to delete duplicate role: {e}", flush=True)
+
 # --- SERVER ---
 
 async def health_check(request):
@@ -349,6 +374,9 @@ class MyBot(commands.Bot):
         
         print("🔄 Syncing roles for all members...", flush=True)
         for guild in self.guilds:
+            # 1. Cleanup Duplicates first
+            await cleanup_duplicate_roles(guild)
+            
             for member in guild.members:
                 if member.bot: continue
                 
