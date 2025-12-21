@@ -47,5 +47,12 @@
         "instances": 7,
         "prefix": "jerry",
         "status": "online"
+    },
+    "288833945062342657": {
+        "username": "insomniaskai",
+        "friend_code": "2489404685358169",
+        "instances": 4,
+        "prefix": "PipiSim",
+        "status": "offline"
     }
 }
