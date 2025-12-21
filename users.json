@@ -40,5 +40,12 @@
         "instances": 4,
         "prefix": "Garca",
         "status": "offline"
+    },
+    "1040255662569033788": {
+        "username": "jerry223608",
+        "friend_code": "7951677911105601",
+        "instances": 7,
+        "prefix": "jerry",
+        "status": "offline"
     }
 }
