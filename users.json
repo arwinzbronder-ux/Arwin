@@ -75,5 +75,12 @@
         "instances": 3,
         "prefix": "pokemon names",
         "status": "online"
+    },
+    "233334865024516097": {
+        "username": "jeremau5",
+        "friend_code": "3573393864935944",
+        "instances": 7,
+        "prefix": "pokemon names",
+        "status": "offline"
     }
 }
