@@ -487,6 +487,11 @@ class MyBot(commands.Bot):
     async def on_message(self, message):
         # 1. VIP ID Extraction (Webhook Messages in Group Packs)
         if message.channel.name == SOURCE_CHANNEL_NAME:
+            # FILTER: Ignore invalid packs
+            if "Invalid" in message.content:
+                print(f"⚠️ Ignored Invalid Pack message from {message.author}", flush=True)
+                return
+
             # Look for 16-digit ID in parenthesis: e.g. (9075827188388472)
             match = re.search(r'\((\d{16})\)', message.content)
             if match:
@@ -906,7 +911,7 @@ async def rg_remove_vip(interaction: discord.Interaction, vip_id: str):
     success, msg = await loop.run_in_executor(None, _blocking_remove_vip_id)
     
     if success:
-        await interaction.followup.send(f"🗑️ **VIP ID Removed!** `{vip_id}` is gone. No redeploy triggered.")
+        await interaction.followup.send(f"🗑️ **VIP ID Removed!** `{vip_id}` is gone.")
     else:
         await interaction.followup.send(f"❌ Failed: {msg}", ephemeral=True)
 
