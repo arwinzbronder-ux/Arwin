@@ -407,9 +407,10 @@ class MyBot(commands.Bot):
     
     @tasks.loop(minutes=15)
     async def update_heartbeat_ppm(self):
-        channel = self.get_channel(HEARTBEAT_CHANNEL_ID)
-        if not channel:
-            print("⚠️ Heartbeat channel not found!", flush=True)
+        try:
+            channel = await self.fetch_channel(HEARTBEAT_CHANNEL_ID)
+        except Exception as e:
+            print(f"⚠️ Heartbeat channel fetch failed: {e}", flush=True)
             return
 
         try:
@@ -423,20 +424,15 @@ class MyBot(commands.Bot):
             async for message in channel.history(limit=100, after=cutoff):
                 if not message.content: continue
                 
+                # FILTER: Only include specific bot types
+                if "Type: Inject Wonderpick 96P+" not in message.content:
+                    continue
+
                 lines = message.content.splitlines()
                 if not lines: continue
                 
                 # First line is ID/Name
                 member_name = lines[0].strip()
-                
-                # Check if we already have a newer stat for this member
-                # (Since we fetch history 'after', the iterator goes oldest->newest usually? 
-                # Actually history iterator default is newest->oldest unless reversed.
-                # If using 'after', it iterates from that date forward (Oldest -> Newest).
-                # So we simply OVERWRITE existing keys to keep the LATEST value.)
-                
-                # Update: history(after=...) returns Oldest -> Newest.
-                # So simply updating dict works perfectly (last one is latest).
                 
                 # Extract PPM
                 match = re.search(r"Avg:\s*([\d\.]+)\s*packs/min", message.content)
