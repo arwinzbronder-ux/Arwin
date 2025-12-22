@@ -89,5 +89,12 @@
         "instances": 7,
         "prefix": "bass",
         "status": "online"
+    },
+    "275988818631327745": {
+        "username": "bloo_64",
+        "friend_code": "7906786684811961",
+        "instances": 6,
+        "prefix": "blue",
+        "status": "offline"
     }
 }
