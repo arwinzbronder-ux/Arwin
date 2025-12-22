@@ -449,9 +449,10 @@ class MyBot(commands.Bot):
         
             # Sum totals
             total_ppm = sum(member_stats.values())
+            print(f"💓 Calculated Total PPM: {total_ppm} (from {len(member_stats)} bots)", flush=True)
             
-            # Rename Channel
-            new_name = f"💓︱group-heartbeat︱{total_ppm:.1f} PPM"
+            # Rename Channel (Rounded to nearest int)
+            new_name = f"💓︱group-heartbeat︱{int(round(total_ppm))} PPM"
             if channel.name != new_name:
                 await channel.edit(name=new_name)
                 print(f"💓 Updated Heartbeat: {new_name}", flush=True)
