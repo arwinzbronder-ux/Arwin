@@ -21,6 +21,7 @@ DATA_FILE = "users.json"
 CHECKIN_CHANNEL_NAME = "check-in"
 WATERMARK_CHANNEL_NAME = "🏆︱live-godpacks-showcase"
 SOURCE_CHANNEL_NAME = "🎰︱group-packs"
+HEARTBEAT_CHANNEL_ID = 1450631414432272454
 ROLE_REROLLING = "Rerolling"
 ROLE_NOT_REROLLING = "Not Rerolling"
 
@@ -362,6 +363,7 @@ class MyBot(commands.Bot):
         self.loop.create_task(start_dummy_server())
         self.check_bans.start()
         self.cleanup_checkin.start()
+        self.update_heartbeat_ppm.start()
 
     async def on_ready(self):
         print(f"Logged in as {self.user} (ID: {self.user.id})", flush=True)
@@ -402,6 +404,60 @@ class MyBot(commands.Bot):
                         print(f"🧹 Cleaned {len(deleted)} old messages in {channel.name}", flush=True)
                 except Exception as e:
                     print(f"Failed to cleanup {channel.name}: {e}", flush=True)
+    
+    @tasks.loop(minutes=15)
+    async def update_heartbeat_ppm(self):
+        channel = self.get_channel(HEARTBEAT_CHANNEL_ID)
+        if not channel:
+            print("⚠️ Heartbeat channel not found!", flush=True)
+            return
+
+        try:
+            # Stats dictionary: {member_name: ppm}
+            member_stats = {}
+            
+            # Fetch lookback (30 min heartbeat + 10 min buffer)
+            cutoff = datetime.now() - timedelta(minutes=40)
+            
+            # Process NEWEST messages first
+            async for message in channel.history(limit=100, after=cutoff):
+                if not message.content: continue
+                
+                lines = message.content.splitlines()
+                if not lines: continue
+                
+                # First line is ID/Name
+                member_name = lines[0].strip()
+                
+                # Check if we already have a newer stat for this member
+                # (Since we fetch history 'after', the iterator goes oldest->newest usually? 
+                # Actually history iterator default is newest->oldest unless reversed.
+                # If using 'after', it iterates from that date forward (Oldest -> Newest).
+                # So we simply OVERWRITE existing keys to keep the LATEST value.)
+                
+                # Update: history(after=...) returns Oldest -> Newest.
+                # So simply updating dict works perfectly (last one is latest).
+                
+                # Extract PPM
+                match = re.search(r"Avg:\s*([\d\.]+)\s*packs/min", message.content)
+                if match:
+                    try:
+                        ppm = float(match.group(1))
+                        member_stats[member_name] = ppm
+                    except ValueError:
+                        pass
+        
+            # Sum totals
+            total_ppm = sum(member_stats.values())
+            
+            # Rename Channel
+            new_name = f"💓︱group-heartbeat︱{total_ppm:.1f} PPM"
+            if channel.name != new_name:
+                await channel.edit(name=new_name)
+                print(f"💓 Updated Heartbeat: {new_name}", flush=True)
+                
+        except Exception as e:
+            print(f"Failed to update Heartbeat PPM: {e}", flush=True)
 
     @tasks.loop(minutes=10)
     async def check_bans(self):
