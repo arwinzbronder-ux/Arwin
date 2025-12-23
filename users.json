@@ -103,5 +103,12 @@
         "instances": 6,
         "prefix": "Libra",
         "status": "online"
+    },
+    "1291615786573627414": {
+        "username": "ronniecheng90_77858",
+        "friend_code": "4904259146724429",
+        "instances": 3,
+        "prefix": "pokemon name",
+        "status": "offline"
     }
 }
