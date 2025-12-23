@@ -111,5 +111,12 @@
         "instances": 3,
         "prefix": "pokemon name",
         "status": "online"
+    },
+    "520672416632930304": {
+        "username": "ichesterftw",
+        "friend_code": "3304610426842804",
+        "instances": 7,
+        "prefix": "Jaus",
+        "status": "offline"
     }
 }
