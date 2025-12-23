@@ -46,7 +46,7 @@
         "friend_code": "7951677911105601",
         "instances": 7,
         "prefix": "jerry",
-        "status": "offline"
+        "status": "online"
     },
     "288833945062342657": {
         "username": "insomniaskai",
@@ -81,21 +81,21 @@
         "friend_code": "3573393864935944",
         "instances": 7,
         "prefix": "pokemon names",
-        "status": "offline"
+        "status": "online"
     },
     "287558941540352001": {
         "username": "bassrv",
         "friend_code": "7429238101683230",
         "instances": 7,
         "prefix": "bass",
-        "status": "offline"
+        "status": "online"
     },
     "275988818631327745": {
         "username": "bloo_64",
         "friend_code": "7906786684811961",
         "instances": 6,
         "prefix": "blue",
-        "status": "offline"
+        "status": "online"
     },
     "1056944043688476682": {
         "username": "libra_2828",
@@ -110,6 +110,6 @@
         "friend_code": "4904259146724429",
         "instances": 3,
         "prefix": "pokemon name",
-        "status": "offline"
+        "status": "online"
     }
 }
