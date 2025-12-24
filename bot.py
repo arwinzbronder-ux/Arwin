@@ -196,10 +196,19 @@ def _blocking_sync(data):
         try:
             contents = repo.get_contents("ids.txt")
             repo.update_file(contents.path, "[skip ci] [skip render] Bot: Update active IDs", file_content, contents.sha)
-            print("🚀 Pushed to GitHub (Updated)!", flush=True)
+            print("🚀 Pushed to GitHub (ids.txt Updated)!", flush=True)
         except Exception:
             repo.create_file("ids.txt", "[skip ci] [skip render] Bot: Create IDs file", file_content)
-            print("🚀 Pushed to GitHub (Created)!", flush=True)
+            print("🚀 Pushed to GitHub (ids.txt Created)!", flush=True)
+
+        # Sync ids2.txt (Identical Copy)
+        try:
+            contents = repo.get_contents("ids2.txt")
+            repo.update_file(contents.path, "[skip ci] [skip render] Bot: Update active IDs (Backup)", file_content, contents.sha)
+            print("🚀 Pushed to GitHub (ids2.txt Updated)!", flush=True)
+        except Exception:
+            repo.create_file("ids2.txt", "[skip ci] [skip render] Bot: Create IDs 2 file", file_content)
+            print("🚀 Pushed to GitHub (ids2.txt Created)!", flush=True)
             
     except Exception as e:
         print(f"❌ GitHub API Error: {e}", flush=True)
