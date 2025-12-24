@@ -15,7 +15,7 @@ from PIL import Image, ImageDraw, ImageFont
 # --- CONFIGURATION ---
 TOKEN = os.getenv("DISCORD_TOKEN")
 GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
-REPO_NAME = "arwinzbronder-ux/Arwin"  # Format: username/repo
+REPO_NAME = "arwinzbronder-ux/Arwin" # Format: username/repo
 CATEGORY_NAME = "Member Channels"
 DATA_FILE = "users.json"
 CHECKIN_CHANNEL_NAME = "check-in"
@@ -24,10 +24,6 @@ SOURCE_CHANNEL_NAME = "🎰︱group-packs"
 HEARTBEAT_CHANNEL_ID = 1450631414432272454
 ROLE_REROLLING = "Rerolling"
 ROLE_NOT_REROLLING = "Not Rerolling"
-
-# ✅ CHANGED: ids.txt -> ids2.txt (single source of truth)
-IDS_FILENAME = "ids2.txt"
-IDS_PUBLIC_URL = f"https://arwin.de/{IDS_FILENAME}"
 
 # --- HELPER FUNCTIONS ---
 
@@ -41,9 +37,8 @@ def load_data():
         return {}
 
 async def manage_roles(member, status):
-    if member.bot:
-        return
-
+    if member.bot: return
+    
     guild = member.guild
     role_rerolling = discord.utils.get(guild.roles, name=ROLE_REROLLING)
     role_not_rerolling = discord.utils.get(guild.roles, name=ROLE_NOT_REROLLING)
@@ -51,52 +46,37 @@ async def manage_roles(member, status):
     # Auto-Create Roles if Missing (Permissions.none() ensures no unexpected rights)
     if not role_rerolling:
         try:
-            role_rerolling = await guild.create_role(
-                name=ROLE_REROLLING,
-                color=discord.Color.green(),
-                hoist=True,
-                permissions=discord.Permissions.none()
-            )
+            role_rerolling = await guild.create_role(name=ROLE_REROLLING, color=discord.Color.green(), hoist=True, permissions=discord.Permissions.none())
             print(f"Created role: {ROLE_REROLLING}", flush=True)
         except Exception as e:
             print(f"Failed to create role {ROLE_REROLLING}: {e}", flush=True)
 
     if not role_not_rerolling:
         try:
-            role_not_rerolling = await guild.create_role(
-                name=ROLE_NOT_REROLLING,
-                color=discord.Color.red(),
-                hoist=True,
-                permissions=discord.Permissions.none()
-            )
+            role_not_rerolling = await guild.create_role(name=ROLE_NOT_REROLLING, color=discord.Color.red(), hoist=True, permissions=discord.Permissions.none())
             print(f"Created role: {ROLE_NOT_REROLLING}", flush=True)
         except Exception as e:
             print(f"Failed to create role {ROLE_NOT_REROLLING}: {e}", flush=True)
 
     try:
         if status == 'online':
-            if role_rerolling:
-                await member.add_roles(role_rerolling)
-            if role_not_rerolling:
-                await member.remove_roles(role_not_rerolling)
+            if role_rerolling: await member.add_roles(role_rerolling)
+            if role_not_rerolling: await member.remove_roles(role_not_rerolling)
         else:
-            # Default state (Offline / Unregistered / Removed)
-            if role_not_rerolling:
-                await member.add_roles(role_not_rerolling)
-            if role_rerolling:
-                await member.remove_roles(role_rerolling)
-
+             # Default state (Offline / Unregistered / Removed)
+            if role_not_rerolling: await member.add_roles(role_not_rerolling)
+            if role_rerolling: await member.remove_roles(role_rerolling)
+            
     except Exception as e:
         print(f"Failed to update roles for {member.name}: {e}", flush=True)
-
+        
 def _blocking_update_vip(new_id):
-    if not GITHUB_TOKEN:
-        return
+    if not GITHUB_TOKEN: return
     try:
         auth = Auth.Token(GITHUB_TOKEN)
         g = Github(auth=auth)
         repo = g.get_repo(REPO_NAME)
-
+        
         # 1. Get current VIP IDs
         ids = set()
         file_sha = None
@@ -106,13 +86,13 @@ def _blocking_update_vip(new_id):
             existing_text = contents.decoded_content.decode()
             ids = set(existing_text.splitlines())
         except Exception:
-            pass  # File might not exist yet
-
+            pass # File might not exist yet
+            
         # 2. Add New ID
         if new_id not in ids:
             ids.add(new_id)
             new_content = "\n".join(sorted(list(ids)))
-
+            
             # 3. Save back
             if file_sha:
                 repo.update_file("vip_ids.txt", "[skip ci] [skip render] Bot: Update VIP IDs", new_content, file_sha)
@@ -122,7 +102,7 @@ def _blocking_update_vip(new_id):
                 print(f"💎 Added VIP ID {new_id} to vip_ids.txt (Created)", flush=True)
         else:
             print(f"ℹ️ VIP ID {new_id} already exists.", flush=True)
-
+            
     except Exception as e:
         print(f"❌ Failed to update vip_ids.txt: {e}", flush=True)
 
@@ -149,52 +129,44 @@ def add_watermark(image_bytes):
     try:
         with Image.open(io.BytesIO(image_bytes)) as img:
             img = img.convert("RGBA")
-
+            
             # Create a transparent text layer
             txt_layer = Image.new('RGBA', img.size, (255, 255, 255, 0))
             draw = ImageDraw.Draw(txt_layer)
             text = "EternalGP"
-
+            
             # Calculate dynamic font size (9% of height - Fine tuned)
             width, height = img.size
-            font_size = int(height * 0.09)
-            if font_size < 15:
-                font_size = 15
-
+            font_size = int(height * 0.09) 
+            if font_size < 15: font_size = 15
+            
             try:
-                font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", font_size)
+                 font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", font_size)
             except:
-                font = ImageFont.load_default()
+                 font = ImageFont.load_default()
 
             # Calculate position (Center)
             left, top, right, bottom = draw.textbbox((0, 0), text, font=font)
             text_width = right - left
             text_height = bottom - top
-
+            
             x = (width - text_width) / 2
             y = (height - text_height) / 2
-
+            
             # Calculate dynamic stroke width
             stroke_width = max(1, int(font_size / 25))
-
+            
             # Draw Opaque Text with Outline
-            draw.text(
-                (x, y),
-                text,
-                font=font,
-                fill=(255, 255, 255, 255),
-                stroke_width=stroke_width,
-                stroke_fill=(0, 0, 0, 255)
-            )
-
+            draw.text((x, y), text, font=font, fill=(255, 255, 255, 255), stroke_width=stroke_width, stroke_fill=(0, 0, 0, 255))
+            
             # Apply Global Transparency (e.g. 35% Opacity)
             r, g, b, a = txt_layer.split()
             a = a.point(lambda p: int(p * 0.35))
             txt_layer = Image.merge('RGBA', (r, g, b, a))
-
+            
             # Composite
             combined = Image.alpha_composite(img, txt_layer)
-
+            
             output = io.BytesIO()
             combined.save(output, format="PNG")
             output.seek(0)
@@ -220,17 +192,15 @@ def _blocking_sync(data):
         auth = Auth.Token(GITHUB_TOKEN)
         g = Github(auth=auth)
         repo = g.get_repo(REPO_NAME)
-
+        
         try:
-            # ✅ CHANGED: ids.txt -> ids2.txt
-            contents = repo.get_contents(IDS_FILENAME)
+            contents = repo.get_contents("ids.txt")
             repo.update_file(contents.path, "[skip ci] [skip render] Bot: Update active IDs", file_content, contents.sha)
             print("🚀 Pushed to GitHub (Updated)!", flush=True)
         except Exception:
-            # ✅ CHANGED: ids.txt -> ids2.txt
-            repo.create_file(IDS_FILENAME, "[skip ci] [skip render] Bot: Create IDs file", file_content)
+            repo.create_file("ids.txt", "[skip ci] [skip render] Bot: Create IDs file", file_content)
             print("🚀 Pushed to GitHub (Created)!", flush=True)
-
+            
     except Exception as e:
         print(f"❌ GitHub API Error: {e}", flush=True)
 
@@ -239,13 +209,12 @@ async def sync_to_github(data):
     await loop.run_in_executor(None, _blocking_sync, data)
 
 def _blocking_initial_sync():
-    if not GITHUB_TOKEN:
-        return
+    if not GITHUB_TOKEN: return
     try:
         auth = Auth.Token(GITHUB_TOKEN)
         g = Github(auth=auth)
         repo = g.get_repo(REPO_NAME)
-
+        
         # 1. Download users.json
         data = {}
         try:
@@ -258,12 +227,11 @@ def _blocking_initial_sync():
         except Exception as e:
             print(f"⚠️ Could not download {DATA_FILE}: {e}", flush=True)
 
-        # 2. Download ids2.txt and Sync Status
+        # 2. Download ids.txt and Sync Status
         try:
-            # ✅ CHANGED: ids.txt -> ids2.txt
-            ids_content = repo.get_contents(IDS_FILENAME)
+            ids_content = repo.get_contents("ids.txt")
             online_ids = set(ids_content.decoded_content.decode().splitlines())
-
+            
             updated = False
             for user_id, info in data.items():
                 code = info.get('friend_code')
@@ -275,14 +243,14 @@ def _blocking_initial_sync():
                     if info.get('status') == 'online':
                         info['status'] = 'offline'
                         updated = True
-
+            
             if updated:
                 with open(DATA_FILE, "w") as f:
                     json.dump(data, f, indent=4)
-                print(f"🔄 Synced local statuses with {IDS_FILENAME}", flush=True)
-
+                print("🔄 Synced local statuses with ids.txt", flush=True)
+                
         except Exception as e:
-            print(f"⚠️ Could not sync with {IDS_FILENAME}: {e}", flush=True)
+            print(f"⚠️ Could not sync with ids.txt: {e}", flush=True)
 
     except Exception as e:
         print(f"❌ GitHub Init Error: {e}", flush=True)
@@ -292,8 +260,7 @@ async def download_users_from_github():
     await loop.run_in_executor(None, _blocking_initial_sync)
 
 def _blocking_upload(data):
-    if not GITHUB_TOKEN:
-        return
+    if not GITHUB_TOKEN: return
     json_content = json.dumps(data, indent=4)
     try:
         auth = Auth.Token(GITHUB_TOKEN)
@@ -320,20 +287,20 @@ async def save_data_async(data):
 async def update_channel_status(bot_instance):
     data = load_data()
     online_count = count_online_users(data)
-
+    
     new_prefix = "🟢" if online_count > 0 else "🔴"
-
+    
     # Format: 🟢︱check-in︱3
     new_name = f"{new_prefix}︱{CHECKIN_CHANNEL_NAME}︱{online_count}"
-
+    
     # We scan all guilds (usually just one)
     for guild in bot_instance.guilds:
         channel = get_checkin_channel(guild)
-
+        
         if channel:
             if channel.name == new_name:
-                continue  # Already correct
-
+                continue # Already correct
+            
             try:
                 await channel.edit(name=new_name)
                 print(f"🔄 Renamed channel to: {new_name}", flush=True)
@@ -345,6 +312,8 @@ async def cleanup_duplicate_roles(guild):
     rerolling_roles = [r for r in guild.roles if r.name == ROLE_REROLLING]
     if len(rerolling_roles) > 1:
         print(f"⚠️ Found {len(rerolling_roles)} roles named '{ROLE_REROLLING}'. Cleaning up...", flush=True)
+        # Keep the one with the highest position (or just the first one)
+        # We'll just keep the first one and delete the rest
         for role in rerolling_roles[1:]:
             try:
                 await role.delete(reason="Bot Cleanup: Duplicate Role")
@@ -400,25 +369,24 @@ class MyBot(commands.Bot):
         print(f"Logged in as {self.user} (ID: {self.user.id})", flush=True)
         print("------", flush=True)
         await update_channel_status(self)
-
+        
         # Sync Roles for ALL Members (Startup)
         data = load_data()
         online_users = {uid for uid, info in data.items() if info.get('status') == 'online'}
-
+        
         print("🔄 Syncing roles for all members...", flush=True)
         for guild in self.guilds:
             # 1. Cleanup Duplicates first
             await cleanup_duplicate_roles(guild)
-
+            
             for member in guild.members:
-                if member.bot:
-                    continue
-
+                if member.bot: continue
+                
                 status = 'online' if str(member.id) in online_users else 'offline'
                 # We spin this off to not block
                 self.loop.create_task(manage_roles(member, status))
         print("✅ Role sync initiated.", flush=True)
-
+       
     @tasks.loop(hours=1)
     async def cleanup_checkin(self):
         cutoff = datetime.now() - timedelta(hours=48)
@@ -426,16 +394,17 @@ class MyBot(commands.Bot):
             channel = get_checkin_channel(guild)
             if channel:
                 try:
+                    # Purge bot messages older than 48h
                     deleted = await channel.purge(
-                        limit=None,
-                        check=lambda m: m.author == self.user,
+                        limit=None, 
+                        check=lambda m: m.author == self.user, 
                         before=cutoff
                     )
                     if deleted:
                         print(f"🧹 Cleaned {len(deleted)} old messages in {channel.name}", flush=True)
                 except Exception as e:
                     print(f"Failed to cleanup {channel.name}: {e}", flush=True)
-
+    
     @tasks.loop(minutes=15)
     async def update_heartbeat_ppm(self):
         try:
@@ -445,22 +414,27 @@ class MyBot(commands.Bot):
             return
 
         try:
+            # Stats dictionary: {member_name: ppm}
             member_stats = {}
+            
+            # Fetch lookback (30 min heartbeat + 10 min buffer)
             cutoff = datetime.now() - timedelta(minutes=40)
-
+            
+            # Process NEWEST messages first
             async for message in channel.history(limit=100, after=cutoff):
-                if not message.content:
-                    continue
-
+                if not message.content: continue
+                
+                # FILTER: Only include specific bot types
                 if "Type: Inject Wonderpick 96P+" not in message.content:
                     continue
 
                 lines = message.content.splitlines()
-                if not lines:
-                    continue
-
+                if not lines: continue
+                
+                # First line is ID/Name
                 member_name = lines[0].strip()
-
+                
+                # Extract PPM
                 match = re.search(r"Avg:\s*([\d\.]+)\s*packs/min", message.content)
                 if match:
                     try:
@@ -468,15 +442,17 @@ class MyBot(commands.Bot):
                         member_stats[member_name] = ppm
                     except ValueError:
                         pass
-
+        
+            # Sum totals
             total_ppm = sum(member_stats.values())
             print(f"💓 Calculated Total PPM: {total_ppm} (from {len(member_stats)} bots)", flush=True)
-
+            
+            # Rename Channel (Rounded to nearest int)
             new_name = f"💓︱group-heartbeat︱{int(round(total_ppm))} PPM"
             if channel.name != new_name:
                 await channel.edit(name=new_name)
                 print(f"💓 Updated Heartbeat: {new_name}", flush=True)
-
+                
         except Exception as e:
             print(f"Failed to update Heartbeat PPM: {e}", flush=True)
 
@@ -485,7 +461,7 @@ class MyBot(commands.Bot):
         data = load_data()
         changed = False
         current_time = datetime.now()
-
+        
         for user_id, info in list(data.items()):
             ban_expiry_str = info.get("ban_expiry")
             if ban_expiry_str:
@@ -494,7 +470,7 @@ class MyBot(commands.Bot):
                     if current_time > ban_expiry:
                         del data[user_id]["ban_expiry"]
                         changed = True
-
+                        
                         if self.guilds:
                             guild = self.guilds[0]
                             member = guild.get_member(int(user_id))
@@ -511,10 +487,12 @@ class MyBot(commands.Bot):
     async def on_message(self, message):
         # 1. VIP ID Extraction (Webhook Messages in Group Packs)
         if message.channel.name == SOURCE_CHANNEL_NAME:
+            # FILTER: Ignore invalid packs
             if "Invalid" in message.content:
                 print(f"⚠️ Ignored Invalid Pack message from {message.author}", flush=True)
                 return
 
+            # Look for 16-digit ID in parenthesis: e.g. (9075827188388472)
             match = re.search(r'\((\d{16})\)', message.content)
             if match:
                 vip_id = match.group(1)
@@ -537,10 +515,10 @@ class MyBot(commands.Bot):
                             processed_files.append(discord.File(fp=watermarked_io, filename=f"watermarked_{attachment.filename}"))
                     except Exception as e:
                         print(f"Failed to watermark attachment: {e}", flush=True)
-
+            
             if processed_files:
                 await message.channel.send(
-                    f"📸 **Image by {message.author.mention}**",
+                    f"📸 **Image by {message.author.mention}**", 
                     files=processed_files
                 )
                 await message.delete()
@@ -588,20 +566,22 @@ async def on_member_join(member):
                 pass
 
     channel_name = f"home-{member.name}"
+    private_channel = None
     try:
         private_channel = await guild.create_text_channel(channel_name, overwrites=overwrites, category=category)
         webhook = await private_channel.create_webhook(name=f"{member.name}'s Webhook")
-
+        
         setup_msg = (
             f"Here is your personal webhook URL: ||{webhook.url}||\n\n"
             f"You can use your personal webhook for tracking tradable cards."
         )
         await private_channel.send(setup_msg)
         print(f"Created channel for {member.name}", flush=True)
-
+        
     except Exception as e:
         print(f"Error creating channel: {e}", flush=True)
 
+    # 4. Assign Default Role (Not Rerolling)
     await manage_roles(member, 'offline')
 
     checkin_channel = get_checkin_channel(guild)
@@ -676,7 +656,7 @@ async def rg_unadd_user(interaction: discord.Interaction):
     await interaction.response.defer(ephemeral=False)
     user_id = str(interaction.user.id)
     data = load_data()
-
+    
     if user_id in data:
         del data[user_id]
         await save_data_async(data)
@@ -700,7 +680,7 @@ async def rg_change_id(interaction: discord.Interaction, new_code: str):
     await interaction.response.defer(ephemeral=False)
     user_id = str(interaction.user.id)
     data = load_data()
-
+    
     if user_id not in data:
         await interaction.followup.send("❌ You are not registered! proper use: `/rg_add_user` first.", ephemeral=True)
         return
@@ -716,10 +696,10 @@ async def rg_change_id(interaction: discord.Interaction, new_code: str):
     old_code = data[user_id].get('friend_code')
     data[user_id]['friend_code'] = new_code
     await save_data_async(data)
-
+    
     if data[user_id].get('status') == 'online':
         await sync_to_github(data)
-
+        
     await interaction.followup.send(
         f"✅ **ID Updated!**\n"
         f"Old: `{old_code}`\n"
@@ -736,7 +716,7 @@ async def rg_online(interaction: discord.Interaction):
 
     user_id = str(interaction.user.id)
     data = load_data()
-
+    
     if user_id not in data:
         await interaction.followup.send("❌ You are not registered! proper use: `/rg_add_user` first.", ephemeral=True)
         return
@@ -749,12 +729,11 @@ async def rg_online(interaction: discord.Interaction):
     await save_data_async(data)
     await sync_to_github(data)
 
-    # ✅ CHANGED: ids.txt -> ids2.txt (message + URL)
-    msg = await interaction.followup.send(f"⏳ **Verifying accessibility...** (Checking {IDS_PUBLIC_URL})")
-
+    msg = await interaction.followup.send(f"⏳ **Verifying accessibility...** (Checking https://arwin.de/ids.txt)")
+    
     verified = False
     friend_code = data[user_id]['friend_code']
-
+    
     # Use a single session with a timeout
     try:
         async with aiohttp.ClientSession(timeout=aiohttp.ClientTimeout(total=4)) as session:
@@ -762,7 +741,7 @@ async def rg_online(interaction: discord.Interaction):
             for i in range(18):
                 print(f"🔍 Verification Attempt {i+1}/18 for {friend_code}", flush=True)
                 try:
-                    async with session.get(f"{IDS_PUBLIC_URL}?t={int(datetime.now().timestamp())}") as response:
+                    async with session.get(f"https://arwin.de/ids.txt?t={int(datetime.now().timestamp())}") as response:
                         if response.status == 200:
                             text = await response.text()
                             if friend_code in text:
@@ -770,11 +749,11 @@ async def rg_online(interaction: discord.Interaction):
                                 break
                 except Exception as e:
                     print(f"Verification Check Failed (Attempt {i+1}): {e}", flush=True)
-
+                
                 await asyncio.sleep(5)
     except Exception as e:
         print(f"Session Error: {e}", flush=True)
-
+    
     try:
         if verified:
             await msg.edit(content=f"🟢 **Online!** {interaction.user.mention} is now accepting friend requests.\n✅ **Verified:** Your ID is visible on the public list.")
@@ -783,7 +762,7 @@ async def rg_online(interaction: discord.Interaction):
         else:
             await msg.edit(content=f"⚠️ **Pushed directly to GitHub**, but `arwin.de` is taking a while to update.\nYour ID *will* appear shortly. (Timed out after 90s)")
     except Exception as e:
-        print(f"Failed to edit message: {e}", flush=True)
+         print(f"Failed to edit message: {e}", flush=True)
 
 @bot.tree.command(name="rg_offline", description="Set your status to OFFLINE")
 async def rg_offline(interaction: discord.Interaction):
@@ -791,7 +770,7 @@ async def rg_offline(interaction: discord.Interaction):
 
     user_id = str(interaction.user.id)
     data = load_data()
-
+    
     if user_id in data:
         if data[user_id].get('status') == 'offline':
             await interaction.followup.send("⚠️ **Already Offline!** You are not in the queue.", ephemeral=True)
@@ -801,7 +780,7 @@ async def rg_offline(interaction: discord.Interaction):
         await save_data_async(data)
         await sync_to_github(data)
         await manage_roles(interaction.user, 'offline')
-
+    
     await interaction.followup.send(
         f"🔴 **Offline.** {interaction.user.mention} has stopped accepting requests.\n"
         f"Your ID has been removed from the global list."
@@ -816,22 +795,22 @@ async def rg_remove_id(interaction: discord.Interaction, friend_code: str):
 
     data = load_data()
     found_user_id = None
-
+    
     for user_id, info in data.items():
         if info.get('friend_code') == friend_code:
             found_user_id = user_id
             break
-
+    
     if found_user_id:
         data[found_user_id]['friend_code'] = None
         data[found_user_id]['status'] = 'offline'
         await save_data_async(data)
         await sync_to_github(data)
-
+        
         member = interaction.guild.get_member(int(found_user_id))
         if member:
             await manage_roles(member, 'offline')
-
+        
         await interaction.followup.send(f"🗑️ Removed ID `{friend_code}` from the list and set user to Offline.")
         await update_channel_status(interaction.client)
     else:
@@ -847,17 +826,17 @@ async def rg_tempban(interaction: discord.Interaction, member: discord.Member):
     data = load_data()
     user_id = str(member.id)
     if user_id not in data:
-        data[user_id] = {}
-
+         data[user_id] = {}
+    
     data[user_id]["ban_expiry"] = expiry_time.isoformat()
     if data[user_id].get('status') == 'online':
         data[user_id]['status'] = 'offline'
         await sync_to_github(data)
         await manage_roles(member, 'offline')
         await update_channel_status(interaction.client)
-
+    
     await save_data_async(data)
-
+    
     channel = get_checkin_channel(member.guild)
     if channel:
         await channel.set_permissions(member, send_messages=False, read_messages=False)
@@ -872,13 +851,13 @@ async def rg_update_bot(interaction: discord.Interaction, file: discord.Attachme
     if not file.filename.endswith(".py"):
         await interaction.response.send_message("❌ Error: File must be a Python file (.py)", ephemeral=True)
         return
-
+        
     await interaction.response.defer(ephemeral=False)
-
+    
     try:
         content = await file.read()
         file_path = "bot.py"
-
+        
         def _blocking_update_bot_file():
             auth = Auth.Token(GITHUB_TOKEN)
             g = Github(auth=auth)
@@ -888,7 +867,7 @@ async def rg_update_bot(interaction: discord.Interaction, file: discord.Attachme
 
         loop = asyncio.get_running_loop()
         await loop.run_in_executor(None, _blocking_update_bot_file)
-
+        
         await interaction.followup.send("✅ **Update Pushed!** Render should restart the bot automatically in ~1 minute.")
     except Exception as e:
         await interaction.followup.send(f"❌ Update failed: {e}", ephemeral=True)
@@ -900,23 +879,22 @@ async def rg_remove_vip(interaction: discord.Interaction, vip_id: str):
     if not vip_id.isdigit() or len(vip_id) != 16:
         await interaction.response.send_message("❌ Error: VIP ID must be 16 digits.", ephemeral=True)
         return
-
+        
     await interaction.response.defer(ephemeral=False)
-
+    
     def _blocking_remove_vip_id():
-        if not GITHUB_TOKEN:
-            return False, "No GitHub Token"
+        if not GITHUB_TOKEN: return False, "No GitHub Token"
         try:
             auth = Auth.Token(GITHUB_TOKEN)
             g = Github(auth=auth)
             repo = g.get_repo(REPO_NAME)
-
+            
             try:
                 contents = repo.get_contents("vip_ids.txt")
                 file_sha = contents.sha
                 existing_text = contents.decoded_content.decode()
                 ids = set(existing_text.splitlines())
-
+                
                 if vip_id in ids:
                     ids.remove(vip_id)
                     new_content = "\n".join(sorted(list(ids)))
@@ -931,7 +909,7 @@ async def rg_remove_vip(interaction: discord.Interaction, vip_id: str):
 
     loop = asyncio.get_running_loop()
     success, msg = await loop.run_in_executor(None, _blocking_remove_vip_id)
-
+    
     if success:
         await interaction.followup.send(f"🗑️ **VIP ID Removed!** `{vip_id}` is gone.")
     else:
@@ -942,14 +920,16 @@ async def rg_remove_vip(interaction: discord.Interaction, vip_id: str):
 @app_commands.checks.has_permissions(administrator=True)
 async def rg_startingtime(interaction: discord.Interaction, time: str):
     await interaction.response.defer(ephemeral=False)
-
+    
     guild = interaction.guild
+    # Sanitized time for Text Channel (lowercase, dashes only)
     clean_time = time.replace(":", "-").replace(" ", "-").lower()
     channel_name = f"todays-start-{clean_time}-utc"
-
+    
+    # 1. Find/Create Setup Category
     SETUP_CATEGORY_NAME = "Setup"
     category = discord.utils.get(guild.categories, name=SETUP_CATEGORY_NAME)
-
+    
     if not category:
         try:
             category = await guild.create_category(SETUP_CATEGORY_NAME)
@@ -958,12 +938,14 @@ async def rg_startingtime(interaction: discord.Interaction, time: str):
             await interaction.followup.send(f"❌ Failed to create category '{SETUP_CATEGORY_NAME}': {e}", ephemeral=True)
             return
 
+    # 2. Find Existing Channel
     target_channel = None
     for channel in category.text_channels:
         if channel.name.startswith("todays-start"):
             target_channel = channel
             break
-
+            
+    # 3. Rename or Create
     try:
         if target_channel:
             if target_channel.name != channel_name:
@@ -972,10 +954,11 @@ async def rg_startingtime(interaction: discord.Interaction, time: str):
             else:
                 await interaction.followup.send(f"⚠️ Channel is already named {target_channel.mention}")
         else:
+            # Create new
             target_channel = await guild.create_text_channel(channel_name, category=category)
-            await target_channel.set_permissions(guild.default_role, send_messages=False)
+            await target_channel.set_permissions(guild.default_role, send_messages=False) # Read-only
             await interaction.followup.send(f"✅ Created channel: {target_channel.mention}")
-
+            
     except Exception as e:
         await interaction.followup.send(f"❌ Failed to update/create channel: {e}", ephemeral=True)
 
@@ -983,7 +966,7 @@ async def rg_startingtime(interaction: discord.Interaction, time: str):
 @rg_remove_vip.error
 @rg_startingtime.error
 async def admin_error(interaction: discord.Interaction, error):
-    pass  # handled by global mod_error or just ignore
+    pass # handled by global mod_error or just ignore
 
 @rg_remove_id.error
 @rg_tempban.error
