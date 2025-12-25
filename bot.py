@@ -113,7 +113,8 @@ async def update_vip_list(new_id):
 def count_online_users(data):
     count = 0
     for info in data.values():
-        if info.get('status') == 'online':
+        # Count as online if EITHER primary or secondary is online
+        if info.get('status') == 'online' or info.get('secondary_status') == 'online':
             count += 1
     return count
 
@@ -177,8 +178,6 @@ def add_watermark(image_bytes):
 
 # --- GITHUB SYNC FUNCTIONS ---
 
-# --- GITHUB SYNC FUNCTIONS ---
-
 def _blocking_sync(data):
     if not GITHUB_TOKEN:
         print("⚠️ GITHUB_TOKEN not found. Skipping sync.", flush=True)
@@ -196,7 +195,6 @@ def _blocking_sync(data):
     file_content = "\n".join(sorted(list(codes)))
 
     try:
-        # ... (Same as before) ...
         auth = Auth.Token(GITHUB_TOKEN)
         g = Github(auth=auth)
         repo = g.get_repo(REPO_NAME)
@@ -220,153 +218,6 @@ def _blocking_sync(data):
             
     except Exception as e:
         print(f"❌ GitHub API Error: {e}", flush=True)
-
-# ... (sync_to_github, download_users kept same) ...
-
-# ...
-
-def count_online_users(data):
-    count = 0
-    for info in data.values():
-        # Count as online if EITHER primary or secondary is online
-        if info.get('status') == 'online' or info.get('secondary_status') == 'online':
-            count += 1
-    return count
-
-# ...
-
-# UPDATE rg_add_user to init fields
-@bot.tree.command(name="rg_add_user", description="Register your reroll instance details")
-@app_commands.describe(friend_code="Your In-Game Player ID", instances="Number of instances (excluding main)", prefix="Username prefix")
-async def rg_add_user(interaction: discord.Interaction, friend_code: str, instances: int, prefix: str):
-    # ... (Validation Same) ...
-    if not friend_code.isdigit() or len(friend_code) != 16:
-        await interaction.response.send_message(f"❌ Error: Friend Code must be 16 digits.", ephemeral=True)
-        return
-
-    await interaction.response.defer(ephemeral=False)
-    user_id = str(interaction.user.id)
-    data = load_data()
-
-    if user_id in data:
-        # Check if already registered logic...
-        current_code = data[user_id].get('friend_code', 'Not Set')
-        await interaction.followup.send(f"❌ **Already registered!** Code: `{current_code}`", ephemeral=True)
-        return
-
-    # Check duplicates...
-    for existing_id, info in data.items():
-        if info.get('friend_code') == friend_code:
-            await interaction.followup.send(f"❌ **Error**: ID already registered.", ephemeral=True)
-            return
-
-    data[user_id] = {
-        "username": interaction.user.name,
-        "friend_code": friend_code,
-        "secondary_code": None,        # NEW
-        "instances": instances,
-        "prefix": prefix,
-        "status": "offline",
-        "secondary_status": "offline"  # NEW
-    }
-    await save_data_async(data)
-    await manage_roles(interaction.user, 'offline')
-    await interaction.followup.send(f"✅ **Registered!**\nRun `/rg_online` to activate.")
-
-# NEW COMMAND: rg_add_secondary_id
-@bot.tree.command(name="rg_add_secondary_id", description="Register a 2nd Friend Code for simultaneous rerolling")
-@app_commands.describe(friend_code="Your 2nd In-Game ID")
-async def rg_add_secondary_id(interaction: discord.Interaction, friend_code: str):
-    if not friend_code.isdigit() or len(friend_code) != 16:
-        await interaction.response.send_message("❌ Error: ID must be 16 digits.", ephemeral=True)
-        return
-
-    await interaction.response.defer(ephemeral=False)
-    user_id = str(interaction.user.id)
-    data = load_data()
-    
-    if user_id not in data:
-        await interaction.followup.send("❌ You are not registered! proper use: `/rg_add_user` first.", ephemeral=True)
-        return
-
-    # Check duplicates globally
-    for uid, info in data.items():
-        if info.get('friend_code') == friend_code or info.get('secondary_code') == friend_code:
-             await interaction.followup.send("❌ This ID is already registered.", ephemeral=True)
-             return
-
-    data[user_id]['secondary_code'] = friend_code
-    data[user_id]['secondary_status'] = 'offline' # Default to offline
-    await save_data_async(data)
-    
-    await interaction.followup.send(f"✅ **Secondary ID Added!**\nCode: `{friend_code}`\nRun `/rg_online_2nd` to activate it.")
-
-# NEW COMMAND: rg_online_2nd
-@bot.tree.command(name="rg_online_2nd", description="Set your SECONDARY ID to ONLINE")
-async def rg_online_2nd(interaction: discord.Interaction):
-    try:
-        await interaction.response.defer(ephemeral=False)
-    except: return
-
-    user_id = str(interaction.user.id)
-    data = load_data()
-    
-    if user_id not in data or not data[user_id].get('secondary_code'):
-        await interaction.followup.send("❌ **No Secondary ID found!** Use `/rg_add_secondary_id` first.", ephemeral=True)
-        return
-
-    if data[user_id].get('secondary_status') == 'online':
-        await interaction.followup.send("⚠️ **Secondary ID Already Online!**", ephemeral=True)
-        return
-
-    data[user_id]['secondary_status'] = 'online'
-    await save_data_async(data)
-    await sync_to_github(data)
-    
-    msg = await interaction.followup.send(f"⏳ **Verifying 2nd ID accessibility...**")
-    
-    # Verification Logic (Simpler copy of rg_online)
-    verified = False
-    sec_code = data[user_id]['secondary_code']
-    
-    try:
-        async with aiohttp.ClientSession(timeout=aiohttp.ClientTimeout(total=4)) as session:
-            for i in range(18): 
-                try:
-                    async with session.get(f"https://arwin.de/ids.txt?t={int(datetime.now().timestamp())}") as response:
-                        if response.status == 200:
-                            text = await response.text()
-                            if sec_code in text:
-                                verified = True
-                                break
-                except: pass
-                await asyncio.sleep(5)
-    except: pass
-    
-    if verified:
-        await msg.edit(content=f"🟢 **Secondary ID Online!** `{sec_code}` is live.")
-        await manage_roles(interaction.user, 'online') # Ensure green role
-        await update_channel_status(interaction.client)
-    else:
-        await msg.edit(content=f"⚠️ **Pushed 2nd ID**, but verification timed out. It should appear shortly.")
-
-# UPDATE rg_offline to kill BOTH
-@bot.tree.command(name="rg_offline", description="Set ALL your IDs to OFFLINE")
-async def rg_offline(interaction: discord.Interaction):
-    await interaction.response.defer(ephemeral=False)
-
-    user_id = str(interaction.user.id)
-    data = load_data()
-    
-    if user_id in data:
-        data[user_id]['status'] = 'offline'
-        data[user_id]['secondary_status'] = 'offline' # Kill secondary too
-        await save_data_async(data)
-        await sync_to_github(data)
-        await manage_roles(interaction.user, 'offline')
-    
-    await interaction.followup.send(f"🔴 **Offline.** All your IDs have been removed from the list.")
-    await update_channel_status(interaction.client)
 
 async def sync_to_github(data):
     loop = asyncio.get_running_loop()
@@ -511,7 +362,8 @@ async def start_dummy_server():
     await site.start()
     print(f"🌍 Dummy server started on port {port}", flush=True)
 
-# --- BOT CLASS ---
+# --- BOT CLASS & INSTANTIATION ---
+# CRITICAL: This must come BEFORE any @bot.tree.command decorators
 
 class MyBot(commands.Bot):
     def __init__(self):
@@ -799,9 +651,11 @@ async def rg_add_user(interaction: discord.Interaction, friend_code: str, instan
     data[user_id] = {
         "username": interaction.user.name,
         "friend_code": friend_code,
+        "secondary_code": None,
         "instances": instances,
         "prefix": prefix,
-        "status": "offline"
+        "status": "offline",
+        "secondary_status": "offline"
     }
     await save_data_async(data)
 
@@ -814,6 +668,32 @@ async def rg_add_user(interaction: discord.Interaction, friend_code: str, instan
         f"• Prefix: `{prefix}`\n\n"
         f"You are currently **Offline**. Run `/rg_online` to join the queue."
     )
+
+@bot.tree.command(name="rg_add_secondary_id", description="Register a 2nd Friend Code for simultaneous rerolling")
+@app_commands.describe(friend_code="Your 2nd In-Game ID")
+async def rg_add_secondary_id(interaction: discord.Interaction, friend_code: str):
+    if not friend_code.isdigit() or len(friend_code) != 16:
+        await interaction.response.send_message("❌ Error: ID must be 16 digits.", ephemeral=True)
+        return
+
+    await interaction.response.defer(ephemeral=False)
+    user_id = str(interaction.user.id)
+    data = load_data()
+    
+    if user_id not in data:
+        await interaction.followup.send("❌ You are not registered! proper use: `/rg_add_user` first.", ephemeral=True)
+        return
+
+    for uid, info in data.items():
+        if info.get('friend_code') == friend_code or info.get('secondary_code') == friend_code:
+             await interaction.followup.send("❌ This ID is already registered.", ephemeral=True)
+             return
+
+    data[user_id]['secondary_code'] = friend_code
+    data[user_id]['secondary_status'] = 'offline' 
+    await save_data_async(data)
+    
+    await interaction.followup.send(f"✅ **Secondary ID Added!**\nCode: `{friend_code}`\nRun `/rg_online_2nd` to activate it.")
 
 @bot.tree.command(name="rg_unadd_user", description="Unregister fully (use this if you made a mistake)")
 async def rg_unadd_user(interaction: discord.Interaction):
@@ -898,10 +778,8 @@ async def rg_online(interaction: discord.Interaction):
     verified = False
     friend_code = data[user_id]['friend_code']
     
-    # Use a single session with a timeout
     try:
         async with aiohttp.ClientSession(timeout=aiohttp.ClientTimeout(total=4)) as session:
-            # Wait up to 90 seconds (18 * 5s)
             for i in range(18):
                 print(f"🔍 Verification Attempt {i+1}/18 for {friend_code}", flush=True)
                 try:
@@ -928,7 +806,54 @@ async def rg_online(interaction: discord.Interaction):
     except Exception as e:
          print(f"Failed to edit message: {e}", flush=True)
 
-@bot.tree.command(name="rg_offline", description="Set your status to OFFLINE")
+@bot.tree.command(name="rg_online_2nd", description="Set your SECONDARY ID to ONLINE")
+async def rg_online_2nd(interaction: discord.Interaction):
+    try:
+        await interaction.response.defer(ephemeral=False)
+    except: return
+
+    user_id = str(interaction.user.id)
+    data = load_data()
+    
+    if user_id not in data or not data[user_id].get('secondary_code'):
+        await interaction.followup.send("❌ **No Secondary ID found!** Use `/rg_add_secondary_id` first.", ephemeral=True)
+        return
+
+    if data[user_id].get('secondary_status') == 'online':
+        await interaction.followup.send("⚠️ **Secondary ID Already Online!**", ephemeral=True)
+        return
+
+    data[user_id]['secondary_status'] = 'online'
+    await save_data_async(data)
+    await sync_to_github(data)
+    
+    msg = await interaction.followup.send(f"⏳ **Verifying 2nd ID accessibility...**")
+    
+    verified = False
+    sec_code = data[user_id]['secondary_code']
+    
+    try:
+        async with aiohttp.ClientSession(timeout=aiohttp.ClientTimeout(total=4)) as session:
+            for i in range(18): 
+                try:
+                    async with session.get(f"https://arwin.de/ids.txt?t={int(datetime.now().timestamp())}") as response:
+                        if response.status == 200:
+                            text = await response.text()
+                            if sec_code in text:
+                                verified = True
+                                break
+                except: pass
+                await asyncio.sleep(5)
+    except: pass
+    
+    if verified:
+        await msg.edit(content=f"🟢 **Secondary ID Online!** `{sec_code}` is live.")
+        await manage_roles(interaction.user, 'online') 
+        await update_channel_status(interaction.client)
+    else:
+        await msg.edit(content=f"⚠️ **Pushed 2nd ID**, but verification timed out. It should appear shortly.")
+
+@bot.tree.command(name="rg_offline", description="Set ALL your IDs to OFFLINE")
 async def rg_offline(interaction: discord.Interaction):
     await interaction.response.defer(ephemeral=False)
 
@@ -936,18 +861,18 @@ async def rg_offline(interaction: discord.Interaction):
     data = load_data()
     
     if user_id in data:
-        if data[user_id].get('status') == 'offline':
-            await interaction.followup.send("⚠️ **Already Offline!** You are not in the queue.", ephemeral=True)
-            return
+        if data[user_id].get('status') == 'offline' and data[user_id].get('secondary_status') == 'offline':
+             await interaction.followup.send("⚠️ **Already Offline!**", ephemeral=True)
+             return
 
         data[user_id]['status'] = 'offline'
+        data[user_id]['secondary_status'] = 'offline'
         await save_data_async(data)
         await sync_to_github(data)
         await manage_roles(interaction.user, 'offline')
     
     await interaction.followup.send(
-        f"🔴 **Offline.** {interaction.user.mention} has stopped accepting requests.\n"
-        f"Your ID has been removed from the global list."
+        f"🔴 **Offline.** All your IDs have been removed from the list."
     )
     await update_channel_status(interaction.client)
 
@@ -995,6 +920,7 @@ async def rg_tempban(interaction: discord.Interaction, member: discord.Member):
     data[user_id]["ban_expiry"] = expiry_time.isoformat()
     if data[user_id].get('status') == 'online':
         data[user_id]['status'] = 'offline'
+        data[user_id]['secondary_status'] = 'offline'
         await sync_to_github(data)
         await manage_roles(member, 'offline')
         await update_channel_status(interaction.client)
