@@ -110,7 +110,8 @@
         "friend_code": "4904259146724429",
         "instances": 3,
         "prefix": "pokemon name",
-        "status": "online"
+        "status": "offline",
+        "secondary_status": "offline"
     },
     "520672416632930304": {
         "username": "ichesterftw",
