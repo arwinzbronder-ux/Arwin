@@ -114,7 +114,8 @@
         "friend_code": null,
         "instances": 6,
         "prefix": "Libra",
-        "status": "offline"
+        "status": "offline",
+        "secondary_status": "offline"
     },
     "1291615786573627414": {
         "username": "ronniecheng90_77858",
