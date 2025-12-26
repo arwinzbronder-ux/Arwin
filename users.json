@@ -49,7 +49,8 @@
         "friend_code": "7951677911105601",
         "instances": 7,
         "prefix": "jerry",
-        "status": "online"
+        "status": "offline",
+        "secondary_status": "offline"
     },
     "288833945062342657": {
         "username": "insomniaskai",
