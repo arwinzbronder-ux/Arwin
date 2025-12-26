@@ -33,7 +33,8 @@
         "friend_code": "1467335724678192",
         "instances": 2,
         "prefix": "ZK",
-        "status": "online"
+        "status": "offline",
+        "secondary_status": "offline"
     },
     "264198310368116737": {
         "username": "garca0741",
