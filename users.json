@@ -141,5 +141,14 @@
         "status": "offline",
         "secondary_code": "3728578745352937",
         "secondary_status": "offline"
+    },
+    "1059812834445377587": {
+        "username": "daizy.",
+        "friend_code": "1034134251715674",
+        "secondary_code": null,
+        "instances": 5,
+        "prefix": "dai",
+        "status": "offline",
+        "secondary_status": "offline"
     }
 }
