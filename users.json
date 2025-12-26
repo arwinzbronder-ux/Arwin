@@ -142,5 +142,14 @@
         "prefix": "dai",
         "status": "offline",
         "secondary_status": "offline"
+    },
+    "1056944043688476682": {
+        "username": "libra_2828",
+        "friend_code": "9965721884571188",
+        "secondary_code": null,
+        "instances": 6,
+        "prefix": "LibraGP",
+        "status": "offline",
+        "secondary_status": "offline"
     }
 }
