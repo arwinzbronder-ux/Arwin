@@ -160,7 +160,7 @@
         "secondary_code": null,
         "instances": 4,
         "prefix": "randomnames",
-        "status": "offline",
+        "status": "online",
         "secondary_status": "offline"
     }
 }
