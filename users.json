@@ -161,5 +161,14 @@
         "prefix": "randomnames",
         "status": "online",
         "secondary_status": "offline"
+    },
+    "307883135285067776": {
+        "username": "tilero",
+        "friend_code": "0675368108621331",
+        "secondary_code": null,
+        "instances": 5,
+        "prefix": "randompokemon",
+        "status": "offline",
+        "secondary_status": "offline"
     }
 }
