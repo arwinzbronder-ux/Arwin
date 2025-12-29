@@ -22,6 +22,8 @@ CHECKIN_CHANNEL_NAME = "check-in"
 WATERMARK_CHANNEL_NAME = "🏆︱live-godpacks-showcase"
 SOURCE_CHANNEL_NAME = "🎰︱group-packs"
 HEARTBEAT_CHANNEL_ID = 1450631414432272454
+LIVE_PACKS_ID = 1455270012544876635
+DEAD_PACKS_ID = 1455283748118462652
 CHECKIN_PING_ID = 1450630077753856121
 WHITELIST_FILE = "whitelist.txt"
 ROLE_REROLLING = "Rerolling"
@@ -190,14 +192,38 @@ def add_watermark(image_bytes):
         if message.channel.name == SOURCE_CHANNEL_NAME:
             if "Invalid" in message.content:
                 print(f"⚠️ Ignored Invalid Pack message from {message.author}", flush=True)
+                try: await message.delete() 
+                except: pass
                 return
 
             match = re.search(r'\((\d{16})\)', message.content)
             if match:
                 vip_id = match.group(1)
                 print(f"🔍 Detected VIP ID: {vip_id}", flush=True)
+                # We still allow auto-add, or should we wait for Alive? 
+                # User didn't specify changing this logic, so we keep auto-add.
                 await update_vip_list(vip_id)
-        
+                
+            # TRIAGE: If Webhook, Repost with Buttons
+            if message.webhook_id:
+                view = PackView()
+                files = []
+                # Repost attachments
+                if message.attachments:
+                    try:
+                        for attachment in message.attachments:
+                            # We must read into BytesIO because we can't reuse the attachment object directly easily
+                            # Actually await attachment.to_file() works
+                            files.append(await attachment.to_file())
+                    except: pass
+                
+                try:
+                    await message.channel.send(content=message.content, files=files, view=view)
+                    await message.delete()
+                except Exception as e:
+                    print(f"Failed to triage pack: {e}", flush=True)
+                return # Stop processing (we handled it)
+
         # 2. Smart Heartbeat Routing & Policing
         # Check if channel is a 'home-' channel AND message is from a webhook
         if message.channel.name.startswith("home-") and message.webhook_id:
@@ -360,61 +386,44 @@ async def manage_roles(member, status):
     except Exception as e:
         print(f"Failed to update roles for {member.name}: {e}", flush=True)
         
-def _blocking_update_vip(new_id):
-    if not GITHUB_TOKEN: return
-    try:
-        auth = Auth.Token(GITHUB_TOKEN)
-        g = Github(auth=auth)
-        repo = g.get_repo(REPO_NAME)
+class PackView(discord.ui.View):
+    def __init__(self):
+        super().__init__(timeout=None)
+
+    @discord.ui.button(label="Alive", style=discord.ButtonStyle.green, custom_id="pack_alive")
+    async def alive_button(self, interaction: discord.Interaction, button: discord.ui.Button):
+        await self.handle_triage(interaction, LIVE_PACKS_ID, "Alive")
+
+    @discord.ui.button(label="Dead", style=discord.ButtonStyle.red, custom_id="pack_dead")
+    async def dead_button(self, interaction: discord.Interaction, button: discord.ui.Button):
+        await self.handle_triage(interaction, DEAD_PACKS_ID, "Dead")
+
+    async def handle_triage(self, interaction: discord.Interaction, channel_id, action):
+        target_channel = interaction.guild.get_channel(channel_id)
+        if not target_channel:
+            try: target_channel = await interaction.guild.fetch_channel(channel_id)
+            except: 
+                await interaction.response.send_message("❌ Target channel not found.", ephemeral=True)
+                return
+
+        # Prepare Content
+        content = interaction.message.content
+        files = []
+        if interaction.message.attachments:
+            try:
+                for attachment in interaction.message.attachments:
+                    files.append(await attachment.to_file())
+            except: pass
+            
+        header = f"✅ **Alive** (Checked by {interaction.user.mention})" if action == "Alive" else f"❌ **Dead** (Checked by {interaction.user.mention})"
+        final_msg = f"{header}\n\n{content}"
         
-        # 1. Get current VIP IDs
-        ids = set()
-        file_sha = None
         try:
-            contents = repo.get_contents("vip_ids.txt")
-            file_sha = contents.sha
-            existing_text = contents.decoded_content.decode()
-            ids = set(existing_text.splitlines())
-        except Exception:
-            pass # File might not exist yet
-            
-        # 2. Add New ID
-        if new_id not in ids:
-            ids.add(new_id)
-            new_content = "\n".join(sorted(list(ids)))
-            
-            # 3. Save back
-            if file_sha:
-                repo.update_file("vip_ids.txt", "[skip ci] [skip render] Bot: Update VIP IDs", new_content, file_sha)
-                print(f"💎 Added VIP ID {new_id} to vip_ids.txt (Updated)", flush=True)
-            else:
-                repo.create_file("vip_ids.txt", "[skip ci] [skip render] Bot: Create VIP IDs", new_content)
-                print(f"💎 Added VIP ID {new_id} to vip_ids.txt (Created)", flush=True)
-        else:
-            print(f"ℹ️ VIP ID {new_id} already exists.", flush=True)
-            
-    except Exception as e:
-        print(f"❌ Failed to update vip_ids.txt: {e}", flush=True)
-
-async def update_vip_list(new_id):
-    loop = asyncio.get_running_loop()
-    await loop.run_in_executor(None, _blocking_update_vip, new_id)
-
-def count_online_users(data):
-    count = 0
-    for info in data.values():
-        # Count as online if EITHER primary or secondary is online
-        if info.get('status') == 'online' or info.get('secondary_status') == 'online':
-            count += 1
-    return count
-
-# Helper to find check-in channel (ignoring status prefix)
-def get_checkin_channel(guild):
-    # Search for any channel containing the base name
-    for ch in guild.text_channels:
-        if CHECKIN_CHANNEL_NAME in ch.name:
-            return ch
-    return None
+            await target_channel.send(content=final_msg, files=files)
+            await interaction.message.delete() # Clean up original
+        except Exception as e:
+            await interaction.message.delete()
+            await interaction.response.send_message(f"❌ Failed to move: {e}", ephemeral=True)
 
 def add_watermark(image_bytes):
     try:
@@ -677,6 +686,7 @@ class MyBot(commands.Bot):
     async def setup_hook(self):
         await download_users_from_github()
         await self.tree.sync()
+        self.add_view(PackView()) # Persist View
         print("Synced slash commands globally!", flush=True)
         self.loop.create_task(start_dummy_server())
         self.check_bans.start()
