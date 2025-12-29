@@ -35,8 +35,9 @@
         "friend_code": "1467335724678192",
         "instances": 2,
         "prefix": "ZK",
-        "status": "online",
-        "secondary_status": "offline"
+        "status": "offline",
+        "secondary_status": "offline",
+        "ban_expiry": "2025-12-31T03:43:44.434196"
     },
     "264198310368116737": {
         "username": "garca0741",
