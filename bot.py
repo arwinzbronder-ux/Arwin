@@ -826,6 +826,8 @@ class MyBot(commands.Bot):
             # FILTER: Ignore invalid packs
             if "Invalid" in message.content:
                 print(f"⚠️ Ignored Invalid Pack message from {message.author}", flush=True)
+                try: await message.delete() 
+                except: pass
                 return
 
             # Look for 16-digit ID in parenthesis: e.g. (9075827188388472)
@@ -834,6 +836,23 @@ class MyBot(commands.Bot):
                 vip_id = match.group(1)
                 print(f"🔍 Detected VIP ID: {vip_id}", flush=True)
                 await update_vip_list(vip_id)
+            
+            # TRIAGE: If Webhook, Repost with Buttons
+            if message.webhook_id:
+                view = PackView()
+                files = []
+                if message.attachments:
+                    try:
+                        for attachment in message.attachments:
+                            files.append(await attachment.to_file())
+                    except: pass
+                
+                try:
+                    await message.channel.send(content=message.content, files=files, view=view)
+                    await message.delete()
+                except Exception as e:
+                    print(f"Failed to triage pack: {e}", flush=True)
+                return # Stop processing (we handled it)
 
         if message.author == self.user:
             return
@@ -1408,8 +1427,7 @@ async def rg_whitelist_remove(interaction: discord.Interaction, pack_name: str):
     await save_whitelist_async(current_list)
     await interaction.followup.send(f"🗑️ Removed `{pack_name}` from whitelist.")
 
-@bot.tree.command(name="rg_whitelist_list", description="[Admin] Show all allowed packs")
-@app_commands.checks.has_permissions(administrator=True)
+@bot.tree.command(name="rg_whitelist_list", description="Show all allowed packs")
 async def rg_whitelist_list(interaction: discord.Interaction):
     current_list = load_whitelist()
     formatted = "\n".join([f"• {item}" for item in sorted(current_list)])
