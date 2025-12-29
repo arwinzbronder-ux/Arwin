@@ -864,15 +864,25 @@ class MyBot(commands.Bot):
 
             print(f"DEBUG: Webhook message detected in {message.channel.name}", flush=True)
             try:
-                # Identify Member from Channel Name (home-username) - Case Insensitive
-                username_part = message.channel.name[5:].lower() # "home-" is 5 chars
-                member = None
-                for m in message.guild.members:
-                    if m.name.lower() == username_part:
-                        member = m
-                        break
+                # Identify Member by Presence in Private Channel (Robust against name changes/special chars)
+                # Filter out Bots
+                humans = [m for m in message.channel.members if not m.bot]
                 
-                print(f"DEBUG: Resolved Member: {member} (from '{username_part}')", flush=True)
+                # Filter out Admin "bk030" (unless they are the ONLY human)
+                candidates = [m for m in humans if m.name != "bk030"]
+                
+                member = None
+                if len(candidates) == 1:
+                    member = candidates[0]
+                elif len(candidates) == 0 and len(humans) > 0:
+                    # If candidates is empty but humans exist, it must be bk030 alone
+                    member = humans[0]
+                else:
+                    # Multiple candidates? Log it.
+                    if len(candidates) > 1:
+                        print(f"⚠️ Ambiguous Members in {message.channel.name}: {[m.name for m in candidates]}", flush=True)
+
+                print(f"DEBUG: Resolved Member via Presence: {member}", flush=True)
 
                 user_id = str(member.id) if member else None
                 data = load_data()
