@@ -858,6 +858,10 @@ class MyBot(commands.Bot):
                 return # Stop processing (we handled it)
 
         if message.channel.name.startswith("home-") and message.webhook_id:
+            # FILTER: Ignore Tradeable messages
+            if "Tradeable" in message.content:
+                return
+
             print(f"DEBUG: Webhook message detected in {message.channel.name}", flush=True)
             try:
                 # Identify Member from Channel Name (home-username) - Case Insensitive
