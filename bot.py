@@ -22,10 +22,300 @@ CHECKIN_CHANNEL_NAME = "check-in"
 WATERMARK_CHANNEL_NAME = "🏆︱live-godpacks-showcase"
 SOURCE_CHANNEL_NAME = "🎰︱group-packs"
 HEARTBEAT_CHANNEL_ID = 1450631414432272454
+CHECKIN_PING_ID = 1450630077753856121
+WHITELIST_FILE = "whitelist.txt"
 ROLE_REROLLING = "Rerolling"
 ROLE_NOT_REROLLING = "Not Rerolling"
 
 # --- HELPER FUNCTIONS ---
+
+def load_data():
+    if not os.path.exists(DATA_FILE):
+        return {}
+    try:
+        with open(DATA_FILE, "r") as f:
+            return json.load(f)
+    except Exception:
+        return {}
+
+def load_whitelist():
+    defaults = {"MegaGyarados", "MegaBlaziken", "MegaAltaria", "CrimsonBlaze"}
+    if not os.path.exists(WHITELIST_FILE):
+        return list(defaults)
+        
+    try:
+        with open(WHITELIST_FILE, "r") as f:
+            content = f.read().strip()
+            if not content: return list(defaults)
+            return [line.strip() for line in content.splitlines() if line.strip()]
+    except Exception:
+        return list(defaults)
+
+def _blocking_upload_whitelist(data_list):
+    if not GITHUB_TOKEN: return
+    content = "\n".join(sorted(list(set(data_list))))
+    try:
+        auth = Auth.Token(GITHUB_TOKEN)
+        g = Github(auth=auth)
+        repo = g.get_repo(REPO_NAME)
+        try:
+            contents = repo.get_contents(WHITELIST_FILE)
+            repo.update_file(contents.path, "[skip ci] [skip render] Bot: Update whitelist", content, contents.sha)
+        except Exception:
+            repo.create_file(WHITELIST_FILE, "[skip ci] [skip render] Bot: Create whitelist", content)
+        print(f"💾 Saved {WHITELIST_FILE} to GitHub", flush=True)
+    except Exception as e:
+        print(f"❌ Failed to save {WHITELIST_FILE} to GitHub: {e}", flush=True)
+
+async def save_whitelist_async(data_list):
+    try:
+        with open(WHITELIST_FILE, "w") as f:
+            f.write("\n".join(sorted(list(set(data_list)))))
+    except Exception as e:
+        print(f"Error saving local whitelist: {e}", flush=True)
+        
+    loop = asyncio.get_running_loop()
+    await loop.run_in_executor(None, _blocking_upload_whitelist, data_list)
+
+async def manage_roles(member, status):
+    if member.bot: return
+    
+    guild = member.guild
+    role_rerolling = discord.utils.get(guild.roles, name=ROLE_REROLLING)
+    role_not_rerolling = discord.utils.get(guild.roles, name=ROLE_NOT_REROLLING)
+
+    if not role_rerolling:
+        try:
+            role_rerolling = await guild.create_role(name=ROLE_REROLLING, color=discord.Color.green(), hoist=True, permissions=discord.Permissions.none())
+        except: pass
+
+    if not role_not_rerolling:
+        try:
+            role_not_rerolling = await guild.create_role(name=ROLE_NOT_REROLLING, color=discord.Color.red(), hoist=True, permissions=discord.Permissions.none())
+        except: pass
+
+    try:
+        if status == 'online':
+            if role_rerolling: await member.add_roles(role_rerolling)
+            if role_not_rerolling: await member.remove_roles(role_not_rerolling)
+        else:
+            if role_not_rerolling: await member.add_roles(role_not_rerolling)
+            if role_rerolling: await member.remove_roles(role_rerolling)
+            
+    except Exception as e:
+        print(f"Failed to update roles for {member.name}: {e}", flush=True)
+        
+def _blocking_update_vip(new_id):
+    if not GITHUB_TOKEN: return
+    try:
+        auth = Auth.Token(GITHUB_TOKEN)
+        g = Github(auth=auth)
+        repo = g.get_repo(REPO_NAME)
+        
+        ids = set()
+        file_sha = None
+        try:
+            contents = repo.get_contents("vip_ids.txt")
+            file_sha = contents.sha
+            existing_text = contents.decoded_content.decode()
+            ids = set(existing_text.splitlines())
+        except Exception:
+            pass 
+            
+        if new_id not in ids:
+            ids.add(new_id)
+            new_content = "\n".join(sorted(list(ids)))
+            
+            if file_sha:
+                repo.update_file("vip_ids.txt", "[skip ci] [skip render] Bot: Update VIP IDs", new_content, file_sha)
+            else:
+                repo.create_file("vip_ids.txt", "[skip ci] [skip render] Bot: Create VIP IDs", new_content)
+            print(f"💎 Added VIP ID {new_id} to vip_ids.txt", flush=True)
+            
+    except Exception as e:
+        print(f"❌ Failed to update vip_ids.txt: {e}", flush=True)
+
+async def update_vip_list(new_id):
+    loop = asyncio.get_running_loop()
+    await loop.run_in_executor(None, _blocking_update_vip, new_id)
+
+def count_online_users(data):
+    count = 0
+    for info in data.values():
+        if info.get('status') == 'online' or info.get('secondary_status') == 'online':
+            count += 1
+    return count
+
+def get_checkin_channel(guild):
+    for ch in guild.text_channels:
+        if CHECKIN_CHANNEL_NAME in ch.name:
+            return ch
+    return None
+
+def add_watermark(image_bytes):
+    try:
+        with Image.open(io.BytesIO(image_bytes)) as img:
+            img = img.convert("RGBA")
+            txt_layer = Image.new('RGBA', img.size, (255, 255, 255, 0))
+            draw = ImageDraw.Draw(txt_layer)
+            text = "EternalGP"
+            width, height = img.size
+            font_size = int(height * 0.09) 
+            if font_size < 15: font_size = 15
+            try:
+                 font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", font_size)
+            except:
+                 font = ImageFont.load_default()
+            left, top, right, bottom = draw.textbbox((0, 0), text, font=font)
+            text_width = right - left
+            text_height = bottom - top
+            x = (width - text_width) / 2
+            y = (height - text_height) / 2
+            stroke_width = max(1, int(font_size / 25))
+            draw.text((x, y), text, font=font, fill=(255, 255, 255, 255), stroke_width=stroke_width, stroke_fill=(0, 0, 0, 255))
+            r, g, b, a = txt_layer.split()
+            a = a.point(lambda p: int(p * 0.35))
+            txt_layer = Image.merge('RGBA', (r, g, b, a))
+            combined = Image.alpha_composite(img, txt_layer)
+            output = io.BytesIO()
+            combined.save(output, format="PNG")
+            output.seek(0)
+            return output
+    except Exception as e:
+        print(f"Error processing image: {e}", flush=True)
+        return None
+
+    async def on_message(self, message):
+        # 1. VIP ID Extraction
+        if message.channel.name == SOURCE_CHANNEL_NAME:
+            if "Invalid" in message.content:
+                print(f"⚠️ Ignored Invalid Pack message from {message.author}", flush=True)
+                return
+
+            match = re.search(r'\((\d{16})\)', message.content)
+            if match:
+                vip_id = match.group(1)
+                print(f"🔍 Detected VIP ID: {vip_id}", flush=True)
+                await update_vip_list(vip_id)
+        
+        # 2. Smart Heartbeat Routing & Policing
+        # Check if channel is a 'home-' channel AND message is from a webhook
+        if message.channel.name.startswith("home-") and message.webhook_id:
+            try:
+                # Identify Member from Channel Name (home-username)
+                username_from_channel = message.channel.name.replace("home-", "")
+                member = discord.utils.get(message.guild.members, name=username_from_channel)
+                
+                # If member not found by name, try looking up in our DB if possible, or just skip policing (can't ban null)
+                # We'll validte if we have the user_id in our DB
+                user_id = str(member.id) if member else None
+                
+                if not member or not user_id: 
+                    # Try to match DB username?
+                    # For now, if we can't find the member object, we can't effectively ban (role/ping). 
+                    # We will still forward blindly? No, user specified "take ID offline" - requires DB access.
+                    pass
+
+                # Proceed only if we identified the member and they are in our DB logic (implicitly)
+                # ACTUALLY, we can just check if user_id is in load_data()
+                data = load_data()
+                
+                if user_id and user_id in data:
+                    content = message.content
+                    reason = None
+                    
+                    # --- RULE 2: "1P Method" ---
+                    if "1P Method" in content:
+                        reason = "Forbidden Strategy: 1P Method detected."
+
+                    # --- PARSING ---
+                    # Time: 120m Packs: 414
+                    # Opening: CrimsonBlaze,
+                    time_match = re.search(r"Time:\s*(\d+)m\s*Packs:\s*(\d+)", content)
+                    opening_match = re.search(r"Opening:\s*(.+)", content) # Capture rest of line
+                    
+                    current_time = int(time_match.group(1)) if time_match else 0
+                    current_packs = int(time_match.group(2)) if time_match else 0
+                    
+                    # --- RULE 1: Stalling (Time +30m, Packs same) ---
+                    if time_match:
+                        last_stats = data[user_id].get('last_heartbeat', {})
+                        last_time = last_stats.get('time', 0)
+                        last_packs = last_stats.get('packs', 0)
+                        
+                        # Check: New Time is roughly ~30m more (allow >= 25) AND Packs are identical
+                        # Only check if we actually have history (last_time > 0)
+                        if last_time > 0 and (current_time - last_time) >= 25 and current_packs == last_packs:
+                            reason = f"Stalling Detected: Time passed ({current_time - last_time}m) but Packs ({current_packs}) did not increase."
+                            
+                    # --- RULE 3: Wrong Pack Type ---
+                    if not reason and opening_match:
+                        opening_str = opening_match.group(1).replace(",", " ").strip()
+                        
+                        allowed_packs = set(load_whitelist())
+                        
+                        # Split by space and check each word (ignoring empty strings)
+                        found_words = [w for w in opening_str.split() if w]
+                        for word in found_words:
+                            if word not in allowed_packs:
+                                reason = f"Forbidden Pack: '{word}' is not allowed."
+                                break
+
+                    if reason:
+                        # BAN HAMMER
+                        print(f"🚫 POLICING BAN: {member.name} - {reason}", flush=True)
+                        
+                        # 1. Update Data (Offline)
+                        data[user_id]['status'] = 'offline'
+                        data[user_id]['secondary_status'] = 'offline' 
+                        # Clear heartbeat history on ban so they can reset
+                        if 'last_heartbeat' in data[user_id]: del data[user_id]['last_heartbeat']
+                        
+                        await save_data_async(data)
+                        await sync_to_github(data)
+                        
+                        # 2. Roles
+                        await manage_roles(member, 'offline')
+                        await update_channel_status(self) # Update check-in count
+                        
+                        # 3. Ping in Check-in
+                        try:
+                            checkin_ping_channel = await self.fetch_channel(CHECKIN_PING_ID)
+                            await checkin_ping_channel.send(
+                                f"🚨 {member.mention} **has been automatically taken offline.**\n"
+                                f"**Reason:** {reason}\n"
+                                f"Please adjust your settings before checking in again."
+                            )
+                        except Exception as e:
+                            print(f"Failed to ping ban in check-in: {e}", flush=True)
+                        
+                        return # Do not forward message
+
+                    else:
+                        # ALL GOOD - Update History & Forward
+                        if time_match:
+                            data[user_id]['last_heartbeat'] = {'time': current_time, 'packs': current_packs}
+                            await save_data_async(data)
+                        
+                        # Forward to Heartbeat Channel
+                        try:
+                            hb_channel = await self.fetch_channel(HEARTBEAT_CHANNEL_ID)
+                            # Replicate Format: MemberName\nContent
+                            forward_msg = f"{member.name}\n{content}"
+                            await hb_channel.send(forward_msg)
+                        except Exception as e:
+                             print(f"Failed to forward heartbeat: {e}", flush=True)
+
+            except Exception as e:
+                print(f"⚠️ Heartbeat Policing Error: {e}", flush=True)
+
+
+        # ... (Existing Check for self.user to prevent loops) ...
+        if message.author == self.user:
+            return
+
+        # 2. Watermarking
+        # ...
 
 def load_data():
     if not os.path.exists(DATA_FILE):
@@ -242,7 +532,19 @@ def _blocking_initial_sync():
         except Exception as e:
             print(f"⚠️ Could not download {DATA_FILE}: {e}", flush=True)
 
-        # 2. Download ids.txt and Sync Status
+        # 2. Download Whitelist
+        try:
+            try:
+                w_contents = repo.get_contents(WHITELIST_FILE)
+                with open(WHITELIST_FILE, "wb") as f:
+                    f.write(w_contents.decoded_content)
+                print(f"✅ Downloaded {WHITELIST_FILE}", flush=True)
+            except:
+                 pass
+        except Exception as e:
+            print(f"⚠️ Whitelist download warning: {e}", flush=True)
+
+        # 3. Download ids.txt and Sync Status
         try:
             ids_content = repo.get_contents("ids.txt")
             online_ids = set(ids_content.decoded_content.decode().splitlines())
@@ -1057,6 +1359,49 @@ async def rg_startingtime(interaction: discord.Interaction, time: str):
 @rg_startingtime.error
 async def admin_error(interaction: discord.Interaction, error):
     pass # handled by global mod_error or just ignore
+
+@bot.tree.command(name="rg_whitelist_add", description="[Admin] Add a pack name to the allowed whitelist")
+@app_commands.describe(pack_name="The pack string to allow (case sensitive)")
+@app_commands.checks.has_permissions(administrator=True)
+async def rg_whitelist_add(interaction: discord.Interaction, pack_name: str):
+    await interaction.response.defer(ephemeral=False)
+    
+    current_list = load_whitelist()
+    if pack_name in current_list:
+        await interaction.followup.send(f"⚠️ `{pack_name}` is already in the whitelist.")
+        return
+
+    current_list.append(pack_name)
+    await save_whitelist_async(current_list)
+    await interaction.followup.send(f"✅ Added `{pack_name}` to whitelist.")
+
+@bot.tree.command(name="rg_whitelist_remove", description="[Admin] Remove a pack name from the allowed whitelist")
+@app_commands.describe(pack_name="The pack string to remove")
+@app_commands.checks.has_permissions(administrator=True)
+async def rg_whitelist_remove(interaction: discord.Interaction, pack_name: str):
+    await interaction.response.defer(ephemeral=False)
+    
+    current_list = load_whitelist()
+    if pack_name not in current_list:
+        await interaction.followup.send(f"⚠️ `{pack_name}` is not in the whitelist.")
+        return
+
+    current_list.remove(pack_name)
+    await save_whitelist_async(current_list)
+    await interaction.followup.send(f"🗑️ Removed `{pack_name}` from whitelist.")
+
+@bot.tree.command(name="rg_whitelist_list", description="[Admin] Show all allowed packs")
+@app_commands.checks.has_permissions(administrator=True)
+async def rg_whitelist_list(interaction: discord.Interaction):
+    current_list = load_whitelist()
+    formatted = "\n".join([f"• {item}" for item in sorted(current_list)])
+    await interaction.response.send_message(f"📜 **Allowed Packs Whitelist:**\n\n{formatted}")
+
+@rg_whitelist_add.error
+@rg_whitelist_remove.error
+@rg_whitelist_list.error
+async def whitelist_error(interaction: discord.Interaction, error):
+    pass
 
 @rg_remove_id.error
 @rg_tempban.error
