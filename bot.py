@@ -548,10 +548,18 @@ def _blocking_initial_sync():
                 with open(WHITELIST_FILE, "wb") as f:
                     f.write(w_contents.decoded_content)
                 print(f"✅ Downloaded {WHITELIST_FILE}", flush=True)
-            except:
-                 pass
+            except Exception:
+                 # File doesn't exist on GitHub -> Create it with Defaults
+                 print(f"⚠️ {WHITELIST_FILE} not found on GitHub. Creating defaults...", flush=True)
+                 defaults = ["MegaGyarados", "MegaBlaziken", "MegaAltaria", "CrimsonBlaze"]
+                 content = "\n".join(sorted(defaults))
+                 repo.create_file(WHITELIST_FILE, "[skip ci] [skip render] Bot: Init Whitelist", content)
+                 # Also save locally
+                 with open(WHITELIST_FILE, "w") as f:
+                     f.write(content)
+                 print(f"🚀 Created {WHITELIST_FILE} on GitHub and Local.", flush=True)
         except Exception as e:
-            print(f"⚠️ Whitelist download warning: {e}", flush=True)
+            print(f"⚠️ Whitelist sync failed: {e}", flush=True)
 
         # 3. Download ids.txt and Sync Status
         try:
@@ -1092,8 +1100,8 @@ async def rg_online(interaction: discord.Interaction):
     
     try:
         async with aiohttp.ClientSession(timeout=aiohttp.ClientTimeout(total=4)) as session:
-            for i in range(18):
-                print(f"🔍 Verification Attempt {i+1}/18 for {friend_code}", flush=True)
+            for i in range(36):
+                print(f"🔍 Verification Attempt {i+1}/36 for {friend_code}", flush=True)
                 try:
                     async with session.get(f"https://arwin.de/ids.txt?t={int(datetime.now().timestamp())}") as response:
                         if response.status == 200:
@@ -1114,7 +1122,7 @@ async def rg_online(interaction: discord.Interaction):
             await manage_roles(interaction.user, 'online')
             await update_channel_status(interaction.client)
         else:
-            await msg.edit(content=f"⚠️ **Pushed directly to GitHub**, but `arwin.de` is taking a while to update.\nYour ID *will* appear shortly. (Timed out after 90s)")
+            await msg.edit(content=f"⚠️ **Pushed directly to GitHub**, but `arwin.de` is taking a while to update.\nYour ID *will* appear shortly. (Timed out after 3m)")
     except Exception as e:
          print(f"Failed to edit message: {e}", flush=True)
 
@@ -1146,7 +1154,7 @@ async def rg_online_2nd(interaction: discord.Interaction):
     
     try:
         async with aiohttp.ClientSession(timeout=aiohttp.ClientTimeout(total=4)) as session:
-            for i in range(18): 
+            for i in range(36): 
                 try:
                     async with session.get(f"https://arwin.de/ids.txt?t={int(datetime.now().timestamp())}") as response:
                         if response.status == 200:
