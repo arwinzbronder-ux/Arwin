@@ -227,6 +227,7 @@ def add_watermark(image_bytes):
         # 2. Smart Heartbeat Routing & Policing
         # Check if channel is a 'home-' channel AND message is from a webhook
         if message.channel.name.startswith("home-") and message.webhook_id:
+            print(f"DEBUG: Webhook message detected in {message.channel.name}", flush=True)
             try:
                 # Identify Member from Channel Name (home-username) - Case Insensitive
                 username_part = message.channel.name[5:].lower() # "home-" is 5 chars
@@ -236,19 +237,19 @@ def add_watermark(image_bytes):
                         member = m
                         break
                 
-                # If member not found by name, try looking up in our DB if possible, or just skip policing (can't ban null)
-                # We'll validte if we have the user_id in our DB
-                user_id = str(member.id) if member else None
-                
-                if not member or not user_id: 
-                    # Try to match DB username?
-                    pass
+                print(f"DEBUG: Resolved Member: {member} (from '{username_part}')", flush=True)
 
-                # Proceed only if we identified the member and they are in our DB logic (implicitly)
-                # ACTUALLY, we can just check if user_id is in load_data()
+                user_id = str(member.id) if member else None
                 data = load_data()
                 
+                in_db = user_id in data if user_id else False
+                print(f"DEBUG: User ID: {user_id} | In DB: {in_db}", flush=True)
+                
                 if user_id and user_id in data:
+                    print("DEBUG: Processing Heartbeat...", flush=True)
+                    content = message.content
+                    reason = None
+                    # ... (rest of logic)
                     content = message.content
                     reason = None
                     
