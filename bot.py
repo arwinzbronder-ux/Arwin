@@ -315,22 +315,22 @@ def add_watermark(image_bytes):
                         except Exception as e:
                             print(f"Failed to ping ban in check-in: {e}", flush=True)
                         
-                        return # Do not forward message
+                        # Continue to forward for transparency
 
                     else:
-                        # ALL GOOD - Update History & Forward
+                        # ALL GOOD - Update History
                         if time_match:
                             data[user_id]['last_heartbeat'] = {'time': current_time, 'packs': current_packs}
                             await save_data_async(data)
                         
-                        # Forward to Heartbeat Channel
-                        try:
-                            hb_channel = await self.fetch_channel(HEARTBEAT_CHANNEL_ID)
-                            # Replicate Format: MemberName\nContent
-                            forward_msg = f"{member.name}\n{content}"
-                            await hb_channel.send(forward_msg)
-                        except Exception as e:
-                             print(f"Failed to forward heartbeat: {e}", flush=True)
+                    # ALWAYS Forward to Heartbeat Channel (Transparency)
+                    try:
+                        hb_channel = await self.fetch_channel(HEARTBEAT_CHANNEL_ID)
+                        # Replicate Format: MemberName\nContent
+                        forward_msg = f"{member.name}\n{content}"
+                        await hb_channel.send(forward_msg)
+                    except Exception as e:
+                            print(f"Failed to forward heartbeat: {e}", flush=True)
 
             except Exception as e:
                 print(f"⚠️ Heartbeat Policing Error: {e}", flush=True)
