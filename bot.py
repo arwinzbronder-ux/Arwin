@@ -228,9 +228,13 @@ def add_watermark(image_bytes):
         # Check if channel is a 'home-' channel AND message is from a webhook
         if message.channel.name.startswith("home-") and message.webhook_id:
             try:
-                # Identify Member from Channel Name (home-username)
-                username_from_channel = message.channel.name.replace("home-", "")
-                member = discord.utils.get(message.guild.members, name=username_from_channel)
+                # Identify Member from Channel Name (home-username) - Case Insensitive
+                username_part = message.channel.name[5:].lower() # "home-" is 5 chars
+                member = None
+                for m in message.guild.members:
+                    if m.name.lower() == username_part:
+                        member = m
+                        break
                 
                 # If member not found by name, try looking up in our DB if possible, or just skip policing (can't ban null)
                 # We'll validte if we have the user_id in our DB
@@ -238,8 +242,6 @@ def add_watermark(image_bytes):
                 
                 if not member or not user_id: 
                     # Try to match DB username?
-                    # For now, if we can't find the member object, we can't effectively ban (role/ping). 
-                    # We will still forward blindly? No, user specified "take ID offline" - requires DB access.
                     pass
 
                 # Proceed only if we identified the member and they are in our DB logic (implicitly)
@@ -1432,6 +1434,37 @@ async def rg_whitelist_list(interaction: discord.Interaction):
     current_list = load_whitelist()
     formatted = "\n".join([f"• {item}" for item in sorted(current_list)])
     await interaction.response.send_message(f"📜 **Allowed Packs Whitelist:**\n\n{formatted}")
+
+@bot.tree.command(name="rg_create_home", description="[Admin] Manually create a home channel for a user")
+@app_commands.describe(member="The user to create a channel for")
+@app_commands.checks.has_permissions(administrator=True)
+async def rg_create_home(interaction: discord.Interaction, member: discord.Member):
+    await interaction.response.defer(ephemeral=True)
+    guild = interaction.guild
+    category = discord.utils.get(guild.categories, name=CATEGORY_NAME)
+    
+    if not category:
+        category = await guild.create_category(CATEGORY_NAME)
+        
+    channel_name = f"home-{member.name.lower()}"
+    existing_channel = discord.utils.get(guild.text_channels, name=channel_name)
+    
+    if existing_channel:
+        await interaction.followup.send(f"⚠️ Channel {existing_channel.mention} already exists!")
+        return
+
+    overwrites = {
+        guild.default_role: discord.PermissionOverwrite(read_messages=False),
+        member: discord.PermissionOverwrite(read_messages=True, send_messages=True, attach_files=True),
+        guild.me: discord.PermissionOverwrite(read_messages=True, send_messages=True)
+    }
+    
+    try:
+        channel = await guild.create_text_channel(channel_name, category=category, overwrites=overwrites)
+        await channel.send(f"👋 Welcome {member.mention}!\n\nThis is your **Personal Home Channel**.\n1. Go to Channel Settings -> Integrations -> Webhooks.\n2. Create a Webhook.\n3. Copy the Webhook URL and paste it into your device's script settings.\n\nOnly YOU and the Bot can see this channel.")
+        await interaction.followup.send(f"✅ Created {channel.mention} for {member.name}.")
+    except Exception as e:
+        await interaction.followup.send(f"❌ Failed to create channel: {e}")
 
 @rg_whitelist_add.error
 @rg_whitelist_remove.error
