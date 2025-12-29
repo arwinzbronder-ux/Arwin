@@ -857,6 +857,91 @@ class MyBot(commands.Bot):
                     print(f"Failed to triage pack: {e}", flush=True)
                 return # Stop processing (we handled it)
 
+        if message.channel.name.startswith("home-") and message.webhook_id:
+            print(f"DEBUG: Webhook message detected in {message.channel.name}", flush=True)
+            try:
+                # Identify Member from Channel Name (home-username) - Case Insensitive
+                username_part = message.channel.name[5:].lower() # "home-" is 5 chars
+                member = None
+                for m in message.guild.members:
+                    if m.name.lower() == username_part:
+                        member = m
+                        break
+                
+                print(f"DEBUG: Resolved Member: {member} (from '{username_part}')", flush=True)
+
+                user_id = str(member.id) if member else None
+                data = load_data()
+                
+                in_db = user_id in data if user_id else False
+                print(f"DEBUG: User ID: {user_id} | In DB: {in_db}", flush=True)
+                
+                if user_id and user_id in data:
+                    print("DEBUG: Processing Heartbeat...", flush=True)
+                    content = message.content
+                    reason = None
+                    
+                    # --- RULE 2: "1P Method" ---
+                    if "1P Method" in content:
+                        reason = "Forbidden Strategy: 1P Method detected."
+
+                    # --- PARSING ---
+                    time_match = re.search(r"Time:\s*(\d+)m\s*Packs:\s*(\d+)", content)
+                    opening_match = re.search(r"Opening:\s*(.+)", content) 
+                    
+                    current_time = int(time_match.group(1)) if time_match else 0
+                    current_packs = int(time_match.group(2)) if time_match else 0
+                    
+                    # --- RULE 1: Stalling ---
+                    if time_match:
+                        last_stats = data[user_id].get('last_heartbeat', {})
+                        last_time = last_stats.get('time', 0)
+                        last_packs = last_stats.get('packs', 0)
+                        
+                        if last_time > 0 and (current_time - last_time) >= 25 and current_packs == last_packs:
+                            reason = f"Stalling Detected: Time passed ({current_time - last_time}m) but Packs did not increase."
+                            
+                    # --- RULE 3: Wrong Pack Type ---
+                    if not reason and opening_match:
+                        opening_str = opening_match.group(1).replace(",", " ").strip()
+                        allowed_packs = set(load_whitelist())
+                        found_words = [w for w in opening_str.split() if w]
+                        for word in found_words:
+                            if word not in allowed_packs:
+                                reason = f"Forbidden Pack: '{word}' is not allowed."
+                                break
+
+                    if reason:
+                        # BAN HAMMER
+                        print(f"🚫 POLICING BAN: {member.name} - {reason}", flush=True)
+                        data[user_id]['status'] = 'offline'
+                        data[user_id]['secondary_status'] = 'offline' 
+                        if 'last_heartbeat' in data[user_id]: del data[user_id]['last_heartbeat']
+                        await save_data_async(data)
+                        await sync_to_github(data)
+                        await manage_roles(member, 'offline')
+                        await update_channel_status(self) 
+                        try:
+                            checkin_ping_channel = await self.fetch_channel(CHECKIN_PING_ID)
+                            await checkin_ping_channel.send(f"🚨 {member.mention} **has been automatically taken offline.**\n**Reason:** {reason}")
+                        except: pass
+                    else:
+                        # ALL GOOD
+                        if time_match:
+                            data[user_id]['last_heartbeat'] = {'time': current_time, 'packs': current_packs}
+                            await save_data_async(data)
+                        
+                    # ALWAYS Forward
+                    try:
+                        hb_channel = await self.fetch_channel(HEARTBEAT_CHANNEL_ID)
+                        forward_msg = f"{member.name}\n{content}"
+                        await hb_channel.send(forward_msg)
+                    except Exception as e:
+                            print(f"Failed to forward heartbeat: {e}", flush=True)
+
+            except Exception as e:
+                print(f"⚠️ Heartbeat Policing Error: {e}", flush=True)
+
         if message.author == self.user:
             return
 
