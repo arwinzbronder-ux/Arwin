@@ -197,7 +197,7 @@
         "secondary_code": null,
         "instances": 4,
         "prefix": "randomnames",
-        "status": "online",
+        "status": "offline",
         "secondary_status": "offline",
         "last_heartbeat": {
             "time": 540,
