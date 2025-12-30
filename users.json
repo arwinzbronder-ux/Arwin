@@ -110,7 +110,11 @@
         "instances": 7,
         "prefix": "bass",
         "status": "offline",
-        "secondary_status": "offline"
+        "secondary_status": "offline",
+        "last_heartbeat": {
+            "time": 0,
+            "packs": 0
+        }
     },
     "275988818631327745": {
         "username": "bloo_64",
