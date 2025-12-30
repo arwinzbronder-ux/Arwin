@@ -17,7 +17,11 @@
         "instances": 5,
         "prefix": "naja",
         "status": "online",
-        "secondary_status": "offline"
+        "secondary_status": "offline",
+        "last_heartbeat": {
+            "time": 0,
+            "packs": 0
+        }
     },
     "475603063948705794": {
         "username": "kysog6646",
