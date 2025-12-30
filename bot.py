@@ -895,52 +895,73 @@ class MyBot(commands.Bot):
                     content = message.content
                     reason = None
                     
-                    # --- RULE 2: "1P Method" ---
-                    if "1P Method" in content:
-                        reason = "Forbidden Strategy: 1P Method detected."
-
                     # --- PARSING ---
                     time_match = re.search(r"Time:\s*(\d+)m\s*Packs:\s*(\d+)", content)
                     opening_match = re.search(r"Opening:\s*(.+)", content) 
                     
                     current_time = int(time_match.group(1)) if time_match else 0
                     current_packs = int(time_match.group(2)) if time_match else 0
-                    
-                    # --- RULE 1: Stalling ---
-                    if time_match:
-                        last_stats = data[user_id].get('last_heartbeat', {})
-                        last_time = last_stats.get('time', 0)
-                        last_packs = last_stats.get('packs', 0)
-                        
-                        if last_time > 0 and (current_time - last_time) >= 25 and current_packs == last_packs:
-                            reason = f"Stalling Detected: Time passed ({current_time - last_time}m) but Packs did not increase."
-                            
-                    # --- RULE 3: Wrong Pack Type ---
-                    if not reason and opening_match:
-                        opening_str = opening_match.group(1).replace(",", " ").strip()
-                        allowed_packs = set(load_whitelist())
-                        found_words = [w for w in opening_str.split() if w]
-                        for word in found_words:
-                            if word not in allowed_packs:
-                                reason = f"Forbidden Pack: '{word}' is not allowed."
-                                break
 
-                    if reason:
-                        # BAN HAMMER
-                        print(f"🚫 POLICING BAN: {member.name} - {reason}", flush=True)
+                    # --- BRANCH: Quiet Removal (13P+ / Create Bots) ---
+                    if "Type: Inject 13P+" in content or "Type: Create Bots (13P)" in content:
+                        print(f"📉 Quiet Removal for {member.name} (Non-96P Type)", flush=True)
                         data[user_id]['status'] = 'offline'
                         data[user_id]['secondary_status'] = 'offline' 
                         if 'last_heartbeat' in data[user_id]: del data[user_id]['last_heartbeat']
                         await save_data_async(data)
                         await sync_to_github(data)
                         await manage_roles(member, 'offline')
-                        await update_channel_status(self) 
-                        try:
-                            checkin_ping_channel = await self.fetch_channel(CHECKIN_PING_ID)
-                            await checkin_ping_channel.send(f"🚨 {member.mention} **has been automatically taken offline.**\n**Reason:** {reason}")
-                        except: pass
+                        await update_channel_status(self)
+                        # We forward for log but stop processing
+                        
+                    # --- BRANCH: Strict Policing (Wonderpick 96P+ ONLY) ---
+                    elif "Type: Inject Wonderpick 96P+" in content:
+                        # --- RULE 2: "1P Method" ---
+                        if "1P Method" in content:
+                            reason = "Forbidden Strategy: 1P Method detected."
+                        
+                        # --- RULE 1: Stalling ---
+                        if not reason and time_match:
+                            last_stats = data[user_id].get('last_heartbeat', {})
+                            last_time = last_stats.get('time', 0)
+                            last_packs = last_stats.get('packs', 0)
+                            
+                            if last_time > 0 and (current_time - last_time) >= 25 and current_packs == last_packs:
+                                reason = f"Stalling Detected: Time passed ({current_time - last_time}m) but Packs did not increase."
+                                
+                        # --- RULE 3: Wrong Pack Type ---
+                        if not reason and opening_match:
+                            opening_str = opening_match.group(1).replace(",", " ").strip()
+                            allowed_packs = set(load_whitelist())
+                            found_words = [w for w in opening_str.split() if w]
+                            for word in found_words:
+                                if word not in allowed_packs:
+                                    reason = f"Forbidden Pack: '{word}' is not allowed."
+                                    break
+
+                        if reason:
+                            # BAN HAMMER
+                            print(f"🚫 POLICING BAN: {member.name} - {reason}", flush=True)
+                            data[user_id]['status'] = 'offline'
+                            data[user_id]['secondary_status'] = 'offline' 
+                            if 'last_heartbeat' in data[user_id]: del data[user_id]['last_heartbeat']
+                            await save_data_async(data)
+                            await sync_to_github(data)
+                            await manage_roles(member, 'offline')
+                            await update_channel_status(self) 
+                            try:
+                                checkin_ping_channel = await self.fetch_channel(CHECKIN_PING_ID)
+                                await checkin_ping_channel.send(f"🚨 {member.mention} **has been automatically taken offline.**\n**Reason:** {reason}")
+                            except: pass
+                        else:
+                            # ALL GOOD (96P+)
+                            if time_match:
+                                data[user_id]['last_heartbeat'] = {'time': current_time, 'packs': current_packs}
+                                await save_data_async(data)
+
                     else:
-                        # ALL GOOD
+                        # --- BRANCH: Other (Non-Policing) ---
+                        # Just update stats if valid, but DON'T police
                         if time_match:
                             data[user_id]['last_heartbeat'] = {'time': current_time, 'packs': current_packs}
                             await save_data_async(data)
