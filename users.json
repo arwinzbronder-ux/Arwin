@@ -154,7 +154,11 @@
         "instances": 7,
         "prefix": "Jaus",
         "status": "online",
-        "secondary_status": "offline"
+        "secondary_status": "offline",
+        "last_heartbeat": {
+            "time": 0,
+            "packs": 0
+        }
     },
     "157834363944435713": {
         "username": "fierza.",
