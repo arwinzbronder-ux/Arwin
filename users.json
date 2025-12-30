@@ -80,8 +80,8 @@
         "secondary_status": "offline",
         "ban_expiry": "2025-12-31T15:13:28.269946",
         "last_heartbeat": {
-            "time": 0,
-            "packs": 0
+            "time": 30,
+            "packs": 252
         }
     },
     "396799589513953282": {
