@@ -106,7 +106,11 @@
         "instances": 7,
         "prefix": "pokemon names",
         "status": "online",
-        "secondary_status": "offline"
+        "secondary_status": "offline",
+        "last_heartbeat": {
+            "time": 0,
+            "packs": 0
+        }
     },
     "287558941540352001": {
         "username": "bassrv",
