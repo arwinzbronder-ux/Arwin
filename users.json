@@ -193,8 +193,8 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 288,
-            "packs": 1177
+            "time": 312,
+            "packs": 1259
         }
     }
 }
