@@ -78,11 +78,7 @@
         "prefix": "rap",
         "status": "offline",
         "secondary_status": "offline",
-        "ban_expiry": "2025-12-31T15:13:28.269946",
-        "last_heartbeat": {
-            "time": 150,
-            "packs": 818
-        }
+        "ban_expiry": "2025-12-31T15:13:28.269946"
     },
     "396799589513953282": {
         "username": ".komorebi2",
@@ -172,8 +168,8 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 300,
-            "packs": 977
+            "time": 330,
+            "packs": 1089
         }
     },
     "307883135285067776": {
