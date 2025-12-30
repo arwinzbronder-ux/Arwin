@@ -5,7 +5,11 @@
         "instances": 7,
         "prefix": "rillen",
         "status": "offline",
-        "secondary_status": "offline"
+        "secondary_status": "offline",
+        "last_heartbeat": {
+            "time": 360,
+            "packs": 2723
+        }
     },
     "1017762422947323965": {
         "username": "najanaja_44",
