@@ -179,8 +179,8 @@
         "secondary_code": "2452383463979723",
         "instances": 5,
         "prefix": "dai",
-        "status": "online",
-        "secondary_status": "online",
+        "status": "offline",
+        "secondary_status": "offline",
         "last_heartbeat": {
             "time": 601,
             "packs": 1166
