@@ -148,6 +148,20 @@ def count_online_users(data):
             count += 1
     return count
 
+async def is_user_publicly_online(friend_code, secondary_code):
+    url = "https://arwin.de/ids.txt"
+    try:
+        async with aiohttp.ClientSession() as session:
+            async with session.get(url) as response:
+                if response.status == 200:
+                    text = await response.text()
+                    ids = set(line.strip() for line in text.splitlines())
+                    if friend_code and friend_code in ids: return True
+                    if secondary_code and secondary_code in ids: return True
+    except Exception as e:
+        print(f"⚠️ Failed to check public IDs list: {e}", flush=True)
+    return False
+
 def get_checkin_channel(guild):
     for ch in guild.text_channels:
         if CHECKIN_CHANNEL_NAME in ch.name:
@@ -904,14 +918,22 @@ class MyBot(commands.Bot):
 
                     # --- BRANCH: Quiet Removal (13P+ / Create Bots) ---
                     if "Type: Inject 13P+" in content or "Type: Create Bots (13P)" in content:
-                        print(f"📉 Quiet Removal for {member.name} (Non-96P Type)", flush=True)
-                        data[user_id]['status'] = 'offline'
-                        data[user_id]['secondary_status'] = 'offline' 
-                        if 'last_heartbeat' in data[user_id]: del data[user_id]['last_heartbeat']
-                        await save_data_async(data)
-                        await sync_to_github(data)
-                        await manage_roles(member, 'offline')
-                        await update_channel_status(self)
+                        # Check if actually on the list before removing
+                        f_code = data[user_id].get('friend_code')
+                        s_code = data[user_id].get('secondary_code')
+                        
+                        if await is_user_publicly_online(f_code, s_code):
+                            print(f"📉 Quiet Removal for {member.name} (Non-96P Type)", flush=True)
+                            data[user_id]['status'] = 'offline'
+                            data[user_id]['secondary_status'] = 'offline' 
+                            if 'last_heartbeat' in data[user_id]: del data[user_id]['last_heartbeat']
+                            await save_data_async(data)
+                            await sync_to_github(data)
+                            await manage_roles(member, 'offline')
+                            await update_channel_status(self)
+                        else:
+                            print(f"ℹ️ Skipping Quiet Removal for {member.name} (Not in public list)", flush=True)
+                        
                         # We forward for log but stop processing
                         
                     # --- BRANCH: Strict Policing (Wonderpick 96P+ ONLY) ---
