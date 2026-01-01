@@ -72,8 +72,8 @@
         "friend_code": "8345438294594251",
         "instances": 4,
         "prefix": "PipiSim",
-        "status": "online",
-        "secondary_status": "online",
+        "status": "offline",
+        "secondary_status": "offline",
         "secondary_code": "2489404685358169"
     },
     "849666089902145586": {
