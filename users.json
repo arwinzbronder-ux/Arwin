@@ -225,7 +225,7 @@
         "secondary_code": null,
         "instances": 4,
         "prefix": "fcb",
-        "status": "online",
+        "status": "offline",
         "secondary_status": "offline",
         "last_heartbeat": {
             "time": 510,
