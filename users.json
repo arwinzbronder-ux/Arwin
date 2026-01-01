@@ -72,12 +72,8 @@
         "friend_code": "2489404685358169",
         "instances": 4,
         "prefix": "PipiSim",
-        "status": "online",
-        "secondary_status": "offline",
-        "last_heartbeat": {
-            "time": 570,
-            "packs": 1222
-        }
+        "status": "offline",
+        "secondary_status": "offline"
     },
     "849666089902145586": {
         "username": "pr34ch.",
