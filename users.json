@@ -179,7 +179,7 @@
         "instances": 5,
         "prefix": "dai",
         "status": "online",
-        "secondary_status": "offline"
+        "secondary_status": "online"
     },
     "1056944043688476682": {
         "username": "libra_2828",
