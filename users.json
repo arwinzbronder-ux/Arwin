@@ -214,18 +214,5 @@
             "time": 120,
             "packs": 414
         }
-    },
-    "461874685030825984": {
-        "username": "julinho92",
-        "friend_code": null,
-        "secondary_code": null,
-        "instances": 4,
-        "prefix": "fcb",
-        "status": "offline",
-        "secondary_status": "offline",
-        "last_heartbeat": {
-            "time": 0,
-            "packs": 0
-        }
     }
 }
