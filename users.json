@@ -73,7 +73,7 @@
         "instances": 4,
         "prefix": "PipiSim",
         "status": "online",
-        "secondary_status": "offline",
+        "secondary_status": "online",
         "secondary_code": "2489404685358169"
     },
     "849666089902145586": {
