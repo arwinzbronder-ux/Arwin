@@ -73,7 +73,11 @@
         "instances": 4,
         "prefix": "PipiSim",
         "status": "offline",
-        "secondary_status": "offline"
+        "secondary_status": "offline",
+        "last_heartbeat": {
+            "time": 810,
+            "packs": 1222
+        }
     },
     "849666089902145586": {
         "username": "pr34ch.",
