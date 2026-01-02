@@ -11,6 +11,7 @@ from datetime import datetime, timedelta
 import re
 import io
 from PIL import Image, ImageDraw, ImageFont
+import time
 
 # --- CONFIGURATION ---
 TOKEN = os.getenv("DISCORD_TOKEN")
@@ -30,6 +31,8 @@ ROLE_REROLLING = "Rerolling"
 ROLE_NOT_REROLLING = "Not Rerolling"
 
 # --- HELPER FUNCTIONS ---
+LAST_CHANNEL_UPDATE = 0
+
 
 def load_data():
     if not os.path.exists(DATA_FILE):
@@ -651,6 +654,12 @@ async def save_data_async(data):
     await upload_users_to_github(data)
 
 async def update_channel_status(bot_instance):
+    global LAST_CHANNEL_UPDATE
+    
+    # THROTTLE: 5m 30s (330s) to avoid 2/10m limit
+    if time.time() - LAST_CHANNEL_UPDATE < 330:
+        return
+
     data = load_data()
     online_count = count_online_users(data)
     
@@ -658,6 +667,9 @@ async def update_channel_status(bot_instance):
     
     # Format: 🟢︱check-in︱3
     new_name = f"{new_prefix}︱{CHECKIN_CHANNEL_NAME}︱{online_count}"
+    
+    LAST_CHANNEL_UPDATE = time.time()
+
     
     # We scan all guilds (usually just one)
     for guild in bot_instance.guilds:
