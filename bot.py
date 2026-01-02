@@ -412,7 +412,6 @@ async def manage_roles(member, status):
             print(f"Failed to create role {ROLE_NOT_REROLLING}: {e}", flush=True)
 
     try:
-    try:
         if status == 'online':
             if role_rerolling and role_rerolling not in member.roles: 
                 await member.add_roles(role_rerolling)
