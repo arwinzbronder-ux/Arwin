@@ -646,9 +646,13 @@ def _blocking_upload(data):
         repo = g.get_repo(REPO_NAME)
         try:
             contents = repo.get_contents(DATA_FILE)
+            if isinstance(contents, list): raise Exception("Data file matches multiple items.")
+            
             repo.update_file(contents.path, "[skip ci] [skip render] Bot: Save User DB", json_content, contents.sha)
         except Exception:
-            repo.create_file(DATA_FILE, "[skip ci] [skip render] Bot: Create User DB", json_content)
+            try: repo.create_file(DATA_FILE, "[skip ci] [skip render] Bot: Create User DB", json_content)
+            except: pass # File likely exists or conflict
+        
         print(f"💾 Saved {DATA_FILE} to GitHub", flush=True)
 
         # Also sync IDs while we're at it (Since we have the data)
@@ -776,22 +780,10 @@ class MyBot(commands.Bot):
         print("------", flush=True)
         await update_channel_status(self)
         
-        # Sync Roles for ALL Members (Startup)
-        data = load_data()
-        online_users = {uid for uid, info in data.items() if info.get('status') == 'online'}
         
-        print("🔄 Syncing roles for all members...", flush=True)
-        for guild in self.guilds:
-            # 1. Cleanup Duplicates first
-            await cleanup_duplicate_roles(guild)
-            
-            for member in guild.members:
-                if member.bot: continue
-                
-                status = 'online' if str(member.id) in online_users else 'offline'
-                # We spin this off to not block
-                self.loop.create_task(manage_roles(member, status))
-        print("✅ Role sync initiated.", flush=True)
+        # Sync Roles for ALL Members (Startup) - REMOVED TO PREVENT RATE LIMITS
+        # The bot will now only update roles on heartbeat/join/command interactions.
+        print("✅ Startup complete (Skipped mass role sync).", flush=True)
        
     @tasks.loop(hours=1)
     async def cleanup_checkin(self):
