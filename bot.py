@@ -1452,6 +1452,13 @@ async def rg_tempban(interaction: discord.Interaction, member: discord.Member):
     else:
         await interaction.followup.send(f"⚠️ Could not find channel `{CHECKIN_CHANNEL_NAME}` to apply ban.", ephemeral=True)
 
+@bot.tree.command(name="rg_shutdown", description="[Admin] Safely shut down the bot")
+@app_commands.checks.has_permissions(administrator=True)
+async def rg_shutdown(interaction: discord.Interaction):
+    await interaction.response.send_message("👋 Shutting down...", ephemeral=True)
+    print("🛑 Received shutdown command. Closing connection...", flush=True)
+    await interaction.client.close()
+
 @bot.tree.command(name="rg_update_bot", description="[Admin] Upload a new bot.py file to update the bot remotely")
 @app_commands.describe(file="The new bot.py file")
 @app_commands.checks.has_permissions(administrator=True)
