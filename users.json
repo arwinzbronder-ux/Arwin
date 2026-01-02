@@ -73,7 +73,7 @@
         "instances": 4,
         "prefix": "PipiSim",
         "status": "offline",
-        "secondary_status": "offline",
+        "secondary_status": "online",
         "secondary_code": "2489404685358169",
         "last_heartbeat": {
             "time": 90,
