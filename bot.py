@@ -151,13 +151,28 @@ def count_online_users(data):
 async def is_user_publicly_online(friend_code, secondary_code):
     url = "https://arwin.de/ids.txt"
     try:
+        print(f"DEBUG: Checking public list for FC: {friend_code} | SC: {secondary_code}", flush=True)
         async with aiohttp.ClientSession() as session:
             async with session.get(url) as response:
                 if response.status == 200:
                     text = await response.text()
-                    ids = set(line.strip() for line in text.splitlines())
-                    if friend_code and friend_code in ids: return True
-                    if secondary_code and secondary_code in ids: return True
+                    ids = set(line.strip() for line in text.splitlines() if line.strip())
+                    print(f"DEBUG: Public List Fetched. Unique IDs: {len(ids)}", flush=True)
+                    
+                    if friend_code:
+                        if friend_code in ids: 
+                            print(f"DEBUG: Found Friend Code {friend_code} in list!", flush=True)
+                            return True
+                        else:
+                            print(f"DEBUG: Friend Code {friend_code} NOT in list.", flush=True)
+                            
+                    if secondary_code:
+                        if secondary_code in ids: 
+                            print(f"DEBUG: Found Secondary Code {secondary_code} in list!", flush=True)
+                            return True
+                        else:
+                             print(f"DEBUG: Secondary Code {secondary_code} NOT in list.", flush=True)
+
     except Exception as e:
         print(f"⚠️ Failed to check public IDs list: {e}", flush=True)
     return False
@@ -963,18 +978,25 @@ class MyBot(commands.Bot):
 
                         if reason:
                             # BAN HAMMER
-                            print(f"🚫 POLICING BAN: {member.name} - {reason}", flush=True)
-                            data[user_id]['status'] = 'offline'
-                            data[user_id]['secondary_status'] = 'offline' 
-                            if 'last_heartbeat' in data[user_id]: del data[user_id]['last_heartbeat']
-                            await save_data_async(data)
-                            await sync_to_github(data)
-                            await manage_roles(member, 'offline')
-                            await update_channel_status(self) 
-                            try:
-                                checkin_ping_channel = await self.fetch_channel(CHECKIN_PING_ID)
-                                await checkin_ping_channel.send(f"🚨 {member.mention} **has been automatically taken offline.**\n**Reason:** {reason}")
-                            except: pass
+                            # PRE-CHECK: Is user actually on the list?
+                            f_code = data[user_id].get('friend_code')
+                            s_code = data[user_id].get('secondary_code')
+                            
+                            if await is_user_publicly_online(f_code, s_code):
+                                print(f"🚫 POLICING BAN: {member.name} - {reason}", flush=True)
+                                data[user_id]['status'] = 'offline'
+                                data[user_id]['secondary_status'] = 'offline' 
+                                if 'last_heartbeat' in data[user_id]: del data[user_id]['last_heartbeat']
+                                await save_data_async(data)
+                                await sync_to_github(data)
+                                await manage_roles(member, 'offline')
+                                await update_channel_status(self) 
+                                try:
+                                    checkin_ping_channel = await self.fetch_channel(CHECKIN_PING_ID)
+                                    await checkin_ping_channel.send(f"🚨 {member.mention} **has been automatically taken offline.**\n**Reason:** {reason}")
+                                except: pass
+                            else:
+                                print(f"ℹ️ Skipping Policing Ban for {member.name} (Not in public list) - Reason: {reason}", flush=True)
                         else:
                             # ALL GOOD (96P+)
                             if time_match:
