@@ -96,11 +96,11 @@
         "friend_code": "4667419267232045",
         "instances": 3,
         "prefix": "rap",
-        "status": "offline",
+        "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 0,
-            "packs": 0
+            "time": 90,
+            "packs": 200
         }
     },
     "396799589513953282": {
@@ -160,7 +160,7 @@
         "friend_code": "3304610426842804",
         "instances": 7,
         "prefix": "Jaus",
-        "status": "offline",
+        "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
             "time": 0,
@@ -212,7 +212,7 @@
         "secondary_code": null,
         "instances": 4,
         "prefix": "randomnames",
-        "status": "offline",
+        "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
             "time": 0,
