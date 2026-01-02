@@ -32,6 +32,8 @@ ROLE_NOT_REROLLING = "Not Rerolling"
 
 # --- HELPER FUNCTIONS ---
 LAST_CHANNEL_UPDATE = 0
+GITHUB_SYNC_NEEDED = False
+
 
 
 def load_data():
@@ -410,13 +412,18 @@ async def manage_roles(member, status):
             print(f"Failed to create role {ROLE_NOT_REROLLING}: {e}", flush=True)
 
     try:
+    try:
         if status == 'online':
-            if role_rerolling: await member.add_roles(role_rerolling)
-            if role_not_rerolling: await member.remove_roles(role_not_rerolling)
+            if role_rerolling and role_rerolling not in member.roles: 
+                await member.add_roles(role_rerolling)
+            if role_not_rerolling and role_not_rerolling in member.roles: 
+                await member.remove_roles(role_not_rerolling)
         else:
              # Default state (Offline / Unregistered / Removed)
-            if role_not_rerolling: await member.add_roles(role_not_rerolling)
-            if role_rerolling: await member.remove_roles(role_rerolling)
+            if role_not_rerolling and role_not_rerolling not in member.roles: 
+                await member.add_roles(role_not_rerolling)
+            if role_rerolling and role_rerolling in member.roles: 
+                await member.remove_roles(role_rerolling)
             
     except Exception as e:
         print(f"Failed to update roles for {member.name}: {e}", flush=True)
@@ -554,8 +561,11 @@ def _blocking_sync(data):
         print(f"❌ GitHub API Error: {e}", flush=True)
 
 async def sync_to_github(data):
-    loop = asyncio.get_running_loop()
-    await loop.run_in_executor(None, _blocking_sync, data)
+    # Instead of syncing immediately, just mark as needed.
+    # The background task 'auto_github_sync' will handle it.
+    global GITHUB_SYNC_NEEDED
+    GITHUB_SYNC_NEEDED = True
+
 
 def _blocking_initial_sync():
     if not GITHUB_TOKEN: return
@@ -641,6 +651,10 @@ def _blocking_upload(data):
         except Exception:
             repo.create_file(DATA_FILE, "[skip ci] [skip render] Bot: Create User DB", json_content)
         print(f"💾 Saved {DATA_FILE} to GitHub", flush=True)
+
+        # Also sync IDs while we're at it (Since we have the data)
+        _blocking_sync(data)
+
     except Exception as e:
         print(f"❌ Failed to save {DATA_FILE} to GitHub: {e}", flush=True)
 
@@ -739,11 +753,24 @@ class MyBot(commands.Bot):
         await download_users_from_github()
         await self.tree.sync()
         self.add_view(PackView()) # Persist View
+        self.auto_github_sync.start() # Start the background sync task
         print("Synced slash commands globally!", flush=True)
+        print("✅ Setup Hook Complete (Views Loaded + Sync Task Started)", flush=True)
         self.loop.create_task(start_dummy_server())
         self.check_bans.start()
         self.cleanup_checkin.start()
         self.update_heartbeat_ppm.start()
+
+    @tasks.loop(seconds=60)
+    async def auto_github_sync(self):
+        global GITHUB_SYNC_NEEDED
+        if GITHUB_SYNC_NEEDED:
+            print("⏳ Background Sync: Changes detected, pushing to GitHub...", flush=True)
+            data = load_data() # Reload freshest data
+            loop = asyncio.get_running_loop()
+            await loop.run_in_executor(None, _blocking_upload, data) # Use _blocking_upload
+            GITHUB_SYNC_NEEDED = False
+            print("✅ Background Sync: Complete.", flush=True)
 
     async def on_ready(self):
         print(f"Logged in as {self.user} (ID: {self.user.id})", flush=True)
@@ -1003,9 +1030,16 @@ class MyBot(commands.Bot):
                                 await sync_to_github(data)
                                 await manage_roles(member, 'offline')
                                 await update_channel_status(self) 
+                                await manage_roles(member, 'offline')
+                                await update_channel_status(self) 
                                 try:
-                                    checkin_ping_channel = await self.fetch_channel(CHECKIN_PING_ID)
-                                    await checkin_ping_channel.send(f"🚨 {member.mention} **has been automatically taken offline.**\n**Reason:** {reason}")
+                                    # OPTIMIZATION: Try cache first
+                                    checkin_ping_channel = self.get_channel(CHECKIN_PING_ID)
+                                    if not checkin_ping_channel:
+                                        checkin_ping_channel = await self.fetch_channel(CHECKIN_PING_ID)
+                                        
+                                    if checkin_ping_channel:
+                                        await checkin_ping_channel.send(f"🚨 {member.mention} **has been automatically taken offline.**\n**Reason:** {reason}")
                                 except: pass
                             else:
                                 print(f"ℹ️ Skipping Policing Ban for {member.name} (Not in public list) - Reason: {reason}", flush=True)
@@ -1024,9 +1058,14 @@ class MyBot(commands.Bot):
                         
                     # ALWAYS Forward
                     try:
-                        hb_channel = await self.fetch_channel(HEARTBEAT_CHANNEL_ID)
+                        # OPTIMIZATION: Try cache first
+                        hb_channel = self.get_channel(HEARTBEAT_CHANNEL_ID)
+                        if not hb_channel:
+                            hb_channel = await self.fetch_channel(HEARTBEAT_CHANNEL_ID)
+                            
                         forward_msg = f"{member.name}\n{content}"
-                        await hb_channel.send(forward_msg)
+                        if hb_channel:
+                            await hb_channel.send(forward_msg)
                     except Exception as e:
                             print(f"Failed to forward heartbeat: {e}", flush=True)
 
