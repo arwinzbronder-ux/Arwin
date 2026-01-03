@@ -251,7 +251,7 @@
         "secondary_code": null,
         "instances": 4,
         "prefix": "pokemon names",
-        "status": "offline",
+        "status": "online",
         "secondary_status": "offline"
     }
 }
