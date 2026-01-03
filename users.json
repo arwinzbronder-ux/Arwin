@@ -252,6 +252,10 @@
         "instances": 4,
         "prefix": "pokemon names",
         "status": "online",
-        "secondary_status": "offline"
+        "secondary_status": "offline",
+        "last_heartbeat": {
+            "time": 0,
+            "packs": 0
+        }
     }
 }
