@@ -244,5 +244,14 @@
             "time": 870,
             "packs": 1892
         }
+    },
+    "553693689302482945": {
+        "username": "skyttzi",
+        "friend_code": "6017902630031289",
+        "secondary_code": null,
+        "instances": 4,
+        "prefix": "pokemon names",
+        "status": "offline",
+        "secondary_status": "offline"
     }
 }
