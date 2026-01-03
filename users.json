@@ -225,7 +225,7 @@
         "secondary_code": null,
         "instances": 5,
         "prefix": "randompokemon",
-        "status": "offline",
+        "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
             "time": 0,
