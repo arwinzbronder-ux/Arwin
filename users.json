@@ -88,8 +88,8 @@
         "prefix": "pokemon names",
         "status": "online",
         "last_heartbeat": {
-            "time": 60,
-            "packs": 235
+            "time": 90,
+            "packs": 351
         }
     },
     "409685259437735936": {
