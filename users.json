@@ -254,5 +254,14 @@
             "time": 210,
             "packs": 512
         }
+    },
+    "655583863954735124": {
+        "username": "isaac5255",
+        "friend_code": "0822608852616572",
+        "secondary_code": null,
+        "instances": 6,
+        "prefix": "Isaac",
+        "status": "offline",
+        "secondary_status": "offline"
     }
 }
