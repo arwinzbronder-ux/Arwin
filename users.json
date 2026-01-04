@@ -261,7 +261,7 @@
         "secondary_code": null,
         "instances": 6,
         "prefix": "Isaac",
-        "status": "offline",
+        "status": "online",
         "secondary_status": "offline"
     }
 }
