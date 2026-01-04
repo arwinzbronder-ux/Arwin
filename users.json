@@ -199,7 +199,7 @@
         "secondary_code": null,
         "instances": 6,
         "prefix": "LibraGP",
-        "status": "online",
+        "status": "offline",
         "secondary_status": "offline",
         "last_heartbeat": {
             "time": 660,
