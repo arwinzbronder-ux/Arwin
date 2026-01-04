@@ -113,12 +113,8 @@
         "friend_code": "1945180813574901",
         "instances": 3,
         "prefix": "pokemon names",
-        "status": "online",
-        "secondary_status": "offline",
-        "last_heartbeat": {
-            "time": 180,
-            "packs": 243
-        }
+        "status": "offline",
+        "secondary_status": "offline"
     },
     "233334865024516097": {
         "username": "jeremau5",
