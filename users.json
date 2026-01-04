@@ -110,7 +110,11 @@
         "instances": 3,
         "prefix": "pokemon names",
         "status": "online",
-        "secondary_status": "offline"
+        "secondary_status": "offline",
+        "last_heartbeat": {
+            "time": 0,
+            "packs": 0
+        }
     },
     "233334865024516097": {
         "username": "jeremau5",
