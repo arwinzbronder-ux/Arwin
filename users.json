@@ -60,8 +60,8 @@
         "friend_code": "7951677911105601",
         "instances": 7,
         "prefix": "jerry",
-        "status": "online",
-        "secondary_status": "online",
+        "status": "offline",
+        "secondary_status": "offline",
         "last_heartbeat": {
             "time": 180,
             "packs": 781
