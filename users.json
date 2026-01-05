@@ -96,10 +96,21 @@
         "prefix": "pokemon names",
         "status": "online",
         "last_heartbeat": {
-            "time": 300,
-            "packs": 1190
+            "time": 330,
+            "packs": 1298
         },
-        "secondary_status": "offline"
+        "secondary_status": "offline",
+        "session": {
+            "start_packs": 1298,
+            "instances": 7,
+            "duration_minutes": 330,
+            "last_update": 1767649013,
+            "current_packs": 1298
+        },
+        "daily": {
+            "date": "2026-01-05",
+            "start_packs": 1298
+        }
     },
     "409685259437735936": {
         "username": "iraptorxd",
@@ -284,5 +295,9 @@
             "time": 330,
             "packs": 716
         }
+    },
+    "_global_stats": {
+        "daily_god_packs": 0,
+        "last_reset_day": "2026-01-05"
     }
 }
