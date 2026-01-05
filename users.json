@@ -510,5 +510,14 @@
     "_global_stats": {
         "daily_god_packs": 0,
         "last_reset_day": "2026-01-05"
+    },
+    "111114110569029632": {
+        "username": "wr98",
+        "friend_code": "8727683202565250",
+        "secondary_code": null,
+        "instances": 8,
+        "prefix": "A",
+        "status": "offline",
+        "secondary_status": "offline"
     }
 }
