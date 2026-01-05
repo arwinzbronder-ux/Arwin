@@ -1211,21 +1211,27 @@ class MyBot(commands.Bot):
                         
                         total_instances = instance_count + offline_count
                         
-                        # 3. Offline Alert (Throttled 15m)
+                        # 3. Offline Alert (State-based)
+                        # Logic: Alert ONCE per incident. Reset if count goes back to 0.
+                        has_alerted = data[user_id].get("has_alerted_offline", False)
+                        
                         if offline_count > 0:
-                            last_alert = data[user_id].get("last_offline_alert", 0)
-                            now_ts = int(time.time())
-                            
-                            if (now_ts - last_alert) > 900: # 15 mins
+                            if not has_alerted:
                                 try:
                                     alert_channel = self.get_channel(CHECKIN_PING_ID)
                                     if not alert_channel: alert_channel = await self.fetch_channel(CHECKIN_PING_ID)
                                     
                                     if alert_channel:
                                         await alert_channel.send(f"⚠️ {member.mention} **Attention:** You have **{offline_count}** offline instances! Please check your bots.")
-                                        data[user_id]["last_offline_alert"] = now_ts
+                                        data[user_id]["has_alerted_offline"] = True
+                                        await save_data_async(data) # Save state immediately
                                 except Exception as e:
                                     print(f"Failed to send offline alert: {e}", flush=True)
+                        else:
+                            # Reset if back to 0 (allow alerting again for next incident)
+                            if has_alerted:
+                                data[user_id]["has_alerted_offline"] = False
+                                await save_data_async(data)
 
                         # 4. Session Tracking
                         now_ts = int(time.time())
