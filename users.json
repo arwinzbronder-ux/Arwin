@@ -517,7 +517,7 @@
         "secondary_code": null,
         "instances": 8,
         "prefix": "A",
-        "status": "online",
+        "status": "offline",
         "secondary_status": "offline"
     }
 }
