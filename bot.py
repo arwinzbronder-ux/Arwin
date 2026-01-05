@@ -25,6 +25,7 @@ SOURCE_CHANNEL_NAME = "🎰︱group-packs"
 HEARTBEAT_MONITOR_ID = 1450631414432272454
 LIVE_PACKS_ID = 1455270012544876635
 DEAD_PACKS_ID = 1455283748118462652
+GOD_PACK_LOG_CHANNEL_ID = 1450631354034159636
 CHECKIN_PING_ID = 1450630077753856121
 WHITELIST_FILE = "whitelist.txt"
 ROLE_REROLLING = "Rerolling"
@@ -437,18 +438,7 @@ class PackView(discord.ui.View):
 
     @discord.ui.button(label="Alive", style=discord.ButtonStyle.green, custom_id="pack_alive")
     async def alive_button(self, interaction: discord.Interaction, button: discord.ui.Button):
-        # Increment Daily God Pack Counter
-        data = load_data()
-        current_day = datetime.utcnow().strftime("%Y-%m-%d")
-        
-        # Reset if new day
-        if data["_global_stats"].get("last_reset_day") != current_day:
-             data["_global_stats"]["daily_god_packs"] = 0
-             data["_global_stats"]["last_reset_day"] = current_day
-             
-        data["_global_stats"]["daily_god_packs"] += 1
-        await save_data_async(data)
-        
+        # We no longer strictly track stats here (handled by log channel), just triage
         await self.handle_triage(interaction, LIVE_PACKS_ID, "Alive")
 
     @discord.ui.button(label="Dead", style=discord.ButtonStyle.red, custom_id="pack_dead")
@@ -801,17 +791,33 @@ class MyBot(commands.Bot):
             active_users = []
             total_instances = 0
             total_session_packs = 0
+            total_group_daily_packs = 0
             
             # --- Global Daily Stats ---
             global_stats = data.get("_global_stats", {})
             daily_god_packs = global_stats.get("daily_god_packs", 0)
             
-            # Reset Check logic is in PackView, but we can verify here if needed
-            # We assume PackView handles the reset on click.
-            
             # --- Per User Aggregation ---
             now_ts = int(time.time())
+            today_str = datetime.utcnow().strftime("%Y-%m-%d")
             
+            # First pass: Calculate Group Daily Packs from ALL users (even offline)
+            for user_id, info in data.items():
+                if user_id.startswith("_"): continue
+                daily = info.get("daily", {})
+                if daily.get("date") == today_str:
+                    d_start = daily.get("start_packs", 0)
+                    # Use session current, or last_heartbeat?
+                    # The most recent packs count is in 'session' -> 'current_packs' OR 'last_heartbeat' -> 'packs'
+                    # We'll try session first
+                    s_current = info.get("session", {}).get("current_packs", 0)
+                    if s_current == 0:
+                        s_current = info.get("last_heartbeat", {}).get("packs", 0)
+                    
+                    if s_current > 0:
+                        total_group_daily_packs += (s_current - d_start)
+
+            # Second pass: Active Sessions
             for user_id, info in data.items():
                 if user_id.startswith("_"): continue # Skip meta keys
                 
@@ -830,13 +836,27 @@ class MyBot(commands.Bot):
                     s_packs = session.get("current_packs", 0) - session.get("start_packs", 0)
                     if s_packs < 0: s_packs = 0 # Safety
                     
-                    # Instances
+                    # Daily Packs (Member)
+                    daily = info.get("daily", {})
+                    if daily.get("date") == today_str:
+                        daily_p = session.get("current_packs", 0) - daily.get("start_packs", 0)
+                    else:
+                        daily_p = 0
+                    if daily_p < 0: daily_p = 0
+
+                    # Instances (Online / Total)
                     instances = session.get("instances", 0)
+                    total_inst = session.get("total_instances", instances) # Default to instances if missing
+                    # If total is 0 (old data), assume total = instances
+                    if total_inst == 0: total_inst = instances
+                    
+                    inst_str = f"{instances}/{total_inst}"
                     
                     active_users.append({
                         "name": self.get_user(int(user_id)).name if self.get_user(int(user_id)) else f"User-{user_id}",
-                        "instances": instances,
+                        "inst_str": inst_str,
                         "packs": s_packs,
+                        "daily_packs": daily_p,
                         "duration": duration_str
                     })
                     
@@ -848,17 +868,6 @@ class MyBot(commands.Bot):
             # --- Totals Calculation ---
             num_rerollers = len(active_users)
             avg_instances = total_instances / num_rerollers if num_rerollers else 0
-            
-            # PPM Calculation (Aggregate)
-            # This is rough: Total Session Packs / Total Session Time ... or just sum of individual?
-            # User wants "Packs per minute" of the group.
-            # Let's sum active session packs / 30m? No, that's strictly for this interval.
-            # We will use the Session Packs sum.
-            
-            # Actually, to get current speed, we should rely on the PPM logic from update_heartbeat_ppm?
-            # Or just calculate it from the session totals.
-            # Let's simple average: Total Session Packs / (Sum of Durations / Num Users)? Too complex.
-            # Let's just list the stats requested.
             
             # IDs Count
             ids_url = "https://raw.githubusercontent.com/" + REPO_NAME + "/main/ids.txt"
@@ -875,12 +884,12 @@ class MyBot(commands.Bot):
             msg = f"**📊 T30 Stats Aggregation**\n"
             msg += f"**Rerollers:** {num_rerollers} | **IDs:** {num_ids}\n"
             msg += f"**Instances:** {total_instances} (Avg: {avg_instances:.1f})\n"
-            msg += f"**Daily God Packs:** {daily_god_packs}\n"
+            msg += f"**Group Daily Packs:** {total_group_daily_packs:,} | **Daily God Packs:** {daily_god_packs}\n"
             msg += f"----------------------------------------\n"
             msg += f"**Active Sessions:**\n"
             
             for user in active_users:
-                 msg += f"`{user['name']:<15}` 🖥️ {user['instances']} | 📦 {user['packs']} | ⏱️ {user['duration']}\n"
+                 msg += f"`{user['name']:<15}` 🖥️ {user['inst_str']} | 📦 Ses:{user['packs']} / Day:{user['daily_packs']} | ⏱️ {user['duration']}\n"
                  
             await channel.send(msg)
 
@@ -929,7 +938,7 @@ class MyBot(commands.Bot):
     @tasks.loop(minutes=15)
     async def update_heartbeat_ppm(self):
         try:
-            channel = await self.fetch_channel(HEARTBEAT_CHANNEL_ID)
+            channel = await self.fetch_channel(HEARTBEAT_MONITOR_ID)
         except Exception as e:
             print(f"⚠️ Heartbeat channel fetch failed: {e}", flush=True)
             return
@@ -969,7 +978,7 @@ class MyBot(commands.Bot):
             print(f"💓 Calculated Total PPM: {total_ppm} (from {len(member_stats)} bots)", flush=True)
             
             # Rename Channel (Rounded to nearest int)
-            new_name = f"💓︱group-heartbeat︱{int(round(total_ppm))} PPM"
+            new_name = f"💓︱heartbeat-monitor︱{int(round(total_ppm))} PPM"
             if channel.name != new_name:
                 await channel.edit(name=new_name)
                 print(f"💓 Updated Heartbeat: {new_name}", flush=True)
@@ -1104,6 +1113,22 @@ class MyBot(commands.Bot):
                         
                         # We forward for log but stop processing
                         
+                    # 3. God Pack Logging (Global Stats)
+                    elif message.channel.id == GOD_PACK_LOG_CHANNEL_ID:
+                        if "God Pack" in content:
+                            print(f"🌟 God Pack Detected via Log!", flush=True)
+                            data = load_data()
+                            current_day = datetime.utcnow().strftime("%Y-%m-%d")
+                             # Reset if new day
+                            if data["_global_stats"].get("last_reset_day") != current_day:
+                                 data["_global_stats"]["daily_god_packs"] = 0
+                                 data["_global_stats"]["last_reset_day"] = current_day
+                                 
+                            data["_global_stats"]["daily_god_packs"] += 1
+                            await save_data_async(data)
+                            await sync_to_github(data)
+                        return # Done
+
                     # --- BRANCH: Strict Policing (Wonderpick 96P+ ONLY) ---
                     elif "Type: Inject Wonderpick 96P+" in content:
                         # --- RULE 2: "1P Method" ---
@@ -1166,16 +1191,43 @@ class MyBot(commands.Bot):
                         
                     # --- STATS TRACKING (All Types) ---
                     if time_match:
-                        # 1. Parse Instances (Online: Main, 1, 2...)
-                        online_line_match = re.search(r"Online:\s*(.+)", content)
+                        # 1. Parse Online Instances (Exclude "Main")
+                        online_line_match = re.search(r"Online:\s*(.+)", content, re.IGNORECASE)
                         instance_count = 0
                         if online_line_match:
                             on_str = online_line_match.group(1).strip()
                             if on_str.lower() != "none":
-                                # Count items separated by comma
-                                instance_count = len([x for x in on_str.split(',') if x.strip()])
+                                # Exclude 'Main' (case insensitive) and count rest
+                                items = [x.strip() for x in on_str.split(',') if x.strip()]
+                                instance_count = len([x for x in items if x.lower() != "main"])
+
+                        # 2. Parse Offline Instances
+                        offline_line_match = re.search(r"Offline:\s*(.+)", content, re.IGNORECASE)
+                        offline_count = 0
+                        if offline_line_match:
+                            off_str = offline_line_match.group(1).strip()
+                            if off_str.lower() != "none":
+                                offline_count = len([x for x in off_str.split(',') if x.strip()])
                         
-                        # 2. Session Tracking
+                        total_instances = instance_count + offline_count
+                        
+                        # 3. Offline Alert (Throttled 15m)
+                        if offline_count > 0:
+                            last_alert = data[user_id].get("last_offline_alert", 0)
+                            now_ts = int(time.time())
+                            
+                            if (now_ts - last_alert) > 900: # 15 mins
+                                try:
+                                    alert_channel = self.get_channel(CHECKIN_PING_ID)
+                                    if not alert_channel: alert_channel = await self.fetch_channel(CHECKIN_PING_ID)
+                                    
+                                    if alert_channel:
+                                        await alert_channel.send(f"⚠️ {member.mention} **Attention:** You have **{offline_count}** offline instances! Please check your bots.")
+                                        data[user_id]["last_offline_alert"] = now_ts
+                                except Exception as e:
+                                    print(f"Failed to send offline alert: {e}", flush=True)
+
+                        # 4. Session Tracking
                         now_ts = int(time.time())
                         today_str = datetime.utcnow().strftime("%Y-%m-%d")
                         
@@ -1196,11 +1248,15 @@ class MyBot(commands.Bot):
                              user_data["session"] = {
                                  "start_packs": current_packs,
                                  "instances": instance_count,
+                                 "offline_instances": offline_count,
+                                 "total_instances": total_instances,
                                  "duration_minutes": current_time
                              }
                         else:
                             # Update existing session
                             user_data["session"]["instances"] = instance_count
+                            user_data["session"]["offline_instances"] = offline_count
+                            user_data["session"]["total_instances"] = total_instances
                             user_data["session"]["duration_minutes"] = current_time
                             
                         # Update Last Seen for Session
