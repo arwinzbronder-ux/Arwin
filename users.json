@@ -47,7 +47,20 @@
             "time": 0,
             "packs": 0
         },
-        "has_alerted_offline": true
+        "has_alerted_offline": true,
+        "session": {
+            "start_packs": 0,
+            "instances": 2,
+            "offline_instances": 1,
+            "total_instances": 3,
+            "duration_minutes": 0,
+            "last_update": 1767656347,
+            "current_packs": 0
+        },
+        "daily": {
+            "date": "2026-01-05",
+            "start_packs": 0
+        }
     },
     "694638638746566677": {
         "username": "karaelmas3998",
