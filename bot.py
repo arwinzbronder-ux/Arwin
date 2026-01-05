@@ -22,7 +22,7 @@ DATA_FILE = "users.json"
 CHECKIN_CHANNEL_NAME = "check-in"
 WATERMARK_CHANNEL_NAME = "🏆︱live-godpacks-showcase"
 SOURCE_CHANNEL_NAME = "🎰︱group-packs"
-HEARTBEAT_CHANNEL_ID = 1450631414432272454
+HEARTBEAT_MONITOR_ID = 1450631414432272454
 LIVE_PACKS_ID = 1455270012544876635
 DEAD_PACKS_ID = 1455283748118462652
 CHECKIN_PING_ID = 1450630077753856121
@@ -382,12 +382,16 @@ def add_watermark(image_bytes):
 
 def load_data():
     if not os.path.exists(DATA_FILE):
-        return {}
+        return {"_global_stats": {"daily_god_packs": 0, "last_reset_day": datetime.utcnow().strftime("%Y-%m-%d")}}
     try:
         with open(DATA_FILE, "r") as f:
-            return json.load(f)
+            data = json.load(f)
+            # Init Global Stats if missing
+            if "_global_stats" not in data:
+                 data["_global_stats"] = {"daily_god_packs": 0, "last_reset_day": datetime.utcnow().strftime("%Y-%m-%d")}
+            return data
     except Exception:
-        return {}
+        return {"_global_stats": {"daily_god_packs": 0, "last_reset_day": datetime.utcnow().strftime("%Y-%m-%d")}}
 
 async def manage_roles(member, status):
     if member.bot: return
@@ -433,6 +437,18 @@ class PackView(discord.ui.View):
 
     @discord.ui.button(label="Alive", style=discord.ButtonStyle.green, custom_id="pack_alive")
     async def alive_button(self, interaction: discord.Interaction, button: discord.ui.Button):
+        # Increment Daily God Pack Counter
+        data = load_data()
+        current_day = datetime.utcnow().strftime("%Y-%m-%d")
+        
+        # Reset if new day
+        if data["_global_stats"].get("last_reset_day") != current_day:
+             data["_global_stats"]["daily_god_packs"] = 0
+             data["_global_stats"]["last_reset_day"] = current_day
+             
+        data["_global_stats"]["daily_god_packs"] += 1
+        await save_data_async(data)
+        
         await self.handle_triage(interaction, LIVE_PACKS_ID, "Alive")
 
     @discord.ui.button(label="Dead", style=discord.ButtonStyle.red, custom_id="pack_dead")
@@ -772,6 +788,104 @@ class MyBot(commands.Bot):
         self.check_bans.start()
         self.cleanup_checkin.start()
         self.update_heartbeat_ppm.start()
+        self.post_aggregated_stats.start()
+
+    @tasks.loop(minutes=30)
+    async def post_aggregated_stats(self):
+        try:
+            channel = self.get_channel(HEARTBEAT_MONITOR_ID)
+            if not channel: channel = await self.fetch_channel(HEARTBEAT_MONITOR_ID)
+            if not channel: return
+
+            data = load_data()
+            active_users = []
+            total_instances = 0
+            total_session_packs = 0
+            
+            # --- Global Daily Stats ---
+            global_stats = data.get("_global_stats", {})
+            daily_god_packs = global_stats.get("daily_god_packs", 0)
+            
+            # Reset Check logic is in PackView, but we can verify here if needed
+            # We assume PackView handles the reset on click.
+            
+            # --- Per User Aggregation ---
+            now_ts = int(time.time())
+            
+            for user_id, info in data.items():
+                if user_id.startswith("_"): continue # Skip meta keys
+                
+                session = info.get("session", {})
+                last_update = session.get("last_update", 0)
+                
+                # Active if updated in last 35 mins
+                if (now_ts - last_update) < 2100:
+                    # Duration from Heartbeat
+                    duration_min = session.get("duration_minutes", 0)
+                    h = duration_min // 60
+                    m = duration_min % 60
+                    duration_str = f"{h:02d}:{m:02d}"
+                    
+                    # Session Packs
+                    s_packs = session.get("current_packs", 0) - session.get("start_packs", 0)
+                    if s_packs < 0: s_packs = 0 # Safety
+                    
+                    # Instances
+                    instances = session.get("instances", 0)
+                    
+                    active_users.append({
+                        "name": self.get_user(int(user_id)).name if self.get_user(int(user_id)) else f"User-{user_id}",
+                        "instances": instances,
+                        "packs": s_packs,
+                        "duration": duration_str
+                    })
+                    
+                    total_instances += instances
+                    total_session_packs += s_packs
+            
+            if not active_users: return
+            
+            # --- Totals Calculation ---
+            num_rerollers = len(active_users)
+            avg_instances = total_instances / num_rerollers if num_rerollers else 0
+            
+            # PPM Calculation (Aggregate)
+            # This is rough: Total Session Packs / Total Session Time ... or just sum of individual?
+            # User wants "Packs per minute" of the group.
+            # Let's sum active session packs / 30m? No, that's strictly for this interval.
+            # We will use the Session Packs sum.
+            
+            # Actually, to get current speed, we should rely on the PPM logic from update_heartbeat_ppm?
+            # Or just calculate it from the session totals.
+            # Let's simple average: Total Session Packs / (Sum of Durations / Num Users)? Too complex.
+            # Let's just list the stats requested.
+            
+            # IDs Count
+            ids_url = "https://raw.githubusercontent.com/" + REPO_NAME + "/main/ids.txt"
+            num_ids = 0
+            try:
+                async with aiohttp.ClientSession() as session:
+                    async with session.get(ids_url) as resp:
+                        if resp.status == 200:
+                            num_ids = len((await resp.text()).splitlines())
+            except: pass
+
+            
+            # --- Build Message ---
+            msg = f"**📊 T30 Stats Aggregation**\n"
+            msg += f"**Rerollers:** {num_rerollers} | **IDs:** {num_ids}\n"
+            msg += f"**Instances:** {total_instances} (Avg: {avg_instances:.1f})\n"
+            msg += f"**Daily God Packs:** {daily_god_packs}\n"
+            msg += f"----------------------------------------\n"
+            msg += f"**Active Sessions:**\n"
+            
+            for user in active_users:
+                 msg += f"`{user['name']:<15}` 🖥️ {user['instances']} | 📦 {user['packs']} | ⏱️ {user['duration']}\n"
+                 
+            await channel.send(msg)
+
+        except Exception as e:
+            print(f"Failed to post aggregated stats: {e}", flush=True)
 
     @tasks.loop(seconds=60)
     async def auto_github_sync(self):
@@ -1041,27 +1155,69 @@ class MyBot(commands.Bot):
                                     if checkin_ping_channel:
                                         await checkin_ping_channel.send(f"🚨 {member.mention} **has been automatically taken offline.**\n**Reason:** {reason}")
                                 except: pass
-                            else:
                                 print(f"ℹ️ Skipping Policing Ban for {member.name} (Not in public list) - Reason: {reason}", flush=True)
                         else:
                             # ALL GOOD (96P+)
-                            if time_match:
-                                data[user_id]['last_heartbeat'] = {'time': current_time, 'packs': current_packs}
-                                await save_data_async(data)
+                            pass
 
                     else:
                         # --- BRANCH: Other (Non-Policing) ---
-                        # Just update stats if valid, but DON'T police
-                        if time_match:
-                            data[user_id]['last_heartbeat'] = {'time': current_time, 'packs': current_packs}
-                            await save_data_async(data)
+                        pass
                         
+                    # --- STATS TRACKING (All Types) ---
+                    if time_match:
+                        # 1. Parse Instances (Online: Main, 1, 2...)
+                        online_line_match = re.search(r"Online:\s*(.+)", content)
+                        instance_count = 0
+                        if online_line_match:
+                            on_str = online_line_match.group(1).strip()
+                            if on_str.lower() != "none":
+                                # Count items separated by comma
+                                instance_count = len([x for x in on_str.split(',') if x.strip()])
+                        
+                        # 2. Session Tracking
+                        now_ts = int(time.time())
+                        today_str = datetime.utcnow().strftime("%Y-%m-%d")
+                        
+                        user_data = data[user_id]
+                        if "session" not in user_data: user_data["session"] = {}
+                        if "daily" not in user_data: user_data["daily"] = {}
+                        
+                        # Daily Packs Reset
+                        if user_data["daily"].get("date") != today_str:
+                            user_data["daily"] = {
+                                "date": today_str,
+                                "start_packs": current_packs
+                            }
+                        
+                        # Session logic (New session if > 30m silence)
+                        last_update = user_data["session"].get("last_update", 0)
+                        if now_ts - last_update > 1800: # 30 mins
+                             user_data["session"] = {
+                                 "start_packs": current_packs,
+                                 "instances": instance_count,
+                                 "duration_minutes": current_time
+                             }
+                        else:
+                            # Update existing session
+                            user_data["session"]["instances"] = instance_count
+                            user_data["session"]["duration_minutes"] = current_time
+                            
+                        # Update Last Seen for Session
+                        user_data["session"]["last_update"] = now_ts
+                        user_data["session"]["current_packs"] = current_packs
+                        
+                        # Update Legacy Last Heartbeat (for compatibility)
+                        data[user_id]['last_heartbeat'] = {'time': current_time, 'packs': current_packs}
+                        
+                        await save_data_async(data)
+
                     # ALWAYS Forward
                     try:
                         # OPTIMIZATION: Try cache first
-                        hb_channel = self.get_channel(HEARTBEAT_CHANNEL_ID)
+                        hb_channel = self.get_channel(HEARTBEAT_MONITOR_ID)
                         if not hb_channel:
-                            hb_channel = await self.fetch_channel(HEARTBEAT_CHANNEL_ID)
+                            hb_channel = await self.fetch_channel(HEARTBEAT_MONITOR_ID)
                             
                         forward_msg = f"{member.name}\n{content}"
                         if hb_channel:
