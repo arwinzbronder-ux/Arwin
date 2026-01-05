@@ -422,17 +422,17 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 390,
-            "packs": 690
+            "time": 420,
+            "packs": 742
         },
         "session": {
-            "start_packs": 690,
+            "start_packs": 742,
             "instances": 4,
             "offline_instances": 0,
             "total_instances": 4,
-            "duration_minutes": 390,
-            "last_update": 1767652868,
-            "current_packs": 690
+            "duration_minutes": 420,
+            "last_update": 1767654669,
+            "current_packs": 742
         },
         "daily": {
             "date": "2026-01-05",
