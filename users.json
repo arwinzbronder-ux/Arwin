@@ -205,7 +205,7 @@
         "secondary_code": null,
         "instances": 6,
         "prefix": "LibraGP",
-        "status": "online",
+        "status": "offline",
         "secondary_status": "offline",
         "last_heartbeat": {
             "time": 900,
@@ -247,8 +247,8 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 570,
-            "packs": 1030
+            "time": 600,
+            "packs": 1106
         }
     },
     "553693689302482945": {
