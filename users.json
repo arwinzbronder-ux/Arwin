@@ -90,11 +90,12 @@
         "friend_code": "4928118289932284",
         "instances": 5,
         "prefix": "pokemon names",
-        "status": "online",
+        "status": "offline",
         "last_heartbeat": {
             "time": 660,
             "packs": 2201
-        }
+        },
+        "secondary_status": "offline"
     },
     "409685259437735936": {
         "username": "iraptorxd",
