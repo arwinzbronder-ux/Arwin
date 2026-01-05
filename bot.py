@@ -605,6 +605,15 @@ def _blocking_initial_sync():
         except Exception as e:
             print(f"⚠️ Whitelist sync failed: {e}", flush=True)
 
+        # 3. Speed Up GitHub Pages (Create .nojekyll)
+        try:
+            try:
+                repo.get_contents(".nojekyll")
+            except:
+                repo.create_file(".nojekyll", "[skip ci] [skip render] Bot: Speed Boost (.nojekyll)", "")
+                print("🚀 Created .nojekyll to speed up Pages deployment!", flush=True)
+        except Exception: pass
+
         # 3. Download ids.txt and Sync Status
         try:
             ids_content = repo.get_contents("ids.txt")
