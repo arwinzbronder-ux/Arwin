@@ -314,15 +314,17 @@
         "secondary_code": "3728578745352937",
         "secondary_status": "online",
         "last_heartbeat": {
-            "time": 210,
-            "packs": 501
+            "time": 240,
+            "packs": 575
         },
         "session": {
-            "start_packs": 501,
-            "instances": 7,
-            "duration_minutes": 210,
-            "last_update": 1767652070,
-            "current_packs": 501
+            "start_packs": 575,
+            "instances": 6,
+            "offline_instances": 0,
+            "total_instances": 6,
+            "duration_minutes": 240,
+            "last_update": 1767653872,
+            "current_packs": 575
         },
         "daily": {
             "date": "2026-01-05",
