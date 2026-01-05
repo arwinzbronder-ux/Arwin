@@ -435,15 +435,15 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 360,
-            "packs": 784
+            "time": 390,
+            "packs": 852
         },
         "session": {
-            "start_packs": 784,
+            "start_packs": 852,
             "instances": 7,
-            "duration_minutes": 360,
-            "last_update": 1767649286,
-            "current_packs": 784
+            "duration_minutes": 390,
+            "last_update": 1767651088,
+            "current_packs": 852
         },
         "daily": {
             "date": "2026-01-05",
