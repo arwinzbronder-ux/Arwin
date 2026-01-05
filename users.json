@@ -29,7 +29,11 @@
         "instances": 4,
         "prefix": "normal pokemon name",
         "status": "online",
-        "secondary_status": "offline"
+        "secondary_status": "offline",
+        "last_heartbeat": {
+            "time": 0,
+            "packs": 0
+        }
     },
     "694638638746566677": {
         "username": "karaelmas3998",
