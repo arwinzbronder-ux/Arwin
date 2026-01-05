@@ -70,15 +70,15 @@
         "secondary_status": "offline",
         "secondary_code": "6662255096992516",
         "last_heartbeat": {
-            "time": 180,
-            "packs": 399
+            "time": 210,
+            "packs": 471
         },
         "session": {
-            "start_packs": 399,
+            "start_packs": 471,
             "instances": 5,
-            "duration_minutes": 180,
-            "last_update": 1767649522,
-            "current_packs": 399
+            "duration_minutes": 210,
+            "last_update": 1767651323,
+            "current_packs": 471
         },
         "daily": {
             "date": "2026-01-05",
