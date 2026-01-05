@@ -118,15 +118,15 @@
         "secondary_status": "online",
         "secondary_code": "2489404685358169",
         "last_heartbeat": {
-            "time": 120,
-            "packs": 210
+            "time": 150,
+            "packs": 264
         },
         "session": {
-            "start_packs": 210,
+            "start_packs": 264,
             "instances": 4,
-            "duration_minutes": 120,
-            "last_update": 1767650675,
-            "current_packs": 210
+            "duration_minutes": 150,
+            "last_update": 1767652477,
+            "current_packs": 264
         },
         "daily": {
             "date": "2026-01-05",
