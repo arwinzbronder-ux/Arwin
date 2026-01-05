@@ -92,8 +92,8 @@
         "prefix": "pokemon names",
         "status": "online",
         "last_heartbeat": {
-            "time": 90,
-            "packs": 374
+            "time": 120,
+            "packs": 500
         },
         "secondary_status": "offline"
     },
