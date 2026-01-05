@@ -93,10 +93,21 @@
         "status": "online",
         "secondary_status": "online",
         "last_heartbeat": {
-            "time": 270,
-            "packs": 1006
+            "time": 300,
+            "packs": 1112
         },
-        "secondary_code": "9147890578346619"
+        "secondary_code": "9147890578346619",
+        "session": {
+            "start_packs": 1112,
+            "instances": 8,
+            "duration_minutes": 300,
+            "last_update": 1767650022,
+            "current_packs": 1112
+        },
+        "daily": {
+            "date": "2026-01-05",
+            "start_packs": 1112
+        }
     },
     "288833945062342657": {
         "username": "insomniaskai",
