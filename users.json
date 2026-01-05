@@ -61,7 +61,7 @@
         "instances": 7,
         "prefix": "jerry",
         "status": "online",
-        "secondary_status": "offline",
+        "secondary_status": "online",
         "last_heartbeat": {
             "time": 211,
             "packs": 871
