@@ -464,7 +464,8 @@
             "date": "2026-01-05",
             "start_packs": 948
         },
-        "last_offline_alert": 1767653746
+        "last_offline_alert": 1767653746,
+        "has_alerted_offline": true
     },
     "655583863954735124": {
         "username": "isaac5255",
