@@ -148,16 +148,18 @@
         "prefix": "pokemon names",
         "status": "online",
         "last_heartbeat": {
-            "time": 390,
-            "packs": 1518
+            "time": 420,
+            "packs": 1632
         },
         "secondary_status": "offline",
         "session": {
-            "start_packs": 1518,
-            "instances": 7,
-            "duration_minutes": 390,
-            "last_update": 1767652617,
-            "current_packs": 1518
+            "start_packs": 1632,
+            "instances": 6,
+            "offline_instances": 0,
+            "total_instances": 6,
+            "duration_minutes": 420,
+            "last_update": 1767654419,
+            "current_packs": 1632
         },
         "daily": {
             "date": "2026-01-05",
