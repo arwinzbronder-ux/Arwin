@@ -3134,7 +3134,7 @@
         "secondary_code": null,
         "instances": 4,
         "prefix": "CheryGP",
-        "status": "offline",
+        "status": "online",
         "secondary_status": "offline",
         "session": {
             "current_packs": 0,
