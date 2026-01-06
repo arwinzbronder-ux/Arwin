@@ -411,16 +411,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 150,
-            "packs": 602
+            "time": 180,
+            "packs": 706
         },
         "session": {
-            "current_packs": 602,
+            "current_packs": 706,
             "instances": 6,
             "offline_instances": 0,
             "total_instances": 6,
-            "duration_minutes": 150,
-            "last_update": 1767724384
+            "duration_minutes": 180,
+            "last_update": 1767726186
         },
         "daily": {
             "date": "2026-01-06",
