@@ -400,17 +400,17 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 391,
-            "packs": 1347
+            "time": 421,
+            "packs": 1475
         },
         "session": {
-            "start_packs": 1347,
+            "start_packs": 1475,
             "instances": 4,
             "offline_instances": 0,
             "total_instances": 4,
-            "duration_minutes": 391,
-            "last_update": 1767700725,
-            "current_packs": 1347
+            "duration_minutes": 421,
+            "last_update": 1767702527,
+            "current_packs": 1475
         },
         "daily": {
             "date": "2026-01-06",
