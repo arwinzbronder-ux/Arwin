@@ -48,7 +48,7 @@
             "time": 721,
             "packs": 1316
         },
-        "has_alerted_offline": false,
+        "has_alerted_offline": true,
         "session": {
             "start_packs": 1316,
             "instances": 3,
