@@ -1259,16 +1259,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 270,
-            "packs": 1074
+            "time": 300,
+            "packs": 1196
         },
         "session": {
-            "current_packs": 1074,
+            "current_packs": 1196,
             "instances": 7,
             "offline_instances": 0,
             "total_instances": 7,
-            "duration_minutes": 270,
-            "last_update": 1767740027
+            "duration_minutes": 300,
+            "last_update": 1767741828
         },
         "daily": {
             "date": "2026-01-06",
@@ -1424,6 +1424,10 @@
             [
                 1767740027,
                 1074
+            ],
+            [
+                1767741828,
+                1196
             ]
         ]
     },
