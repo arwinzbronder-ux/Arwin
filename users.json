@@ -218,8 +218,8 @@
             "instances": 3,
             "offline_instances": 0,
             "total_instances": 3,
-            "duration_minutes": 1141,
-            "last_update": 1767712170,
+            "duration_minutes": 1171,
+            "last_update": 1767713973,
             "current_packs": 1696
         },
         "daily": {
@@ -227,7 +227,7 @@
             "start_packs": 336
         },
         "last_heartbeat": {
-            "time": 1141,
+            "time": 1171,
             "packs": 1696
         }
     },
