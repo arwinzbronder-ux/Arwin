@@ -1845,16 +1845,16 @@
         "secondary_code": "3728578745352937",
         "secondary_status": "online",
         "last_heartbeat": {
-            "time": 150,
-            "packs": 336
+            "time": 180,
+            "packs": 404
         },
         "session": {
-            "current_packs": 336,
+            "current_packs": 404,
             "instances": 6,
             "offline_instances": 0,
             "total_instances": 6,
-            "duration_minutes": 150,
-            "last_update": 1767741185
+            "duration_minutes": 180,
+            "last_update": 1767742988
         },
         "daily": {
             "date": "2026-01-06",
@@ -2081,6 +2081,10 @@
             [
                 1767741185,
                 336
+            ],
+            [
+                1767742988,
+                404
             ]
         ]
     },
