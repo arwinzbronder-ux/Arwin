@@ -7,17 +7,17 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 691,
-            "packs": 2007
+            "time": 721,
+            "packs": 2092
         },
         "session": {
-            "start_packs": 2007,
+            "start_packs": 2092,
             "instances": 5,
             "offline_instances": 0,
             "total_instances": 5,
-            "duration_minutes": 691,
-            "last_update": 1767674913,
-            "current_packs": 2007
+            "duration_minutes": 721,
+            "last_update": 1767676714,
+            "current_packs": 2092
         },
         "daily": {
             "date": "2026-01-06",
