@@ -372,16 +372,16 @@
         "secondary_code": "3728578745352937",
         "secondary_status": "online",
         "last_heartbeat": {
-            "time": 1412,
-            "packs": 3998
+            "time": 1442,
+            "packs": 4068
         },
         "session": {
-            "current_packs": 3998,
+            "current_packs": 4068,
             "instances": 6,
             "offline_instances": 0,
             "total_instances": 6,
-            "duration_minutes": 1412,
-            "last_update": 1767724185
+            "duration_minutes": 1442,
+            "last_update": 1767725988
         },
         "daily": {
             "date": "2026-01-06",
