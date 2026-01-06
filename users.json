@@ -215,11 +215,11 @@
         "secondary_status": "offline",
         "session": {
             "start_packs": 1696,
-            "instances": 3,
-            "offline_instances": 0,
+            "instances": 2,
+            "offline_instances": 1,
             "total_instances": 3,
-            "duration_minutes": 1201,
-            "last_update": 1767715775,
+            "duration_minutes": 1231,
+            "last_update": 1767717582,
             "current_packs": 1696
         },
         "daily": {
@@ -227,7 +227,7 @@
             "start_packs": 336
         },
         "last_heartbeat": {
-            "time": 1201,
+            "time": 1231,
             "packs": 1696
         },
         "has_alerted_offline": true
