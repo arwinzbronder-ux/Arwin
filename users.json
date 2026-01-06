@@ -345,22 +345,28 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 270,
-            "packs": 314
+            "time": 300,
+            "packs": 348
         },
         "session": {
-            "current_packs": 314,
+            "current_packs": 348,
             "instances": 3,
             "offline_instances": 0,
             "total_instances": 3,
-            "duration_minutes": 270,
-            "last_update": 1767724882
+            "duration_minutes": 300,
+            "last_update": 1767726685
         },
         "daily": {
             "date": "2026-01-06",
             "start_packs": 1154
         },
-        "history": []
+        "history": [],
+        "samples": [
+            [
+                1767726685,
+                348
+            ]
+        ]
     },
     "520672416632930304": {
         "username": "ichesterftw",
