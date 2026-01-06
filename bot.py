@@ -841,6 +841,7 @@ class MyBot(commands.Bot):
                 content = "\n".join(lines[1:])
                 
                 if "Type: Inject Wonderpick" not in content: continue
+                if "Inject 13P+" in content: continue # Exclude 13P+ from PPM stats
 
                 # Parse PPM
                 ppm = 0.0
@@ -1264,8 +1265,13 @@ class MyBot(commands.Bot):
                         
                     # --- STATS TRACKING (All Types) ---
                     if time_match:
-                        # 1. Parse Online Instances (Exclude "Main")
-                        online_line_match = re.search(r"Online:\s*(.+)", content, re.IGNORECASE)
+                        # FILTER: Skip stats tracking for "Inject 13P+"
+                        if "Inject 13P+" in content:
+                           # We still forward it (earlier logic), but we don't track it in stats
+                           pass
+                        else:
+                            # 1. Parse Online Instances (Exclude "Main")
+                            online_line_match = re.search(r"Online:\s*(.+)", content, re.IGNORECASE)
                         instance_count = 0
                         if online_line_match:
                             on_str = online_line_match.group(1).strip()
