@@ -449,17 +449,17 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 870,
-            "packs": 1586
+            "time": 900,
+            "packs": 1658
         },
         "session": {
-            "start_packs": 1586,
+            "start_packs": 1658,
             "instances": 4,
             "offline_instances": 0,
             "total_instances": 4,
-            "duration_minutes": 870,
-            "last_update": 1767681691,
-            "current_packs": 1586
+            "duration_minutes": 900,
+            "last_update": 1767683492,
+            "current_packs": 1658
         },
         "daily": {
             "date": "2026-01-06",
