@@ -44,22 +44,22 @@
         "status": "offline",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 0,
-            "packs": 0
+            "time": 30,
+            "packs": 39
         },
         "has_alerted_offline": false,
         "session": {
             "start_packs": 0,
-            "instances": 2,
-            "offline_instances": 1,
+            "instances": 3,
+            "offline_instances": 0,
             "total_instances": 3,
-            "duration_minutes": 0,
-            "last_update": 1767656347,
-            "current_packs": 0
+            "duration_minutes": 30,
+            "last_update": 1767658120,
+            "current_packs": 39
         },
         "daily": {
-            "date": "2026-01-05",
-            "start_packs": 0
+            "date": "2026-01-06",
+            "start_packs": 39
         }
     },
     "694638638746566677": {
