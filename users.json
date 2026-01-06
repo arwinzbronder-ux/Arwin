@@ -45,18 +45,18 @@
         "status": "offline",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 871,
-            "packs": 1673
+            "time": 901,
+            "packs": 1699
         },
         "has_alerted_offline": true,
         "session": {
-            "start_packs": 1673,
+            "start_packs": 1699,
             "instances": 3,
             "offline_instances": 1,
             "total_instances": 4,
-            "duration_minutes": 871,
-            "last_update": 1767708605,
-            "current_packs": 1673
+            "duration_minutes": 901,
+            "last_update": 1767710408,
+            "current_packs": 1699
         },
         "daily": {
             "date": "2026-01-06",
@@ -297,17 +297,17 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 0,
-            "packs": 0
+            "time": 30,
+            "packs": 42
         },
         "session": {
             "start_packs": 0,
             "instances": 3,
             "offline_instances": 0,
             "total_instances": 3,
-            "duration_minutes": 0,
-            "last_update": 1767708691,
-            "current_packs": 0
+            "duration_minutes": 30,
+            "last_update": 1767710464,
+            "current_packs": 42
         },
         "daily": {
             "date": "2026-01-06",
