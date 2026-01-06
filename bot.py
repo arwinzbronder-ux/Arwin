@@ -869,6 +869,7 @@ class MyBot(commands.Bot):
             report_users = []
             total_instances_online = 0
             total_instances_real = 0
+            grand_total_24h = 0
             
             now_ts = int(time.time())
             cutoff_24h = now_ts - 86400 # 24 hours
@@ -881,27 +882,58 @@ class MyBot(commands.Bot):
                 name = u_obj.name if u_obj else f"User-{user_id}"
                 
                 session = info.get("session", {})
-                history = info.get("history", [])
+                samples = info.get("samples", [])
                 
-                # --- Calculate Rolling 24h Packs ---
+                # --- Calculate Rolling 24h Packs (Delta Algo) ---
                 total_24h = 0
                 
-                # 1. History Contribution
-                for h in history:
-                    if h.get("ts", 0) > cutoff_24h:
-                        total_24h += h.get("packs", 0)
+                # Filter valid window
+                valid_samples = [s for s in samples if s[0] > cutoff_24h]
+                # Sort by time just in case
+                valid_samples.sort(key=lambda x: x[0])
+                
+                if valid_samples:
+                    # If we have samples, calculate sum of positive deltas
+                    # Start with first sample's packs? No, start with 0.
+                    # Iterate:
+                    for i in range(1, len(valid_samples)):
+                        prev_p = valid_samples[i-1][1]
+                        curr_p = valid_samples[i][1]
                         
-                # 2. Current Session Contribution
-                # Only count if session was updated within last 24h (otherwise it's effectively dead/history)
-                last_update = session.get("last_update", 0)
-                if last_update > cutoff_24h:
-                    total_24h += session.get("current_packs", 0)
-                    
+                        delta = curr_p - prev_p
+                        
+                        if delta >= 0:
+                            total_24h += delta
+                        else:
+                            # Counter reset (Restart)
+                            # Add full current value (Assume start from 0)
+                            total_24h += curr_p
+                            
+                            # Note: We technically miss the packs between prev_p and the Reset
+                            # But with frequent sampling (5-10m) this is negligible.
+                            
+                # Fallback/Edge Case: If only 1 sample exists in window?
+                # It means they just started. total_24h = 0? 
+                # Or total_24h = current_packs (since they started <24h ago)?
+                # If the ONE sample is close to `cutoff_24h`, we assume baseline 0.
+                # If we have 0 delta samples, we might look at `session.current_packs`?
+                # Actually, `samples` includes the very latest `on_message` update.
+                # So if they just started, valid_samples = [[ts, 5]]. Delta loops 0 times. total_24h = 0.
+                # Use Case: New user, 1st message "Packs: 100".
+                # We want total_24h = 100? No, we don't know if they opened 100 in last 24h or last year.
+                # We strictly count *observed growth*.
+                # BUT, if `session` implies they are active, maybe we trust `current_packs` if it's small?
+                # No, strict delta is safer. "0" until second heartbeat is fine.
+                
                 # Skip if no activity in last 24h
                 if total_24h == 0: continue
+                
+                # Add to Grand Total (All users, even inactive, who contributed in last 24h)
+                grand_total_24h += total_24h
 
                 # --- Current Status (for Display) ---
                 # Active if updated in last 35 mins
+                last_update = session.get("last_update", 0)
                 is_active = (now_ts - last_update) < 2100
                 
                 # Duration
@@ -916,7 +948,11 @@ class MyBot(commands.Bot):
                 inst_total = inst_online + inst_off
                 if inst_total == 0 and inst_online > 0: inst_total = inst_online
                 
-                inst_str = f"{inst_online}/{inst_total}"
+                # Display 0/0 if offline/inactive
+                if is_active:
+                     inst_str = f"{inst_online}/{inst_total}"
+                else:
+                     inst_str = "0/0"
                 
                 # PPM check
                 user_ppm = active_data.get(name, {}).get('ppm', 0.0)
@@ -965,7 +1001,10 @@ class MyBot(commands.Bot):
             embed.add_field(name="⏱️ Packs per Hour", value=f"{global_pph:,.2f}", inline=True)
             embed.add_field(name="📊 Avg. PPH", value=f"{avg_pph:.2f}", inline=True)
             
-            embed.add_field(name="🌟 Daily Live GPs", value=str(daily_live_gps), inline=False)
+            # Row 3
+            embed.add_field(name="📦 Group 24h Packs", value=f"{grand_total_24h:,}", inline=True)
+            embed.add_field(name="🌟 Daily Live GPs", value=str(daily_live_gps), inline=True)
+
             msg_text = "**Reroller Activity (Last 24h):**\n"
             for u in report_users:
                  # Clean up duration if offline
@@ -1327,32 +1366,18 @@ class MyBot(commands.Bot):
                         now_ts = int(time.time())
                         user_data = data[user_id]
                         if "session" not in user_data: user_data["session"] = {}
-                        if "daily" not in user_data: user_data["daily"] = {} # Legacy fallback, can ignore
-                        if "history" not in user_data: user_data["history"] = [] # New: Session History
+                        if "samples" not in user_data: user_data["samples"] = [] # New: Snapshot Samples
 
-                        # --- DETECT RESTART (Session Archiving) ---
-                        prev_packs = user_data["session"].get("current_packs", 0)
-                        last_update = user_data["session"].get("last_update", 0)
+                        # --- SNAPSHOT COLLECTION ---
+                        # Store current state: [timestamp, packs]
+                        user_data["samples"].append([now_ts, current_packs])
                         
-                        # Conditions for restart:
-                        # 1. Current packs < Previous packs (Counter reset)
-                        # 2. Time jumped backwards (unlikely/irrelevant if packs are consistent, but packs reset usually implies restart)
-                        # We use packs as primary signal.
-                        
-                        if current_packs < prev_packs:
-                            print(f"🔄 Detected Restart for {member.name}: {prev_packs} -> {current_packs}. Archiving.", flush=True)
-                            # Archive previous session
-                            if prev_packs > 0:
-                                user_data["history"].append({
-                                    "ts": last_update,
-                                    "packs": prev_packs
-                                })
-                                
-                            # Prune history (older than 24h + buffer)
-                            cutoff_24h = now_ts - 90000 # 25h buffer
-                            user_data["history"] = [h for h in user_data["history"] if h["ts"] > cutoff_24h]
-                        
-                        # Always update session state to current
+                        # Prune samples older than 25h (keep buffer for 24h calc)
+                        cutoff_prune = now_ts - 90000 
+                        if len(user_data["samples"]) > 100: # Optimize: Don't check every time if small
+                             user_data["samples"] = [s for s in user_data["samples"] if s[0] > cutoff_prune]
+
+                        # Update session state (for display/duration)
                         user_data["session"] = {
                              "current_packs": current_packs,
                              "instances": instance_count,
