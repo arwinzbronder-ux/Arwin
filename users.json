@@ -2043,16 +2043,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 390,
-            "packs": 1413
+            "time": 420,
+            "packs": 1513
         },
         "session": {
-            "current_packs": 1413,
+            "current_packs": 1513,
             "instances": 6,
             "offline_instances": 0,
             "total_instances": 6,
-            "duration_minutes": 390,
-            "last_update": 1767738798
+            "duration_minutes": 420,
+            "last_update": 1767740599
         },
         "daily": {
             "date": "2026-01-06",
@@ -2203,6 +2203,10 @@
             [
                 1767738798,
                 1413
+            ],
+            [
+                1767740599,
+                1513
             ]
         ]
     },
