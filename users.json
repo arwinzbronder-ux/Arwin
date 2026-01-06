@@ -45,7 +45,7 @@
         "status": "offline",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 931,
+            "time": 961,
             "packs": 1699
         },
         "has_alerted_offline": true,
@@ -54,8 +54,8 @@
             "instances": 3,
             "offline_instances": 1,
             "total_instances": 4,
-            "duration_minutes": 931,
-            "last_update": 1767712212,
+            "duration_minutes": 961,
+            "last_update": 1767714015,
             "current_packs": 1699
         },
         "daily": {
