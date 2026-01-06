@@ -2531,16 +2531,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 390,
-            "packs": 989
+            "time": 420,
+            "packs": 1049
         },
         "session": {
-            "current_packs": 989,
+            "current_packs": 1049,
             "instances": 4,
             "offline_instances": 0,
             "total_instances": 4,
-            "duration_minutes": 390,
-            "last_update": 1767736084
+            "duration_minutes": 420,
+            "last_update": 1767737888
         },
         "daily": {
             "date": "2026-01-06",
@@ -2685,6 +2685,10 @@
             [
                 1767736084,
                 989
+            ],
+            [
+                1767737888,
+                1049
             ]
         ]
     },
