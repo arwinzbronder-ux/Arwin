@@ -426,16 +426,16 @@
         "secondary_status": "offline",
         "secondary_code": "6662255096992516",
         "last_heartbeat": {
-            "time": 150,
-            "packs": 356
+            "time": 180,
+            "packs": 426
         },
         "session": {
-            "current_packs": 356,
+            "current_packs": 426,
             "instances": 4,
             "offline_instances": 0,
             "total_instances": 4,
-            "duration_minutes": 150,
-            "last_update": 1767733603
+            "duration_minutes": 180,
+            "last_update": 1767735404
         },
         "daily": {
             "date": "2026-01-06",
@@ -555,6 +555,10 @@
             [
                 1767733603,
                 356
+            ],
+            [
+                1767735404,
+                426
             ]
         ]
     },
