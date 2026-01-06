@@ -482,22 +482,27 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 930,
-            "packs": 1730
+            "time": 0,
+            "packs": 0
         },
         "session": {
-            "start_packs": 1730,
+            "current_packs": 0,
             "instances": 4,
             "offline_instances": 0,
             "total_instances": 4,
-            "duration_minutes": 930,
-            "last_update": 1767685294,
-            "current_packs": 1730
+            "duration_minutes": 0,
+            "last_update": 1767724155
         },
         "daily": {
             "date": "2026-01-06",
             "start_packs": 844
-        }
+        },
+        "history": [
+            {
+                "ts": 1767685294,
+                "packs": 1730
+            }
+        ]
     },
     "553693689302482945": {
         "username": "skyttzi",
