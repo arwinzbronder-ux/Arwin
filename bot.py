@@ -943,10 +943,29 @@ class MyBot(commands.Bot):
             # --- 4. Global Aggregates ---
             active_rerollers_count = len([u for u in report_users if u['is_active']])
             
-            # Global PPM / PPH logic remains same (from active messages)
-            # ... (Existing PPM calc) ...
+            global_ppm = sum(u['ppm'] for u in report_users if u['is_active'])
+            global_pph = global_ppm * 60
             
-            # --- 6. Active Session List ---
+            avg_instances = total_instances_online / active_rerollers_count if active_rerollers_count else 0
+            avg_pph = global_pph / active_rerollers_count if active_rerollers_count else 0
+
+            # --- 5. Construct Embed ---
+            embed = discord.Embed(
+                title="Global Stats",
+                color=discord.Color(0x00eaff) # Custom Cyan
+            )
+            
+            # Row 1
+            embed.add_field(name="👤 Rerollers", value=str(active_rerollers_count), inline=True)
+            embed.add_field(name="📱 Instances", value=f"{total_instances_online}/{total_instances_real}", inline=True)
+            embed.add_field(name="⚖️ Avg. Instances", value=f"{avg_instances:.2f}", inline=True)
+            
+            # Row 2
+            embed.add_field(name="⚡ Packs per Minute", value=f"{global_ppm:.2f}", inline=True)
+            embed.add_field(name="⏱️ Packs per Hour", value=f"{global_pph:,.2f}", inline=True)
+            embed.add_field(name="📊 Avg. PPH", value=f"{avg_pph:.2f}", inline=True)
+            
+            embed.add_field(name="🌟 Daily Live GPs", value=str(daily_live_gps), inline=False)
             msg_text = "**Reroller Activity (Last 24h):**\n"
             for u in report_users:
                  # Clean up duration if offline
