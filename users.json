@@ -476,17 +476,17 @@
         "status": "offline",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 270,
-            "packs": 3016
+            "time": 300,
+            "packs": 3370
         },
         "session": {
             "start_packs": 3016,
             "instances": 5,
             "offline_instances": 0,
             "total_instances": 5,
-            "duration_minutes": 270,
-            "last_update": 1767694032,
-            "current_packs": 3016
+            "duration_minutes": 300,
+            "last_update": 1767695832,
+            "current_packs": 3370
         },
         "daily": {
             "date": "2026-01-06",
