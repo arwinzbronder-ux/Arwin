@@ -288,22 +288,22 @@
         "status": "offline",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 180,
-            "packs": 767
+            "time": 210,
+            "packs": 889
         },
         "session": {
-            "start_packs": 767,
+            "current_packs": 889,
             "instances": 7,
             "offline_instances": 0,
             "total_instances": 7,
-            "duration_minutes": 180,
-            "last_update": 1767722876,
-            "current_packs": 767
+            "duration_minutes": 210,
+            "last_update": 1767724679
         },
         "daily": {
             "date": "2026-01-06",
             "start_packs": 2203
-        }
+        },
+        "history": []
     },
     "275988818631327745": {
         "username": "bloo_64",
