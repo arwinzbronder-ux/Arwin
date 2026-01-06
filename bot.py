@@ -942,7 +942,7 @@ class MyBot(commands.Bot):
             # --- 5. Construct Embed ---
             embed = discord.Embed(
                 title="Global Stats",
-                color=discord.Color.gold() # Yellow/Gold
+                color=discord.Color(0x00eaff) # Custom Cyan
             )
             
             # Row 1
