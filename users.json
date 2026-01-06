@@ -311,17 +311,17 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 210,
-            "packs": 242
+            "time": 240,
+            "packs": 280
         },
         "session": {
-            "start_packs": 242,
+            "start_packs": 280,
             "instances": 3,
             "offline_instances": 0,
             "total_instances": 3,
-            "duration_minutes": 210,
-            "last_update": 1767721278,
-            "current_packs": 242
+            "duration_minutes": 240,
+            "last_update": 1767723081,
+            "current_packs": 280
         },
         "daily": {
             "date": "2026-01-06",
