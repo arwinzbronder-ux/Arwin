@@ -48,13 +48,7 @@
             "date": "2026-01-06",
             "start_packs": 0
         },
-        "history": [],
-        "samples": [
-            [
-                1767726362,
-                98
-            ]
-        ]
+        "history": []
     },
     "475603063948705794": {
         "username": "kysog6646",
@@ -106,16 +100,16 @@
         "secondary_status": "offline",
         "secondary_code": "6662255096992516",
         "last_heartbeat": {
-            "time": 0,
-            "packs": 0
+            "time": 30,
+            "packs": 62
         },
         "session": {
-            "current_packs": 0,
+            "current_packs": 62,
             "instances": 4,
             "offline_instances": 0,
             "total_instances": 4,
-            "duration_minutes": 0,
-            "last_update": 1767724627
+            "duration_minutes": 30,
+            "last_update": 1767726398
         },
         "daily": {
             "date": "2026-01-06",
@@ -367,13 +361,7 @@
             "date": "2026-01-06",
             "start_packs": 0
         },
-        "history": [],
-        "samples": [
-            [
-                1767726356,
-                656
-            ]
-        ]
+        "history": []
     },
     "157834363944435713": {
         "username": "fierza.",
