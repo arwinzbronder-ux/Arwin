@@ -406,22 +406,22 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 120,
-            "packs": 490
+            "time": 150,
+            "packs": 602
         },
         "session": {
-            "start_packs": 490,
+            "current_packs": 602,
             "instances": 6,
             "offline_instances": 0,
             "total_instances": 6,
-            "duration_minutes": 120,
-            "last_update": 1767722583,
-            "current_packs": 490
+            "duration_minutes": 150,
+            "last_update": 1767724384
         },
         "daily": {
             "date": "2026-01-06",
             "start_packs": 1637
-        }
+        },
+        "history": []
     },
     "772504841426829341": {
         "username": "oddtaxi.",
