@@ -7,7 +7,7 @@ from github import Github, Auth
 import json
 from aiohttp import web
 import aiohttp
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 import re
 import io
 from PIL import Image, ImageDraw, ImageFont
@@ -383,16 +383,16 @@ def add_watermark(image_bytes):
 
 def load_data():
     if not os.path.exists(DATA_FILE):
-        return {"_global_stats": {"daily_god_packs": 0, "last_reset_day": datetime.utcnow().strftime("%Y-%m-%d")}}
+        return {"_global_stats": {"daily_god_packs": 0, "last_reset_day": datetime.now(timezone.utc).strftime("%Y-%m-%d")}}
     try:
         with open(DATA_FILE, "r") as f:
             data = json.load(f)
             # Init Global Stats if missing
             if "_global_stats" not in data:
-                 data["_global_stats"] = {"daily_god_packs": 0, "last_reset_day": datetime.utcnow().strftime("%Y-%m-%d")}
+                 data["_global_stats"] = {"daily_god_packs": 0, "last_reset_day": datetime.now(timezone.utc).strftime("%Y-%m-%d")}
             return data
     except Exception:
-        return {"_global_stats": {"daily_god_packs": 0, "last_reset_day": datetime.utcnow().strftime("%Y-%m-%d")}}
+        return {"_global_stats": {"daily_god_packs": 0, "last_reset_day": datetime.now(timezone.utc).strftime("%Y-%m-%d")}}
 
 async def manage_roles(member, status):
     if member.bot: return
@@ -816,7 +816,7 @@ class MyBot(commands.Bot):
                 
                 if live_channel:
                     # Count messages since midnight UTC
-                    now = datetime.utcnow()
+                    now = datetime.now(timezone.utc)
                     midnight = now.replace(hour=0, minute=0, second=0, microsecond=0)
                     
                     async for msg in live_channel.history(limit=None, after=midnight):
@@ -871,7 +871,7 @@ class MyBot(commands.Bot):
             total_instances_real = 0
             
             now_ts = int(time.time())
-            today_str = datetime.utcnow().strftime("%Y-%m-%d")
+            today_str = datetime.now(timezone.utc).strftime("%Y-%m-%d")
             
             for user_id, info in data.items():
                 if user_id.startswith("_"): continue
@@ -1192,7 +1192,7 @@ class MyBot(commands.Bot):
                         if "God Pack" in content:
                             print(f"🌟 God Pack Detected via Log!", flush=True)
                             data = load_data()
-                            current_day = datetime.utcnow().strftime("%Y-%m-%d")
+                            current_day = datetime.now(timezone.utc).strftime("%Y-%m-%d")
                              # Reset if new day
                             if data["_global_stats"].get("last_reset_day") != current_day:
                                  data["_global_stats"]["daily_god_packs"] = 0
@@ -1314,7 +1314,7 @@ class MyBot(commands.Bot):
 
                         # 4. Session Tracking
                         now_ts = int(time.time())
-                        today_str = datetime.utcnow().strftime("%Y-%m-%d")
+                        today_str = datetime.now(timezone.utc).strftime("%Y-%m-%d")
                         
                         user_data = data[user_id]
                         if "session" not in user_data: user_data["session"] = {}
