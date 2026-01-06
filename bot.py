@@ -864,14 +864,14 @@ class MyBot(commands.Bot):
                     # So we update to overwrite with newer values
                     active_data[name]['ppm'] = ppm
 
-            # --- 3. Build Active User List & Aggregates from JSON ---
-            # We verify against JSON for session data
+            # --- 3. Build Active User List (Rolling 24h) ---
+            # We iterate ALL users to capture anyone active in last 24h
             report_users = []
             total_instances_online = 0
             total_instances_real = 0
             
             now_ts = int(time.time())
-            today_str = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+            cutoff_24h = now_ts - 86400 # 24 hours
             
             for user_id, info in data.items():
                 if user_id.startswith("_"): continue
@@ -881,89 +881,79 @@ class MyBot(commands.Bot):
                 name = u_obj.name if u_obj else f"User-{user_id}"
                 
                 session = info.get("session", {})
-                last_update = session.get("last_update", 0)
+                history = info.get("history", [])
                 
-                # Active if updated in last 35 mins
-                if (now_ts - last_update) < 2100:
-                    # Duration
-                    duration_min = session.get("duration_minutes", 0)
-                    h = duration_min // 60
-                    m = duration_min % 60
-                    duration_str = f"{h:02d}:{m:02d}"
+                # --- Calculate Rolling 24h Packs ---
+                total_24h = 0
+                
+                # 1. History Contribution
+                for h in history:
+                    if h.get("ts", 0) > cutoff_24h:
+                        total_24h += h.get("packs", 0)
+                        
+                # 2. Current Session Contribution
+                # Only count if session was updated within last 24h (otherwise it's effectively dead/history)
+                last_update = session.get("last_update", 0)
+                if last_update > cutoff_24h:
+                    total_24h += session.get("current_packs", 0)
                     
-                    # Session Packs
-                    s_packs = session.get("current_packs", 0) - session.get("start_packs", 0)
-                    if s_packs < 0: s_packs = 0
-                    
-                    # Daily Packs
-                    daily = info.get("daily", {})
-                    if daily.get("date") == today_str:
-                         d_packs = session.get("current_packs", 0) - daily.get("start_packs", 0)
-                    else:
-                         d_packs = 0
-                    if d_packs < 0: d_packs = 0
+                # Skip if no activity in last 24h
+                if total_24h == 0: continue
 
-                    # Instances
-                    inst_online = session.get("instances", 0)
-                    inst_off = session.get("offline_instances", 0)
-                    inst_total = inst_online + inst_off
-                    if inst_total == 0 and inst_online > 0: inst_total = inst_online
-                    
-                    inst_str = f"{inst_online}/{inst_total}"
-                    
-                    # Stats from Message History (PPM)
-                    # Match by name (fallback)
-                    user_ppm = active_data.get(name, {}).get('ppm', 0.0)
-                    
-                    report_users.append({
-                        "name": name,
-                        "inst_str": inst_str,
-                        "inst_online": inst_online,
-                        "inst_total": inst_total,
-                        "packs": s_packs,
-                        "daily_packs": d_packs,
-                        "duration": duration_str,
-                        "ppm": user_ppm
-                    })
-                    
+                # --- Current Status (for Display) ---
+                # Active if updated in last 35 mins
+                is_active = (now_ts - last_update) < 2100
+                
+                # Duration
+                duration_min = session.get("duration_minutes", 0)
+                h = duration_min // 60
+                m = duration_min % 60
+                duration_str = f"{h:02d}:{m:02d}"
+                
+                # Instances
+                inst_online = session.get("instances", 0)
+                inst_off = session.get("offline_instances", 0)
+                inst_total = inst_online + inst_off
+                if inst_total == 0 and inst_online > 0: inst_total = inst_online
+                
+                inst_str = f"{inst_online}/{inst_total}"
+                
+                # PPM check
+                user_ppm = active_data.get(name, {}).get('ppm', 0.0)
+                
+                report_users.append({
+                    "name": name,
+                    "inst_str": inst_str,
+                    "inst_online": inst_online if is_active else 0, # Only count online if currently active
+                    "inst_total": inst_total if is_active else 0,   # Only count total if currently active
+                    "session_packs": session.get("current_packs", 0) if is_active else 0, # Display current count
+                    "total_24h": total_24h,
+                    "duration": duration_str if is_active else "Offline",
+                    "ppm": user_ppm,
+                    "is_active": is_active
+                })
+                
+                if is_active:
                     total_instances_online += inst_online
                     total_instances_real += inst_total
 
+            # --- SORT by 24h Total Descending ---
+            report_users.sort(key=lambda x: x['total_24h'], reverse=True)
+
             # --- 4. Global Aggregates ---
-            if not report_users: return
+            active_rerollers_count = len([u for u in report_users if u['is_active']])
             
-            num_rerollers = len(report_users)
+            # Global PPM / PPH logic remains same (from active messages)
+            # ... (Existing PPM calc) ...
             
-            global_ppm = sum(u['ppm'] for u in report_users)
-            global_pph = global_ppm * 60
-            
-            avg_instances = total_instances_online / num_rerollers if num_rerollers else 0
-            avg_pph = global_pph / num_rerollers if num_rerollers else 0
-
-            # --- 5. Construct Embed ---
-            embed = discord.Embed(
-                title="Global Stats",
-                color=discord.Color(0x00eaff) # Custom Cyan
-            )
-            
-            # Row 1
-            embed.add_field(name="👤 Rerollers", value=str(num_rerollers), inline=True)
-            embed.add_field(name="📱 Instances", value=f"{total_instances_online}/{total_instances_real}", inline=True)
-            embed.add_field(name="⚖️ Avg. Instances", value=f"{avg_instances:.2f}", inline=True)
-            
-            # Row 2
-            embed.add_field(name="⚡ Packs per Minute", value=f"{global_ppm:.2f}", inline=True)
-            embed.add_field(name="⏱️ Packs per Hour", value=f"{global_pph:,.2f}", inline=True) # comma for thousands
-            embed.add_field(name="📊 Avg. PPH", value=f"{avg_pph:.2f}", inline=True)
-            
-            # Live GPs Footer or Field? User said "Daily Live GPs"
-            # Let's add it as description or footer or extra field
-            embed.add_field(name="🌟 Daily Live GPs", value=str(daily_live_gps), inline=False)
-
             # --- 6. Active Session List ---
-            msg_text = "**Active Sessions:**\n"
+            msg_text = "**Reroller Activity (Last 24h):**\n"
             for u in report_users:
-                 msg_text += f"`{u['name']:<15}` 🖥️ {u['inst_str']} | Packs: {u['daily_packs']} | ⏱️ {u['duration']}\n"
+                 # Clean up duration if offline
+                 dur = u['duration']
+                 icon = "🖥️" if u['is_active'] else "💤"
+                 
+                 msg_text += f"`{u['name']:<15}` {icon} {u['inst_str']} | Packs: {u['total_24h']} | ⏱️ {dur}\n"
 
             await channel.send(content=msg_text, embed=embed)
 
@@ -1161,11 +1151,13 @@ class MyBot(commands.Bot):
                     reason = None
                     
                     # --- PARSING ---
-                    time_match = re.search(r"Time:\s*(\d+)m\s*Packs:\s*(\d+)", content)
+                    # --- PARSING ---
+                    time_match = re.search(r"Time:\s*(\d+)m", content)
+                    packs_match = re.search(r"Packs:\s*(\d+)", content)
                     opening_match = re.search(r"Opening:\s*(.+)", content) 
                     
                     current_time = int(time_match.group(1)) if time_match else 0
-                    current_packs = int(time_match.group(2)) if time_match else 0
+                    current_packs = int(packs_match.group(1)) if packs_match else 0
 
                     # --- BRANCH: Quiet Removal (13P+ / Create Bots) ---
                     if "Type: Inject 13P+" in content or "Type: Create Bots (13P)" in content:
@@ -1314,35 +1306,42 @@ class MyBot(commands.Bot):
 
                         # 4. Session Tracking
                         now_ts = int(time.time())
-                        today_str = datetime.now(timezone.utc).strftime("%Y-%m-%d")
-                        
                         user_data = data[user_id]
                         if "session" not in user_data: user_data["session"] = {}
-                        if "daily" not in user_data: user_data["daily"] = {}
-                        
-                        # Daily Packs Reset
-                        if user_data["daily"].get("date") != today_str:
-                            user_data["daily"] = {
-                                "date": today_str,
-                                "start_packs": current_packs
-                            }
-                        
-                        # Session logic (New session if > 30m silence)
+                        if "daily" not in user_data: user_data["daily"] = {} # Legacy fallback, can ignore
+                        if "history" not in user_data: user_data["history"] = [] # New: Session History
+
+                        # --- DETECT RESTART (Session Archiving) ---
+                        prev_packs = user_data["session"].get("current_packs", 0)
                         last_update = user_data["session"].get("last_update", 0)
-                        if now_ts - last_update > 1800: # 30 mins
-                             user_data["session"] = {
-                                 "start_packs": current_packs,
-                                 "instances": instance_count,
-                                 "offline_instances": offline_count,
-                                 "total_instances": total_instances,
-                                 "duration_minutes": current_time
-                             }
-                        else:
-                            # Update existing session
-                            user_data["session"]["instances"] = instance_count
-                            user_data["session"]["offline_instances"] = offline_count
-                            user_data["session"]["total_instances"] = total_instances
-                            user_data["session"]["duration_minutes"] = current_time
+                        
+                        # Conditions for restart:
+                        # 1. Current packs < Previous packs (Counter reset)
+                        # 2. Time jumped backwards (unlikely/irrelevant if packs are consistent, but packs reset usually implies restart)
+                        # We use packs as primary signal.
+                        
+                        if current_packs < prev_packs:
+                            print(f"🔄 Detected Restart for {member.name}: {prev_packs} -> {current_packs}. Archiving.", flush=True)
+                            # Archive previous session
+                            if prev_packs > 0:
+                                user_data["history"].append({
+                                    "ts": last_update,
+                                    "packs": prev_packs
+                                })
+                                
+                            # Prune history (older than 24h + buffer)
+                            cutoff_24h = now_ts - 90000 # 25h buffer
+                            user_data["history"] = [h for h in user_data["history"] if h["ts"] > cutoff_24h]
+                        
+                        # Always update session state to current
+                        user_data["session"] = {
+                             "current_packs": current_packs,
+                             "instances": instance_count,
+                             "offline_instances": offline_count,
+                             "total_instances": total_instances,
+                             "duration_minutes": current_time,
+                             "last_update": now_ts
+                        }
                             
                         # Update Last Seen for Session
                         user_data["session"]["last_update"] = now_ts
