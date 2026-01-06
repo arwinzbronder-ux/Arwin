@@ -7,16 +7,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 150,
-            "packs": 532
+            "time": 180,
+            "packs": 622
         },
         "session": {
-            "current_packs": 532,
+            "current_packs": 622,
             "instances": 6,
             "offline_instances": 0,
             "total_instances": 6,
-            "duration_minutes": 150,
-            "last_update": 1767727071
+            "duration_minutes": 180,
+            "last_update": 1767728874
         },
         "daily": {
             "date": "2026-01-06",
@@ -152,6 +152,10 @@
             [
                 1767727071,
                 532
+            ],
+            [
+                1767728874,
+                622
             ]
         ]
     },
@@ -1140,16 +1144,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 60,
-            "packs": 234
+            "time": 90,
+            "packs": 354
         },
         "session": {
-            "current_packs": 234,
+            "current_packs": 354,
             "instances": 7,
             "offline_instances": 0,
             "total_instances": 7,
-            "duration_minutes": 60,
-            "last_update": 1767727416
+            "duration_minutes": 90,
+            "last_update": 1767729218
         },
         "daily": {
             "date": "2026-01-06",
@@ -1277,6 +1281,10 @@
             [
                 1767727416,
                 234
+            ],
+            [
+                1767729218,
+                354
             ]
         ]
     },
