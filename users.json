@@ -2817,20 +2817,20 @@
         "status": "online",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 824,
+            "current_packs": 920,
             "instances": 9,
             "offline_instances": 0,
             "total_instances": 9,
-            "duration_minutes": 240,
-            "last_update": 1767734128
+            "duration_minutes": 270,
+            "last_update": 1767735932
         },
         "daily": {
             "date": "2026-01-06",
             "start_packs": 0
         },
         "last_heartbeat": {
-            "time": 240,
-            "packs": 824
+            "time": 270,
+            "packs": 920
         },
         "history": [],
         "samples": [
@@ -2873,6 +2873,10 @@
             [
                 1767734128,
                 824
+            ],
+            [
+                1767735932,
+                920
             ]
         ]
     }
