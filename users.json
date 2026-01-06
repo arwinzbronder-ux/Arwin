@@ -1831,16 +1831,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 210,
-            "packs": 806
+            "time": 240,
+            "packs": 904
         },
         "session": {
-            "current_packs": 806,
+            "current_packs": 904,
             "instances": 6,
             "offline_instances": 0,
             "total_instances": 6,
-            "duration_minutes": 210,
-            "last_update": 1767727988
+            "duration_minutes": 240,
+            "last_update": 1767729789
         },
         "daily": {
             "date": "2026-01-06",
@@ -1967,6 +1967,10 @@
             [
                 1767727988,
                 806
+            ],
+            [
+                1767729789,
+                904
             ]
         ]
     },
