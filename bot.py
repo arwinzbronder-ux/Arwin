@@ -779,7 +779,10 @@ class MyBot(commands.Bot):
         self.cleanup_checkin.start()
         self.update_heartbeat_ppm.start()
         self.post_aggregated_stats.start()
+        self.update_heartbeat_ppm.start()
+        self.post_aggregated_stats.start()
         self.keep_alive.start()
+        self.history_hydrated = False # Flag for initial backfill
 
     @tasks.loop(minutes=5)
     async def keep_alive(self):
@@ -807,6 +810,77 @@ class MyBot(commands.Bot):
             if not channel: return
 
             data = load_data()
+
+            # --- 0. HYDRATION (Backfill from History) ---
+            if not self.history_hydrated:
+                print("⏳ Hydrating stats from history (First Run)...", flush=True)
+                try:
+                    count = 0
+                    # Scan last 600 messages (approx 1-2 hours of fast traffic, or more if slow)
+                    # We need enough to get a few samples per user to establish a delta.
+                    async for msg in channel.history(limit=600):
+                        if not msg.content: continue
+                        lines = msg.content.splitlines()
+                        if len(lines) < 2: continue
+                        
+                        # Parse Content
+                        name = lines[0].strip()
+                        content = "\n".join(lines[1:])
+                        
+                        # Filter 13P+ / Tradeable
+                        if "Inject 13P+" in content or "Tradeable" in content: continue
+                        if "Type: Inject Wonderpick" not in content: continue
+
+                        # Identify User by Name search in DB (Best effort)
+                        # We iterate known users to find matching name
+                        target_user_id = None
+                        for uid, uinfo in data.items():
+                            if uid.startswith("_"): continue
+                            # We don't store Name in DB explicitly usually, but we can try to resolve or maybe we just skip robust ID matching...
+                            # Actually, we rely on the bot having 'seen' the user before or just matching known IDs.
+                            # Problem: We don't have the user ID in the message text, only Name.
+                            # So we might not be able to reliably backfill for users not already in DB or with changed names.
+                            # BUT, `on_message` uses `member` object.
+                            # Here, we only have text.
+                            # We can try to match `name` against cached members?
+                            pass 
+                        
+                        # BETTER APPROACH: Use the message author? 
+                        # The message in `heartbeat-monitor` appears to be sent BY THE BOT (forwarded).
+                        # "MemberName\nContent".
+                        # So `msg.author` is the Bot.
+                        # We must rely on `lines[0]` (MemberName).
+                        
+                        # Let's try to match MemberName to a User ID in the guild members list.
+                        guild = channel.guild
+                        member = discord.utils.get(guild.members, name=name)
+                        if not member:
+                             # Try display_name?
+                             member = discord.utils.get(guild.members, display_name=name)
+                        
+                        if member:
+                            uid = str(member.id)
+                            if uid not in data: data[uid] = {}
+                            if "samples" not in data[uid]: data[uid]["samples"] = []
+                            
+                            # Parse Packs
+                            # Robust regex
+                            packs_match = re.search(r"Packs:\s*(\d+)", content)
+                            if packs_match:
+                                p_val = int(packs_match.group(1))
+                                ts = msg.created_at.replace(tzinfo=timezone.utc).timestamp()
+                                
+                                # Add sample if check fails? No, just add all and let logic sort/prune.
+                                data[uid]["samples"].append([ts, p_val])
+                                count += 1
+                                
+                    self.history_hydrated = True
+                    await save_data_async(data)
+                    print(f"✅ Hydration Complete. Backfilled {count} samples.", flush=True)
+                    
+                except Exception as e:
+                    print(f"Hydration Failed: {e}", flush=True)
+
             
             # --- 1. Calculate Daily Live GPs (Message Counting) ---
             daily_live_gps = 0
