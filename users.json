@@ -504,17 +504,17 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 120,
-            "packs": 254
+            "time": 0,
+            "packs": 0
         },
         "session": {
-            "start_packs": 254,
+            "start_packs": 0,
             "instances": 6,
             "offline_instances": 0,
             "total_instances": 6,
-            "duration_minutes": 120,
-            "last_update": 1767672783,
-            "current_packs": 254
+            "duration_minutes": 0,
+            "last_update": 1767709050,
+            "current_packs": 0
         },
         "daily": {
             "date": "2026-01-06",
