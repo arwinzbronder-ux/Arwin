@@ -462,21 +462,21 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 601,
-            "packs": 1142
+            "time": 631,
+            "packs": 1186
         },
         "session": {
-            "start_packs": 1096,
+            "start_packs": 1186,
             "instances": 3,
             "offline_instances": 1,
             "total_instances": 4,
-            "duration_minutes": 601,
-            "last_update": 1767657354,
-            "current_packs": 1142
+            "duration_minutes": 631,
+            "last_update": 1767659156,
+            "current_packs": 1186
         },
         "daily": {
-            "date": "2026-01-05",
-            "start_packs": 948
+            "date": "2026-01-06",
+            "start_packs": 1186
         },
         "last_offline_alert": 1767653746,
         "has_alerted_offline": true
