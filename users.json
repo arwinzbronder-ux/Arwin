@@ -48,7 +48,13 @@
             "date": "2026-01-06",
             "start_packs": 0
         },
-        "history": []
+        "history": [],
+        "samples": [
+            [
+                1767726362,
+                98
+            ]
+        ]
     },
     "475603063948705794": {
         "username": "kysog6646",
@@ -120,6 +126,12 @@
                 "ts": 1767672054,
                 "packs": 222
             }
+        ],
+        "samples": [
+            [
+                1767726398,
+                62
+            ]
         ]
     },
     "1040255662569033788": {
@@ -288,22 +300,28 @@
         "status": "offline",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 210,
-            "packs": 889
+            "time": 240,
+            "packs": 1001
         },
         "session": {
-            "current_packs": 889,
+            "current_packs": 1001,
             "instances": 7,
             "offline_instances": 0,
             "total_instances": 7,
-            "duration_minutes": 210,
-            "last_update": 1767724679
+            "duration_minutes": 240,
+            "last_update": 1767726482
         },
         "daily": {
             "date": "2026-01-06",
             "start_packs": 2203
         },
-        "history": []
+        "history": [],
+        "samples": [
+            [
+                1767726482,
+                1001
+            ]
+        ]
     },
     "275988818631327745": {
         "username": "bloo_64",
@@ -361,7 +379,13 @@
             "date": "2026-01-06",
             "start_packs": 0
         },
-        "history": []
+        "history": [],
+        "samples": [
+            [
+                1767726356,
+                656
+            ]
+        ]
     },
     "157834363944435713": {
         "username": "fierza.",
