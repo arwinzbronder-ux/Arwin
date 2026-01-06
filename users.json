@@ -138,17 +138,17 @@
         "secondary_status": "offline",
         "secondary_code": "2489404685358169",
         "last_heartbeat": {
-            "time": 480,
-            "packs": 861
+            "time": 510,
+            "packs": 911
         },
         "session": {
-            "start_packs": 861,
+            "start_packs": 911,
             "instances": 3,
             "offline_instances": 0,
             "total_instances": 3,
-            "duration_minutes": 480,
-            "last_update": 1767672296,
-            "current_packs": 861
+            "duration_minutes": 510,
+            "last_update": 1767674098,
+            "current_packs": 911
         },
         "daily": {
             "date": "2026-01-06",
