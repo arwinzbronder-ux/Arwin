@@ -779,6 +779,25 @@ class MyBot(commands.Bot):
         self.cleanup_checkin.start()
         self.update_heartbeat_ppm.start()
         self.post_aggregated_stats.start()
+        self.keep_alive.start()
+
+    @tasks.loop(minutes=5)
+    async def keep_alive(self):
+        """Ping self to prevent sleep (Render Free Tier)"""
+        url = os.environ.get("RENDER_EXTERNAL_URL")
+        if url:
+            try:
+                async with aiohttp.ClientSession() as session:
+                    async with session.get(url) as resp:
+                        if resp.status == 200:
+                            print(f"💓 Self-Ping Successful: {url}", flush=True)
+                        else:
+                            print(f"⚠️ Self-Ping Failed: {resp.status} - {url}", flush=True)
+            except Exception as e:
+                print(f"❌ Self-Ping Error: {e}", flush=True)
+        else:
+            # Local or missing config
+            pass
 
     @tasks.loop(minutes=30)
     async def post_aggregated_stats(self):
@@ -788,45 +807,84 @@ class MyBot(commands.Bot):
             if not channel: return
 
             data = load_data()
-            active_users = []
-            total_instances = 0
-            total_session_packs = 0
-            total_group_daily_packs = 0
             
-            # --- Global Daily Stats ---
-            global_stats = data.get("_global_stats", {})
-            daily_god_packs = global_stats.get("daily_god_packs", 0)
+            # --- 1. Calculate Daily Live GPs (Message Counting) ---
+            daily_live_gps = 0
+            try:
+                live_channel = self.get_channel(LIVE_PACKS_ID)
+                if not live_channel: live_channel = await self.fetch_channel(LIVE_PACKS_ID)
+                
+                if live_channel:
+                    # Count messages since midnight UTC
+                    now = datetime.utcnow()
+                    midnight = now.replace(hour=0, minute=0, second=0, microsecond=0)
+                    
+                    async for msg in live_channel.history(limit=None, after=midnight):
+                        if not msg.author.bot: continue # Assume bot posts
+                        daily_live_gps += 1
+            except Exception as e:
+                print(f"Failed to count live GPs: {e}", flush=True)
+
+            # --- 2. Scan Recent Heartbeats for Stats (PPM/Instances) ---
+            active_data = {} # {name: {'instances': 0, 'ppm': 0}}
             
-            # --- Per User Aggregation ---
+            # We look at the last 35 mins of heartbeats to get accurate "current" PPM reporting
+            # This is better than calculating from session because client reports instantaneous PPM
+            cutoff = datetime.now() - timedelta(minutes=35)
+            async for msg in channel.history(limit=200, after=cutoff):
+                if not msg.content: continue
+                # Parse: "MemberName\nContent" (Format from on_message)
+                lines = msg.content.splitlines()
+                if len(lines) < 2: continue
+                
+                name = lines[0].strip()
+                content = "\n".join(lines[1:])
+                
+                if "Type: Inject Wonderpick" not in content: continue
+
+                # Parse PPM
+                ppm = 0.0
+                ppm_match = re.search(r"Avg:\s*([\d\.]+)\s*packs/min", content)
+                if ppm_match:
+                    try: ppm = float(ppm_match.group(1))
+                    except: pass
+                
+                # Parse Instances (Online/Total) is hard from message content history reliably
+                # So we will stick to `data` (users.json) for Instance counts as it's the latest state
+                
+                # But we use this loop to verify "Active Rerollers" who are actually posting
+                if name not in active_data:
+                    active_data[name] = {'ppm': ppm}
+                else:
+                    # Keep latest PPM (messages are newest first? No, history(after) is oldest first usually, but check params)
+                    # default is newest first if not specified? 
+                    # actually history() yields newest first by default.
+                    # Wait, we used `after`. `after` -> Oldest to Newest.
+                    # So we update to overwrite with newer values
+                    active_data[name]['ppm'] = ppm
+
+            # --- 3. Build Active User List & Aggregates from JSON ---
+            # We verify against JSON for session data
+            report_users = []
+            total_instances_online = 0
+            total_instances_real = 0
+            
             now_ts = int(time.time())
             today_str = datetime.utcnow().strftime("%Y-%m-%d")
             
-            # First pass: Calculate Group Daily Packs from ALL users (even offline)
             for user_id, info in data.items():
                 if user_id.startswith("_"): continue
-                daily = info.get("daily", {})
-                if daily.get("date") == today_str:
-                    d_start = daily.get("start_packs", 0)
-                    # Use session current, or last_heartbeat?
-                    # The most recent packs count is in 'session' -> 'current_packs' OR 'last_heartbeat' -> 'packs'
-                    # We'll try session first
-                    s_current = info.get("session", {}).get("current_packs", 0)
-                    if s_current == 0:
-                        s_current = info.get("last_heartbeat", {}).get("packs", 0)
-                    
-                    if s_current > 0:
-                        total_group_daily_packs += (s_current - d_start)
-
-            # Second pass: Active Sessions
-            for user_id, info in data.items():
-                if user_id.startswith("_"): continue # Skip meta keys
+                
+                # Get Name
+                u_obj = self.get_user(int(user_id))
+                name = u_obj.name if u_obj else f"User-{user_id}"
                 
                 session = info.get("session", {})
                 last_update = session.get("last_update", 0)
                 
                 # Active if updated in last 35 mins
                 if (now_ts - last_update) < 2100:
-                    # Duration from Heartbeat
+                    # Duration
                     duration_min = session.get("duration_minutes", 0)
                     h = duration_min // 60
                     m = duration_min % 60
@@ -834,64 +892,79 @@ class MyBot(commands.Bot):
                     
                     # Session Packs
                     s_packs = session.get("current_packs", 0) - session.get("start_packs", 0)
-                    if s_packs < 0: s_packs = 0 # Safety
+                    if s_packs < 0: s_packs = 0
                     
-                    # Daily Packs (Member)
+                    # Daily Packs
                     daily = info.get("daily", {})
                     if daily.get("date") == today_str:
-                        daily_p = session.get("current_packs", 0) - daily.get("start_packs", 0)
+                         d_packs = session.get("current_packs", 0) - daily.get("start_packs", 0)
                     else:
-                        daily_p = 0
-                    if daily_p < 0: daily_p = 0
+                         d_packs = 0
+                    if d_packs < 0: d_packs = 0
 
-                    # Instances (Online / Total)
-                    instances = session.get("instances", 0)
-                    total_inst = session.get("total_instances", instances) # Default to instances if missing
-                    # If total is 0 (old data), assume total = instances
-                    if total_inst == 0: total_inst = instances
+                    # Instances
+                    inst_online = session.get("instances", 0)
+                    inst_off = session.get("offline_instances", 0)
+                    inst_total = inst_online + inst_off
+                    if inst_total == 0 and inst_online > 0: inst_total = inst_online
                     
-                    inst_str = f"{instances}/{total_inst}"
+                    inst_str = f"{inst_online}/{inst_total}"
                     
-                    active_users.append({
-                        "name": self.get_user(int(user_id)).name if self.get_user(int(user_id)) else f"User-{user_id}",
+                    # Stats from Message History (PPM)
+                    # Match by name (fallback)
+                    user_ppm = active_data.get(name, {}).get('ppm', 0.0)
+                    
+                    report_users.append({
+                        "name": name,
                         "inst_str": inst_str,
+                        "inst_online": inst_online,
+                        "inst_total": inst_total,
                         "packs": s_packs,
-                        "daily_packs": daily_p,
-                        "duration": duration_str
+                        "daily_packs": d_packs,
+                        "duration": duration_str,
+                        "ppm": user_ppm
                     })
                     
-                    total_instances += instances
-                    total_session_packs += s_packs
-            
-            if not active_users: return
-            
-            # --- Totals Calculation ---
-            num_rerollers = len(active_users)
-            avg_instances = total_instances / num_rerollers if num_rerollers else 0
-            
-            # IDs Count
-            ids_url = "https://raw.githubusercontent.com/" + REPO_NAME + "/main/ids.txt"
-            num_ids = 0
-            try:
-                async with aiohttp.ClientSession() as session:
-                    async with session.get(ids_url) as resp:
-                        if resp.status == 200:
-                            num_ids = len((await resp.text()).splitlines())
-            except: pass
+                    total_instances_online += inst_online
+                    total_instances_real += inst_total
 
+            # --- 4. Global Aggregates ---
+            if not report_users: return
             
-            # --- Build Message ---
-            msg = f"**📊 T30 Stats Aggregation**\n"
-            msg += f"**Rerollers:** {num_rerollers} | **IDs:** {num_ids}\n"
-            msg += f"**Instances:** {total_instances} (Avg: {avg_instances:.1f})\n"
-            msg += f"**Group Daily Packs:** {total_group_daily_packs:,} | **Daily God Packs:** {daily_god_packs}\n"
-            msg += f"----------------------------------------\n"
-            msg += f"**Active Sessions:**\n"
+            num_rerollers = len(report_users)
             
-            for user in active_users:
-                 msg += f"`{user['name']:<15}` 🖥️ {user['inst_str']} | 📦 Ses:{user['packs']} / Day:{user['daily_packs']} | ⏱️ {user['duration']}\n"
-                 
-            await channel.send(msg)
+            global_ppm = sum(u['ppm'] for u in report_users)
+            global_pph = global_ppm * 60
+            
+            avg_instances = total_instances_online / num_rerollers if num_rerollers else 0
+            avg_pph = global_pph / num_rerollers if num_rerollers else 0
+
+            # --- 5. Construct Embed ---
+            embed = discord.Embed(
+                title="Global Stats",
+                color=discord.Color.gold() # Yellow/Gold
+            )
+            
+            # Row 1
+            embed.add_field(name="👤 Rerollers", value=str(num_rerollers), inline=True)
+            embed.add_field(name="📱 Instances", value=f"{total_instances_online}/{total_instances_real}", inline=True)
+            embed.add_field(name="⚖️ Avg. Instances", value=f"{avg_instances:.2f}", inline=True)
+            
+            # Row 2
+            embed.add_field(name="⚡ Packs per Minute", value=f"{global_ppm:.2f}", inline=True)
+            embed.add_field(name="⏱️ Packs per Hour", value=f"{global_pph:,.2f}", inline=True) # comma for thousands
+            embed.add_field(name="📊 Avg. PPH", value=f"{avg_pph:.2f}", inline=True)
+            
+            # Live GPs Footer or Field? User said "Daily Live GPs"
+            # Let's add it as description or footer or extra field
+            embed.add_field(name="🌟 Daily Live GPs", value=str(daily_live_gps), inline=False)
+
+            # --- 6. Active Session List ---
+            msg_text = "**Active Sessions:**\n"
+            for u in report_users:
+                 msg_text += f"`{u['name']:<15}` 🖥️ {u['inst_str']} | Packs: {u['daily_packs']} | ⏱️ {u['duration']}\n"
+
+            await channel.send(content=msg_text, embed=embed)
 
         except Exception as e:
             print(f"Failed to post aggregated stats: {e}", flush=True)
