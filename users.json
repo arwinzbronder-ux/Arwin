@@ -3028,20 +3028,20 @@
         "status": "online",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 1217,
+            "current_packs": 1321,
             "instances": 9,
             "offline_instances": 0,
             "total_instances": 9,
-            "duration_minutes": 360,
-            "last_update": 1767741346
+            "duration_minutes": 391,
+            "last_update": 1767743150
         },
         "daily": {
             "date": "2026-01-06",
             "start_packs": 0
         },
         "last_heartbeat": {
-            "time": 360,
-            "packs": 1217
+            "time": 391,
+            "packs": 1321
         },
         "history": [],
         "samples": [
@@ -3100,6 +3100,10 @@
             [
                 1767741346,
                 1217
+            ],
+            [
+                1767743150,
+                1321
             ]
         ]
     }
