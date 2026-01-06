@@ -519,24 +519,24 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 180,
-            "packs": 491
+            "time": 210,
+            "packs": 565
         },
         "session": {
-            "start_packs": 491,
+            "current_packs": 565,
             "instances": 4,
             "offline_instances": 0,
             "total_instances": 4,
-            "duration_minutes": 180,
-            "last_update": 1767723464,
-            "current_packs": 491
+            "duration_minutes": 210,
+            "last_update": 1767725267
         },
         "daily": {
             "date": "2026-01-06",
             "start_packs": 1186
         },
         "last_offline_alert": 1767653746,
-        "has_alerted_offline": false
+        "has_alerted_offline": false,
+        "history": []
     },
     "655583863954735124": {
         "username": "isaac5255",
