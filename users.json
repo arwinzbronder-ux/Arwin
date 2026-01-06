@@ -167,8 +167,8 @@
             "instances": 6,
             "offline_instances": 0,
             "total_instances": 6,
-            "duration_minutes": 870,
-            "last_update": 1767681455,
+            "duration_minutes": 901,
+            "last_update": 1767683251,
             "current_packs": 3255
         },
         "daily": {
@@ -176,7 +176,7 @@
             "start_packs": 1848
         },
         "last_heartbeat": {
-            "time": 870,
+            "time": 901,
             "packs": 3255
         }
     },
