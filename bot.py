@@ -779,8 +779,6 @@ class MyBot(commands.Bot):
         self.cleanup_checkin.start()
         self.update_heartbeat_ppm.start()
         self.post_aggregated_stats.start()
-        self.update_heartbeat_ppm.start()
-        self.post_aggregated_stats.start()
         self.keep_alive.start()
         self.history_hydrated = False # Flag for initial backfill
 
