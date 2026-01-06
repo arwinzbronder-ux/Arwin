@@ -1531,16 +1531,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 420,
-            "packs": 479
+            "time": 450,
+            "packs": 511
         },
         "session": {
-            "current_packs": 479,
+            "current_packs": 511,
             "instances": 3,
             "offline_instances": 0,
             "total_instances": 3,
-            "duration_minutes": 420,
-            "last_update": 1767733893
+            "duration_minutes": 450,
+            "last_update": 1767735695
         },
         "daily": {
             "date": "2026-01-06",
@@ -1611,6 +1611,10 @@
             [
                 1767733893,
                 479
+            ],
+            [
+                1767735695,
+                511
             ]
         ]
     },
