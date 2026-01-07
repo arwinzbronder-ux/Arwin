@@ -3273,20 +3273,20 @@
         "status": "online",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 90,
+            "current_packs": 184,
             "instances": 9,
             "offline_instances": 0,
             "total_instances": 9,
-            "duration_minutes": 30,
-            "last_update": 1767749200
+            "duration_minutes": 60,
+            "last_update": 1767751005
         },
         "daily": {
             "date": "2026-01-06",
             "start_packs": 0
         },
         "last_heartbeat": {
-            "time": 30,
-            "packs": 90
+            "time": 60,
+            "packs": 184
         },
         "history": [],
         "samples": [
@@ -3361,6 +3361,10 @@
             [
                 1767749200,
                 90
+            ],
+            [
+                1767751005,
+                184
             ]
         ]
     },
