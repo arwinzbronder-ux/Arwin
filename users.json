@@ -1911,12 +1911,12 @@
         "status": "offline",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 0,
+            "current_packs": 154,
             "instances": 7,
             "offline_instances": 0,
             "total_instances": 7,
-            "duration_minutes": 0,
-            "last_update": 1767790109
+            "duration_minutes": 30,
+            "last_update": 1767791888
         },
         "daily": {
             "date": "2026-01-06",
@@ -2079,8 +2079,16 @@
             [
                 1767790109,
                 0
+            ],
+            [
+                1767791888,
+                154
             ]
-        ]
+        ],
+        "last_heartbeat": {
+            "time": 30,
+            "packs": 154
+        }
     },
     "275988818631327745": {
         "username": "bloo_64",
