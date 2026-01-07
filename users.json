@@ -5621,16 +5621,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 390,
-            "packs": 1377
+            "time": 420,
+            "packs": 1479
         },
         "session": {
-            "current_packs": 1377,
+            "current_packs": 1479,
             "instances": 4,
             "offline_instances": 0,
             "total_instances": 4,
-            "duration_minutes": 390,
-            "last_update": 1767798850
+            "duration_minutes": 420,
+            "last_update": 1767800651
         },
         "daily": {
             "date": "2026-01-06",
@@ -5978,6 +5978,10 @@
             [
                 1767713351.831,
                 2143
+            ],
+            [
+                1767800651,
+                1479
             ]
         ]
     },
