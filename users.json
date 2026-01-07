@@ -3161,7 +3161,7 @@
         "secondary_code": null,
         "instances": 8,
         "prefix": "A",
-        "status": "offline",
+        "status": "online",
         "secondary_status": "offline",
         "session": {
             "current_packs": 1413,
