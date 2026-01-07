@@ -5535,16 +5535,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 510,
-            "packs": 1785
+            "time": 540,
+            "packs": 1881
         },
         "session": {
-            "current_packs": 1785,
+            "current_packs": 1881,
             "instances": 4,
             "offline_instances": 0,
             "total_instances": 4,
-            "duration_minutes": 510,
-            "last_update": 1767806057
+            "duration_minutes": 540,
+            "last_update": 1767807858
         },
         "daily": {
             "date": "2026-01-06",
@@ -5908,6 +5908,10 @@
             [
                 1767806057,
                 1785
+            ],
+            [
+                1767807858,
+                1881
             ]
         ]
     },
