@@ -4674,12 +4674,12 @@
         "status": "offline",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 880,
+            "current_packs": 1044,
             "instances": 7,
             "offline_instances": 0,
             "total_instances": 7,
-            "duration_minutes": 180,
-            "last_update": 1767812664
+            "duration_minutes": 210,
+            "last_update": 1767814467
         },
         "daily": {
             "date": "2026-01-06",
@@ -5078,11 +5078,15 @@
             [
                 1767812664,
                 880
+            ],
+            [
+                1767814467,
+                1044
             ]
         ],
         "last_heartbeat": {
-            "time": 180,
-            "packs": 880
+            "time": 210,
+            "packs": 1044
         },
         "status_ids2": "online"
     },
