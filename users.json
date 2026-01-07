@@ -4528,16 +4528,16 @@
         "secondary_code": "3728578745352937",
         "secondary_status": "online",
         "last_heartbeat": {
-            "time": 1142,
-            "packs": 3082
+            "time": 1172,
+            "packs": 3173
         },
         "session": {
-            "current_packs": 3082,
+            "current_packs": 3173,
             "instances": 6,
             "offline_instances": 0,
             "total_instances": 6,
-            "duration_minutes": 1142,
-            "last_update": 1767800725
+            "duration_minutes": 1172,
+            "last_update": 1767802528
         },
         "daily": {
             "date": "2026-01-06",
@@ -4576,10 +4576,6 @@
             [
                 1767713371.334,
                 3505
-            ],
-            [
-                1767711568.221,
-                3413
             ],
             [
                 1767727791,
@@ -4926,10 +4922,6 @@
                 3505
             ],
             [
-                1767711568.221,
-                3413
-            ],
-            [
                 1767798922,
                 2996
             ],
@@ -5128,6 +5120,10 @@
             [
                 1767800725,
                 3082
+            ],
+            [
+                1767802528,
+                3173
             ]
         ]
     },
