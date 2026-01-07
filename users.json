@@ -1520,7 +1520,8 @@
                 0
             ]
         ],
-        "status_ids2": "online"
+        "status_ids2": "offline",
+        "secondary_status_ids2": "offline"
     },
     "1040255662569033788": {
         "username": "jerry223608",
