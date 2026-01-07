@@ -506,16 +506,16 @@
         "secondary_status": "offline",
         "secondary_code": "6662255096992516",
         "last_heartbeat": {
-            "time": 450,
-            "packs": 1070
+            "time": 480,
+            "packs": 1144
         },
         "session": {
-            "current_packs": 1070,
+            "current_packs": 1144,
             "instances": 4,
             "offline_instances": 0,
             "total_instances": 4,
-            "duration_minutes": 450,
-            "last_update": 1767751618
+            "duration_minutes": 480,
+            "last_update": 1767753419
         },
         "daily": {
             "date": "2026-01-06",
@@ -675,6 +675,10 @@
             [
                 1767751618,
                 1070
+            ],
+            [
+                1767753419,
+                1144
             ]
         ]
     },
