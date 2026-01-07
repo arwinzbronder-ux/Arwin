@@ -1520,12 +1520,12 @@
         "instances": 7,
         "prefix": "jerry",
         "status": "online",
-        "secondary_status": "online",
+        "secondary_status": "offline",
         "last_heartbeat": {
             "time": 120,
             "packs": 516
         },
-        "secondary_code": "9147890578346619",
+        "secondary_code": "6945259816716451",
         "session": {
             "current_packs": 516,
             "instances": 6,
