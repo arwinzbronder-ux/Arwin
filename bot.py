@@ -884,71 +884,106 @@ class MyBot(commands.Bot):
             if not self.history_hydrated:
                 print("⏳ Hydrating stats from history (First Run)...", flush=True)
                 try:
-                    count = 0
-                    # Scan last 600 messages (approx 1-2 hours of fast traffic, or more if slow)
-                    # We need enough to get a few samples per user to establish a delta.
-                    async for msg in channel.history(limit=600):
-                        if not msg.content: continue
-                        lines = msg.content.splitlines()
-                        if len(lines) < 2: continue
-                        
-                        # Parse Content
-                        name = lines[0].strip()
-                        content = "\n".join(lines[1:])
-                        
-                        # Filter 13P+ / Tradeable
-                        if "Inject 13P+" in content or "Tradeable" in content: continue
-                        if "Type: Inject Wonderpick" not in content: continue
+                    total_count = 0
+                    
+                    # Track latest state per user to restore session
+                    latest_states = {} # {uid: {ts: 0, packs: 0, inst: 0}}
 
-                        # Identify User by Name search in DB (Best effort)
-                        # We iterate known users to find matching name
-                        target_user_id = None
-                        for uid, uinfo in data.items():
-                            if uid.startswith("_"): continue
-                            # We don't store Name in DB explicitly usually, but we can try to resolve or maybe we just skip robust ID matching...
-                            # Actually, we rely on the bot having 'seen' the user before or just matching known IDs.
-                            # Problem: We don't have the user ID in the message text, only Name.
-                            # So we might not be able to reliably backfill for users not already in DB or with changed names.
-                            # BUT, `on_message` uses `member` object.
-                            # Here, we only have text.
-                            # We can try to match `name` against cached members?
-                            pass 
-                        
-                        # BETTER APPROACH: Use the message author? 
-                        # The message in `heartbeat-monitor` appears to be sent BY THE BOT (forwarded).
-                        # "MemberName\nContent".
-                        # So `msg.author` is the Bot.
-                        # We must rely on `lines[0]` (MemberName).
-                        
-                        # Let's try to match MemberName to a User ID in the guild members list.
-                        guild = channel.guild
-                        member = discord.utils.get(guild.members, name=name)
-                        if not member:
-                             # Try display_name?
-                             member = discord.utils.get(guild.members, display_name=name)
-                        
-                        if member:
-                            uid = str(member.id)
-                            if uid not in data: data[uid] = {}
-                            if "samples" not in data[uid]: data[uid]["samples"] = []
+                    targets = [HEARTBEAT_MONITOR_ID, HEARTBEAT_MONITOR_2_ID]
+
+                    for ch_id in targets:
+                        try:
+                            h_channel = self.get_channel(ch_id)
+                            if not h_channel: h_channel = await self.fetch_channel(ch_id)
+                            if not h_channel: continue
                             
-                            # Parse Packs
-                            # Robust regex
-                            packs_match = re.search(r"Packs:\s*(\d+)", content)
-                            if packs_match:
-                                p_val = int(packs_match.group(1))
-                                ts = msg.created_at.replace(tzinfo=timezone.utc).timestamp()
+                            print(f"   Scanning {h_channel.name}...", flush=True)
+
+                            # Scan last 600 messages
+                            async for msg in h_channel.history(limit=600):
+                                if not msg.content: continue
+                                lines = msg.content.splitlines()
+                                if len(lines) < 2: continue
                                 
-                                # Add sample if check fails? No, just add all and let logic sort/prune.
-                                data[uid]["samples"].append([ts, p_val])
-                                count += 1
+                                name = lines[0].strip()
+                                content = "\n".join(lines[1:])
                                 
+                                if "Inject 13P+" in content or "Tradeable" in content: continue
+                                if "Type: Inject Wonderpick" not in content: continue
+                                
+                                guild = h_channel.guild
+                                member = discord.utils.get(guild.members, name=name)
+                                if not member: member = discord.utils.get(guild.members, display_name=name)
+                                
+                                if member:
+                                    uid = str(member.id)
+                                    if uid not in data: data[uid] = {}
+                                    if "samples" not in data[uid]: data[uid]["samples"] = []
+                                    
+                                    packs_match = re.search(r"Packs:\s*(\d+)", content)
+                                    if packs_match:
+                                        p_val = int(packs_match.group(1))
+                                        ts = msg.created_at.replace(tzinfo=timezone.utc).timestamp()
+                                        
+                                        data[uid]["samples"].append([ts, p_val])
+                                        total_count += 1
+                                        
+                                        # Track latest
+                                        if uid not in latest_states or ts > latest_states[uid]['ts']:
+                                            # Try parse instances
+                                            inst_c = 0
+                                            inst_off = 0
+                                            online_line_match = re.search(r"Online:\s*(.+)", content, re.IGNORECASE)
+                                            if online_line_match:
+                                                on_str = online_line_match.group(1).strip()
+                                                if on_str.lower() != "none":
+                                                    items = [x.strip() for x in on_str.split(',') if x.strip()]
+                                                    inst_c = len([x for x in items if x.lower() != "main"])
+                                            
+                                            off_line_match = re.search(r"Offline:\s*(.+)", content, re.IGNORECASE)
+                                            if off_line_match:
+                                                off_str = off_line_match.group(1).strip()
+                                                if off_str.lower() != "none":
+                                                    inst_off = len([x for x in off_str.split(',') if x.strip()])
+
+                                            latest_states[uid] = {
+                                                'ts': ts,
+                                                'packs': p_val,
+                                                'instances': inst_c,
+                                                'offline_instances': inst_off,
+                                                'total_instances': inst_c + inst_off
+                                            }
+
+                        except Exception as e:
+                            print(f"   Hydration failed for channel {ch_id}: {e}", flush=True)
+
+                    # Restore Sessions
+                    for uid, state in latest_states.items():
+                        if "session" not in data[uid]: data[uid]["session"] = {}
+                        
+                        # Only update if new state is newer than stored state (should be, usually)
+                        stored_last = data[uid]["session"].get("last_update", 0)
+                        if state['ts'] > stored_last:
+                            data[uid]["session"]["last_update"] = state['ts']
+                            data[uid]["session"]["current_packs"] = state['packs']
+                            data[uid]["session"]["instances"] = state['instances']
+                            data[uid]["session"]["offline_instances"] = state['offline_instances']
+                            data[uid]["session"]["total_instances"] = state['total_instances']
+                            
+                            # Rough duration restore (timestamp difference from now?)
+                            # No, duration is usually time active. We can't easily restore that without full parsing.
+                            # But we can at least mark them as 'Active' so they show up.
+                            # We can pull duration from "Time: Xm" in the message if we want to be fancy.
+                            # Let's keep it simple: They appear active. Duration might start low or be 0 until next heartbeat.
+                            # Wait, "Time: Xm" is in the message content!
+                            # For now, let's just accept they are active.
+
                     self.history_hydrated = True
                     await save_data_async(data)
-                    print(f"✅ Hydration Complete. Backfilled {count} samples.", flush=True)
+                    print(f"✅ Hydration Complete. Backfilled {total_count} samples and restored sessions.", flush=True)
                     
                 except Exception as e:
-                    print(f"Hydration Failed: {e}", flush=True)
+                    print(f"❌ Critical Hydration Failure: {e}", flush=True)
 
             
             # --- 1. Calculate Daily Live GPs (Message Counting) ---
@@ -1141,9 +1176,9 @@ class MyBot(commands.Bot):
                     session = u.get("session", {})
                     samples = u.get("samples", [])
                     
-                    # Clean Stale Session (Active > 10m ago? Dead)
+                    # Clean Stale Session (Active > 40m ago? Dead)
                     last_update = session.get("last_update", 0)
-                    is_active = (now_ts - last_update) < 600 # 10 minutes
+                    is_active = (now_ts - last_update) < 2500 # 40 minutes + buffer
                     
                     # Calc 24h Packs (Rolling)
                     cutoff_24h = now_ts - 86400
