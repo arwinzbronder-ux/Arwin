@@ -23,6 +23,7 @@ CHECKIN_CHANNEL_NAME = "check-in"
 WATERMARK_CHANNEL_NAME = "🏆︱live-godpacks-showcase"
 SOURCE_CHANNEL_NAME = "🎰︱group-packs"
 HEARTBEAT_MONITOR_ID = 1450631414432272454
+HEARTBEAT_MONITOR_2_ID = 1458518086037668015
 LIVE_PACKS_ID = 1455270012544876635
 DEAD_PACKS_ID = 1455283748118462652
 GOD_PACK_LOG_CHANNEL_ID = 1450631354034159636
@@ -1097,65 +1098,182 @@ class MyBot(commands.Bot):
                      inst_str = "0/0"
                 
                 # PPM check
-                user_ppm = active_data.get(name, {}).get('ppm', 0.0)
+            # --- Helper: Generate and Post Stats ---
+            async def generate_and_post_stats(target_channel_id, user_filter_func):
+                try:
+                    channel = await self.fetch_channel(target_channel_id)
+                except: return
+
+                # 1. Filter Users
+                subset_ids = {uid for uid, info in data.items() if user_filter_func(info)}
                 
-                report_users.append({
-                    "name": name,
-                    "inst_str": inst_str,
-                    "inst_online": inst_online if is_active else 0, # Only count online if currently active
-                    "inst_total": inst_total if is_active else 0,   # Only count total if currently active
-                    "session_packs": session.get("current_packs", 0) if is_active else 0, # Display current count
-                    "total_24h": total_24h,
-                    "duration": duration_str if is_active else "Offline",
-                    "ppm": user_ppm,
-                    "is_active": is_active
-                })
+                # 2. Count Daily Live GPs (Filtered)
+                daily_live_gps = 0
+                try:
+                    live_channel = await self.fetch_channel(LIVE_PACKS_ID)
+                    today_utc = datetime.now(timezone.utc).date()
+                    start_of_day = datetime(today_utc.year, today_utc.month, today_utc.day, tzinfo=timezone.utc)
+                    
+                    async for msg in live_channel.history(limit=50, after=start_of_day):
+                         # Naive check: does the message mention a user in our subset?
+                         # Or check if author is in subset (if user sent it)? 
+                         # Usually bot sends it, mentions user.
+                         # Check mentions
+                         if msg.mentions:
+                             if str(msg.mentions[0].id) in subset_ids:
+                                 daily_live_gps += 1
+                except Exception as e:
+                    print(f"Failed to count live GPs for {target_channel_id}: {e}", flush=True)
+
+                # 3. Aggregation
+                total_instances_online = 0
+                total_instances_real = 0
+                grand_total_24h = 0
                 
-                if is_active:
-                    total_instances_online += inst_online
-                    total_instances_real += inst_total
+                report_users = []
+                
+                now_ts = int(time.time())
+                
+                for user_id in subset_ids:
+                    u = data[user_id]
+                    name = self.get_user(int(user_id)).name if self.get_user(int(user_id)) else f"User {user_id}"
+                    
+                    session = u.get("session", {})
+                    samples = u.get("samples", [])
+                    
+                    # Clean Stale Session (Active > 10m ago? Dead)
+                    last_update = session.get("last_update", 0)
+                    is_active = (now_ts - last_update) < 600 # 10 minutes
+                    
+                    # Calc 24h Packs (Rolling)
+                    cutoff_24h = now_ts - 86400
+                    valid_samples = [s for s in samples if s[0] > cutoff_24h]
+                    
+                    # Delta: Last Sample - First Sample
+                    # Only if we have samples
+                    total_24h = 0
+                    if valid_samples:
+                        # Sort by TS
+                        valid_samples.sort(key=lambda x: x[0])
+                        # Max packs seen - Min packs seen ? 
+                        # Or packs are cumulative? Yes packs are cumulative in session.
+                        # But different sessions? 
+                        # The samples are [ts, current_packs_val]. 
+                        # If restart, packs reset? No, usually "Packs: X" is session based?
+                        # Wait, "Packs: X" in heartbeat is usually cumulative for that run.
+                        # If they restart, it goes back to 0. 
+                        # We need sum of deltas between resets? 
+                        # Simplified: Max(packs) in window? No, multiple sessions.
+                        # Delta Algorithm:
+                        # Sum of positive increments?
+                        # If s[i+1] < s[i], it reset.
+                        current_sum = 0
+                        for i in range(1, len(valid_samples)):
+                            diff = valid_samples[i][1] - valid_samples[i-1][1]
+                            if diff > 0: current_sum += diff
+                            # If diff < 0, implies reset, ignore (start new session count from 0 to val)
+                            elif diff < 0: current_sum += valid_samples[i][1]
+                        
+                        total_24h = current_sum
 
-            # --- SORT by 24h Total Descending ---
-            report_users.sort(key=lambda x: x['total_24h'], reverse=True)
+                    grand_total_24h += total_24h
 
-            # --- 4. Global Aggregates ---
-            active_rerollers_count = len([u for u in report_users if u['is_active']])
-            
-            global_ppm = sum(u['ppm'] for u in report_users if u['is_active'])
-            global_pph = global_ppm * 60
-            
-            avg_instances = total_instances_online / active_rerollers_count if active_rerollers_count else 0
-            avg_pph = global_pph / active_rerollers_count if active_rerollers_count else 0
+                    # Format Instances
+                    inst_online = session.get("instances", 0)
+                    inst_offline = session.get("offline_instances", 0)
+                    inst_total = session.get("total_instances", 0)
+                    
+                    inst_str = f"{inst_online}/{inst_total}"
+                    if inst_offline > 0:
+                        inst_str += f" ({inst_offline} off)"
+                        
+                    # Format Duration
+                    mins = session.get("duration_minutes", 0)
+                    if mins >= 60:
+                        h = mins // 60
+                        m = mins % 60
+                        duration_str = f"{h}h {m}m"
+                    else:
+                        duration_str = f"{mins}m"
 
-            # --- 5. Construct Embed ---
-            embed = discord.Embed(
-                title="Global Stats",
-                color=discord.Color(0x00eaff) # Custom Cyan
+                    # Get Average PPM (from heartbeat channel name? No, per user?)
+                    # We don't track per-user PPM in JSON, it's parsed in update_heartbeat_ppm
+                    # We can't easily get it here without parsing history again. 
+                    # Use a rough calc: total_24h / 1440? No.
+                    # Use Session PPM: current_packs / duration?
+                    user_ppm = 0.0
+                    if is_active and mins > 0:
+                        user_ppm = session.get("current_packs", 0) / mins
+                    
+                    report_users.append({
+                        "name": name,
+                        "inst_str": inst_str,
+                        "inst_online": inst_online if is_active else 0, 
+                        "inst_total": inst_total if is_active else 0,   
+                        "session_packs": session.get("current_packs", 0) if is_active else 0, 
+                        "total_24h": total_24h,
+                        "duration": duration_str if is_active else "Offline",
+                        "ppm": user_ppm,
+                        "is_active": is_active
+                    })
+                    
+                    if is_active:
+                        total_instances_online += inst_online
+                        total_instances_real += inst_total
+
+                # --- SORT by 24h Total Descending ---
+                report_users.sort(key=lambda x: x['total_24h'], reverse=True)
+
+                # --- 4. Global Aggregates ---
+                active_rerollers_count = len([u for u in report_users if u['is_active']])
+                
+                global_ppm = sum(u['ppm'] for u in report_users if u['is_active'])
+                global_pph = global_ppm * 60
+                
+                avg_instances = total_instances_online / active_rerollers_count if active_rerollers_count else 0
+                avg_pph = global_pph / active_rerollers_count if active_rerollers_count else 0
+
+                # --- 5. Construct Embed ---
+                embed = discord.Embed(
+                    title="Global Stats" if target_channel_id == HEARTBEAT_MONITOR_ID else "Global Stats (List 2)",
+                    color=discord.Color(0x00eaff) 
+                )
+                
+                # Row 1
+                embed.add_field(name="👤 Rerollers", value=str(active_rerollers_count), inline=True)
+                embed.add_field(name="📱 Instances", value=f"{total_instances_online}/{total_instances_real}", inline=True)
+                embed.add_field(name="⚖️ Avg. Instances", value=f"{avg_instances:.2f}", inline=True)
+                
+                # Row 2
+                embed.add_field(name="⚡ Packs per Minute", value=f"{global_ppm:.2f}", inline=True)
+                embed.add_field(name="⏱️ Packs per Hour", value=f"{global_pph:,.2f}", inline=True)
+                embed.add_field(name="📊 Avg. PPH", value=f"{avg_pph:.2f}", inline=True)
+                
+                # Row 3
+                embed.add_field(name="📦 Group 24h Packs", value=f"{grand_total_24h:,}", inline=True)
+                embed.add_field(name="🌟 Daily Live GPs", value=str(daily_live_gps), inline=True)
+
+                msg_text = "**Reroller Activity (Last 24h):**\n"
+                for u in report_users:
+                     dur = u['duration']
+                     icon = "🖥️" if u['is_active'] else "💤"
+                     
+                     msg_text += f"`{u['name']:<15}` {icon} {u['inst_str']} | Packs: {u['total_24h']} | ⏱️ {dur}\n"
+
+                await channel.send(content=msg_text, embed=embed)
+
+            # --- RUN REPORTS ---
+            # Report 1: Main (status or secondary_status is online)
+            await generate_and_post_stats(
+                HEARTBEAT_MONITOR_ID, 
+                lambda info: info.get('status') == 'online' or info.get('secondary_status') == 'online'
             )
             
-            # Row 1
-            embed.add_field(name="👤 Rerollers", value=str(active_rerollers_count), inline=True)
-            embed.add_field(name="📱 Instances", value=f"{total_instances_online}/{total_instances_real}", inline=True)
-            embed.add_field(name="⚖️ Avg. Instances", value=f"{avg_instances:.2f}", inline=True)
-            
-            # Row 2
-            embed.add_field(name="⚡ Packs per Minute", value=f"{global_ppm:.2f}", inline=True)
-            embed.add_field(name="⏱️ Packs per Hour", value=f"{global_pph:,.2f}", inline=True)
-            embed.add_field(name="📊 Avg. PPH", value=f"{avg_pph:.2f}", inline=True)
-            
-            # Row 3
-            embed.add_field(name="📦 Group 24h Packs", value=f"{grand_total_24h:,}", inline=True)
-            embed.add_field(name="🌟 Daily Live GPs", value=str(daily_live_gps), inline=True)
-
-            msg_text = "**Reroller Activity (Last 24h):**\n"
-            for u in report_users:
-                 # Clean up duration if offline
-                 dur = u['duration']
-                 icon = "🖥️" if u['is_active'] else "💤"
-                 
-                 msg_text += f"`{u['name']:<15}` {icon} {u['inst_str']} | Packs: {u['total_24h']} | ⏱️ {dur}\n"
-
-            await channel.send(content=msg_text, embed=embed)
+            # Report 2: List 2 (status_ids2 or secondary_status_ids2 is online)
+            await generate_and_post_stats(
+                HEARTBEAT_MONITOR_2_ID, 
+                lambda info: info.get('status_ids2') == 'online' or info.get('secondary_status_ids2') == 'online'
+            )
 
         except Exception as e:
             print(f"Failed to post aggregated stats: {e}", flush=True)
@@ -1201,54 +1319,60 @@ class MyBot(commands.Bot):
     
     @tasks.loop(minutes=15)
     async def update_heartbeat_ppm(self):
-        try:
-            channel = await self.fetch_channel(HEARTBEAT_MONITOR_ID)
-        except Exception as e:
-            print(f"⚠️ Heartbeat channel fetch failed: {e}", flush=True)
-            return
-
-        try:
-            # Stats dictionary: {member_name: ppm}
-            member_stats = {}
-            
-            # Fetch lookback (30 min heartbeat + 10 min buffer)
-            cutoff = datetime.now() - timedelta(minutes=40)
-            
-            # Process NEWEST messages first
-            async for message in channel.history(limit=100, after=cutoff):
-                if not message.content: continue
-                
-                # FILTER: Only include specific bot types
-                if "Type: Inject Wonderpick 96P+" not in message.content:
-                    continue
-
-                lines = message.content.splitlines()
-                if not lines: continue
-                
-                # First line is ID/Name
-                member_name = lines[0].strip()
-                
-                # Extract PPM
-                match = re.search(r"Avg:\s*([\d\.]+)\s*packs/min", message.content)
-                if match:
-                    try:
-                        ppm = float(match.group(1))
-                        member_stats[member_name] = ppm
-                    except ValueError:
-                        pass
+        targets = [
+            (HEARTBEAT_MONITOR_ID, "heartbeat-monitor"),
+            (HEARTBEAT_MONITOR_2_ID, "heartbeat-monitor2")
+        ]
         
-            # Sum totals
-            total_ppm = sum(member_stats.values())
-            print(f"💓 Calculated Total PPM: {total_ppm} (from {len(member_stats)} bots)", flush=True)
-            
-            # Rename Channel (Rounded to nearest int)
-            new_name = f"💓︱heartbeat-monitor︱{int(round(total_ppm))} PPM"
-            if channel.name != new_name:
-                await channel.edit(name=new_name)
-                print(f"💓 Updated Heartbeat: {new_name}", flush=True)
+        for ch_id, base_name in targets:
+            try:
+                channel = await self.fetch_channel(ch_id)
+            except Exception as e:
+                print(f"⚠️ Heartbeat channel {ch_id} fetch failed: {e}", flush=True)
+                continue
+
+            try:
+                # Stats dictionary: {member_name: ppm}
+                member_stats = {}
                 
-        except Exception as e:
-            print(f"Failed to update Heartbeat PPM: {e}", flush=True)
+                # Fetch lookback (30 min heartbeat + 10 min buffer)
+                cutoff = datetime.now() - timedelta(minutes=40)
+                
+                # Process NEWEST messages first
+                async for message in channel.history(limit=100, after=cutoff):
+                    if not message.content: continue
+                    
+                    # FILTER: Only include specific bot types
+                    if "Type: Inject Wonderpick 96P+" not in message.content:
+                        continue
+
+                    lines = message.content.splitlines()
+                    if not lines: continue
+                    
+                    # First line is ID/Name
+                    member_name = lines[0].strip()
+                    
+                    # Extract PPM
+                    match = re.search(r"Avg:\s*([\d\.]+)\s*packs/min", message.content)
+                    if match:
+                        try:
+                            ppm = float(match.group(1))
+                            member_stats[member_name] = ppm
+                        except ValueError:
+                            pass
+            
+                # Sum totals
+                total_ppm = sum(member_stats.values())
+                print(f"💓 [CH {ch_id}] PPM: {total_ppm}", flush=True)
+                
+                # Rename Channel (Rounded to nearest int)
+                new_name = f"💓︱{base_name}︱{int(round(total_ppm))} PPM"
+                if channel.name != new_name:
+                    await channel.edit(name=new_name)
+                    print(f"💓 Updated Channel Name: {new_name}", flush=True)
+                    
+            except Exception as e:
+                print(f"Failed to update Heartbeat PPM for {ch_id}: {e}", flush=True)
 
     @tasks.loop(minutes=10)
     async def check_bans(self):
@@ -1554,12 +1678,19 @@ class MyBot(commands.Bot):
                         
                         await save_data_async(data)
 
-                    # ALWAYS Forward
+                    # ALWAYS Forward (Routing logic)
                     try:
-                        # OPTIMIZATION: Try cache first
-                        hb_channel = self.get_channel(HEARTBEAT_MONITOR_ID)
+                        # Determine target channel
+                        target_id = HEARTBEAT_MONITOR_ID
+                        u_data = data.get(user_id, {})
+                        
+                        if (u_data.get('status_ids2') == 'online' or 
+                            u_data.get('secondary_status_ids2') == 'online'):
+                             target_id = HEARTBEAT_MONITOR_2_ID
+                        
+                        hb_channel = self.get_channel(target_id)
                         if not hb_channel:
-                            hb_channel = await self.fetch_channel(HEARTBEAT_MONITOR_ID)
+                            hb_channel = await self.fetch_channel(target_id)
                             
                         forward_msg = f"{member.name}\n{content}"
                         if hb_channel:
