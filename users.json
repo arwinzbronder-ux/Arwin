@@ -3417,20 +3417,20 @@
         "status": "online",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 384,
+            "current_packs": 482,
             "instances": 9,
             "offline_instances": 0,
             "total_instances": 9,
-            "duration_minutes": 120,
-            "last_update": 1767754615
+            "duration_minutes": 150,
+            "last_update": 1767756420
         },
         "daily": {
             "date": "2026-01-06",
             "start_packs": 0
         },
         "last_heartbeat": {
-            "time": 120,
-            "packs": 384
+            "time": 150,
+            "packs": 482
         },
         "history": [],
         "samples": [
@@ -3517,6 +3517,10 @@
             [
                 1767754615,
                 384
+            ],
+            [
+                1767756420,
+                482
             ]
         ]
     },
