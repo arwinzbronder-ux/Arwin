@@ -1519,7 +1519,7 @@
         "friend_code": "7951677911105601",
         "instances": 7,
         "prefix": "jerry",
-        "status": "online",
+        "status": "offline",
         "secondary_status": "offline",
         "last_heartbeat": {
             "time": 120,
@@ -1908,7 +1908,9 @@
                 1767801585,
                 516
             ]
-        ]
+        ],
+        "status_ids2": "offline",
+        "secondary_status_ids2": "offline"
     },
     "288833945062342657": {
         "username": "insomniaskai",
