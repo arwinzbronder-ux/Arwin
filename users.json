@@ -1017,20 +1017,20 @@
         "status": "online",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 429,
+            "current_packs": 539,
             "instances": 6,
             "offline_instances": 0,
             "total_instances": 6,
-            "duration_minutes": 120,
-            "last_update": 1767754765
+            "duration_minutes": 150,
+            "last_update": 1767756566
         },
         "daily": {
             "date": "2026-01-06",
             "start_packs": 1848
         },
         "last_heartbeat": {
-            "time": 120,
-            "packs": 429
+            "time": 150,
+            "packs": 539
         },
         "samples": [
             [
@@ -1172,6 +1172,10 @@
             [
                 1767754765,
                 429
+            ],
+            [
+                1767756566,
+                539
             ]
         ],
         "has_alerted_offline": false
