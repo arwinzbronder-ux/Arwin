@@ -3881,16 +3881,16 @@
         "status": "offline",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 2,
-            "packs": 0
+            "time": 149,
+            "packs": 456
         },
         "session": {
-            "current_packs": 0,
+            "current_packs": 456,
             "instances": 0,
             "offline_instances": 3,
             "total_instances": 3,
-            "duration_minutes": 2,
-            "last_update": 1767794924
+            "duration_minutes": 149,
+            "last_update": 1767804006
         },
         "daily": {
             "date": "2026-01-06",
@@ -4177,6 +4177,10 @@
             [
                 1767712272.688,
                 76
+            ],
+            [
+                1767804006,
+                456
             ]
         ],
         "has_alerted_offline": true
