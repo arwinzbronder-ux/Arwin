@@ -5184,16 +5184,16 @@
         "status": "offline",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 30,
-            "packs": 144
+            "time": 60,
+            "packs": 296
         },
         "session": {
-            "current_packs": 144,
+            "current_packs": 296,
             "instances": 6,
             "offline_instances": 0,
             "total_instances": 6,
-            "duration_minutes": 30,
-            "last_update": 1767803193
+            "duration_minutes": 60,
+            "last_update": 1767804994
         },
         "daily": {
             "date": "2026-01-06",
@@ -5572,6 +5572,10 @@
             [
                 1767803193,
                 144
+            ],
+            [
+                1767804994,
+                296
             ]
         ],
         "has_alerted_offline": false,
