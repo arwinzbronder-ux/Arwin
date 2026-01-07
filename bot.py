@@ -193,7 +193,10 @@ async def update_vip_list(new_id):
 def count_online_users(data):
     count = 0
     for info in data.values():
-        if info.get('status') == 'online' or info.get('secondary_status') == 'online':
+        if (info.get('status') == 'online' or 
+            info.get('secondary_status') == 'online' or
+            info.get('status_ids2') == 'online' or
+            info.get('secondary_status_ids2') == 'online'):
             count += 1
     return count
 
@@ -579,6 +582,9 @@ def _blocking_sync(data):
         # Includes: Main IDs strictly set to status_ids2=online
         if info.get('friend_code') and info.get('status_ids2') == 'online':
             codes_2.add(info['friend_code'])
+        # Includes: Secondary IDs strictly set to secondary_status_ids2=online
+        if info.get('secondary_code') and info.get('secondary_status_ids2') == 'online':
+            codes_2.add(info['secondary_code'])
             
     content_1 = "\n".join(sorted(list(codes_1)))
     content_2 = "\n".join(sorted(list(codes_2)))
@@ -1413,7 +1419,8 @@ class MyBot(commands.Bot):
                             # If user is online via ids (main/sec), use whitelist 1
                             
                             user_data = data.get(user_id, {})
-                            is_ids2 = user_data.get('status_ids2') == 'online'
+                            is_ids2 = (user_data.get('status_ids2') == 'online' or 
+                                       user_data.get('secondary_status_ids2') == 'online')
                             
                             if is_ids2:
                                  allowed_packs = load_whitelist2()
@@ -1437,6 +1444,8 @@ class MyBot(commands.Bot):
                                 print(f"🚫 POLICING BAN: {member.name} - {reason}", flush=True)
                                 data[user_id]['status'] = 'offline'
                                 data[user_id]['secondary_status'] = 'offline' 
+                                data[user_id]['status_ids2'] = 'offline'
+                                data[user_id]['secondary_status_ids2'] = 'offline' 
                                 if 'last_heartbeat' in data[user_id]: del data[user_id]['last_heartbeat']
                                 await save_data_async(data)
                                 await sync_to_github(data)
@@ -1857,8 +1866,8 @@ async def rg_online(interaction: discord.Interaction):
     except Exception as e:
          print(f"Failed to edit message: {e}", flush=True)
 
-@bot.tree.command(name="rg_on2", description="Set your ID to ONLINE exclusively on ids2.txt (Bot 2)")
-async def rg_on2(interaction: discord.Interaction):
+@bot.tree.command(name="rg_online2", description="Set your ID to ONLINE exclusively on ids2.txt (Bot 2)")
+async def rg_online2(interaction: discord.Interaction):
     try:
         await interaction.response.defer(ephemeral=False)
     except: return
@@ -1913,6 +1922,59 @@ async def rg_on2(interaction: discord.Interaction):
             await update_channel_status(interaction.client)
         else:
             await msg.edit(content=f"⚠️ **Pushed to ids2.txt**, but verification timed out.")
+    except: pass
+
+@bot.tree.command(name="rg_online2_2nd", description="Set your SECONDARY ID to ONLINE on ids2.txt (Bot 2)")
+async def rg_online2_2nd(interaction: discord.Interaction):
+    try:
+        await interaction.response.defer(ephemeral=False)
+    except: return
+
+    user_id = str(interaction.user.id)
+    data = load_data()
+    
+    if user_id not in data or not data[user_id].get('secondary_code'):
+        await interaction.followup.send("❌ **No Secondary ID found!** Use `/rg_add_secondary_id` first.", ephemeral=True)
+        return
+
+    # Check Exclusivity (Must not be on Main list)
+    if data[user_id].get('status') == 'online' or data[user_id].get('secondary_status') == 'online':
+        await interaction.followup.send("❌ **Exclusivity Error:** You are currently online on `ids.txt` (Main).\nYou must go `/rg_offline` first before switching lists.", ephemeral=True)
+        return
+
+    if data[user_id].get('secondary_status_ids2') == 'online':
+        await interaction.followup.send("⚠️ **Secondary ID Already Online on List 2!**", ephemeral=True)
+        return
+
+    data[user_id]['secondary_status_ids2'] = 'online'
+    await save_data_async(data)
+    await sync_to_github(data)
+    
+    msg = await interaction.followup.send(f"⏳ **Verifying 2nd ID on ids2.txt...**")
+    
+    verified = False
+    sec_code = data[user_id]['secondary_code']
+    
+    try:
+        async with aiohttp.ClientSession(timeout=aiohttp.ClientTimeout(total=4)) as session:
+            for i in range(36): 
+                try:
+                    async with session.get(f"https://arwin.de/ids2.txt?t={int(datetime.now().timestamp())}") as response:
+                        if response.status == 200:
+                            text = await response.text()
+                            if sec_code in text:
+                                verified = True
+                                break
+                except: pass
+                await asyncio.sleep(5)
+    except: pass
+    
+    if verified:
+        await msg.edit(content=f"🟢 **Secondary ID Online (Bot 2)!** `{sec_code}` is live.")
+        await manage_roles(interaction.user, 'online') 
+        await update_channel_status(interaction.client)
+    else:
+        await msg.edit(content=f"⚠️ **Pushed 2nd ID to List 2**, but verification timed out.")
     except: pass
 
 @bot.tree.command(name="rg_online_2nd", description="Set your SECONDARY ID to ONLINE")
@@ -1974,13 +2036,17 @@ async def rg_offline(interaction: discord.Interaction):
     data = load_data()
     
     if user_id in data:
-        if data[user_id].get('status') == 'offline' and data[user_id].get('secondary_status') == 'offline' and data[user_id].get('status_ids2') == 'offline':
+        if (data[user_id].get('status') == 'offline' and 
+            data[user_id].get('secondary_status') == 'offline' and 
+            data[user_id].get('status_ids2') == 'offline' and
+            data[user_id].get('secondary_status_ids2') == 'offline'):
              await interaction.followup.send("⚠️ **Already Offline!**", ephemeral=True)
              return
 
         data[user_id]['status'] = 'offline'
         data[user_id]['secondary_status'] = 'offline'
-        data[user_id]['status_ids2'] = 'offline' # Reset Exclusive status as well
+        data[user_id]['status_ids2'] = 'offline'
+        data[user_id]['secondary_status_ids2'] = 'offline' # Reset All
         await save_data_async(data)
         await sync_to_github(data)
         
