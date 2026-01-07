@@ -4817,16 +4817,16 @@
         "status": "offline",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 270,
-            "packs": 330
+            "time": 300,
+            "packs": 362
         },
         "session": {
-            "current_packs": 330,
+            "current_packs": 362,
             "instances": 3,
             "offline_instances": 0,
             "total_instances": 3,
-            "duration_minutes": 270,
-            "last_update": 1767820498
+            "duration_minutes": 300,
+            "last_update": 1767822300
         },
         "daily": {
             "date": "2026-01-06",
@@ -5217,6 +5217,10 @@
             [
                 1767820498,
                 330
+            ],
+            [
+                1767822300,
+                362
             ]
         ],
         "has_alerted_offline": false,
