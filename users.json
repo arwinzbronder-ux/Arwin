@@ -3008,16 +3008,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 631,
-            "packs": 1408
+            "time": 661,
+            "packs": 1470
         },
         "session": {
-            "current_packs": 1408,
+            "current_packs": 1470,
             "instances": 6,
             "offline_instances": 0,
             "total_instances": 6,
-            "duration_minutes": 631,
-            "last_update": 1767746882
+            "duration_minutes": 661,
+            "last_update": 1767748684
         },
         "daily": {
             "date": "2026-01-06",
@@ -3188,6 +3188,10 @@
             [
                 1767746882,
                 1408
+            ],
+            [
+                1767748684,
+                1470
             ]
         ]
     },
