@@ -5138,7 +5138,8 @@
         "last_heartbeat": {
             "time": 662,
             "packs": 1467
-        }
+        },
+        "status_ids2": "online"
     },
     "1056944043688476682": {
         "username": "libra_2828",
