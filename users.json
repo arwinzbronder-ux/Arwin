@@ -7255,16 +7255,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 720,
-            "packs": 2321
+            "time": 750,
+            "packs": 2391
         },
         "session": {
-            "current_packs": 2321,
+            "current_packs": 2391,
             "instances": 4,
             "offline_instances": 0,
             "total_instances": 4,
-            "duration_minutes": 720,
-            "last_update": 1767818674
+            "duration_minutes": 750,
+            "last_update": 1767820479
         },
         "daily": {
             "date": "2026-01-06",
@@ -7636,6 +7636,10 @@
             [
                 1767818674,
                 2321
+            ],
+            [
+                1767820479,
+                2391
             ]
         ]
     },
