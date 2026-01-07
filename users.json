@@ -6772,18 +6772,18 @@
         "status": "offline",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 240,
-            "packs": 883
+            "time": 270,
+            "packs": 985
         },
         "status_ids2": "online",
         "secondary_status_ids2": "online",
         "session": {
-            "current_packs": 883,
+            "current_packs": 985,
             "instances": 5,
             "offline_instances": 0,
             "total_instances": 5,
-            "duration_minutes": 240,
-            "last_update": 1767816132
+            "duration_minutes": 270,
+            "last_update": 1767817937
         },
         "samples": [
             [
@@ -6861,6 +6861,10 @@
             [
                 1767816132,
                 883
+            ],
+            [
+                1767817937,
+                985
             ]
         ]
     },
