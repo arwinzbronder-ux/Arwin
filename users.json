@@ -4066,16 +4066,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 30,
-            "packs": 106
+            "time": 60,
+            "packs": 232
         },
         "session": {
-            "current_packs": 106,
+            "current_packs": 232,
             "instances": 7,
             "offline_instances": 0,
             "total_instances": 7,
-            "duration_minutes": 30,
-            "last_update": 1767811898
+            "duration_minutes": 60,
+            "last_update": 1767813699
         },
         "daily": {
             "date": "2026-01-06",
@@ -4655,6 +4655,10 @@
             [
                 1767811898,
                 106
+            ],
+            [
+                1767813699,
+                232
             ]
         ]
     },
