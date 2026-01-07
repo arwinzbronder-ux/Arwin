@@ -3575,7 +3575,7 @@
         "friend_code": "1945180813574901",
         "instances": 3,
         "prefix": "pokemon names",
-        "status": "online",
+        "status": "offline",
         "secondary_status": "offline",
         "session": {
             "current_packs": 243,
@@ -3823,7 +3823,9 @@
                 1767826378,
                 243
             ]
-        ]
+        ],
+        "status_ids2": "offline",
+        "secondary_status_ids2": "offline"
     },
     "233334865024516097": {
         "username": "jeremau5",
