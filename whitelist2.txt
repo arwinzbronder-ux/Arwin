@@ -1,5 +1,6 @@
 Charizard
 CrimsonBlaze
+MegaAltaria
 MegaBlaziken
 MegaGyarados
 Mewtwo
