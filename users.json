@@ -5142,23 +5142,27 @@
         "status": "offline",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 0,
-            "packs": 0
+            "time": 30,
+            "packs": 120
         },
         "status_ids2": "online",
         "secondary_status_ids2": "online",
         "session": {
-            "current_packs": 0,
+            "current_packs": 120,
             "instances": 5,
             "offline_instances": 0,
             "total_instances": 5,
-            "duration_minutes": 0,
-            "last_update": 1767801722
+            "duration_minutes": 30,
+            "last_update": 1767803497
         },
         "samples": [
             [
                 1767801722,
                 0
+            ],
+            [
+                1767803497,
+                120
             ]
         ]
     },
