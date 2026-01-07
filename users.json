@@ -3252,12 +3252,12 @@
         "status": "online",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 46,
+            "current_packs": 102,
             "instances": 4,
             "offline_instances": 0,
             "total_instances": 4,
-            "duration_minutes": 30,
-            "last_update": 1767745187
+            "duration_minutes": 60,
+            "last_update": 1767746988
         },
         "samples": [
             [
@@ -3267,11 +3267,15 @@
             [
                 1767745187,
                 46
+            ],
+            [
+                1767746988,
+                102
             ]
         ],
         "last_heartbeat": {
-            "time": 30,
-            "packs": 46
+            "time": 60,
+            "packs": 102
         }
     }
 }
