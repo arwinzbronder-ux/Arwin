@@ -27,7 +27,9 @@ LIVE_PACKS_ID = 1455270012544876635
 DEAD_PACKS_ID = 1455283748118462652
 GOD_PACK_LOG_CHANNEL_ID = 1450631354034159636
 CHECKIN_PING_ID = 1450630077753856121
+CHECKIN_PING_ID = 1450630077753856121
 WHITELIST_FILE = "whitelist.txt"
+WHITELIST2_FILE = "whitelist2.txt"
 ROLE_REROLLING = "Rerolling"
 ROLE_NOT_REROLLING = "Not Rerolling"
 
@@ -59,6 +61,19 @@ def load_whitelist():
     except Exception:
         return list(defaults)
 
+def load_whitelist2():
+    defaults = {"Mewtwo", "Pikachu", "Charizard"} # Just some defaults
+    if not os.path.exists(WHITELIST2_FILE):
+        return list(defaults)
+        
+    try:
+        with open(WHITELIST2_FILE, "r") as f:
+            content = f.read().strip()
+            if not content: return list(defaults)
+            return [line.strip() for line in content.splitlines() if line.strip()]
+    except Exception:
+        return list(defaults)
+
 def _blocking_upload_whitelist(data_list):
     if not GITHUB_TOKEN: return
     content = "\n".join(sorted(list(set(data_list))))
@@ -75,6 +90,24 @@ def _blocking_upload_whitelist(data_list):
     except Exception as e:
         print(f"❌ Failed to save {WHITELIST_FILE} to GitHub: {e}", flush=True)
 
+def _blocking_upload_whitelist2(data_list):
+    if not GITHUB_TOKEN: return
+    content = "\n".join(sorted(list(set(data_list))))
+    try:
+        auth = Auth.Token(GITHUB_TOKEN)
+        g = Github(auth=auth)
+        repo = g.get_repo(REPO_NAME)
+        try:
+            contents = repo.get_contents(WHITELIST2_FILE)
+            repo.update_file(contents.path, "[skip ci] [skip render] Bot: Update Whitelist 2", content, contents.sha)
+            print(f"💾 Saved {WHITELIST2_FILE} to GitHub", flush=True)
+        except Exception:
+            try: repo.create_file(WHITELIST2_FILE, "[skip ci] [skip render] Bot: Create Whitelist 2", content)
+            except: pass 
+            
+    except Exception as e:
+        print(f"❌ Failed to save {WHITELIST2_FILE} to GitHub: {e}", flush=True)
+
 async def save_whitelist_async(data_list):
     try:
         with open(WHITELIST_FILE, "w") as f:
@@ -84,6 +117,16 @@ async def save_whitelist_async(data_list):
         
     loop = asyncio.get_running_loop()
     await loop.run_in_executor(None, _blocking_upload_whitelist, data_list)
+
+async def save_whitelist2_async(data_list):
+    try:
+        with open(WHITELIST2_FILE, "w") as f:
+            f.write("\n".join(sorted(list(set(data_list)))))
+    except Exception as e:
+        print(f"Error saving local whitelist2: {e}", flush=True)
+        
+    loop = asyncio.get_running_loop()
+    await loop.run_in_executor(None, _blocking_upload_whitelist2, data_list)
 
 async def manage_roles(member, status):
     if member.bot: return
@@ -155,30 +198,22 @@ def count_online_users(data):
     return count
 
 async def is_user_publicly_online(friend_code, secondary_code):
-    url = "https://arwin.de/ids.txt"
+    urls = ["https://arwin.de/ids.txt", "https://arwin.de/ids2.txt"]
+    
     try:
-        print(f"DEBUG: Checking public list for FC: {friend_code} | SC: {secondary_code}", flush=True)
         async with aiohttp.ClientSession() as session:
-            async with session.get(url) as response:
-                if response.status == 200:
-                    text = await response.text()
-                    ids = set(line.strip() for line in text.splitlines() if line.strip())
-                    print(f"DEBUG: Public List Fetched. Unique IDs: {len(ids)}", flush=True)
-                    
-                    if friend_code:
-                        if friend_code in ids: 
-                            print(f"DEBUG: Found Friend Code {friend_code} in list!", flush=True)
-                            return True
-                        else:
-                            print(f"DEBUG: Friend Code {friend_code} NOT in list.", flush=True)
+            for url in urls:
+                try:
+                    async with session.get(url) as response:
+                        if response.status == 200:
+                            text = await response.text()
+                            ids = set(line.strip() for line in text.splitlines() if line.strip())
                             
-                    if secondary_code:
-                        if secondary_code in ids: 
-                            print(f"DEBUG: Found Secondary Code {secondary_code} in list!", flush=True)
-                            return True
-                        else:
-                             print(f"DEBUG: Secondary Code {secondary_code} NOT in list.", flush=True)
-
+                            if friend_code and friend_code in ids:
+                                return True
+                            if secondary_code and secondary_code in ids:
+                                return True
+                except Exception: pass
     except Exception as e:
         print(f"⚠️ Failed to check public IDs list: {e}", flush=True)
     return False
@@ -363,7 +398,7 @@ def add_watermark(image_bytes):
                         
                     # ALWAYS Forward to Heartbeat Channel (Transparency)
                     try:
-                        hb_channel = await self.fetch_channel(HEARTBEAT_CHANNEL_ID)
+                        hb_channel = await self.fetch_channel(HEARTBEAT_MONITOR_ID)
                         # Replicate Format: MemberName\nContent
                         forward_msg = f"{member.name}\n{content}"
                         await hb_channel.send(forward_msg)
@@ -529,37 +564,48 @@ def _blocking_sync(data):
         print("⚠️ GITHUB_TOKEN not found. Skipping sync.", flush=True)
         return
 
-    codes = set()
+    codes_1 = set()
+    codes_2 = set()
+    
     for user_id, info in data.items():
-        # Primary ID
+        # --- List 1: "Main" (ids.txt) ---
+        # Includes: Main IDs (status=online) AND Secondary IDs (secondary_status=online)
         if info.get('friend_code') and info.get('status') == 'online':
-            codes.add(info['friend_code'])
-        # Secondary ID
+            codes_1.add(info['friend_code'])
         if info.get('secondary_code') and info.get('secondary_status') == 'online':
-            codes.add(info['secondary_code'])
+            codes_1.add(info['secondary_code'])
             
-    file_content = "\n".join(sorted(list(codes)))
+        # --- List 2: "Exclusive Bot 2" (ids2.txt) ---
+        # Includes: Main IDs strictly set to status_ids2=online
+        if info.get('friend_code') and info.get('status_ids2') == 'online':
+            codes_2.add(info['friend_code'])
+            
+    content_1 = "\n".join(sorted(list(codes_1)))
+    content_2 = "\n".join(sorted(list(codes_2)))
 
     try:
         auth = Auth.Token(GITHUB_TOKEN)
         g = Github(auth=auth)
         repo = g.get_repo(REPO_NAME)
         
+        # Sync ids.txt (Main)
         try:
             contents = repo.get_contents("ids.txt")
-            repo.update_file(contents.path, "[skip ci] [skip render] Bot: Update active IDs", file_content, contents.sha)
-            print("🚀 Pushed to GitHub (ids.txt Updated)!", flush=True)
+            if contents.decoded_content.decode() != content_1:
+                 repo.update_file(contents.path, "[skip ci] [skip render] Bot: Update ids.txt", content_1, contents.sha)
+                 print("🚀 Pushed to GitHub (ids.txt Updated)!", flush=True)
         except Exception:
-            repo.create_file("ids.txt", "[skip ci] [skip render] Bot: Create IDs file", file_content)
+            repo.create_file("ids.txt", "[skip ci] [skip render] Bot: Create ids.txt", content_1)
             print("🚀 Pushed to GitHub (ids.txt Created)!", flush=True)
 
-        # Sync ids2.txt
+        # Sync ids2.txt (Exclusive Backup/Bot 2)
         try:
             contents = repo.get_contents("ids2.txt")
-            repo.update_file(contents.path, "[skip ci] [skip render] Bot: Update active IDs (Backup)", file_content, contents.sha)
-            print("🚀 Pushed to GitHub (ids2.txt Updated)!", flush=True)
+            if contents.decoded_content.decode() != content_2:
+                repo.update_file(contents.path, "[skip ci] [skip render] Bot: Update ids2.txt", content_2, contents.sha)
+                print("🚀 Pushed to GitHub (ids2.txt Updated)!", flush=True)
         except Exception:
-            repo.create_file("ids2.txt", "[skip ci] [skip render] Bot: Create IDs 2 file", file_content)
+            repo.create_file("ids2.txt", "[skip ci] [skip render] Bot: Create ids2.txt", content_2)
             print("🚀 Pushed to GitHub (ids2.txt Created)!", flush=True)
             
     except Exception as e:
@@ -610,6 +656,24 @@ def _blocking_initial_sync():
                  print(f"🚀 Created {WHITELIST_FILE} on GitHub and Local.", flush=True)
         except Exception as e:
             print(f"⚠️ Whitelist sync failed: {e}", flush=True)
+
+        # 2.1 Download Whitelist 2
+        try:
+            try:
+                w2_contents = repo.get_contents(WHITELIST2_FILE)
+                with open(WHITELIST2_FILE, "wb") as f:
+                    f.write(w2_contents.decoded_content)
+                print(f"✅ Downloaded {WHITELIST2_FILE}", flush=True)
+            except Exception:
+                 print(f"⚠️ {WHITELIST2_FILE} not found on GitHub. Creating defaults...", flush=True)
+                 defaults = ["Mewtwo", "Pikachu", "Charizard"]
+                 content = "\n".join(sorted(defaults))
+                 repo.create_file(WHITELIST2_FILE, "[skip ci] [skip render] Bot: Init Whitelist 2", content)
+                 with open(WHITELIST2_FILE, "w") as f:
+                     f.write(content)
+                 print(f"🚀 Created {WHITELIST2_FILE} on GitHub and Local.", flush=True)
+        except Exception as e:
+            print(f"⚠️ Whitelist 2 sync failed: {e}", flush=True)
 
         # 3. Speed Up GitHub Pages (Create .nojekyll)
         try:
@@ -1343,7 +1407,20 @@ class MyBot(commands.Bot):
                         # --- RULE 3: Wrong Pack Type ---
                         if not reason and opening_match:
                             opening_str = opening_match.group(1).replace(",", " ").strip()
-                            allowed_packs = set(load_whitelist())
+                            # --- WHITELIST CHECK ---
+                            # Determine which whitelist applies
+                            # If user is online via ids2 (exclusive), use whitelist 2
+                            # If user is online via ids (main/sec), use whitelist 1
+                            
+                            user_data = data.get(user_id, {})
+                            is_ids2 = user_data.get('status_ids2') == 'online'
+                            
+                            if is_ids2:
+                                 allowed_packs = load_whitelist2()
+                            else:
+                                 allowed_packs = load_whitelist()
+                            
+                            reason = None          
                             found_words = [w for w in opening_str.split() if w]
                             for word in found_words:
                                 if word not in allowed_packs:
@@ -1624,7 +1701,8 @@ async def rg_add_user(interaction: discord.Interaction, friend_code: str, instan
         "instances": instances,
         "prefix": prefix,
         "status": "offline",
-        "secondary_status": "offline"
+        "secondary_status": "offline",
+        "status_ids2": "offline" # New: For ids2.txt specific status
     }
     await save_data_async(data)
 
@@ -1737,6 +1815,10 @@ async def rg_online(interaction: discord.Interaction):
     if data[user_id].get('status') == 'online':
         await interaction.followup.send("⚠️ **Already Online!** You are already in the queue.", ephemeral=True)
         return
+    
+    if data[user_id].get('status_ids2') == 'online':
+        await interaction.followup.send("❌ **Exclusivity Error:** You are currently online on `ids2.txt`.\nYou must go `/rg_offline` first before switching lists.", ephemeral=True)
+        return
 
     data[user_id]['status'] = 'online'
     await save_data_async(data)
@@ -1775,6 +1857,64 @@ async def rg_online(interaction: discord.Interaction):
     except Exception as e:
          print(f"Failed to edit message: {e}", flush=True)
 
+@bot.tree.command(name="rg_on2", description="Set your ID to ONLINE exclusively on ids2.txt (Bot 2)")
+async def rg_on2(interaction: discord.Interaction):
+    try:
+        await interaction.response.defer(ephemeral=False)
+    except: return
+
+    user_id = str(interaction.user.id)
+    data = load_data()
+    
+    if user_id not in data:
+        await interaction.followup.send("❌ Not registered! Use `/rg_add_user` first.", ephemeral=True)
+        return
+        
+    # Check Exclusivity (Must not be on Main list)
+    if data[user_id].get('status') == 'online' or data[user_id].get('secondary_status') == 'online':
+        await interaction.followup.send("❌ **Exclusivity Error:** You are currently online on `ids.txt` (Main).\nYou must go `/rg_offline` first before switching lists.", ephemeral=True)
+        return
+
+    # Set status_ids2
+    if data[user_id].get('status_ids2') == 'online':
+        await interaction.followup.send("⚠️ **Already on ids2!**", ephemeral=True)
+        return
+
+    data[user_id]['status_ids2'] = 'online'
+    await save_data_async(data)
+    await sync_to_github(data)
+    
+    # Verify on ids2.txt
+    msg = await interaction.followup.send(f"⏳ **Verifying accessibility on ids2.txt...**")
+    
+    verified = False
+    friend_code = data[user_id]['friend_code']
+    
+    # Verification Logic (Checking ids2.txt)
+    try:
+        async with aiohttp.ClientSession(timeout=aiohttp.ClientTimeout(total=4)) as session:
+            for i in range(36): 
+                try:
+                    # Check ids2.txt
+                    async with session.get(f"https://arwin.de/ids2.txt?t={int(datetime.now().timestamp())}") as response:
+                        if response.status == 200:
+                            text = await response.text()
+                            if friend_code in text:
+                                verified = True
+                                break
+                except: pass
+                await asyncio.sleep(5)
+    except: pass
+    
+    try:
+        if verified:
+            await msg.edit(content=f"🟢 **Online (Bot 2 Exclusive)!** {interaction.user.mention} is now on `ids2.txt`.")
+            await manage_roles(interaction.user, 'online')
+            await update_channel_status(interaction.client)
+        else:
+            await msg.edit(content=f"⚠️ **Pushed to ids2.txt**, but verification timed out.")
+    except: pass
+
 @bot.tree.command(name="rg_online_2nd", description="Set your SECONDARY ID to ONLINE")
 async def rg_online_2nd(interaction: discord.Interaction):
     try:
@@ -1790,6 +1930,10 @@ async def rg_online_2nd(interaction: discord.Interaction):
 
     if data[user_id].get('secondary_status') == 'online':
         await interaction.followup.send("⚠️ **Secondary ID Already Online!**", ephemeral=True)
+        return
+
+    if data[user_id].get('status_ids2') == 'online':
+        await interaction.followup.send("❌ **Exclusivity Error:** You are currently online on `ids2.txt`.\nYou must go `/rg_offline` first before switching lists.", ephemeral=True)
         return
 
     data[user_id]['secondary_status'] = 'online'
@@ -1830,20 +1974,22 @@ async def rg_offline(interaction: discord.Interaction):
     data = load_data()
     
     if user_id in data:
-        if data[user_id].get('status') == 'offline' and data[user_id].get('secondary_status') == 'offline':
+        if data[user_id].get('status') == 'offline' and data[user_id].get('secondary_status') == 'offline' and data[user_id].get('status_ids2') == 'offline':
              await interaction.followup.send("⚠️ **Already Offline!**", ephemeral=True)
              return
 
         data[user_id]['status'] = 'offline'
         data[user_id]['secondary_status'] = 'offline'
+        data[user_id]['status_ids2'] = 'offline' # Reset Exclusive status as well
         await save_data_async(data)
         await sync_to_github(data)
+        
         await manage_roles(interaction.user, 'offline')
-    
-    await interaction.followup.send(
-        f"🔴 **Offline.** All your IDs have been removed from the list."
-    )
-    await update_channel_status(interaction.client)
+        await update_channel_status(interaction.client)
+        
+        await interaction.followup.send(f"🔴 **Offline!** {interaction.user.mention} removed from ALL lists (`ids.txt` & `ids2.txt`).")
+    else:
+        await interaction.followup.send("❌ You are not registered.", ephemeral=True)
 
 @bot.tree.command(name="rg_remove_id", description="[Admin] Remove a Friend Code from the database")
 @app_commands.describe(friend_code="The 16-digit ID to remove")
@@ -1936,7 +2082,7 @@ async def rg_update_bot(interaction: discord.Interaction, file: discord.Attachme
         
         await interaction.followup.send("✅ **Update Pushed!** Render should restart the bot automatically in ~1 minute.")
     except Exception as e:
-        await interaction.followup.send(f"❌ Update failed: {e}", ephemeral=True)
+        await interaction.followup.send(f"❌ Update failed: {e}", flush=True)
 
 @bot.tree.command(name="rg_remove_vip", description="[Admin] Remove a VIP ID from vip_ids.txt without redeploying")
 @app_commands.describe(vip_id="The 16-digit VIP ID to remove")
@@ -2069,6 +2215,40 @@ async def rg_whitelist_list(interaction: discord.Interaction):
     current_list = load_whitelist()
     formatted = "\n".join([f"• {item}" for item in sorted(current_list)])
     await interaction.response.send_message(f"📜 **Allowed Packs Whitelist:**\n\n{formatted}")
+
+# --- WHITELIST 2 COMMANDS ---
+
+@bot.tree.command(name="rg_whitelist2_add", description="[Admin] Add a pack name to Whitelist 2 (Bot 2)")
+@app_commands.describe(pack_name="The pack string to allow (case sensitive)")
+@app_commands.checks.has_permissions(manage_messages=True)
+async def rg_whitelist2_add(interaction: discord.Interaction, pack_name: str):
+    await interaction.response.defer(ephemeral=False)
+    allowed = load_whitelist2()
+    if pack_name in allowed:
+        await interaction.followup.send(f"⚠️ '{pack_name}' is already in Whitelist 2.")
+        return
+    allowed.append(pack_name)
+    await save_whitelist2_async(allowed)
+    await interaction.followup.send(f"✅ Added '{pack_name}' to Whitelist 2.")
+
+@bot.tree.command(name="rg_whitelist2_remove", description="[Admin] Remove a pack name from Whitelist 2")
+@app_commands.describe(pack_name="The pack string to remove")
+@app_commands.checks.has_permissions(manage_messages=True)
+async def rg_whitelist2_remove(interaction: discord.Interaction, pack_name: str):
+    await interaction.response.defer(ephemeral=False)
+    allowed = load_whitelist2()
+    if pack_name not in allowed:
+        await interaction.followup.send(f"⚠️ '{pack_name}' not found in Whitelist 2.")
+        return
+    allowed.remove(pack_name)
+    await save_whitelist2_async(allowed)
+    await interaction.followup.send(f"🗑️ Removed '{pack_name}' from Whitelist 2.")
+
+@bot.tree.command(name="rg_whitelist2_list", description="Show all allowed packs for Whitelist 2")
+async def rg_whitelist2_list(interaction: discord.Interaction):
+    allowed = load_whitelist2()
+    formatted = "\n".join([f"• {item}" for item in sorted(allowed)])
+    await interaction.response.send_message(f"📜 **Allowed Packs (Whitelist 2):**\n\n{formatted}")
 
 @bot.tree.command(name="rg_create_home", description="[Admin] Manually create a home channel for a user")
 @app_commands.describe(member="The user to create a channel for")
