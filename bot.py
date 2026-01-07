@@ -1975,7 +1975,6 @@ async def rg_online2_2nd(interaction: discord.Interaction):
         await update_channel_status(interaction.client)
     else:
         await msg.edit(content=f"⚠️ **Pushed 2nd ID to List 2**, but verification timed out.")
-    except: pass
 
 @bot.tree.command(name="rg_online_2nd", description="Set your SECONDARY ID to ONLINE")
 async def rg_online_2nd(interaction: discord.Interaction):
