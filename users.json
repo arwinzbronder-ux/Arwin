@@ -8752,20 +8752,20 @@
         "status": "online",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 1256,
+            "current_packs": 1368,
             "instances": 9,
             "offline_instances": 0,
             "total_instances": 9,
-            "duration_minutes": 330,
-            "last_update": 1767827509
+            "duration_minutes": 360,
+            "last_update": 1767829313
         },
         "daily": {
             "date": "2026-01-06",
             "start_packs": 0
         },
         "last_heartbeat": {
-            "time": 330,
-            "packs": 1256
+            "time": 360,
+            "packs": 1368
         },
         "history": [],
         "samples": [
@@ -9164,6 +9164,10 @@
             [
                 1767827509,
                 1256
+            ],
+            [
+                1767829313,
+                1368
             ]
         ]
     },
