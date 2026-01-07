@@ -2415,16 +2415,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 690,
-            "packs": 2400
+            "time": 720,
+            "packs": 2500
         },
         "session": {
-            "current_packs": 2400,
+            "current_packs": 2500,
             "instances": 6,
             "offline_instances": 0,
             "total_instances": 6,
-            "duration_minutes": 690,
-            "last_update": 1767756816
+            "duration_minutes": 720,
+            "last_update": 1767758618
         },
         "daily": {
             "date": "2026-01-06",
@@ -2615,6 +2615,10 @@
             [
                 1767756816,
                 2400
+            ],
+            [
+                1767758618,
+                2500
             ]
         ]
     },
