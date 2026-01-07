@@ -4703,16 +4703,16 @@
         "status": "offline",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 360,
-            "packs": 426
+            "time": 390,
+            "packs": 468
         },
         "session": {
-            "current_packs": 426,
+            "current_packs": 468,
             "instances": 3,
             "offline_instances": 0,
             "total_instances": 3,
-            "duration_minutes": 360,
-            "last_update": 1767825905
+            "duration_minutes": 390,
+            "last_update": 1767827707
         },
         "daily": {
             "date": "2026-01-06",
@@ -5115,6 +5115,10 @@
             [
                 1767825905,
                 426
+            ],
+            [
+                1767827707,
+                468
             ]
         ],
         "has_alerted_offline": false,
