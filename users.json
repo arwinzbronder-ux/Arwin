@@ -3662,12 +3662,12 @@
         "status": "online",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 510,
+            "current_packs": 578,
             "instances": 4,
             "offline_instances": 0,
             "total_instances": 4,
-            "duration_minutes": 270,
-            "last_update": 1767759596
+            "duration_minutes": 300,
+            "last_update": 1767761398
         },
         "samples": [
             [
@@ -3709,11 +3709,15 @@
             [
                 1767759596,
                 510
+            ],
+            [
+                1767761398,
+                578
             ]
         ],
         "last_heartbeat": {
-            "time": 270,
-            "packs": 510
+            "time": 300,
+            "packs": 578
         }
     }
 }
