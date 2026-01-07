@@ -7019,16 +7019,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 810,
-            "packs": 2508
+            "time": 840,
+            "packs": 2580
         },
         "session": {
-            "current_packs": 2508,
+            "current_packs": 2580,
             "instances": 4,
             "offline_instances": 0,
             "total_instances": 4,
-            "duration_minutes": 810,
-            "last_update": 1767824083
+            "duration_minutes": 840,
+            "last_update": 1767825885
         },
         "daily": {
             "date": "2026-01-06",
@@ -7412,6 +7412,10 @@
             [
                 1767824083,
                 2508
+            ],
+            [
+                1767825885,
+                2580
             ]
         ]
     },
