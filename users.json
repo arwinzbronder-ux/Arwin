@@ -5323,16 +5323,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 30,
-            "packs": 66
+            "time": 0,
+            "packs": 0
         },
         "session": {
-            "current_packs": 66,
+            "current_packs": 0,
             "instances": 6,
             "offline_instances": 0,
             "total_instances": 6,
-            "duration_minutes": 30,
-            "last_update": 1767798749
+            "duration_minutes": 0,
+            "last_update": 1767799870
         },
         "daily": {
             "date": "2026-01-06",
@@ -5651,6 +5651,10 @@
             [
                 1767798749,
                 66
+            ],
+            [
+                1767799870,
+                0
             ]
         ],
         "status_ids2": "offline"
