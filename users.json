@@ -3844,7 +3844,8 @@
         "last_heartbeat": {
             "time": 60,
             "packs": 320
-        }
+        },
+        "status_ids2": "online"
     },
     "275988818631327745": {
         "username": "bloo_64",
