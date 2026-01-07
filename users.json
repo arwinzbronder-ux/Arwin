@@ -6962,16 +6962,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 90,
-            "packs": 228
+            "time": 120,
+            "packs": 304
         },
         "session": {
-            "current_packs": 228,
+            "current_packs": 304,
             "instances": 6,
             "offline_instances": 0,
             "total_instances": 6,
-            "duration_minutes": 90,
-            "last_update": 1767805249
+            "duration_minutes": 120,
+            "last_update": 1767807051
         },
         "daily": {
             "date": "2026-01-06",
@@ -7338,6 +7338,10 @@
             [
                 1767805249,
                 228
+            ],
+            [
+                1767807051,
+                304
             ]
         ],
         "status_ids2": "offline"
