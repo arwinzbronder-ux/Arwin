@@ -3838,7 +3838,7 @@
             "time": 1261,
             "packs": 1696
         },
-        "has_alerted_offline": true,
+        "has_alerted_offline": false,
         "samples": [
             [
                 1767719385.503,
