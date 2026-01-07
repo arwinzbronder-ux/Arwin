@@ -2359,16 +2359,16 @@
         "secondary_code": "3728578745352937",
         "secondary_status": "online",
         "last_heartbeat": {
-            "time": 902,
-            "packs": 2396
+            "time": 932,
+            "packs": 2477
         },
         "session": {
-            "current_packs": 2396,
+            "current_packs": 2477,
             "instances": 6,
             "offline_instances": 0,
             "total_instances": 6,
-            "duration_minutes": 902,
-            "last_update": 1767786284
+            "duration_minutes": 932,
+            "last_update": 1767788087
         },
         "daily": {
             "date": "2026-01-06",
@@ -2695,6 +2695,10 @@
             [
                 1767786284,
                 2396
+            ],
+            [
+                1767788087,
+                2477
             ]
         ]
     },
