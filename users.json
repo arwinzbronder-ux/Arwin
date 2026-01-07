@@ -1793,16 +1793,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 480,
-            "packs": 1638
+            "time": 510,
+            "packs": 1730
         },
         "session": {
-            "current_packs": 1638,
+            "current_packs": 1730,
             "instances": 7,
             "offline_instances": 0,
             "total_instances": 7,
-            "duration_minutes": 480,
-            "last_update": 1767744381
+            "duration_minutes": 510,
+            "last_update": 1767746184
         },
         "daily": {
             "date": "2026-01-06",
@@ -1885,6 +1885,10 @@
             [
                 1767744381,
                 1638
+            ],
+            [
+                1767746184,
+                1730
             ]
         ]
     },
