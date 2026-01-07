@@ -6300,18 +6300,18 @@
         "status": "offline",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 90,
-            "packs": 338
+            "time": 120,
+            "packs": 445
         },
         "status_ids2": "online",
         "secondary_status_ids2": "online",
         "session": {
-            "current_packs": 338,
+            "current_packs": 445,
             "instances": 5,
             "offline_instances": 0,
             "total_instances": 5,
-            "duration_minutes": 90,
-            "last_update": 1767807106
+            "duration_minutes": 120,
+            "last_update": 1767808911
         },
         "samples": [
             [
@@ -6345,6 +6345,10 @@
             [
                 1767801725.923,
                 0
+            ],
+            [
+                1767808911,
+                445
             ]
         ]
     },
