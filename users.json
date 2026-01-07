@@ -2941,16 +2941,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 120,
-            "packs": 369
+            "time": 150,
+            "packs": 475
         },
         "session": {
-            "current_packs": 369,
+            "current_packs": 475,
             "instances": 4,
             "offline_instances": 0,
             "total_instances": 4,
-            "duration_minutes": 120,
-            "last_update": 1767782632
+            "duration_minutes": 150,
+            "last_update": 1767784434
         },
         "daily": {
             "date": "2026-01-06",
@@ -3094,6 +3094,10 @@
             [
                 1767782632,
                 369
+            ],
+            [
+                1767784434,
+                475
             ]
         ]
     },
