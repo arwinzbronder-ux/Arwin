@@ -7518,12 +7518,12 @@
         "status": "online",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 2433,
+            "current_packs": 2499,
             "instances": 4,
             "offline_instances": 0,
             "total_instances": 4,
-            "duration_minutes": 1050,
-            "last_update": 1767806426
+            "duration_minutes": 1080,
+            "last_update": 1767808227
         },
         "samples": [
             [
@@ -7921,11 +7921,15 @@
             [
                 1767806426,
                 2433
+            ],
+            [
+                1767808227,
+                2499
             ]
         ],
         "last_heartbeat": {
-            "time": 1050,
-            "packs": 2433
+            "time": 1080,
+            "packs": 2499
         }
     }
 }
