@@ -1522,17 +1522,17 @@
         "status": "online",
         "secondary_status": "online",
         "last_heartbeat": {
-            "time": 90,
-            "packs": 386
+            "time": 120,
+            "packs": 516
         },
         "secondary_code": "9147890578346619",
         "session": {
-            "current_packs": 386,
+            "current_packs": 516,
             "instances": 6,
             "offline_instances": 0,
             "total_instances": 6,
-            "duration_minutes": 90,
-            "last_update": 1767799779
+            "duration_minutes": 120,
+            "last_update": 1767801585
         },
         "daily": {
             "date": "2026-01-06",
@@ -1903,6 +1903,10 @@
             [
                 1767712219.506,
                 252
+            ],
+            [
+                1767801585,
+                516
             ]
         ]
     },
