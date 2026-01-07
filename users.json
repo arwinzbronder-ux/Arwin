@@ -4493,12 +4493,12 @@
         "status": "offline",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 1348,
+            "current_packs": 1502,
             "instances": 7,
             "offline_instances": 0,
             "total_instances": 7,
-            "duration_minutes": 270,
-            "last_update": 1767818073
+            "duration_minutes": 300,
+            "last_update": 1767819875
         },
         "daily": {
             "date": "2026-01-06",
@@ -4853,11 +4853,15 @@
             [
                 1767818073,
                 1348
+            ],
+            [
+                1767819875,
+                1502
             ]
         ],
         "last_heartbeat": {
-            "time": 270,
-            "packs": 1348
+            "time": 300,
+            "packs": 1502
         },
         "status_ids2": "online"
     },
