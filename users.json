@@ -3518,12 +3518,12 @@
         "status": "offline",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 278,
+            "current_packs": 422,
             "instances": 7,
             "offline_instances": 0,
             "total_instances": 7,
-            "duration_minutes": 60,
-            "last_update": 1767805452
+            "duration_minutes": 90,
+            "last_update": 1767807254
         },
         "daily": {
             "date": "2026-01-06",
@@ -3882,11 +3882,15 @@
             [
                 1767805452,
                 278
+            ],
+            [
+                1767807254,
+                422
             ]
         ],
         "last_heartbeat": {
-            "time": 60,
-            "packs": 278
+            "time": 90,
+            "packs": 422
         },
         "status_ids2": "online"
     },
