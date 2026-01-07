@@ -879,16 +879,16 @@
         "secondary_status": "online",
         "secondary_code": "2489404685358169",
         "last_heartbeat": {
-            "time": 150,
-            "packs": 250
+            "time": 180,
+            "packs": 306
         },
         "session": {
-            "current_packs": 250,
+            "current_packs": 306,
             "instances": 3,
             "offline_instances": 0,
             "total_instances": 3,
-            "duration_minutes": 150,
-            "last_update": 1767753411
+            "duration_minutes": 180,
+            "last_update": 1767755213
         },
         "daily": {
             "date": "2026-01-06",
@@ -994,6 +994,10 @@
             [
                 1767753411,
                 250
+            ],
+            [
+                1767755213,
+                306
             ]
         ]
     },
@@ -1942,16 +1946,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 630,
-            "packs": 2128
+            "time": 660,
+            "packs": 2228
         },
         "session": {
-            "current_packs": 2128,
+            "current_packs": 2228,
             "instances": 7,
             "offline_instances": 0,
             "total_instances": 7,
-            "duration_minutes": 630,
-            "last_update": 1767753396
+            "duration_minutes": 660,
+            "last_update": 1767755198
         },
         "daily": {
             "date": "2026-01-06",
@@ -2054,6 +2058,10 @@
             [
                 1767753396,
                 2128
+            ],
+            [
+                1767755198,
+                2228
             ]
         ]
     },
