@@ -1908,12 +1908,8 @@
         "friend_code": "7429238101683230",
         "instances": 7,
         "prefix": "bass",
-        "status": "online",
+        "status": "offline",
         "secondary_status": "offline",
-        "last_heartbeat": {
-            "time": 0,
-            "packs": 0
-        },
         "session": {
             "current_packs": 0,
             "instances": 7,
