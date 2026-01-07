@@ -3196,22 +3196,26 @@
         "status": "online",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 0,
+            "current_packs": 46,
             "instances": 4,
             "offline_instances": 0,
             "total_instances": 4,
-            "duration_minutes": 0,
-            "last_update": 1767743416
+            "duration_minutes": 30,
+            "last_update": 1767745187
         },
         "samples": [
             [
                 1767743416,
                 0
+            ],
+            [
+                1767745187,
+                46
             ]
         ],
         "last_heartbeat": {
-            "time": 0,
-            "packs": 0
+            "time": 30,
+            "packs": 46
         }
     }
 }
