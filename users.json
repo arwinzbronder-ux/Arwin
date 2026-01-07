@@ -3164,20 +3164,20 @@
         "status": "online",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 1413,
+            "current_packs": 0,
             "instances": 9,
             "offline_instances": 0,
             "total_instances": 9,
-            "duration_minutes": 421,
-            "last_update": 1767744955
+            "duration_minutes": 0,
+            "last_update": 1767747426
         },
         "daily": {
             "date": "2026-01-06",
             "start_packs": 0
         },
         "last_heartbeat": {
-            "time": 421,
-            "packs": 1413
+            "time": 0,
+            "packs": 0
         },
         "history": [],
         "samples": [
@@ -3244,6 +3244,10 @@
             [
                 1767744955,
                 1413
+            ],
+            [
+                1767747426,
+                0
             ]
         ]
     },
