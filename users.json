@@ -4191,12 +4191,12 @@
         "status": "offline",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 2120,
+            "current_packs": 2262,
             "instances": 7,
             "offline_instances": 0,
             "total_instances": 7,
-            "duration_minutes": 420,
-            "last_update": 1767827087
+            "duration_minutes": 450,
+            "last_update": 1767828890
         },
         "daily": {
             "date": "2026-01-06",
@@ -4571,11 +4571,15 @@
             [
                 1767827087,
                 2120
+            ],
+            [
+                1767828890,
+                2262
             ]
         ],
         "last_heartbeat": {
-            "time": 420,
-            "packs": 2120
+            "time": 450,
+            "packs": 2262
         },
         "status_ids2": "online"
     },
