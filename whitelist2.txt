@@ -3,4 +3,3 @@ MegaAltaria
 MegaBlaziken
 MegaGyarados
 Mewtwo
-Pikachu
