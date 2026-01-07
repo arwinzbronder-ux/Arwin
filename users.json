@@ -8156,16 +8156,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 30,
-            "packs": 54
+            "time": 60,
+            "packs": 104
         },
         "session": {
-            "current_packs": 54,
+            "current_packs": 104,
             "instances": 4,
             "offline_instances": 0,
             "total_instances": 4,
-            "duration_minutes": 30,
-            "last_update": 1767809769.804
+            "duration_minutes": 60,
+            "last_update": 1767811567
         },
         "daily": {
             "date": "2026-01-06",
@@ -8793,6 +8793,10 @@
             [
                 1767725932.567,
                 48
+            ],
+            [
+                1767811567,
+                104
             ]
         ]
     },
