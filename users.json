@@ -7827,16 +7827,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 150,
-            "packs": 376
+            "time": 180,
+            "packs": 446
         },
         "session": {
-            "current_packs": 376,
+            "current_packs": 446,
             "instances": 6,
             "offline_instances": 0,
             "total_instances": 6,
-            "duration_minutes": 150,
-            "last_update": 1767808854
+            "duration_minutes": 180,
+            "last_update": 1767810656
         },
         "daily": {
             "date": "2026-01-06",
@@ -7855,10 +7855,6 @@
             [
                 1767721645.414,
                 494
-            ],
-            [
-                1767719842.379,
-                424
             ],
             [
                 1767727048,
@@ -8029,10 +8025,6 @@
                 494
             ],
             [
-                1767719842.379,
-                424
-            ],
-            [
                 1767798749,
                 66
             ],
@@ -8139,10 +8131,6 @@
             [
                 1767721645.414,
                 494
-            ],
-            [
-                1767719842.379,
-                424
             ],
             [
                 1767801642,
@@ -8275,6 +8263,10 @@
             [
                 1767808854,
                 376
+            ],
+            [
+                1767810656,
+                446
             ]
         ],
         "status_ids2": "offline"
