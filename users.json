@@ -6487,16 +6487,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 120,
-            "packs": 281
+            "time": 150,
+            "packs": 371
         },
         "session": {
-            "current_packs": 281,
+            "current_packs": 371,
             "instances": 4,
             "offline_instances": 0,
             "total_instances": 4,
-            "duration_minutes": 120,
-            "last_update": 1767800543
+            "duration_minutes": 150,
+            "last_update": 1767802346
         },
         "daily": {
             "date": "2026-01-06",
@@ -6877,6 +6877,10 @@
             [
                 1767800543,
                 281
+            ],
+            [
+                1767802346,
+                371
             ]
         ]
     },
