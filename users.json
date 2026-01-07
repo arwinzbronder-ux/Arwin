@@ -8443,16 +8443,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 60,
-            "packs": 152
+            "time": 90,
+            "packs": 234
         },
         "session": {
-            "current_packs": 152,
+            "current_packs": 234,
             "instances": 6,
             "offline_instances": 0,
             "total_instances": 6,
-            "duration_minutes": 60,
-            "last_update": 1767826481
+            "duration_minutes": 90,
+            "last_update": 1767828284
         },
         "daily": {
             "date": "2026-01-06",
@@ -8851,6 +8851,10 @@
             [
                 1767826481,
                 152
+            ],
+            [
+                1767828284,
+                234
             ]
         ],
         "status_ids2": "offline"
