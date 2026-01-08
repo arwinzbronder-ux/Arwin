@@ -7611,20 +7611,20 @@
         "status": "online",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 418,
+            "current_packs": 532,
             "instances": 7,
             "offline_instances": 0,
             "total_instances": 7,
-            "duration_minutes": 120,
-            "last_update": 1767848625
+            "duration_minutes": 150,
+            "last_update": 1767850429
         },
         "daily": {
             "date": "2026-01-06",
             "start_packs": 0
         },
         "last_heartbeat": {
-            "time": 120,
-            "packs": 418
+            "time": 150,
+            "packs": 532
         },
         "history": [],
         "samples": [
@@ -7991,6 +7991,10 @@
             [
                 1767848625,
                 418
+            ],
+            [
+                1767850429,
+                532
             ]
         ],
         "status_ids2": "offline",
