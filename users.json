@@ -5966,16 +5966,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 60,
-            "packs": 170
+            "time": 90,
+            "packs": 268
         },
         "session": {
-            "current_packs": 170,
+            "current_packs": 268,
             "instances": 5,
             "offline_instances": 0,
             "total_instances": 5,
-            "duration_minutes": 60,
-            "last_update": 1767866726
+            "duration_minutes": 90,
+            "last_update": 1767868527
         },
         "daily": {
             "date": "2026-01-05",
@@ -6017,6 +6017,10 @@
             [
                 1767866726,
                 170
+            ],
+            [
+                1767868527,
+                268
             ]
         ]
     },
