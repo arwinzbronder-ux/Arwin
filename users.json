@@ -6231,12 +6231,12 @@
         "secondary_status": "offline",
         "status_ids2": "offline",
         "session": {
-            "current_packs": 16,
-            "instances": 3,
-            "offline_instances": 2,
-            "total_instances": 5,
-            "duration_minutes": 60,
-            "last_update": 1767911269
+            "current_packs": 0,
+            "instances": 4,
+            "offline_instances": 0,
+            "total_instances": 4,
+            "duration_minutes": 0,
+            "last_update": 1767912519
         },
         "samples": [
             [
@@ -6250,11 +6250,15 @@
             [
                 1767911269,
                 16
+            ],
+            [
+                1767912519,
+                0
             ]
         ],
         "last_heartbeat": {
-            "time": 60,
-            "packs": 16
+            "time": 0,
+            "packs": 0
         },
         "has_alerted_offline": false,
         "secondary_status_ids2": "offline"
