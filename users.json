@@ -6009,16 +6009,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 1020,
-            "packs": 2026
+            "time": 1050,
+            "packs": 2098
         },
         "session": {
-            "current_packs": 2026,
+            "current_packs": 2098,
             "instances": 4,
             "offline_instances": 0,
             "total_instances": 4,
-            "duration_minutes": 1020,
-            "last_update": 1767869220
+            "duration_minutes": 1050,
+            "last_update": 1767871021
         },
         "daily": {
             "date": "2026-01-06",
@@ -6402,6 +6402,10 @@
             [
                 1767869220,
                 2026
+            ],
+            [
+                1767871021,
+                2098
             ]
         ]
     },
