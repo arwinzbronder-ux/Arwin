@@ -6285,7 +6285,7 @@
             "offline_instances": 0,
             "total_instances": 4,
             "duration_minutes": 0,
-            "last_update": 1767912519
+            "last_update": 1767913806
         },
         "samples": [
             [
@@ -6302,6 +6302,10 @@
             ],
             [
                 1767912519,
+                0
+            ],
+            [
+                1767913806,
                 0
             ]
         ],
