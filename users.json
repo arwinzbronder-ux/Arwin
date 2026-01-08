@@ -4410,18 +4410,18 @@
         "status": "online",
         "secondary_status": "online",
         "last_heartbeat": {
-            "time": 60,
-            "packs": 88
+            "time": 90,
+            "packs": 136
         },
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
         "session": {
-            "current_packs": 88,
+            "current_packs": 136,
             "instances": 5,
             "offline_instances": 0,
             "total_instances": 5,
-            "duration_minutes": 60,
-            "last_update": 1767892777
+            "duration_minutes": 90,
+            "last_update": 1767894583
         },
         "samples": [
             [
@@ -4575,6 +4575,10 @@
             [
                 1767892777,
                 88
+            ],
+            [
+                1767894583,
+                136
             ]
         ]
     },
