@@ -4557,7 +4557,7 @@
         "secondary_code": null,
         "instances": 5,
         "prefix": "randompokemon",
-        "status": "online",
+        "status": "offline",
         "secondary_status": "offline",
         "last_heartbeat": {
             "time": 840,
@@ -4716,7 +4716,9 @@
                 1767913573,
                 2187
             ]
-        ]
+        ],
+        "status_ids2": "offline",
+        "secondary_status_ids2": "offline"
     },
     "461874685030825984": {
         "username": "julinho92",
