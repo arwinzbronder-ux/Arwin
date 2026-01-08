@@ -3619,16 +3619,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 30,
-            "packs": 30
+            "time": 60,
+            "packs": 70
         },
         "session": {
-            "current_packs": 30,
+            "current_packs": 70,
             "instances": 3,
             "offline_instances": 0,
             "total_instances": 3,
-            "duration_minutes": 30,
-            "last_update": 1767885858
+            "duration_minutes": 60,
+            "last_update": 1767887660
         },
         "daily": {
             "date": "2026-01-06",
@@ -3863,6 +3863,10 @@
             [
                 1767885858,
                 30
+            ],
+            [
+                1767887660,
+                70
             ]
         ],
         "has_alerted_offline": false,
