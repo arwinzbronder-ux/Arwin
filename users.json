@@ -3860,16 +3860,16 @@
         "secondary_code": "3728578745352937",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 30,
-            "packs": 88
+            "time": 60,
+            "packs": 192
         },
         "session": {
-            "current_packs": 88,
+            "current_packs": 192,
             "instances": 6,
             "offline_instances": 0,
             "total_instances": 6,
-            "duration_minutes": 30,
-            "last_update": 1767900418
+            "duration_minutes": 60,
+            "last_update": 1767902222
         },
         "daily": {
             "date": "2026-01-06",
@@ -4248,6 +4248,10 @@
             [
                 1767900418,
                 88
+            ],
+            [
+                1767902222,
+                192
             ]
         ],
         "status_ids2": "online",
