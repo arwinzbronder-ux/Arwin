@@ -5322,16 +5322,16 @@
         "status": "offline",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 960,
-            "packs": 5104
+            "time": 990,
+            "packs": 5288
         },
         "session": {
-            "current_packs": 5104,
+            "current_packs": 5288,
             "instances": 6,
             "offline_instances": 0,
             "total_instances": 6,
-            "duration_minutes": 960,
-            "last_update": 1767859050
+            "duration_minutes": 990,
+            "last_update": 1767860852
         },
         "daily": {
             "date": "2026-01-06",
@@ -5698,6 +5698,10 @@
             [
                 1767859050,
                 5104
+            ],
+            [
+                1767860852,
+                5288
             ]
         ],
         "has_alerted_offline": false,
