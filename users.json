@@ -4704,7 +4704,8 @@
             ]
         ],
         "has_alerted_offline": true,
-        "status_ids2": "online"
+        "status_ids2": "offline",
+        "secondary_status_ids2": "offline"
     },
     "520672416632930304": {
         "username": "ichesterftw",
