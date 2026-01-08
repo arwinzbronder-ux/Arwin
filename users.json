@@ -1939,17 +1939,17 @@
         "status": "online",
         "secondary_status": "online",
         "last_heartbeat": {
-            "time": 120,
-            "packs": 490
+            "time": 150,
+            "packs": 626
         },
         "secondary_code": "6945259816716451",
         "session": {
-            "current_packs": 490,
+            "current_packs": 626,
             "instances": 6,
             "offline_instances": 0,
             "total_instances": 6,
-            "duration_minutes": 120,
-            "last_update": 1767877332
+            "duration_minutes": 150,
+            "last_update": 1767879137
         },
         "daily": {
             "date": "2026-01-06",
@@ -2188,6 +2188,10 @@
             [
                 1767877332,
                 490
+            ],
+            [
+                1767879137,
+                626
             ]
         ],
         "status_ids2": "offline",
