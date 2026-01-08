@@ -5215,16 +5215,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 480,
-            "packs": 1382
+            "time": 510,
+            "packs": 1456
         },
         "session": {
-            "current_packs": 1382,
+            "current_packs": 1456,
             "instances": 5,
             "offline_instances": 0,
             "total_instances": 5,
-            "duration_minutes": 480,
-            "last_update": 1767891949
+            "duration_minutes": 510,
+            "last_update": 1767893751
         },
         "daily": {
             "date": "2026-01-05",
@@ -5322,6 +5322,10 @@
             [
                 1767891949,
                 1382
+            ],
+            [
+                1767893751,
+                1456
             ]
         ]
     },
