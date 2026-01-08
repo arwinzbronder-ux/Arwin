@@ -4473,16 +4473,16 @@
         "status": "offline",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 450,
-            "packs": 552
+            "time": 480,
+            "packs": 594
         },
         "session": {
-            "current_packs": 552,
+            "current_packs": 594,
             "instances": 3,
             "offline_instances": 0,
             "total_instances": 3,
-            "duration_minutes": 450,
-            "last_update": 1767831311
+            "duration_minutes": 480,
+            "last_update": 1767833113
         },
         "daily": {
             "date": "2026-01-06",
@@ -4697,6 +4697,10 @@
             [
                 1767831311,
                 552
+            ],
+            [
+                1767833113,
+                594
             ]
         ],
         "has_alerted_offline": false,
