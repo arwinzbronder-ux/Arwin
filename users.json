@@ -4930,16 +4930,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 420,
-            "packs": 1042
+            "time": 450,
+            "packs": 1108
         },
         "session": {
-            "current_packs": 1042,
+            "current_packs": 1108,
             "instances": 4,
             "offline_instances": 0,
             "total_instances": 4,
-            "duration_minutes": 420,
-            "last_update": 1767905935
+            "duration_minutes": 450,
+            "last_update": 1767907738
         },
         "daily": {
             "date": "2026-01-06",
@@ -5196,6 +5196,10 @@
             [
                 1767905935,
                 1042
+            ],
+            [
+                1767907738,
+                1108
             ]
         ],
         "status_ids2": "offline",
