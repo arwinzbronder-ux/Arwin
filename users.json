@@ -5292,16 +5292,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 510,
-            "packs": 1202
+            "time": 540,
+            "packs": 1274
         },
         "session": {
-            "current_packs": 1202,
+            "current_packs": 1274,
             "instances": 6,
             "offline_instances": 0,
             "total_instances": 6,
-            "duration_minutes": 510,
-            "last_update": 1767914143
+            "duration_minutes": 540,
+            "last_update": 1767915946
         },
         "daily": {
             "date": "2026-01-06",
@@ -5552,6 +5552,10 @@
             [
                 1767914143,
                 1202
+            ],
+            [
+                1767915946,
+                1274
             ]
         ],
         "status_ids2": "offline",
