@@ -2885,16 +2885,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 240,
-            "packs": 781
+            "time": 270,
+            "packs": 877
         },
         "session": {
-            "current_packs": 781,
+            "current_packs": 877,
             "instances": 7,
             "offline_instances": 0,
             "total_instances": 7,
-            "duration_minutes": 240,
-            "last_update": 1767903180
+            "duration_minutes": 270,
+            "last_update": 1767904983
         },
         "daily": {
             "date": "2026-01-06",
@@ -3165,6 +3165,10 @@
             [
                 1767903180,
                 781
+            ],
+            [
+                1767904983,
+                877
             ]
         ],
         "has_alerted_offline": false,
