@@ -1485,17 +1485,17 @@
         "status": "online",
         "secondary_status": "online",
         "last_heartbeat": {
-            "time": 0,
-            "packs": 0
+            "time": 30,
+            "packs": 92
         },
         "secondary_code": "6945259816716451",
         "session": {
-            "current_packs": 0,
+            "current_packs": 92,
             "instances": 6,
             "offline_instances": 0,
             "total_instances": 6,
-            "duration_minutes": 0,
-            "last_update": 1767894025
+            "duration_minutes": 30,
+            "last_update": 1767895797
         },
         "daily": {
             "date": "2026-01-06",
@@ -1770,6 +1770,10 @@
             [
                 1767894025,
                 0
+            ],
+            [
+                1767895797,
+                92
             ]
         ],
         "status_ids2": "offline",
