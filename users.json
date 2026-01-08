@@ -6023,6 +6023,24 @@
         "prefix": "JoeMama",
         "status": "online",
         "secondary_status": "offline",
-        "status_ids2": "offline"
+        "status_ids2": "offline",
+        "session": {
+            "current_packs": 0,
+            "instances": 5,
+            "offline_instances": 0,
+            "total_instances": 5,
+            "duration_minutes": 0,
+            "last_update": 1767907691
+        },
+        "samples": [
+            [
+                1767907691,
+                0
+            ]
+        ],
+        "last_heartbeat": {
+            "time": 0,
+            "packs": 0
+        }
     }
 }
