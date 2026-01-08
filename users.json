@@ -2816,16 +2816,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 90,
-            "packs": 320
+            "time": 120,
+            "packs": 426
         },
         "session": {
-            "current_packs": 320,
+            "current_packs": 426,
             "instances": 7,
             "offline_instances": 0,
             "total_instances": 7,
-            "duration_minutes": 90,
-            "last_update": 1767902366
+            "duration_minutes": 120,
+            "last_update": 1767904167
         },
         "daily": {
             "date": "2026-01-06",
@@ -3065,6 +3065,10 @@
             [
                 1767902366,
                 320
+            ],
+            [
+                1767904167,
+                426
             ]
         ],
         "status_ids2": "offline",
