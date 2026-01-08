@@ -3223,16 +3223,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 180,
-            "packs": 210
+            "time": 210,
+            "packs": 248
         },
         "session": {
-            "current_packs": 210,
+            "current_packs": 248,
             "instances": 3,
             "offline_instances": 0,
             "total_instances": 3,
-            "duration_minutes": 180,
-            "last_update": 1767894869
+            "duration_minutes": 210,
+            "last_update": 1767896671
         },
         "daily": {
             "date": "2026-01-06",
@@ -3487,6 +3487,10 @@
             [
                 1767894869,
                 210
+            ],
+            [
+                1767896671,
+                248
             ]
         ],
         "has_alerted_offline": false,
