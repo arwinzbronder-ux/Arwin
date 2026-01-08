@@ -7719,20 +7719,20 @@
         "status": "online",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 198,
+            "current_packs": 304,
             "instances": 7,
             "offline_instances": 0,
             "total_instances": 7,
-            "duration_minutes": 60,
-            "last_update": 1767845016
+            "duration_minutes": 90,
+            "last_update": 1767846820
         },
         "daily": {
             "date": "2026-01-06",
             "start_packs": 0
         },
         "last_heartbeat": {
-            "time": 60,
-            "packs": 198
+            "time": 90,
+            "packs": 304
         },
         "history": [],
         "samples": [
@@ -8091,6 +8091,10 @@
             [
                 1767845016,
                 198
+            ],
+            [
+                1767846820,
+                304
             ]
         ],
         "status_ids2": "offline",
