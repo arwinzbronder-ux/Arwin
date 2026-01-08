@@ -4917,11 +4917,11 @@
         "secondary_status": "offline",
         "session": {
             "current_packs": 5598,
-            "instances": 6,
-            "offline_instances": 0,
-            "total_instances": 6,
-            "duration_minutes": 1201,
-            "last_update": 1767873470
+            "instances": 5,
+            "offline_instances": 2,
+            "total_instances": 7,
+            "duration_minutes": 1231,
+            "last_update": 1767875276
         },
         "daily": {
             "date": "2026-01-06",
@@ -5320,13 +5320,17 @@
             [
                 1767873470,
                 5598
+            ],
+            [
+                1767875276,
+                5598
             ]
         ],
         "has_alerted_offline": true,
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
         "last_heartbeat": {
-            "time": 1201,
+            "time": 1231,
             "packs": 5598
         }
     },
