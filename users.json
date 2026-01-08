@@ -434,7 +434,7 @@
         "friend_code": "0888904208075358",
         "instances": 5,
         "prefix": "naja",
-        "status": "online",
+        "status": "offline",
         "secondary_status": "offline",
         "last_heartbeat": {
             "time": 270,
@@ -1178,7 +1178,9 @@
                 1767726368.476,
                 98
             ]
-        ]
+        ],
+        "status_ids2": "offline",
+        "secondary_status_ids2": "offline"
     },
     "475603063948705794": {
         "username": "kysog6646",
