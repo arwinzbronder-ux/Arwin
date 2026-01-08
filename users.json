@@ -6259,16 +6259,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 870,
-            "packs": 1672
+            "time": 900,
+            "packs": 1746
         },
         "session": {
-            "current_packs": 1672,
+            "current_packs": 1746,
             "instances": 4,
             "offline_instances": 0,
             "total_instances": 4,
-            "duration_minutes": 870,
-            "last_update": 1767860211
+            "duration_minutes": 900,
+            "last_update": 1767862012
         },
         "daily": {
             "date": "2026-01-06",
@@ -6632,6 +6632,10 @@
             [
                 1767860211,
                 1672
+            ],
+            [
+                1767862012,
+                1746
             ]
         ]
     },
