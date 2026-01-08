@@ -3281,12 +3281,12 @@
         "status": "offline",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 582,
+            "current_packs": 734,
             "instances": 7,
             "offline_instances": 0,
             "total_instances": 7,
-            "duration_minutes": 90,
-            "last_update": 1767892272
+            "duration_minutes": 120,
+            "last_update": 1767894075
         },
         "daily": {
             "date": "2026-01-06",
@@ -3449,11 +3449,15 @@
             [
                 1767892272,
                 582
+            ],
+            [
+                1767894075,
+                734
             ]
         ],
         "last_heartbeat": {
-            "time": 90,
-            "packs": 582
+            "time": 120,
+            "packs": 734
         },
         "status_ids2": "online",
         "secondary_status_ids2": "offline"
