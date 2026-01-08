@@ -5716,16 +5716,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 1441,
-            "packs": 4203
+            "time": 1471,
+            "packs": 4270
         },
         "session": {
-            "current_packs": 4203,
+            "current_packs": 4270,
             "instances": 4,
-            "offline_instances": 1,
-            "total_instances": 5,
-            "duration_minutes": 1441,
-            "last_update": 1767861925
+            "offline_instances": 0,
+            "total_instances": 4,
+            "duration_minutes": 1471,
+            "last_update": 1767863731
         },
         "daily": {
             "date": "2026-01-06",
@@ -6193,6 +6193,10 @@
             [
                 1767861925,
                 4203
+            ],
+            [
+                1767863731,
+                4270
             ]
         ]
     },
