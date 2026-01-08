@@ -6185,6 +6185,7 @@
         "last_heartbeat": {
             "time": 30,
             "packs": 12
-        }
+        },
+        "has_alerted_offline": true
     }
 }
