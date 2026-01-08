@@ -4935,16 +4935,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 1832,
-            "packs": 5357
+            "time": 1862,
+            "packs": 5445
         },
         "session": {
-            "current_packs": 5357,
+            "current_packs": 5445,
             "instances": 4,
             "offline_instances": 0,
             "total_instances": 4,
-            "duration_minutes": 1832,
-            "last_update": 1767885350
+            "duration_minutes": 1862,
+            "last_update": 1767887152
         },
         "daily": {
             "date": "2026-01-06",
@@ -5264,6 +5264,10 @@
             [
                 1767885350,
                 5357
+            ],
+            [
+                1767887152,
+                5445
             ]
         ]
     },
