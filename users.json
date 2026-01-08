@@ -6783,12 +6783,12 @@
         "status": "online",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 2058,
+            "current_packs": 2116,
             "instances": 4,
             "offline_instances": 0,
             "total_instances": 4,
-            "duration_minutes": 930,
-            "last_update": 1767889279
+            "duration_minutes": 960,
+            "last_update": 1767891080
         },
         "samples": [
             [
@@ -7110,11 +7110,15 @@
             [
                 1767889279,
                 2058
+            ],
+            [
+                1767891080,
+                2116
             ]
         ],
         "last_heartbeat": {
-            "time": 930,
-            "packs": 2058
+            "time": 960,
+            "packs": 2116
         }
     },
     "193557944200200192": {
