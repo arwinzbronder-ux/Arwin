@@ -6902,7 +6902,7 @@
         "secondary_code": null,
         "instances": 4,
         "prefix": "pokemon names",
-        "status": "online",
+        "status": "offline",
         "secondary_status": "offline",
         "last_heartbeat": {
             "time": 841,
@@ -7304,7 +7304,9 @@
                 1767843819,
                 1959
             ]
-        ]
+        ],
+        "status_ids2": "offline",
+        "secondary_status_ids2": "offline"
     },
     "655583863954735124": {
         "username": "isaac5255",
