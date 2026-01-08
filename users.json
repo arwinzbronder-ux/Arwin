@@ -6097,22 +6097,26 @@
         "secondary_status": "offline",
         "status_ids2": "offline",
         "session": {
-            "current_packs": 0,
+            "current_packs": 12,
             "instances": 5,
             "offline_instances": 0,
             "total_instances": 5,
-            "duration_minutes": 0,
-            "last_update": 1767907691
+            "duration_minutes": 30,
+            "last_update": 1767909462
         },
         "samples": [
             [
                 1767907691,
                 0
+            ],
+            [
+                1767909462,
+                12
             ]
         ],
         "last_heartbeat": {
-            "time": 0,
-            "packs": 0
+            "time": 30,
+            "packs": 12
         }
     }
 }
