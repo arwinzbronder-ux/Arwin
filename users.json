@@ -8238,20 +8238,20 @@
         "status": "online",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 1598,
+            "current_packs": 1716,
             "instances": 9,
             "offline_instances": 0,
             "total_instances": 9,
-            "duration_minutes": 421,
-            "last_update": 1767832923
+            "duration_minutes": 451,
+            "last_update": 1767834727
         },
         "daily": {
             "date": "2026-01-06",
             "start_packs": 0
         },
         "last_heartbeat": {
-            "time": 421,
-            "packs": 1598
+            "time": 451,
+            "packs": 1716
         },
         "history": [],
         "samples": [
@@ -8582,6 +8582,10 @@
             [
                 1767832923,
                 1598
+            ],
+            [
+                1767834727,
+                1716
             ]
         ]
     },
