@@ -5112,16 +5112,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 600,
-            "packs": 1670
+            "time": 630,
+            "packs": 1740
         },
         "session": {
-            "current_packs": 1670,
+            "current_packs": 1740,
             "instances": 5,
             "offline_instances": 0,
             "total_instances": 5,
-            "duration_minutes": 600,
-            "last_update": 1767899156
+            "duration_minutes": 630,
+            "last_update": 1767900958
         },
         "daily": {
             "date": "2026-01-05",
@@ -5235,6 +5235,10 @@
             [
                 1767899156,
                 1670
+            ],
+            [
+                1767900958,
+                1740
             ]
         ]
     },
