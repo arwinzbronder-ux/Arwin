@@ -7223,5 +7223,15 @@
             "time": 900,
             "packs": 1992
         }
+    },
+    "193557944200200192": {
+        "username": "saltconnoisseur",
+        "friend_code": "6345786435589291",
+        "secondary_code": null,
+        "instances": 10,
+        "prefix": "pokemon names",
+        "status": "offline",
+        "secondary_status": "offline",
+        "status_ids2": "offline"
     }
 }
