@@ -6161,11 +6161,11 @@
     },
     "721824761797410897": {
         "username": "starman275",
-        "friend_code": "5901448796214407",
+        "friend_code": null,
         "secondary_code": null,
         "instances": 5,
         "prefix": "JoeMama",
-        "status": "online",
+        "status": "offline",
         "secondary_status": "offline",
         "status_ids2": "offline",
         "session": {
