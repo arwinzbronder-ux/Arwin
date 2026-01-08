@@ -4602,18 +4602,18 @@
         "status": "online",
         "secondary_status": "online",
         "last_heartbeat": {
-            "time": 30,
-            "packs": 44
+            "time": 60,
+            "packs": 88
         },
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
         "session": {
-            "current_packs": 44,
+            "current_packs": 88,
             "instances": 5,
             "offline_instances": 0,
             "total_instances": 5,
-            "duration_minutes": 30,
-            "last_update": 1767890972
+            "duration_minutes": 60,
+            "last_update": 1767892777
         },
         "samples": [
             [
@@ -4763,6 +4763,10 @@
             [
                 1767890972,
                 44
+            ],
+            [
+                1767892777,
+                88
             ]
         ]
     },
