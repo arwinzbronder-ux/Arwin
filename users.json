@@ -1955,17 +1955,17 @@
         "status": "online",
         "secondary_status": "online",
         "last_heartbeat": {
-            "time": 240,
-            "packs": 990
+            "time": 270,
+            "packs": 1098
         },
         "secondary_code": "6945259816716451",
         "session": {
-            "current_packs": 990,
+            "current_packs": 1098,
             "instances": 6,
             "offline_instances": 0,
             "total_instances": 6,
-            "duration_minutes": 240,
-            "last_update": 1767884553
+            "duration_minutes": 270,
+            "last_update": 1767886358
         },
         "daily": {
             "date": "2026-01-06",
@@ -2220,6 +2220,10 @@
             [
                 1767884553,
                 990
+            ],
+            [
+                1767886358,
+                1098
             ]
         ],
         "status_ids2": "offline",
