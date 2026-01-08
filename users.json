@@ -2800,16 +2800,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 30,
-            "packs": 102
+            "time": 60,
+            "packs": 212
         },
         "session": {
-            "current_packs": 102,
+            "current_packs": 212,
             "instances": 7,
             "offline_instances": 0,
             "total_instances": 7,
-            "duration_minutes": 30,
-            "last_update": 1767898762
+            "duration_minutes": 60,
+            "last_update": 1767900564
         },
         "daily": {
             "date": "2026-01-06",
@@ -3041,6 +3041,10 @@
             [
                 1767898762,
                 102
+            ],
+            [
+                1767900564,
+                212
             ]
         ],
         "status_ids2": "offline",
