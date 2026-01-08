@@ -6239,7 +6239,7 @@
         "secondary_code": null,
         "instances": 10,
         "prefix": "pokemon names",
-        "status": "online",
+        "status": "offline",
         "secondary_status": "offline",
         "status_ids2": "offline",
         "session": {
@@ -6259,7 +6259,8 @@
         "last_heartbeat": {
             "time": 0,
             "packs": 0
-        }
+        },
+        "secondary_status_ids2": "offline"
     },
     "721824761797410897": {
         "username": "starman275",
