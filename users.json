@@ -5351,16 +5351,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 1651,
-            "packs": 4800
+            "time": 1681,
+            "packs": 4888
         },
         "session": {
-            "current_packs": 4800,
+            "current_packs": 4888,
             "instances": 4,
             "offline_instances": 0,
             "total_instances": 4,
-            "duration_minutes": 1651,
-            "last_update": 1767874537
+            "duration_minutes": 1681,
+            "last_update": 1767876339
         },
         "daily": {
             "date": "2026-01-06",
@@ -5756,6 +5756,10 @@
             [
                 1767874537,
                 4800
+            ],
+            [
+                1767876339,
+                4888
             ]
         ]
     },
