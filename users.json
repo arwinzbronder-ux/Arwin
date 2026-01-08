@@ -5362,16 +5362,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 450,
-            "packs": 1062
+            "time": 480,
+            "packs": 1130
         },
         "session": {
-            "current_packs": 1062,
+            "current_packs": 1130,
             "instances": 6,
             "offline_instances": 0,
             "total_instances": 6,
-            "duration_minutes": 450,
-            "last_update": 1767910537
+            "duration_minutes": 480,
+            "last_update": 1767912340
         },
         "daily": {
             "date": "2026-01-06",
@@ -5614,6 +5614,10 @@
             [
                 1767910537,
                 1062
+            ],
+            [
+                1767912340,
+                1130
             ]
         ],
         "status_ids2": "offline",
@@ -6189,7 +6193,25 @@
         "prefix": "pokemon names",
         "status": "online",
         "secondary_status": "offline",
-        "status_ids2": "offline"
+        "status_ids2": "offline",
+        "session": {
+            "current_packs": 0,
+            "instances": 10,
+            "offline_instances": 0,
+            "total_instances": 10,
+            "duration_minutes": 0,
+            "last_update": 1767912196
+        },
+        "samples": [
+            [
+                1767912196,
+                0
+            ]
+        ],
+        "last_heartbeat": {
+            "time": 0,
+            "packs": 0
+        }
     },
     "721824761797410897": {
         "username": "starman275",
