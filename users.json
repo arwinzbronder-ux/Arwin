@@ -3048,10 +3048,6 @@
         "prefix": "rap",
         "status": "offline",
         "secondary_status": "offline",
-        "last_heartbeat": {
-            "time": 120,
-            "packs": 396
-        },
         "session": {
             "current_packs": 396,
             "instances": 5,
@@ -3114,7 +3110,8 @@
                 396
             ]
         ],
-        "status_ids2": "online"
+        "status_ids2": "offline",
+        "secondary_status_ids2": "offline"
     },
     "396799589513953282": {
         "username": ".komorebi2",
