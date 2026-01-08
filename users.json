@@ -2500,7 +2500,8 @@
         "last_heartbeat": {
             "time": 120,
             "packs": 394
-        }
+        },
+        "has_alerted_offline": true
     },
     "396799589513953282": {
         "username": ".komorebi2",
