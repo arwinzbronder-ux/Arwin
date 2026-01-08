@@ -7308,16 +7308,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 721,
-            "packs": 1687
+            "time": 751,
+            "packs": 1750
         },
         "session": {
-            "current_packs": 1687,
+            "current_packs": 1750,
             "instances": 4,
             "offline_instances": 0,
             "total_instances": 4,
-            "duration_minutes": 721,
-            "last_update": 1767836604
+            "duration_minutes": 751,
+            "last_update": 1767838410
         },
         "daily": {
             "date": "2026-01-06",
@@ -7690,6 +7690,10 @@
             [
                 1767836604,
                 1687
+            ],
+            [
+                1767838410,
+                1750
             ]
         ]
     },
