@@ -4223,16 +4223,16 @@
         "secondary_code": "3728578745352937",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 1232,
-            "packs": 3215
+            "time": 1262,
+            "packs": 3287
         },
         "session": {
-            "current_packs": 3215,
+            "current_packs": 3287,
             "instances": 6,
             "offline_instances": 0,
             "total_instances": 6,
-            "duration_minutes": 1232,
-            "last_update": 1767891258
+            "duration_minutes": 1262,
+            "last_update": 1767893061
         },
         "daily": {
             "date": "2026-01-06",
@@ -4587,6 +4587,10 @@
             [
                 1767891258,
                 3215
+            ],
+            [
+                1767893061,
+                3287
             ]
         ],
         "status_ids2": "offline",
