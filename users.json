@@ -8071,20 +8071,20 @@
         "status": "online",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 1954,
+            "current_packs": 2074,
             "instances": 9,
             "offline_instances": 0,
             "total_instances": 9,
-            "duration_minutes": 511,
-            "last_update": 1767838337
+            "duration_minutes": 541,
+            "last_update": 1767840141
         },
         "daily": {
             "date": "2026-01-06",
             "start_packs": 0
         },
         "last_heartbeat": {
-            "time": 511,
-            "packs": 1954
+            "time": 541,
+            "packs": 2074
         },
         "history": [],
         "samples": [
@@ -8427,6 +8427,10 @@
             [
                 1767838337,
                 1954
+            ],
+            [
+                1767840141,
+                2074
             ]
         ]
     },
