@@ -5746,16 +5746,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 150,
-            "packs": 448
+            "time": 180,
+            "packs": 536
         },
         "session": {
-            "current_packs": 448,
+            "current_packs": 536,
             "instances": 5,
             "offline_instances": 0,
             "total_instances": 5,
-            "duration_minutes": 150,
-            "last_update": 1767872130
+            "duration_minutes": 180,
+            "last_update": 1767873932
         },
         "daily": {
             "date": "2026-01-05",
@@ -5809,6 +5809,10 @@
             [
                 1767872130,
                 448
+            ],
+            [
+                1767873932,
+                536
             ]
         ]
     },
