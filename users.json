@@ -4193,16 +4193,16 @@
         "secondary_code": "3728578745352937",
         "secondary_status": "online",
         "last_heartbeat": {
-            "time": 1201,
-            "packs": 3145
+            "time": 1232,
+            "packs": 3215
         },
         "session": {
-            "current_packs": 3145,
+            "current_packs": 3215,
             "instances": 6,
             "offline_instances": 0,
             "total_instances": 6,
-            "duration_minutes": 1201,
-            "last_update": 1767889455
+            "duration_minutes": 1232,
+            "last_update": 1767891258
         },
         "daily": {
             "date": "2026-01-06",
@@ -4553,6 +4553,10 @@
             [
                 1767889455,
                 3145
+            ],
+            [
+                1767891258,
+                3215
             ]
         ],
         "status_ids2": "offline",
