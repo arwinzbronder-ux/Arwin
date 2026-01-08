@@ -3406,16 +3406,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 720,
-            "packs": 3022
+            "time": 750,
+            "packs": 3189
         },
         "session": {
-            "current_packs": 3022,
+            "current_packs": 3189,
             "instances": 7,
             "offline_instances": 0,
             "total_instances": 7,
-            "duration_minutes": 720,
-            "last_update": 1767853332
+            "duration_minutes": 750,
+            "last_update": 1767855133
         },
         "daily": {
             "date": "2026-01-06",
@@ -3631,6 +3631,10 @@
             [
                 1767853332,
                 3022
+            ],
+            [
+                1767855133,
+                3189
             ]
         ]
     },
