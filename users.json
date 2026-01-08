@@ -5399,16 +5399,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 450,
-            "packs": 1316
+            "time": 480,
+            "packs": 1382
         },
         "session": {
-            "current_packs": 1316,
+            "current_packs": 1382,
             "instances": 5,
             "offline_instances": 0,
             "total_instances": 5,
-            "duration_minutes": 450,
-            "last_update": 1767890147
+            "duration_minutes": 480,
+            "last_update": 1767891949
         },
         "daily": {
             "date": "2026-01-05",
@@ -5502,6 +5502,10 @@
             [
                 1767890147,
                 1316
+            ],
+            [
+                1767891949,
+                1382
             ]
         ]
     },
