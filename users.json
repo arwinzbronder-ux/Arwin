@@ -6205,15 +6205,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 450,
-            "packs": 1136
+            "time": 0,
+            "packs": 0
         },
         "session": {
-            "start_packs": 1136,
-            "instances": 6,
-            "duration_minutes": 450,
-            "last_update": 1767649116,
-            "current_packs": 1136
+            "current_packs": 0,
+            "instances": 5,
+            "offline_instances": 0,
+            "total_instances": 5,
+            "duration_minutes": 0,
+            "last_update": 1767863153
         },
         "daily": {
             "date": "2026-01-05",
@@ -6243,6 +6244,10 @@
             [
                 1767640113.506,
                 806
+            ],
+            [
+                1767863153,
+                0
             ]
         ]
     },
