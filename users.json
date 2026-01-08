@@ -4069,12 +4069,12 @@
         "status": "offline",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 2422,
+            "current_packs": 2574,
             "instances": 7,
             "offline_instances": 0,
             "total_instances": 7,
-            "duration_minutes": 480,
-            "last_update": 1767830693
+            "duration_minutes": 510,
+            "last_update": 1767832496
         },
         "daily": {
             "date": "2026-01-06",
@@ -4457,11 +4457,15 @@
             [
                 1767830693,
                 2422
+            ],
+            [
+                1767832496,
+                2574
             ]
         ],
         "last_heartbeat": {
-            "time": 480,
-            "packs": 2422
+            "time": 510,
+            "packs": 2574
         },
         "status_ids2": "online"
     },
