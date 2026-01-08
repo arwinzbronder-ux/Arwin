@@ -5627,16 +5627,16 @@
         "status": "offline",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 720,
-            "packs": 3672
+            "time": 750,
+            "packs": 3842
         },
         "session": {
-            "current_packs": 3672,
+            "current_packs": 3842,
             "instances": 6,
             "offline_instances": 0,
             "total_instances": 6,
-            "duration_minutes": 720,
-            "last_update": 1767844636
+            "duration_minutes": 750,
+            "last_update": 1767846438
         },
         "daily": {
             "date": "2026-01-06",
@@ -5971,6 +5971,10 @@
             [
                 1767844636,
                 3672
+            ],
+            [
+                1767846438,
+                3842
             ]
         ],
         "has_alerted_offline": false,
