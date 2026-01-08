@@ -8068,7 +8068,7 @@
         "secondary_code": null,
         "instances": 8,
         "prefix": "A",
-        "status": "online",
+        "status": "offline",
         "secondary_status": "offline",
         "session": {
             "current_packs": 2074,
@@ -8432,7 +8432,9 @@
                 1767840141,
                 2074
             ]
-        ]
+        ],
+        "status_ids2": "offline",
+        "secondary_status_ids2": "offline"
     },
     "1134310504324677713": {
         "username": "cynicalchery",
