@@ -4283,16 +4283,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 2252,
-            "packs": 6375
+            "time": 2282,
+            "packs": 6441
         },
         "session": {
-            "current_packs": 6375,
+            "current_packs": 6441,
             "instances": 4,
             "offline_instances": 0,
             "total_instances": 4,
-            "duration_minutes": 2252,
-            "last_update": 1767910579
+            "duration_minutes": 2282,
+            "last_update": 1767912380
         },
         "daily": {
             "date": "2026-01-06",
@@ -4668,6 +4668,10 @@
             [
                 1767910579,
                 6375
+            ],
+            [
+                1767912380,
+                6441
             ]
         ]
     },
@@ -6223,7 +6227,7 @@
         "secondary_code": null,
         "instances": 5,
         "prefix": "JoeMama",
-        "status": "offline",
+        "status": "online",
         "secondary_status": "offline",
         "status_ids2": "offline",
         "session": {
