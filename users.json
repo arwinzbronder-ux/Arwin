@@ -7318,7 +7318,7 @@
         "secondary_code": null,
         "instances": 6,
         "prefix": "Isaac",
-        "status": "online",
+        "status": "offline",
         "secondary_status": "offline",
         "last_heartbeat": {
             "time": 60,
@@ -7719,7 +7719,8 @@
                 168
             ]
         ],
-        "status_ids2": "offline"
+        "status_ids2": "offline",
+        "secondary_status_ids2": "offline"
     },
     "_global_stats": {
         "daily_god_packs": 0,
