@@ -2239,7 +2239,8 @@
             ]
         ],
         "status_ids2": "offline",
-        "secondary_status_ids2": "offline"
+        "secondary_status_ids2": "offline",
+        "has_alerted_offline": true
     },
     "288833945062342657": {
         "username": "insomniaskai",
