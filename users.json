@@ -6551,16 +6551,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 901,
-            "packs": 2702
+            "time": 931,
+            "packs": 2774
         },
         "session": {
-            "current_packs": 2702,
+            "current_packs": 2774,
             "instances": 4,
             "offline_instances": 0,
             "total_instances": 4,
-            "duration_minutes": 901,
-            "last_update": 1767829490
+            "duration_minutes": 931,
+            "last_update": 1767831292
         },
         "daily": {
             "date": "2026-01-06",
@@ -6956,6 +6956,10 @@
             [
                 1767829490,
                 2702
+            ],
+            [
+                1767831292,
+                2774
             ]
         ]
     },
