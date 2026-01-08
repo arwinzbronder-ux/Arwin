@@ -4612,16 +4612,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 750,
-            "packs": 2006
+            "time": 780,
+            "packs": 2066
         },
         "session": {
-            "current_packs": 2006,
+            "current_packs": 2066,
             "instances": 5,
             "offline_instances": 0,
             "total_instances": 5,
-            "duration_minutes": 750,
-            "last_update": 1767908165
+            "duration_minutes": 780,
+            "last_update": 1767909967
         },
         "daily": {
             "date": "2026-01-05",
@@ -4755,6 +4755,10 @@
             [
                 1767908165,
                 2006
+            ],
+            [
+                1767909967,
+                2066
             ]
         ]
     },
