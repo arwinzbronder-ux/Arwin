@@ -2543,7 +2543,7 @@
         "friend_code": "4928118289932284",
         "instances": 5,
         "prefix": "pokemon names",
-        "status": "online",
+        "status": "offline",
         "secondary_status": "offline",
         "session": {
             "current_packs": 2976,
@@ -2787,7 +2787,9 @@
                 2976
             ]
         ],
-        "has_alerted_offline": false
+        "has_alerted_offline": false,
+        "status_ids2": "offline",
+        "secondary_status_ids2": "offline"
     },
     "409685259437735936": {
         "username": "iraptorxd",
