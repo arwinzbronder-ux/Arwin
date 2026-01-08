@@ -3513,16 +3513,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 120,
-            "packs": 387
+            "time": 150,
+            "packs": 487
         },
         "session": {
-            "current_packs": 387,
+            "current_packs": 487,
             "instances": 7,
             "offline_instances": 0,
             "total_instances": 7,
-            "duration_minutes": 120,
-            "last_update": 1767895970
+            "duration_minutes": 150,
+            "last_update": 1767897773
         },
         "daily": {
             "date": "2026-01-06",
@@ -3777,6 +3777,10 @@
             [
                 1767895970,
                 387
+            ],
+            [
+                1767897773,
+                487
             ]
         ],
         "has_alerted_offline": false,
