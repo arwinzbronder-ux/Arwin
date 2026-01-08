@@ -7674,16 +7674,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 240,
-            "packs": 656
+            "time": 270,
+            "packs": 744
         },
         "session": {
-            "current_packs": 656,
+            "current_packs": 744,
             "instances": 6,
             "offline_instances": 0,
             "total_instances": 6,
-            "duration_minutes": 240,
-            "last_update": 1767837300
+            "duration_minutes": 270,
+            "last_update": 1767839104
         },
         "daily": {
             "date": "2026-01-06",
@@ -8046,6 +8046,10 @@
             [
                 1767837300,
                 656
+            ],
+            [
+                1767839104,
+                744
             ]
         ],
         "status_ids2": "offline"
