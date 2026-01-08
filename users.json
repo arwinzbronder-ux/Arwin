@@ -4843,16 +4843,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 300,
-            "packs": 506
+            "time": 330,
+            "packs": 554
         },
         "session": {
-            "current_packs": 506,
+            "current_packs": 554,
             "instances": 4,
             "offline_instances": 0,
             "total_instances": 4,
-            "duration_minutes": 300,
-            "last_update": 1767910579
+            "duration_minutes": 330,
+            "last_update": 1767912380
         },
         "daily": {
             "date": "2026-01-06",
@@ -5056,6 +5056,10 @@
             [
                 1767910579,
                 506
+            ],
+            [
+                1767912380,
+                554
             ]
         ],
         "status_ids2": "offline",
