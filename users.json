@@ -5302,16 +5302,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 420,
-            "packs": 996
+            "time": 450,
+            "packs": 1062
         },
         "session": {
-            "current_packs": 996,
+            "current_packs": 1062,
             "instances": 6,
             "offline_instances": 0,
             "total_instances": 6,
-            "duration_minutes": 420,
-            "last_update": 1767908733
+            "duration_minutes": 450,
+            "last_update": 1767910537
         },
         "daily": {
             "date": "2026-01-06",
@@ -5550,6 +5550,10 @@
             [
                 1767908733,
                 996
+            ],
+            [
+                1767910537,
+                1062
             ]
         ],
         "status_ids2": "offline",
