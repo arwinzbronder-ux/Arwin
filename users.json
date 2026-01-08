@@ -4699,7 +4699,7 @@
                 636
             ]
         ],
-        "has_alerted_offline": false,
+        "has_alerted_offline": true,
         "status_ids2": "online"
     },
     "520672416632930304": {
