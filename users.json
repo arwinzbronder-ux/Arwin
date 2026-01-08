@@ -5922,16 +5922,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 240,
-            "packs": 570
+            "time": 270,
+            "packs": 642
         },
         "session": {
-            "current_packs": 570,
+            "current_packs": 642,
             "instances": 6,
             "offline_instances": 0,
             "total_instances": 6,
-            "duration_minutes": 240,
-            "last_update": 1767897916
+            "duration_minutes": 270,
+            "last_update": 1767899720
         },
         "daily": {
             "date": "2026-01-06",
@@ -6146,6 +6146,10 @@
             [
                 1767897916,
                 570
+            ],
+            [
+                1767899720,
+                642
             ]
         ],
         "status_ids2": "offline",
