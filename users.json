@@ -3057,16 +3057,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 420,
-            "packs": 1331
+            "time": 450,
+            "packs": 1425
         },
         "session": {
-            "current_packs": 1331,
+            "current_packs": 1425,
             "instances": 7,
             "offline_instances": 0,
             "total_instances": 7,
-            "duration_minutes": 420,
-            "last_update": 1767913998
+            "duration_minutes": 450,
+            "last_update": 1767915800
         },
         "daily": {
             "date": "2026-01-06",
@@ -3361,6 +3361,10 @@
             [
                 1767913998,
                 1331
+            ],
+            [
+                1767915800,
+                1425
             ]
         ],
         "has_alerted_offline": false,
