@@ -5726,16 +5726,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 1321,
-            "packs": 3821
+            "time": 1351,
+            "packs": 3907
         },
         "session": {
-            "current_packs": 3821,
+            "current_packs": 3907,
             "instances": 4,
             "offline_instances": 1,
             "total_instances": 5,
-            "duration_minutes": 1321,
-            "last_update": 1767854717
+            "duration_minutes": 1351,
+            "last_update": 1767856519
         },
         "daily": {
             "date": "2026-01-06",
@@ -6187,6 +6187,10 @@
             [
                 1767854717,
                 3821
+            ],
+            [
+                1767856519,
+                3907
             ]
         ]
     },
