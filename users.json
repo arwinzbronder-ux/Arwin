@@ -8,11 +8,11 @@
         "secondary_status": "offline",
         "session": {
             "current_packs": 1301,
-            "instances": 6,
-            "offline_instances": 0,
+            "instances": 0,
+            "offline_instances": 6,
             "total_instances": 6,
-            "duration_minutes": 390,
-            "last_update": 1767831024
+            "duration_minutes": 420,
+            "last_update": 1767832834
         },
         "daily": {
             "date": "2026-01-06",
@@ -21,10 +21,6 @@
         "has_alerted_offline": true,
         "history": [],
         "samples": [
-            [
-                1767741498,
-                1226
-            ],
             [
                 1767743300,
                 1315
@@ -154,10 +150,6 @@
                 1315
             ],
             [
-                1767741504.035,
-                1226
-            ],
-            [
                 1767770327.075,
                 2541
             ],
@@ -220,10 +212,6 @@
             [
                 1767743305.072,
                 1315
-            ],
-            [
-                1767741504.035,
-                1226
             ],
             [
                 1767807255,
@@ -306,10 +294,6 @@
                 1315
             ],
             [
-                1767741504.035,
-                1226
-            ],
-            [
                 1767809382,
                 104
             ],
@@ -390,10 +374,6 @@
                 1315
             ],
             [
-                1767741504.035,
-                1226
-            ],
-            [
                 1767811181,
                 214
             ],
@@ -440,10 +420,18 @@
             [
                 1767831024,
                 1301
+            ],
+            [
+                1767832834,
+                1301
             ]
         ],
         "status_ids2": "offline",
-        "secondary_status_ids2": "offline"
+        "secondary_status_ids2": "offline",
+        "last_heartbeat": {
+            "time": 420,
+            "packs": 1301
+        }
     },
     "1017762422947323965": {
         "username": "najanaja_44",
