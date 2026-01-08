@@ -5089,10 +5089,6 @@
         "prefix": "LibraGP",
         "status": "offline",
         "secondary_status": "offline",
-        "last_heartbeat": {
-            "time": 1081,
-            "packs": 5598
-        },
         "session": {
             "current_packs": 5598,
             "instances": 6,
@@ -5485,7 +5481,8 @@
             ]
         ],
         "has_alerted_offline": false,
-        "status_ids2": "online"
+        "status_ids2": "offline",
+        "secondary_status_ids2": "offline"
     },
     "772504841426829341": {
         "username": "oddtaxi.",
