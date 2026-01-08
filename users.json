@@ -5555,12 +5555,12 @@
         "status": "online",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 2507,
+            "current_packs": 2563,
             "instances": 4,
             "offline_instances": 0,
             "total_instances": 4,
-            "duration_minutes": 1170,
-            "last_update": 1767903688
+            "duration_minutes": 1200,
+            "last_update": 1767905489
         },
         "samples": [
             [
@@ -5914,11 +5914,15 @@
             [
                 1767903688,
                 2507
+            ],
+            [
+                1767905489,
+                2563
             ]
         ],
         "last_heartbeat": {
-            "time": 1170,
-            "packs": 2507
+            "time": 1200,
+            "packs": 2563
         }
     },
     "193557944200200192": {
