@@ -5630,16 +5630,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 270,
-            "packs": 692
+            "time": 300,
+            "packs": 764
         },
         "session": {
-            "current_packs": 692,
+            "current_packs": 764,
             "instances": 4,
             "offline_instances": 0,
             "total_instances": 4,
-            "duration_minutes": 270,
-            "last_update": 1767896923
+            "duration_minutes": 300,
+            "last_update": 1767898726
         },
         "daily": {
             "date": "2026-01-06",
@@ -5876,6 +5876,10 @@
             [
                 1767896923,
                 692
+            ],
+            [
+                1767898726,
+                764
             ]
         ],
         "status_ids2": "offline",
