@@ -5020,16 +5020,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 1892,
-            "packs": 5525
+            "time": 1922,
+            "packs": 5601
         },
         "session": {
-            "current_packs": 5525,
+            "current_packs": 5601,
             "instances": 4,
             "offline_instances": 0,
             "total_instances": 4,
-            "duration_minutes": 1892,
-            "last_update": 1767888954
+            "duration_minutes": 1922,
+            "last_update": 1767890756
         },
         "daily": {
             "date": "2026-01-06",
@@ -5357,6 +5357,10 @@
             [
                 1767888954,
                 5525
+            ],
+            [
+                1767890756,
+                5601
             ]
         ]
     },
