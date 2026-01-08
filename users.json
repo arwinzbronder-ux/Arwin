@@ -2773,7 +2773,7 @@
         "friend_code": "3573393864935944",
         "instances": 7,
         "prefix": "pokemon names",
-        "status": "offline",
+        "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
             "time": 780,
@@ -3223,16 +3223,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 210,
-            "packs": 248
+            "time": 180,
+            "packs": 210
         },
         "session": {
-            "current_packs": 248,
+            "current_packs": 210,
             "instances": 3,
             "offline_instances": 0,
             "total_instances": 3,
-            "duration_minutes": 210,
-            "last_update": 1767896671
+            "duration_minutes": 180,
+            "last_update": 1767894869
         },
         "daily": {
             "date": "2026-01-06",
@@ -3487,10 +3487,6 @@
             [
                 1767894869,
                 210
-            ],
-            [
-                1767896671,
-                248
             ]
         ],
         "has_alerted_offline": false,
@@ -3784,16 +3780,16 @@
         "secondary_code": "3728578745352937",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 1292,
-            "packs": 3363
+            "time": 1322,
+            "packs": 3424
         },
         "session": {
-            "current_packs": 3363,
+            "current_packs": 3424,
             "instances": 6,
-            "offline_instances": 0,
-            "total_instances": 6,
-            "duration_minutes": 1292,
-            "last_update": 1767894865
+            "offline_instances": 1,
+            "total_instances": 7,
+            "duration_minutes": 1322,
+            "last_update": 1767896672
         },
         "daily": {
             "date": "2026-01-06",
@@ -4156,6 +4152,10 @@
             [
                 1767894865,
                 3363
+            ],
+            [
+                1767896672,
+                3424
             ]
         ],
         "status_ids2": "offline",
