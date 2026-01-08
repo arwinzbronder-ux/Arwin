@@ -4975,16 +4975,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 1862,
-            "packs": 5445
+            "time": 1892,
+            "packs": 5525
         },
         "session": {
-            "current_packs": 5445,
+            "current_packs": 5525,
             "instances": 4,
             "offline_instances": 0,
             "total_instances": 4,
-            "duration_minutes": 1862,
-            "last_update": 1767887152
+            "duration_minutes": 1892,
+            "last_update": 1767888954
         },
         "daily": {
             "date": "2026-01-06",
@@ -5308,6 +5308,10 @@
             [
                 1767887152,
                 5445
+            ],
+            [
+                1767888954,
+                5525
             ]
         ]
     },
