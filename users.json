@@ -3775,18 +3775,18 @@
         "status": "online",
         "secondary_status": "online",
         "last_heartbeat": {
-            "time": 391,
-            "packs": 632
+            "time": 421,
+            "packs": 674
         },
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
         "session": {
-            "current_packs": 632,
+            "current_packs": 674,
             "instances": 5,
             "offline_instances": 0,
             "total_instances": 5,
-            "duration_minutes": 391,
-            "last_update": 1767912632
+            "duration_minutes": 421,
+            "last_update": 1767914437
         },
         "samples": [
             [
@@ -3984,6 +3984,10 @@
             [
                 1767912632,
                 632
+            ],
+            [
+                1767914437,
+                674
             ]
         ]
     },
