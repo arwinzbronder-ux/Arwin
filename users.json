@@ -6017,16 +6017,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 990,
-            "packs": 1956
+            "time": 1020,
+            "packs": 2026
         },
         "session": {
-            "current_packs": 1956,
+            "current_packs": 2026,
             "instances": 4,
             "offline_instances": 0,
             "total_instances": 4,
-            "duration_minutes": 990,
-            "last_update": 1767867419
+            "duration_minutes": 1020,
+            "last_update": 1767869220
         },
         "daily": {
             "date": "2026-01-06",
@@ -6406,6 +6406,10 @@
             [
                 1767867419,
                 1956
+            ],
+            [
+                1767869220,
+                2026
             ]
         ]
     },
