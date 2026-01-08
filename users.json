@@ -5335,16 +5335,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 1621,
-            "packs": 4734
+            "time": 1651,
+            "packs": 4800
         },
         "session": {
-            "current_packs": 4734,
+            "current_packs": 4800,
             "instances": 4,
             "offline_instances": 0,
             "total_instances": 4,
-            "duration_minutes": 1621,
-            "last_update": 1767872734
+            "duration_minutes": 1651,
+            "last_update": 1767874537
         },
         "daily": {
             "date": "2026-01-06",
@@ -5736,6 +5736,10 @@
             [
                 1767872734,
                 4734
+            ],
+            [
+                1767874537,
+                4800
             ]
         ]
     },
