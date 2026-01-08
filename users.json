@@ -5308,16 +5308,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 390,
-            "packs": 1158
+            "time": 420,
+            "packs": 1238
         },
         "session": {
-            "current_packs": 1158,
+            "current_packs": 1238,
             "instances": 5,
             "offline_instances": 0,
             "total_instances": 5,
-            "duration_minutes": 390,
-            "last_update": 1767886543
+            "duration_minutes": 420,
+            "last_update": 1767888345
         },
         "daily": {
             "date": "2026-01-05",
@@ -5403,6 +5403,10 @@
             [
                 1767886543,
                 1158
+            ],
+            [
+                1767888345,
+                1238
             ]
         ]
     },
