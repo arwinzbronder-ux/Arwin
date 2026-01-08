@@ -2687,16 +2687,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 450,
-            "packs": 526
+            "time": 480,
+            "packs": 562
         },
         "session": {
-            "current_packs": 526,
+            "current_packs": 562,
             "instances": 3,
             "offline_instances": 0,
             "total_instances": 3,
-            "duration_minutes": 450,
-            "last_update": 1767911090
+            "duration_minutes": 480,
+            "last_update": 1767912892
         },
         "daily": {
             "date": "2026-01-06",
@@ -2983,6 +2983,10 @@
             [
                 1767911090,
                 526
+            ],
+            [
+                1767912892,
+                562
             ]
         ],
         "has_alerted_offline": false,
