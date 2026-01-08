@@ -4904,8 +4904,8 @@
             "instances": 5,
             "offline_instances": 2,
             "total_instances": 7,
-            "duration_minutes": 1351,
-            "last_update": 1767882484
+            "duration_minutes": 1381,
+            "last_update": 1767884287
         },
         "daily": {
             "date": "2026-01-06",
@@ -5140,13 +5140,17 @@
             [
                 1767882484,
                 5598
+            ],
+            [
+                1767884287,
+                5598
             ]
         ],
         "has_alerted_offline": true,
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
         "last_heartbeat": {
-            "time": 1351,
+            "time": 1381,
             "packs": 5598
         }
     },
