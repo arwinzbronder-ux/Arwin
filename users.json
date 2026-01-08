@@ -5818,16 +5818,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 90,
-            "packs": 246
+            "time": 120,
+            "packs": 332
         },
         "session": {
-            "current_packs": 246,
+            "current_packs": 332,
             "instances": 4,
             "offline_instances": 0,
             "total_instances": 4,
-            "duration_minutes": 90,
-            "last_update": 1767886107
+            "duration_minutes": 120,
+            "last_update": 1767887910
         },
         "daily": {
             "date": "2026-01-06",
@@ -6040,6 +6040,10 @@
             [
                 1767886107,
                 246
+            ],
+            [
+                1767887910,
+                332
             ]
         ],
         "status_ids2": "offline",
