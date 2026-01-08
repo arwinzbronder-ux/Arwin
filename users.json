@@ -7279,16 +7279,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 0,
-            "packs": 0
+            "time": 30,
+            "packs": 84
         },
         "session": {
-            "current_packs": 0,
+            "current_packs": 84,
             "instances": 6,
             "offline_instances": 0,
             "total_instances": 6,
-            "duration_minutes": 0,
-            "last_update": 1767841415
+            "duration_minutes": 30,
+            "last_update": 1767843189
         },
         "daily": {
             "date": "2026-01-06",
@@ -7667,6 +7667,10 @@
             [
                 1767841415,
                 0
+            ],
+            [
+                1767843189,
+                84
             ]
         ],
         "status_ids2": "offline"
