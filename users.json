@@ -5461,8 +5461,8 @@
             "time": 722,
             "packs": 2536
         },
-        "status_ids2": "online",
-        "secondary_status_ids2": "online",
+        "status_ids2": "offline",
+        "secondary_status_ids2": "offline",
         "session": {
             "current_packs": 2536,
             "instances": 5,
