@@ -6032,16 +6032,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 960,
-            "packs": 1893
+            "time": 990,
+            "packs": 1956
         },
         "session": {
-            "current_packs": 1893,
+            "current_packs": 1956,
             "instances": 4,
             "offline_instances": 0,
             "total_instances": 4,
-            "duration_minutes": 960,
-            "last_update": 1767865617
+            "duration_minutes": 990,
+            "last_update": 1767867419
         },
         "daily": {
             "date": "2026-01-06",
@@ -6417,6 +6417,10 @@
             [
                 1767865617,
                 1893
+            ],
+            [
+                1767867419,
+                1956
             ]
         ]
     },
