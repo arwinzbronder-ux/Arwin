@@ -11,8 +11,8 @@
             "instances": 0,
             "offline_instances": 6,
             "total_instances": 6,
-            "duration_minutes": 691,
-            "last_update": 1767849041
+            "duration_minutes": 721,
+            "last_update": 1767850843
         },
         "daily": {
             "date": "2026-01-06",
@@ -360,12 +360,16 @@
             [
                 1767849041,
                 1301
+            ],
+            [
+                1767850843,
+                1301
             ]
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
         "last_heartbeat": {
-            "time": 691,
+            "time": 721,
             "packs": 1301
         }
     },
