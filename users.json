@@ -5710,16 +5710,16 @@
         "status": "offline",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 630,
-            "packs": 3200
+            "time": 660,
+            "packs": 3358
         },
         "session": {
-            "current_packs": 3200,
+            "current_packs": 3358,
             "instances": 6,
             "offline_instances": 0,
             "total_instances": 6,
-            "duration_minutes": 630,
-            "last_update": 1767839230
+            "duration_minutes": 660,
+            "last_update": 1767841032
         },
         "daily": {
             "date": "2026-01-06",
@@ -6122,6 +6122,10 @@
             [
                 1767839230,
                 3200
+            ],
+            [
+                1767841032,
+                3358
             ]
         ],
         "has_alerted_offline": false,
