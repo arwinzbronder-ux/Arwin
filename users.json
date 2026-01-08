@@ -5624,16 +5624,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 240,
-            "packs": 718
+            "time": 270,
+            "packs": 814
         },
         "session": {
-            "current_packs": 718,
+            "current_packs": 814,
             "instances": 5,
             "offline_instances": 0,
             "total_instances": 5,
-            "duration_minutes": 240,
-            "last_update": 1767877535
+            "duration_minutes": 270,
+            "last_update": 1767879337
         },
         "daily": {
             "date": "2026-01-05",
@@ -5699,6 +5699,10 @@
             [
                 1767877535,
                 718
+            ],
+            [
+                1767879337,
+                814
             ]
         ]
     },
