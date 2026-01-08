@@ -7,12 +7,12 @@
         "status": "online",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 248,
+            "current_packs": 388,
             "instances": 6,
             "offline_instances": 0,
             "total_instances": 6,
-            "duration_minutes": 60,
-            "last_update": 1767873847
+            "duration_minutes": 90,
+            "last_update": 1767875649
         },
         "daily": {
             "date": "2026-01-06",
@@ -376,13 +376,17 @@
             [
                 1767873847,
                 248
+            ],
+            [
+                1767875649,
+                388
             ]
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
         "last_heartbeat": {
-            "time": 60,
-            "packs": 248
+            "time": 90,
+            "packs": 388
         }
     },
     "1017762422947323965": {
