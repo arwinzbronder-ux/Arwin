@@ -3798,7 +3798,7 @@
         "prefix": "Pokemon Names",
         "status": "offline",
         "secondary_code": "3728578745352937",
-        "secondary_status": "online",
+        "secondary_status": "offline",
         "last_heartbeat": {
             "time": 1322,
             "packs": 3424
