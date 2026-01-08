@@ -6038,16 +6038,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 30,
-            "packs": 64
+            "time": 60,
+            "packs": 132
         },
         "session": {
-            "current_packs": 64,
+            "current_packs": 132,
             "instances": 6,
             "offline_instances": 0,
             "total_instances": 6,
-            "duration_minutes": 30,
-            "last_update": 1767885296
+            "duration_minutes": 60,
+            "last_update": 1767887098
         },
         "daily": {
             "date": "2026-01-06",
@@ -6450,6 +6450,10 @@
             [
                 1767885296,
                 64
+            ],
+            [
+                1767887098,
+                132
             ]
         ],
         "status_ids2": "offline",
