@@ -4111,16 +4111,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 2132,
-            "packs": 6105
+            "time": 2162,
+            "packs": 6175
         },
         "session": {
-            "current_packs": 6105,
+            "current_packs": 6175,
             "instances": 4,
             "offline_instances": 0,
             "total_instances": 4,
-            "duration_minutes": 2132,
-            "last_update": 1767903371
+            "duration_minutes": 2162,
+            "last_update": 1767905173
         },
         "daily": {
             "date": "2026-01-06",
@@ -4480,6 +4480,10 @@
             [
                 1767903371,
                 6105
+            ],
+            [
+                1767905173,
+                6175
             ]
         ]
     },
