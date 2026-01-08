@@ -6005,16 +6005,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 0,
-            "packs": 0
+            "time": 30,
+            "packs": 78
         },
         "session": {
-            "current_packs": 0,
+            "current_packs": 78,
             "instances": 5,
             "offline_instances": 0,
             "total_instances": 5,
-            "duration_minutes": 0,
-            "last_update": 1767863153
+            "duration_minutes": 30,
+            "last_update": 1767864924
         },
         "daily": {
             "date": "2026-01-05",
@@ -6048,6 +6048,10 @@
             [
                 1767863153,
                 0
+            ],
+            [
+                1767864924,
+                78
             ]
         ]
     },
