@@ -5954,16 +5954,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 90,
-            "packs": 268
+            "time": 120,
+            "packs": 362
         },
         "session": {
-            "current_packs": 268,
+            "current_packs": 362,
             "instances": 5,
             "offline_instances": 0,
             "total_instances": 5,
-            "duration_minutes": 90,
-            "last_update": 1767868527
+            "duration_minutes": 120,
+            "last_update": 1767870329
         },
         "daily": {
             "date": "2026-01-05",
@@ -6009,6 +6009,10 @@
             [
                 1767868527,
                 268
+            ],
+            [
+                1767870329,
+                362
             ]
         ]
     },
