@@ -5042,16 +5042,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 480,
-            "packs": 1172
+            "time": 510,
+            "packs": 1234
         },
         "session": {
-            "current_packs": 1172,
+            "current_packs": 1234,
             "instances": 4,
             "offline_instances": 0,
             "total_instances": 4,
-            "duration_minutes": 480,
-            "last_update": 1767909543
+            "duration_minutes": 510,
+            "last_update": 1767911346
         },
         "daily": {
             "date": "2026-01-06",
@@ -5316,6 +5316,10 @@
             [
                 1767909543,
                 1172
+            ],
+            [
+                1767911346,
+                1234
             ]
         ],
         "status_ids2": "offline",
