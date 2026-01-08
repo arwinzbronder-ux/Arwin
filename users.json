@@ -3751,16 +3751,16 @@
         "secondary_code": "3728578745352937",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 1262,
-            "packs": 3287
+            "time": 1292,
+            "packs": 3363
         },
         "session": {
-            "current_packs": 3287,
+            "current_packs": 3363,
             "instances": 6,
             "offline_instances": 0,
             "total_instances": 6,
-            "duration_minutes": 1262,
-            "last_update": 1767893061
+            "duration_minutes": 1292,
+            "last_update": 1767894865
         },
         "daily": {
             "date": "2026-01-06",
@@ -4119,6 +4119,10 @@
             [
                 1767893061,
                 3287
+            ],
+            [
+                1767894865,
+                3363
             ]
         ],
         "status_ids2": "offline",
