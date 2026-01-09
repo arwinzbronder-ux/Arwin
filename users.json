@@ -6510,12 +6510,12 @@
         "secondary_status": "offline",
         "status_ids2": "offline",
         "session": {
-            "current_packs": 50,
+            "current_packs": 116,
             "instances": 4,
             "offline_instances": 0,
             "total_instances": 4,
-            "duration_minutes": 30,
-            "last_update": 1767921783
+            "duration_minutes": 60,
+            "last_update": 1767923585
         },
         "samples": [
             [
@@ -6545,11 +6545,15 @@
             [
                 1767921783,
                 50
+            ],
+            [
+                1767923585,
+                116
             ]
         ],
         "last_heartbeat": {
-            "time": 30,
-            "packs": 50
+            "time": 60,
+            "packs": 116
         },
         "has_alerted_offline": false,
         "secondary_status_ids2": "offline"
