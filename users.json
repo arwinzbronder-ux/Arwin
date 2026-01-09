@@ -5418,16 +5418,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 90,
-            "packs": 231
+            "time": 120,
+            "packs": 301
         },
         "session": {
-            "current_packs": 231,
+            "current_packs": 301,
             "instances": 4,
             "offline_instances": 0,
             "total_instances": 4,
-            "duration_minutes": 90,
-            "last_update": 1767937302
+            "duration_minutes": 120,
+            "last_update": 1767939104
         },
         "daily": {
             "date": "2026-01-06",
@@ -5756,6 +5756,10 @@
             [
                 1767937302,
                 231
+            ],
+            [
+                1767939104,
+                301
             ]
         ],
         "status_ids2": "offline",
