@@ -21112,12 +21112,12 @@
         "secondary_status": "offline",
         "status_ids2": "offline",
         "session": {
-            "current_packs": 423,
+            "current_packs": 497,
             "instances": 5,
             "offline_instances": 0,
             "total_instances": 5,
-            "duration_minutes": 150,
-            "last_update": 1767973943
+            "duration_minutes": 180,
+            "last_update": 1767975748
         },
         "samples": [
             [
@@ -21703,11 +21703,15 @@
             [
                 1767973943,
                 423
+            ],
+            [
+                1767975748,
+                497
             ]
         ],
         "last_heartbeat": {
-            "time": 150,
-            "packs": 423
+            "time": 180,
+            "packs": 497
         },
         "has_alerted_offline": false,
         "secondary_status_ids2": "offline"
