@@ -4448,7 +4448,7 @@
         "secondary_code": null,
         "instances": 4,
         "prefix": "randomnames",
-        "status": "online",
+        "status": "offline",
         "secondary_status": "offline",
         "last_heartbeat": {
             "time": 2493,
@@ -4869,7 +4869,9 @@
                 1767925020,
                 6892
             ]
-        ]
+        ],
+        "status_ids2": "offline",
+        "secondary_status_ids2": "offline"
     },
     "307883135285067776": {
         "username": "tilero",
