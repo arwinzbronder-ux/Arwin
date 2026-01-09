@@ -6853,11 +6853,11 @@
         "status_ids2": "offline",
         "session": {
             "current_packs": 506,
-            "instances": 4,
-            "offline_instances": 0,
+            "instances": 0,
+            "offline_instances": 4,
             "total_instances": 4,
-            "duration_minutes": 586,
-            "last_update": 1767955141
+            "duration_minutes": 616,
+            "last_update": 1767956948
         },
         "samples": [
             [
@@ -6919,10 +6919,14 @@
             [
                 1767955141,
                 506
+            ],
+            [
+                1767956948,
+                506
             ]
         ],
         "last_heartbeat": {
-            "time": 586,
+            "time": 616,
             "packs": 506
         },
         "has_alerted_offline": true,
