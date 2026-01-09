@@ -26412,20 +26412,20 @@
         "status": "online",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 137,
+            "current_packs": 291,
             "instances": 9,
             "offline_instances": 0,
             "total_instances": 9,
-            "duration_minutes": 30,
-            "last_update": 1767975474.725
+            "duration_minutes": 60,
+            "last_update": 1767977277
         },
         "daily": {
             "date": "2026-01-06",
             "start_packs": 0
         },
         "last_heartbeat": {
-            "time": 30,
-            "packs": 137
+            "time": 60,
+            "packs": 291
         },
         "history": [],
         "samples": [
@@ -27500,6 +27500,10 @@
             [
                 1767892590.114,
                 0
+            ],
+            [
+                1767977277,
+                291
             ]
         ],
         "status_ids2": "offline",
