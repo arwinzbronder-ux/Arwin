@@ -6367,16 +6367,16 @@
         "status": "offline",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 60,
-            "packs": 250
+            "time": 90,
+            "packs": 372
         },
         "session": {
-            "current_packs": 250,
+            "current_packs": 372,
             "instances": 4,
             "offline_instances": 0,
             "total_instances": 4,
-            "duration_minutes": 60,
-            "last_update": 1767960428.764
+            "duration_minutes": 90,
+            "last_update": 1767962227
         },
         "daily": {
             "date": "2026-01-06",
@@ -6736,6 +6736,10 @@
             [
                 1767956858.029,
                 0
+            ],
+            [
+                1767962227,
+                372
             ]
         ],
         "status_ids2": "online",
