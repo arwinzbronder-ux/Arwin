@@ -5804,20 +5804,20 @@
         "status": "online",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 557,
+            "current_packs": 655,
             "instances": 7,
             "offline_instances": 0,
             "total_instances": 7,
-            "duration_minutes": 180,
-            "last_update": 1767926225
+            "duration_minutes": 210,
+            "last_update": 1767928029
         },
         "daily": {
             "date": "2026-01-06",
             "start_packs": 0
         },
         "last_heartbeat": {
-            "time": 180,
-            "packs": 557
+            "time": 210,
+            "packs": 655
         },
         "history": [],
         "samples": [
@@ -5992,6 +5992,10 @@
             [
                 1767926225,
                 557
+            ],
+            [
+                1767928029,
+                655
             ]
         ],
         "status_ids2": "offline",
