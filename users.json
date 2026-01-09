@@ -6657,7 +6657,7 @@
             "time": 616,
             "packs": 506
         },
-        "has_alerted_offline": true,
+        "has_alerted_offline": false,
         "secondary_status_ids2": "offline"
     }
 }
