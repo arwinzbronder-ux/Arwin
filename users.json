@@ -6826,7 +6826,8 @@
             ]
         ],
         "status_ids2": "offline",
-        "secondary_status_ids2": "offline"
+        "secondary_status_ids2": "offline",
+        "has_alerted_offline": true
     },
     "1040255662569033788": {
         "username": "jerry223608",
