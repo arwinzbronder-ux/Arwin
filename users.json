@@ -2811,16 +2811,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 570,
-            "packs": 674
+            "time": 600,
+            "packs": 712
         },
         "session": {
-            "current_packs": 674,
+            "current_packs": 712,
             "instances": 3,
-            "offline_instances": 1,
-            "total_instances": 4,
-            "duration_minutes": 570,
-            "last_update": 1767918303
+            "offline_instances": 0,
+            "total_instances": 3,
+            "duration_minutes": 600,
+            "last_update": 1767920105
         },
         "daily": {
             "date": "2026-01-06",
@@ -3123,6 +3123,10 @@
             [
                 1767918303,
                 674
+            ],
+            [
+                1767920105,
+                712
             ]
         ],
         "has_alerted_offline": false,
