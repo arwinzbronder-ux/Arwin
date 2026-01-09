@@ -3871,18 +3871,18 @@
         "status": "online",
         "secondary_status": "online",
         "last_heartbeat": {
-            "time": 601,
-            "packs": 932
+            "time": 631,
+            "packs": 978
         },
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
         "session": {
-            "current_packs": 932,
+            "current_packs": 978,
             "instances": 5,
             "offline_instances": 0,
             "total_instances": 5,
-            "duration_minutes": 601,
-            "last_update": 1767925266
+            "duration_minutes": 631,
+            "last_update": 1767927072
         },
         "samples": [
             [
@@ -4108,6 +4108,10 @@
             [
                 1767925266,
                 932
+            ],
+            [
+                1767927072,
+                978
             ]
         ]
     },
