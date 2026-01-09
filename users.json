@@ -4236,12 +4236,12 @@
         "status": "offline",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 3145,
+            "current_packs": 3309,
             "instances": 6,
             "offline_instances": 0,
             "total_instances": 6,
-            "duration_minutes": 660,
-            "last_update": 1767930094
+            "duration_minutes": 690,
+            "last_update": 1767931895
         },
         "daily": {
             "date": "2026-01-06",
@@ -4588,14 +4588,18 @@
             [
                 1767930094,
                 3145
+            ],
+            [
+                1767931895,
+                3309
             ]
         ],
         "has_alerted_offline": false,
         "status_ids2": "online",
         "secondary_status_ids2": "offline",
         "last_heartbeat": {
-            "time": 660,
-            "packs": 3145
+            "time": 690,
+            "packs": 3309
         }
     },
     "772504841426829341": {
