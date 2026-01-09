@@ -3285,16 +3285,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 630,
-            "packs": 2008
+            "time": 660,
+            "packs": 2106
         },
         "session": {
-            "current_packs": 2008,
+            "current_packs": 2106,
             "instances": 7,
             "offline_instances": 0,
             "total_instances": 7,
-            "duration_minutes": 630,
-            "last_update": 1767926616
+            "duration_minutes": 660,
+            "last_update": 1767928418
         },
         "daily": {
             "date": "2026-01-06",
@@ -3617,6 +3617,10 @@
             [
                 1767926616,
                 2008
+            ],
+            [
+                1767928418,
+                2106
             ]
         ],
         "has_alerted_offline": false,
