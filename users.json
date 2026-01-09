@@ -417,7 +417,7 @@
         "prefix": "normal pokemon name",
         "status": "offline",
         "secondary_status": "offline",
-        "has_alerted_offline": false,
+        "has_alerted_offline": true,
         "session": {
             "current_packs": 1132,
             "instances": 3,
