@@ -9516,16 +9516,16 @@
         "secondary_code": "3728578745352937",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 1262,
-            "packs": 3882
+            "time": 0,
+            "packs": 0
         },
         "session": {
-            "current_packs": 3882,
+            "current_packs": 0,
             "instances": 6,
             "offline_instances": 0,
             "total_instances": 6,
-            "duration_minutes": 1262,
-            "last_update": 1767974344
+            "duration_minutes": 0,
+            "last_update": 1767974557
         },
         "daily": {
             "date": "2026-01-06",
@@ -10816,6 +10816,10 @@
             [
                 1767974344,
                 3882
+            ],
+            [
+                1767974557,
+                0
             ]
         ],
         "status_ids2": "online",
