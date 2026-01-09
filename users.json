@@ -3696,16 +3696,16 @@
         "secondary_code": "3728578745352937",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 510,
-            "packs": 1703
+            "time": 540,
+            "packs": 1803
         },
         "session": {
-            "current_packs": 1703,
+            "current_packs": 1803,
             "instances": 6,
             "offline_instances": 0,
             "total_instances": 6,
-            "duration_minutes": 510,
-            "last_update": 1767929267
+            "duration_minutes": 540,
+            "last_update": 1767931069
         },
         "daily": {
             "date": "2026-01-06",
@@ -3948,6 +3948,10 @@
             [
                 1767929267,
                 1703
+            ],
+            [
+                1767931069,
+                1803
             ]
         ],
         "status_ids2": "online",
