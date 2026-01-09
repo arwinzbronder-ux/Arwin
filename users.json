@@ -6659,7 +6659,7 @@
             "offline_instances": 0,
             "total_instances": 7,
             "duration_minutes": 0,
-            "last_update": 1767972720
+            "last_update": 1767974291
         },
         "daily": {
             "date": "2026-01-06",
@@ -7369,6 +7369,10 @@
             ],
             [
                 1767972720,
+                0
+            ],
+            [
+                1767974291,
                 0
             ]
         ],
