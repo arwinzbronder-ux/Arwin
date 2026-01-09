@@ -3089,7 +3089,7 @@
                 634
             ]
         ],
-        "has_alerted_offline": false,
+        "has_alerted_offline": true,
         "status_ids2": "offline",
         "secondary_status_ids2": "offline"
     },
