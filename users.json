@@ -37323,12 +37323,12 @@
         "secondary_status": "offline",
         "status_ids2": "offline",
         "session": {
-            "current_packs": 558,
+            "current_packs": 620,
             "instances": 5,
             "offline_instances": 0,
             "total_instances": 5,
-            "duration_minutes": 210,
-            "last_update": 1767977559.136
+            "duration_minutes": 240,
+            "last_update": 1767979359
         },
         "samples": [
             [
@@ -38582,11 +38582,15 @@
             [
                 1767907694.97,
                 0
+            ],
+            [
+                1767979359,
+                620
             ]
         ],
         "last_heartbeat": {
-            "time": 210,
-            "packs": 558
+            "time": 240,
+            "packs": 620
         },
         "has_alerted_offline": false,
         "secondary_status_ids2": "offline"
