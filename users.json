@@ -34263,7 +34263,7 @@
             "start_packs": 1186
         },
         "last_offline_alert": 1767653746,
-        "has_alerted_offline": false,
+        "has_alerted_offline": true,
         "history": [],
         "samples": [
             [
