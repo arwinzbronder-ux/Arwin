@@ -4981,16 +4981,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 480,
-            "packs": 792
+            "time": 510,
+            "packs": 844
         },
         "session": {
-            "current_packs": 792,
+            "current_packs": 844,
             "instances": 4,
             "offline_instances": 0,
             "total_instances": 4,
-            "duration_minutes": 480,
-            "last_update": 1767921388
+            "duration_minutes": 510,
+            "last_update": 1767923190
         },
         "daily": {
             "date": "2026-01-06",
@@ -5218,6 +5218,10 @@
             [
                 1767921388,
                 792
+            ],
+            [
+                1767923190,
+                844
             ]
         ],
         "status_ids2": "offline",
