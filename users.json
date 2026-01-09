@@ -5896,20 +5896,20 @@
         "status": "online",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 751,
+            "current_packs": 0,
             "instances": 7,
             "offline_instances": 0,
             "total_instances": 7,
-            "duration_minutes": 240,
-            "last_update": 1767929833
+            "duration_minutes": 0,
+            "last_update": 1767930464
         },
         "daily": {
             "date": "2026-01-06",
             "start_packs": 0
         },
         "last_heartbeat": {
-            "time": 240,
-            "packs": 751
+            "time": 0,
+            "packs": 0
         },
         "history": [],
         "samples": [
@@ -6092,6 +6092,10 @@
             [
                 1767929833,
                 751
+            ],
+            [
+                1767930464,
+                0
             ]
         ],
         "status_ids2": "offline",
