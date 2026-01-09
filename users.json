@@ -28103,7 +28103,8 @@
             "offline_instances": 0,
             "total_instances": 4,
             "duration_minutes": 330,
-            "last_update": 1767996663
+            "last_update": 1767996663,
+            "last_monitor": 1
         },
         "daily": {
             "date": "2026-01-06",
