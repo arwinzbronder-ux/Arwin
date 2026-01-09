@@ -2630,12 +2630,12 @@
         "status": "offline",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 820,
+            "current_packs": 1042,
             "instances": 7,
             "offline_instances": 0,
             "total_instances": 7,
-            "duration_minutes": 120,
-            "last_update": 1767922690
+            "duration_minutes": 150,
+            "last_update": 1767924497
         },
         "daily": {
             "date": "2026-01-06",
@@ -2866,11 +2866,15 @@
             [
                 1767922690,
                 820
+            ],
+            [
+                1767924497,
+                1042
             ]
         ],
         "last_heartbeat": {
-            "time": 120,
-            "packs": 820
+            "time": 150,
+            "packs": 1042
         },
         "status_ids2": "online",
         "secondary_status_ids2": "offline"
