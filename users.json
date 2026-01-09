@@ -5614,20 +5614,20 @@
         "status": "online",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 0,
+            "current_packs": 81,
             "instances": 7,
             "offline_instances": 0,
             "total_instances": 7,
-            "duration_minutes": 0,
-            "last_update": 1767915429
+            "duration_minutes": 30,
+            "last_update": 1767917203
         },
         "daily": {
             "date": "2026-01-06",
             "start_packs": 0
         },
         "last_heartbeat": {
-            "time": 0,
-            "packs": 0
+            "time": 30,
+            "packs": 81
         },
         "history": [],
         "samples": [
@@ -5778,6 +5778,10 @@
             [
                 1767915429,
                 0
+            ],
+            [
+                1767917203,
+                81
             ]
         ],
         "status_ids2": "offline",
