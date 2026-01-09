@@ -21073,7 +21073,7 @@
         ],
         "status_ids2": "online",
         "secondary_status_ids2": "online",
-        "has_alerted_offline": false
+        "has_alerted_offline": true
     },
     "1059812834445377587": {
         "username": "daizy.",
