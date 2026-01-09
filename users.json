@@ -4343,16 +4343,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 2403,
-            "packs": 6689
+            "time": 2433,
+            "packs": 6755
         },
         "session": {
-            "current_packs": 6689,
+            "current_packs": 6755,
             "instances": 4,
             "offline_instances": 0,
             "total_instances": 4,
-            "duration_minutes": 2403,
-            "last_update": 1767919614
+            "duration_minutes": 2433,
+            "last_update": 1767921417
         },
         "daily": {
             "date": "2026-01-06",
@@ -4748,6 +4748,10 @@
             [
                 1767919614,
                 6689
+            ],
+            [
+                1767921417,
+                6755
             ]
         ]
     },
