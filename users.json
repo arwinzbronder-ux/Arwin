@@ -6047,12 +6047,12 @@
         "status": "online",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 3215,
+            "current_packs": 3273,
             "instances": 4,
             "offline_instances": 0,
             "total_instances": 4,
-            "duration_minutes": 1561,
-            "last_update": 1767927103
+            "duration_minutes": 1591,
+            "last_update": 1767928904
         },
         "samples": [
             [
@@ -6254,11 +6254,15 @@
             [
                 1767927103,
                 3215
+            ],
+            [
+                1767928904,
+                3273
             ]
         ],
         "last_heartbeat": {
-            "time": 1561,
-            "packs": 3215
+            "time": 1591,
+            "packs": 3273
         }
     },
     "193557944200200192": {
