@@ -5816,16 +5816,16 @@
         "secondary_code": "3728578745352937",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 1051,
-            "packs": 3294
+            "time": 1081,
+            "packs": 3364
         },
         "session": {
-            "current_packs": 3294,
+            "current_packs": 3364,
             "instances": 6,
             "offline_instances": 0,
             "total_instances": 6,
-            "duration_minutes": 1051,
-            "last_update": 1767961724.612
+            "duration_minutes": 1081,
+            "last_update": 1767963524
         },
         "daily": {
             "date": "2026-01-06",
@@ -5833,10 +5833,6 @@
         },
         "history": [],
         "samples": [
-            [
-                1767873229,
-                2379
-            ],
             [
                 1767875032,
                 2457
@@ -6432,6 +6428,10 @@
             [
                 1767898172.381,
                 0
+            ],
+            [
+                1767963524,
+                3364
             ]
         ],
         "status_ids2": "online",
