@@ -5029,16 +5029,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 510,
-            "packs": 844
+            "time": 540,
+            "packs": 896
         },
         "session": {
-            "current_packs": 844,
+            "current_packs": 896,
             "instances": 4,
             "offline_instances": 0,
             "total_instances": 4,
-            "duration_minutes": 510,
-            "last_update": 1767923190
+            "duration_minutes": 540,
+            "last_update": 1767924991
         },
         "daily": {
             "date": "2026-01-06",
@@ -5270,6 +5270,10 @@
             [
                 1767923190,
                 844
+            ],
+            [
+                1767924991,
+                896
             ]
         ],
         "status_ids2": "offline",
