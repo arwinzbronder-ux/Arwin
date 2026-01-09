@@ -6240,12 +6240,12 @@
         "secondary_status": "offline",
         "status_ids2": "offline",
         "session": {
-            "current_packs": 170,
+            "current_packs": 228,
             "instances": 4,
             "offline_instances": 0,
             "total_instances": 4,
-            "duration_minutes": 90,
-            "last_update": 1767925387
+            "duration_minutes": 120,
+            "last_update": 1767927191
         },
         "samples": [
             [
@@ -6283,11 +6283,15 @@
             [
                 1767925387,
                 170
+            ],
+            [
+                1767927191,
+                228
             ]
         ],
         "last_heartbeat": {
-            "time": 90,
-            "packs": 170
+            "time": 120,
+            "packs": 228
         },
         "has_alerted_offline": false,
         "secondary_status_ids2": "offline"
