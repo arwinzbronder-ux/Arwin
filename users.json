@@ -11608,7 +11608,7 @@
         "friend_code": "7429238101683230",
         "instances": 7,
         "prefix": "bass",
-        "status": "offline",
+        "status": "online",
         "secondary_status": "offline",
         "session": {
             "current_packs": 436,
@@ -12739,7 +12739,8 @@
             "packs": 436
         },
         "status_ids2": "offline",
-        "secondary_status_ids2": "offline"
+        "secondary_status_ids2": "offline",
+        "last_heartbeat_check": 1768066631
     },
     "275988818631327745": {
         "username": "bloo_64",
@@ -23968,7 +23969,7 @@
         "secondary_code": null,
         "instances": 4,
         "prefix": "fcb",
-        "status": "offline",
+        "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
             "time": 990,
@@ -25472,7 +25473,8 @@
             ]
         ],
         "status_ids2": "offline",
-        "secondary_status_ids2": "offline"
+        "secondary_status_ids2": "offline",
+        "last_heartbeat_check": 1768066594
     },
     "553693689302482945": {
         "username": "skyttzi",
