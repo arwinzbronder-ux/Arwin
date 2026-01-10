@@ -5,4 +5,5 @@ MegaBlaziken
 MegaGyarados
 Mewtwo
 Palkia
+Pikachu
 Shining
