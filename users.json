@@ -16903,7 +16903,8 @@
             "offline_instances": 0,
             "total_instances": 4,
             "duration_minutes": 1474,
-            "last_update": 1768086915
+            "last_update": 1768086915,
+            "last_monitor": 1
         },
         "daily": {
             "date": "2026-01-06",
@@ -21364,7 +21365,7 @@
             "packs": 80
         },
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768086918
+        "last_heartbeat_check": 1768086992
     },
     "721824761797410897": {
         "username": "starman275",
