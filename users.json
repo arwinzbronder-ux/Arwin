@@ -9969,17 +9969,16 @@
         "status": "offline",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 90,
-            "packs": 250
+            "time": 120,
+            "packs": 334
         },
         "session": {
-            "current_packs": 250,
+            "current_packs": 334,
             "instances": 3,
             "offline_instances": 0,
             "total_instances": 3,
-            "duration_minutes": 90,
-            "last_update": 1768019338,
-            "last_monitor": 1
+            "duration_minutes": 120,
+            "last_update": 1768021139
         },
         "daily": {
             "date": "2026-01-06",
@@ -10170,6 +10169,10 @@
             [
                 1768019338,
                 250
+            ],
+            [
+                1768021139,
+                334
             ]
         ],
         "has_alerted_offline": false,
