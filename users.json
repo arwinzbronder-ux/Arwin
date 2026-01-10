@@ -22733,17 +22733,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 180,
-            "packs": 703
+            "time": 210,
+            "packs": 823
         },
         "session": {
-            "current_packs": 703,
+            "current_packs": 823,
             "instances": 5,
             "offline_instances": 0,
             "total_instances": 5,
-            "duration_minutes": 180,
-            "last_update": 1768046630,
-            "last_monitor": 1
+            "duration_minutes": 210,
+            "last_update": 1768048432
         },
         "daily": {
             "date": "2026-01-05",
@@ -22837,6 +22836,10 @@
             [
                 1768046630,
                 703
+            ],
+            [
+                1768048432,
+                823
             ]
         ],
         "status_ids2": "offline",
