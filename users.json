@@ -11240,17 +11240,16 @@
         "status": "offline",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 4,
-            "packs": 12
+            "time": 0,
+            "packs": 0
         },
         "session": {
-            "current_packs": 12,
+            "current_packs": 0,
             "instances": 0,
             "offline_instances": 3,
             "total_instances": 3,
-            "duration_minutes": 4,
-            "last_update": 1768013817,
-            "last_monitor": 1
+            "duration_minutes": 0,
+            "last_update": 1768013907
         },
         "daily": {
             "date": "2026-01-06",
@@ -11653,6 +11652,10 @@
             [
                 1768013817,
                 12
+            ],
+            [
+                1768013907,
+                0
             ]
         ],
         "has_alerted_offline": true,
