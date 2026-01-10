@@ -10893,17 +10893,16 @@
         "status": "offline",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 0,
-            "packs": 0
+            "time": 30,
+            "packs": 80
         },
         "session": {
-            "current_packs": 0,
+            "current_packs": 80,
             "instances": 3,
             "offline_instances": 0,
             "total_instances": 3,
-            "duration_minutes": 0,
-            "last_update": 1768013970,
-            "last_monitor": 1
+            "duration_minutes": 30,
+            "last_update": 1768015737
         },
         "daily": {
             "date": "2026-01-06",
@@ -11082,6 +11081,10 @@
             [
                 1768013970,
                 0
+            ],
+            [
+                1768015737,
+                80
             ]
         ],
         "has_alerted_offline": false,
