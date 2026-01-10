@@ -22901,17 +22901,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 150,
-            "packs": 579
+            "time": 180,
+            "packs": 703
         },
         "session": {
-            "current_packs": 579,
+            "current_packs": 703,
             "instances": 5,
             "offline_instances": 0,
             "total_instances": 5,
-            "duration_minutes": 150,
-            "last_update": 1768044828,
-            "last_monitor": 1
+            "duration_minutes": 180,
+            "last_update": 1768046630
         },
         "daily": {
             "date": "2026-01-05",
@@ -23001,6 +23000,10 @@
             [
                 1768044828,
                 579
+            ],
+            [
+                1768046630,
+                703
             ]
         ],
         "status_ids2": "offline",
