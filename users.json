@@ -24173,17 +24173,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 240,
-            "packs": 949
+            "time": 270,
+            "packs": 1069
         },
         "session": {
-            "current_packs": 949,
+            "current_packs": 1069,
             "instances": 5,
             "offline_instances": 0,
             "total_instances": 5,
-            "duration_minutes": 240,
-            "last_update": 1768050240.968,
-            "last_monitor": 1
+            "duration_minutes": 270,
+            "last_update": 1768052076
         },
         "daily": {
             "date": "2026-01-05",
@@ -24321,6 +24320,10 @@
             [
                 1768035858.837,
                 0
+            ],
+            [
+                1768052076,
+                1069
             ]
         ],
         "status_ids2": "offline",
