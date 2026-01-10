@@ -9855,17 +9855,16 @@
         "secondary_code": "3728578745352937",
         "secondary_status": "online",
         "last_heartbeat": {
-            "time": 60,
-            "packs": 229
+            "time": 90,
+            "packs": 329
         },
         "session": {
-            "current_packs": 229,
+            "current_packs": 329,
             "instances": 6,
             "offline_instances": 0,
             "total_instances": 6,
-            "duration_minutes": 60,
-            "last_update": 1768081889,
-            "last_monitor": 1
+            "duration_minutes": 90,
+            "last_update": 1768083692
         },
         "daily": {
             "date": "2026-01-06",
@@ -9873,10 +9872,6 @@
         },
         "history": [],
         "samples": [
-            [
-                1767992560,
-                677
-            ],
             [
                 1767994358,
                 770
@@ -9900,10 +9895,6 @@
             [
                 1767994367.935,
                 770
-            ],
-            [
-                1767992568.048,
-                677
             ],
             [
                 1767999766,
@@ -10110,10 +10101,6 @@
                 770
             ],
             [
-                1767992568.048,
-                677
-            ],
-            [
                 1768043370.131,
                 312
             ],
@@ -10222,10 +10209,6 @@
                 770
             ],
             [
-                1767992568.048,
-                677
-            ],
-            [
                 1768043370.131,
                 312
             ],
@@ -10332,10 +10315,6 @@
             [
                 1767994367.935,
                 770
-            ],
-            [
-                1767992568.048,
-                677
             ],
             [
                 1768045165,
@@ -10476,10 +10455,6 @@
             [
                 1767994367.935,
                 770
-            ],
-            [
-                1767992568.048,
-                677
             ],
             [
                 1768052375,
@@ -10662,10 +10637,6 @@
                 770
             ],
             [
-                1767992568.048,
-                677
-            ],
-            [
                 1768064995,
                 1682
             ],
@@ -10826,10 +10797,6 @@
                 770
             ],
             [
-                1767992568.048,
-                677
-            ],
-            [
                 1768066798,
                 1786
             ],
@@ -10868,12 +10835,16 @@
             [
                 1768081889,
                 229
+            ],
+            [
+                1768083692,
+                329
             ]
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
         "has_alerted_offline": false,
-        "last_heartbeat_check": 1768081889
+        "last_heartbeat_check": 1768083692
     },
     "1059812834445377587": {
         "username": "daizy.",
@@ -20606,7 +20577,7 @@
         "secondary_code": null,
         "instances": 8,
         "prefix": "A",
-        "status": "online",
+        "status": "offline",
         "secondary_status": "offline",
         "session": {
             "current_packs": 1046,
