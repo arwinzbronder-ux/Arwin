@@ -2,5 +2,6 @@ CrimsonBlaze
 MegaAltaria
 MegaBlaziken
 MegaGyarados
+Mewtwo
 Palkia
 Shining
