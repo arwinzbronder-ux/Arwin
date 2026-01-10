@@ -24205,7 +24205,7 @@
         "secondary_code": null,
         "instances": 4,
         "prefix": "CheryGP",
-        "status": "online",
+        "status": "offline",
         "secondary_status": "offline",
         "session": {
             "current_packs": 9281,
@@ -25322,7 +25322,9 @@
             "time": 4023,
             "packs": 9281
         },
-        "last_heartbeat_check": 1768074872
+        "last_heartbeat_check": 1768074872,
+        "status_ids2": "offline",
+        "secondary_status_ids2": "offline"
     },
     "193557944200200192": {
         "username": "saltconnoisseur",
