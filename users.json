@@ -5,7 +5,7 @@
         "instances": 7,
         "prefix": "rillen",
         "status": "offline",
-        "secondary_status": "online",
+        "secondary_status": "offline",
         "session": {
             "current_packs": 1568,
             "instances": 0,
@@ -9185,17 +9185,16 @@
         "status": "offline",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 450,
-            "packs": 1214
+            "time": 480,
+            "packs": 1298
         },
         "session": {
-            "current_packs": 1214,
+            "current_packs": 1298,
             "instances": 3,
             "offline_instances": 0,
             "total_instances": 3,
-            "duration_minutes": 450,
-            "last_update": 1768040946,
-            "last_monitor": 1
+            "duration_minutes": 480,
+            "last_update": 1768042747
         },
         "daily": {
             "date": "2026-01-06",
@@ -9434,6 +9433,10 @@
             [
                 1768040946,
                 1214
+            ],
+            [
+                1768042747,
+                1298
             ]
         ],
         "has_alerted_offline": false,
