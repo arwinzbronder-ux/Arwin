@@ -9185,17 +9185,16 @@
         "status": "offline",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 270,
-            "packs": 706
+            "time": 300,
+            "packs": 786
         },
         "session": {
-            "current_packs": 706,
+            "current_packs": 786,
             "instances": 3,
             "offline_instances": 0,
             "total_instances": 3,
-            "duration_minutes": 270,
-            "last_update": 1768030142,
-            "last_monitor": 1
+            "duration_minutes": 300,
+            "last_update": 1768031943
         },
         "daily": {
             "date": "2026-01-06",
@@ -9410,6 +9409,10 @@
             [
                 1768030142,
                 706
+            ],
+            [
+                1768031943,
+                786
             ]
         ],
         "has_alerted_offline": false,
