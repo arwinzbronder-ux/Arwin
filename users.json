@@ -12312,7 +12312,7 @@
         "friend_code": "3304610426842804",
         "instances": 7,
         "prefix": "Jaus",
-        "status": "offline",
+        "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
             "time": 52,
@@ -12589,7 +12589,7 @@
         "has_alerted_offline": true,
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768072904
+        "last_heartbeat_check": 1768073289
     },
     "157834363944435713": {
         "username": "fierza.",
