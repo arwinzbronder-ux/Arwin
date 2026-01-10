@@ -3246,12 +3246,11 @@
         },
         "session": {
             "current_packs": 0,
-            "instances": 2,
+            "instances": 3,
             "offline_instances": 0,
-            "total_instances": 2,
+            "total_instances": 3,
             "duration_minutes": 0,
-            "last_update": 1768086022,
-            "last_monitor": 1
+            "last_update": 1768086490
         },
         "daily": {
             "date": "2026-01-06",
@@ -3453,11 +3452,15 @@
             [
                 1768086022,
                 0
+            ],
+            [
+                1768086490,
+                0
             ]
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768086022
+        "last_heartbeat_check": 1768086490
     },
     "849666089902145586": {
         "username": "pr34ch.",
