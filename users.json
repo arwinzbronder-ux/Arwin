@@ -22565,17 +22565,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 210,
-            "packs": 823
+            "time": 240,
+            "packs": 949
         },
         "session": {
-            "current_packs": 823,
+            "current_packs": 949,
             "instances": 5,
             "offline_instances": 0,
             "total_instances": 5,
-            "duration_minutes": 210,
-            "last_update": 1768048432,
-            "last_monitor": 1
+            "duration_minutes": 240,
+            "last_update": 1768050233
         },
         "daily": {
             "date": "2026-01-05",
@@ -22673,6 +22672,10 @@
             [
                 1768048432,
                 823
+            ],
+            [
+                1768050233,
+                949
             ]
         ],
         "status_ids2": "offline",
