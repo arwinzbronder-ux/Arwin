@@ -26275,7 +26275,8 @@
             "offline_instances": 0,
             "total_instances": 4,
             "duration_minutes": 3152,
-            "last_update": 1768022603
+            "last_update": 1768022603,
+            "last_monitor": 1
         },
         "samples": [
             [
