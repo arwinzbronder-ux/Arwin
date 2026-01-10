@@ -853,7 +853,7 @@
         "friend_code": "0888904208075358",
         "instances": 5,
         "prefix": "naja",
-        "status": "offline",
+        "status": "online",
         "secondary_status": "offline",
         "session": {
             "current_packs": 391,
@@ -2759,7 +2759,8 @@
         "last_heartbeat": {
             "time": 210,
             "packs": 391
-        }
+        },
+        "last_heartbeat_check": 1768075065
     },
     "475603063948705794": {
         "username": "kysog6646",
