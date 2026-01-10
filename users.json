@@ -23922,21 +23922,20 @@
         "status": "online",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 352,
+            "current_packs": 474,
             "instances": 9,
             "offline_instances": 0,
             "total_instances": 9,
-            "duration_minutes": 90,
-            "last_update": 1768072409,
-            "last_monitor": 1
+            "duration_minutes": 120,
+            "last_update": 1768074216
         },
         "daily": {
             "date": "2026-01-06",
             "start_packs": 0
         },
         "last_heartbeat": {
-            "time": 90,
-            "packs": 352
+            "time": 120,
+            "packs": 474
         },
         "history": [],
         "samples": [
@@ -24335,12 +24334,16 @@
             [
                 1768072409,
                 352
+            ],
+            [
+                1768074216,
+                474
             ]
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
         "has_alerted_offline": false,
-        "last_heartbeat_check": 1768072409
+        "last_heartbeat_check": 1768074216
     },
     "1134310504324677713": {
         "username": "cynicalchery",
