@@ -5402,8 +5402,8 @@
         "friend_code": "7951677911105601",
         "instances": 7,
         "prefix": "jerry",
-        "status": "offline",
-        "secondary_status": "offline",
+        "status": "online",
+        "secondary_status": "online",
         "last_heartbeat": {
             "time": 90,
             "packs": 352
@@ -6223,7 +6223,8 @@
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
-        "has_alerted_offline": false
+        "has_alerted_offline": false,
+        "last_heartbeat_check": 1768066554
     },
     "288833945062342657": {
         "username": "insomniaskai",
