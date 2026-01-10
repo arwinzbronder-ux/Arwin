@@ -37348,7 +37348,7 @@
             "time": 30,
             "packs": 120
         },
-        "has_alerted_offline": false,
+        "has_alerted_offline": true,
         "secondary_status_ids2": "offline"
     },
     "_vip_timers": {
