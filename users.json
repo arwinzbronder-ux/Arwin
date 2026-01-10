@@ -21121,17 +21121,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 428,
-            "packs": 1618
+            "time": 458,
+            "packs": 1706
         },
         "session": {
-            "current_packs": 1618,
+            "current_packs": 1706,
             "instances": 5,
             "offline_instances": 0,
             "total_instances": 5,
-            "duration_minutes": 428,
-            "last_update": 1768061545,
-            "last_monitor": 1
+            "duration_minutes": 458,
+            "last_update": 1768063347
         },
         "daily": {
             "date": "2026-01-05",
@@ -21293,6 +21292,10 @@
             [
                 1768061545,
                 1618
+            ],
+            [
+                1768063347,
+                1706
             ]
         ],
         "status_ids2": "offline",
