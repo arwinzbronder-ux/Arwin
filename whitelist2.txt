@@ -3,3 +3,4 @@ MegaAltaria
 MegaBlaziken
 MegaGyarados
 Palkia
+Shining
