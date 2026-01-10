@@ -9757,17 +9757,16 @@
         "status": "offline",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 120,
-            "packs": 334
+            "time": 150,
+            "packs": 406
         },
         "session": {
-            "current_packs": 334,
+            "current_packs": 406,
             "instances": 3,
             "offline_instances": 0,
             "total_instances": 3,
-            "duration_minutes": 120,
-            "last_update": 1768021139,
-            "last_monitor": 1
+            "duration_minutes": 150,
+            "last_update": 1768022939
         },
         "daily": {
             "date": "2026-01-06",
@@ -9962,6 +9961,10 @@
             [
                 1768021139,
                 334
+            ],
+            [
+                1768022939,
+                406
             ]
         ],
         "has_alerted_offline": false,
