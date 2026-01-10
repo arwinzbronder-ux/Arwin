@@ -20970,13 +20970,12 @@
         "secondary_status": "offline",
         "status_ids2": "offline",
         "session": {
-            "current_packs": 0,
+            "current_packs": 114,
             "instances": 10,
             "offline_instances": 0,
             "total_instances": 10,
-            "duration_minutes": 0,
-            "last_update": 1768087155,
-            "last_monitor": 1
+            "duration_minutes": 30,
+            "last_update": 1768088928
         },
         "samples": [
             [
@@ -21170,14 +21169,18 @@
             [
                 1768087155,
                 0
+            ],
+            [
+                1768088928,
+                114
             ]
         ],
         "last_heartbeat": {
-            "time": 0,
-            "packs": 0
+            "time": 30,
+            "packs": 114
         },
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768087155
+        "last_heartbeat_check": 1768088928
     },
     "721824761797410897": {
         "username": "starman275",
