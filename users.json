@@ -11681,7 +11681,8 @@
             "offline_instances": 4,
             "total_instances": 4,
             "duration_minutes": 534,
-            "last_update": 1768011525
+            "last_update": 1768011525,
+            "last_monitor": 1
         },
         "daily": {
             "date": "2026-01-06",
