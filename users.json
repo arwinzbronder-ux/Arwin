@@ -5,7 +5,7 @@
         "instances": 7,
         "prefix": "rillen",
         "status": "offline",
-        "secondary_status": "offline",
+        "secondary_status": "online",
         "session": {
             "current_packs": 1568,
             "instances": 0,
