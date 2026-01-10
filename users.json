@@ -12756,17 +12756,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 9,
-            "packs": 6
+            "time": 0,
+            "packs": 0
         },
         "session": {
-            "current_packs": 6,
-            "instances": 0,
-            "offline_instances": 4,
-            "total_instances": 4,
-            "duration_minutes": 9,
-            "last_update": 1768066042,
-            "last_monitor": 1
+            "current_packs": 0,
+            "instances": 3,
+            "offline_instances": 0,
+            "total_instances": 3,
+            "duration_minutes": 0,
+            "last_update": 1768066271
         },
         "daily": {
             "date": "2026-01-06",
@@ -13459,70 +13458,14 @@
                 0
             ],
             [
-                1767834918.769,
-                636
-            ],
-            [
-                1767833116.929,
-                594
-            ],
-            [
-                1767831315.771,
-                552
-            ],
-            [
-                1767829512.735,
-                510
-            ],
-            [
-                1767827711.15,
-                468
-            ],
-            [
-                1767825909.642,
-                426
-            ],
-            [
-                1767824107.083,
-                396
-            ],
-            [
-                1767822304.646,
-                362
-            ],
-            [
-                1767820502.735,
-                330
-            ],
-            [
-                1767818699.768,
-                296
-            ],
-            [
-                1767816897.23,
-                258
-            ],
-            [
-                1767815095.456,
-                226
-            ],
-            [
-                1767813293.684,
-                186
-            ],
-            [
-                1767811491.226,
-                148
-            ],
-            [
-                1767809689.987,
-                110
+                1768066271,
+                0
             ]
         ],
         "has_alerted_offline": false,
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768066042
+        "last_heartbeat_check": 1768066271
     },
     "520672416632930304": {
         "username": "ichesterftw",
