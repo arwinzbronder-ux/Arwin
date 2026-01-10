@@ -3,6 +3,7 @@ CrimsonBlaze
 MegaAltaria
 MegaBlaziken
 MegaGyarados
+Mew
 Mewtwo
 Palkia
 Pikachu
