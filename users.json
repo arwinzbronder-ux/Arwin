@@ -7289,7 +7289,7 @@
         "instances": 8,
         "prefix": "A",
         "status": "offline",
-        "secondary_status": "online",
+        "secondary_status": "offline",
         "session": {
             "current_packs": 326,
             "instances": 9,
