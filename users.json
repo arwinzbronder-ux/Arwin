@@ -3447,17 +3447,16 @@
         "status": "offline",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 330,
-            "packs": 950
+            "time": 360,
+            "packs": 1044
         },
         "session": {
-            "current_packs": 950,
+            "current_packs": 1044,
             "instances": 3,
             "offline_instances": 0,
             "total_instances": 3,
-            "duration_minutes": 330,
-            "last_update": 1768162077,
-            "last_monitor": 1
+            "duration_minutes": 360,
+            "last_update": 1768163878
         },
         "daily": {
             "date": "2026-01-06",
@@ -3776,12 +3775,16 @@
             [
                 1768162077,
                 950
+            ],
+            [
+                1768163878,
+                1044
             ]
         ],
         "has_alerted_offline": false,
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768162077
+        "last_heartbeat_check": 1768163878
     },
     "520672416632930304": {
         "username": "ichesterftw",
