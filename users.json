@@ -5471,13 +5471,12 @@
         "status": "online",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 984,
+            "current_packs": 1078,
             "instances": 6,
             "offline_instances": 0,
             "total_instances": 6,
-            "duration_minutes": 300,
-            "last_update": 1768165418,
-            "last_monitor": 1
+            "duration_minutes": 330,
+            "last_update": 1768167222
         },
         "daily": {
             "date": "2026-01-06",
@@ -5532,16 +5531,20 @@
             [
                 1768165418,
                 984
+            ],
+            [
+                1768167222,
+                1078
             ]
         ],
         "has_alerted_offline": false,
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
         "last_heartbeat": {
-            "time": 300,
-            "packs": 984
+            "time": 330,
+            "packs": 1078
         },
-        "last_heartbeat_check": 1768165418
+        "last_heartbeat_check": 1768167222
     },
     "772504841426829341": {
         "username": "oddtaxi.",
