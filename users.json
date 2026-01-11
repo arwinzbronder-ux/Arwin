@@ -9015,7 +9015,8 @@
             "packs": 118
         },
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768166765
+        "last_heartbeat_check": 1768166765,
+        "has_alerted_offline": true
     },
     "721824761797410897": {
         "username": "starman275",
