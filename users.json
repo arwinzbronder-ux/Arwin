@@ -11212,7 +11212,7 @@
             "packs": 852
         },
         "last_heartbeat_check": 1768167124,
-        "has_alerted_offline": true
+        "has_alerted_offline": false
     },
     "151796642654191617": {
         "username": "nickka00",
