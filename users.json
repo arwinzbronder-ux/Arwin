@@ -4,8 +4,8 @@
         "friend_code": "1851355530368517",
         "instances": 7,
         "prefix": "rillen",
-        "status": "online",
-        "secondary_status": "online",
+        "status": "offline",
+        "secondary_status": "offline",
         "session": {
             "current_packs": 0,
             "instances": 6,
