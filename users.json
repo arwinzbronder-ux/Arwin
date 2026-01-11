@@ -11033,5 +11033,14 @@
         },
         "last_heartbeat_check": 1768152684,
         "has_alerted_offline": true
+    },
+    "151796642654191617": {
+        "username": "nickka00",
+        "friend_code": "6894582447628975",
+        "instances": 5,
+        "prefix": "Pokemon names",
+        "status": "offline",
+        "secondary_status": "offline",
+        "status_ids2": "offline"
     }
 }
