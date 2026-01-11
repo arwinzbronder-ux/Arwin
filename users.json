@@ -7084,17 +7084,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 451,
-            "packs": 777
+            "time": 481,
+            "packs": 813
         },
         "session": {
-            "current_packs": 777,
+            "current_packs": 813,
             "instances": 6,
             "offline_instances": 0,
             "total_instances": 6,
-            "duration_minutes": 451,
-            "last_update": 1768169176,
-            "last_monitor": 1
+            "duration_minutes": 481,
+            "last_update": 1768170981
         },
         "daily": {
             "date": "2026-01-06",
@@ -7437,11 +7436,15 @@
             [
                 1768169176,
                 777
+            ],
+            [
+                1768170981,
+                813
             ]
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768169176
+        "last_heartbeat_check": 1768170981
     },
     "_global_stats": {
         "daily_god_packs": 0,
