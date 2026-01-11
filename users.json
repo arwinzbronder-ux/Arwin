@@ -10987,6 +10987,7 @@
             "time": 270,
             "packs": 660
         },
-        "last_heartbeat_check": 1768150874
+        "last_heartbeat_check": 1768150874,
+        "has_alerted_offline": true
     }
 }
