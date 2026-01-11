@@ -4092,8 +4092,7 @@
             "offline_instances": 0,
             "total_instances": 8,
             "duration_minutes": 631,
-            "last_update": 1768145758,
-            "last_monitor": 1
+            "last_update": 1768145758
         },
         "daily": {
             "date": "2026-01-06",
@@ -12363,12 +12362,12 @@
         "status": "online",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 1124,
+            "current_packs": 1212,
             "instances": 4,
             "offline_instances": 0,
             "total_instances": 4,
-            "duration_minutes": 331,
-            "last_update": 1768143932,
+            "duration_minutes": 361,
+            "last_update": 1768145760,
             "last_monitor": 1
         },
         "daily": {
@@ -12653,15 +12652,19 @@
             [
                 1768143932,
                 1124
+            ],
+            [
+                1768145760,
+                1212
             ]
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
         "last_heartbeat": {
-            "time": 331,
-            "packs": 1124
+            "time": 361,
+            "packs": 1212
         },
-        "last_heartbeat_check": 1768143932
+        "last_heartbeat_check": 1768145760
     },
     "307883135285067776": {
         "username": "tilero",
