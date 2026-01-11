@@ -948,8 +948,7 @@
             "offline_instances": 0,
             "total_instances": 4,
             "duration_minutes": 0,
-            "last_update": 1768154172,
-            "last_monitor": 1
+            "last_update": 1768154584
         },
         "daily": {
             "date": "2026-01-06",
@@ -1297,12 +1296,16 @@
             [
                 1768154172,
                 0
+            ],
+            [
+                1768154584,
+                0
             ]
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
         "has_alerted_offline": false,
-        "last_heartbeat_check": 1768154172
+        "last_heartbeat_check": 1768154584
     },
     "1040255662569033788": {
         "username": "jerry223608",
