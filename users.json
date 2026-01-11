@@ -13955,8 +13955,7 @@
             "offline_instances": 0,
             "total_instances": 6,
             "duration_minutes": 0,
-            "last_update": 1768141726,
-            "last_monitor": 1
+            "last_update": 1768142139
         },
         "daily": {
             "date": "2026-01-06",
@@ -14235,11 +14234,15 @@
             [
                 1768141726,
                 0
+            ],
+            [
+                1768142139,
+                0
             ]
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768141726
+        "last_heartbeat_check": 1768142139
     },
     "_global_stats": {
         "daily_god_packs": 0,
