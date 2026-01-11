@@ -11,9 +11,8 @@
             "instances": 0,
             "offline_instances": 6,
             "total_instances": 6,
-            "duration_minutes": 811,
-            "last_update": 1768109473,
-            "last_monitor": 1
+            "duration_minutes": 841,
+            "last_update": 1768111276
         },
         "daily": {
             "date": "2026-01-06",
@@ -409,14 +408,18 @@
             [
                 1768109473,
                 2518
+            ],
+            [
+                1768111276,
+                2518
             ]
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
         "secondary_code": "6270265152175778",
-        "last_heartbeat_check": 1768109473,
+        "last_heartbeat_check": 1768111276,
         "last_heartbeat": {
-            "time": 811,
+            "time": 841,
             "packs": 2518
         }
     },
