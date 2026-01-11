@@ -6137,17 +6137,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 270,
-            "packs": 412
+            "time": 300,
+            "packs": 464
         },
         "session": {
-            "current_packs": 412,
+            "current_packs": 464,
             "instances": 4,
             "offline_instances": 0,
             "total_instances": 4,
-            "duration_minutes": 270,
-            "last_update": 1768172531,
-            "last_monitor": 1
+            "duration_minutes": 300,
+            "last_update": 1768174332
         },
         "daily": {
             "date": "2026-01-06",
@@ -6471,11 +6470,15 @@
             [
                 1768172531,
                 412
+            ],
+            [
+                1768174332,
+                464
             ]
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768172531
+        "last_heartbeat_check": 1768174332
     },
     "553693689302482945": {
         "username": "skyttzi",
