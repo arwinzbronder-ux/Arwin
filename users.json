@@ -5398,7 +5398,7 @@
         "instances": 5,
         "prefix": "dai",
         "status": "online",
-        "secondary_status": "offline",
+        "secondary_status": "online",
         "last_heartbeat": {
             "time": 1040,
             "packs": 1378
