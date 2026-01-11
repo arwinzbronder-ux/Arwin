@@ -4,7 +4,7 @@
         "friend_code": "1851355530368517",
         "instances": 7,
         "prefix": "rillen",
-        "status": "offline",
+        "status": "online",
         "secondary_status": "offline",
         "session": {
             "current_packs": 2518,
@@ -534,7 +534,7 @@
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
         "secondary_code": "6270265152175778",
-        "last_heartbeat_check": 1768111276,
+        "last_heartbeat_check": 1768140873,
         "last_heartbeat": {
             "time": 841,
             "packs": 2518
