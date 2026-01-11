@@ -9121,19 +9121,18 @@
         "status": "online",
         "secondary_status": "online",
         "last_heartbeat": {
-            "time": 542,
-            "packs": 992
+            "time": 572,
+            "packs": 1042
         },
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
         "session": {
-            "current_packs": 992,
+            "current_packs": 1042,
             "instances": 5,
             "offline_instances": 0,
             "total_instances": 5,
-            "duration_minutes": 542,
-            "last_update": 1768095049,
-            "last_monitor": 1
+            "duration_minutes": 572,
+            "last_update": 1768096856
         },
         "samples": [
             [
@@ -9455,9 +9454,13 @@
             [
                 1768095049,
                 992
+            ],
+            [
+                1768096856,
+                1042
             ]
         ],
-        "last_heartbeat_check": 1768095049
+        "last_heartbeat_check": 1768096856
     },
     "1056944043688476682": {
         "username": "libra_2828",
