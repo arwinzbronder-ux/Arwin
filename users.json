@@ -5477,16 +5477,16 @@
         "status": "offline",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 240,
-            "packs": 828
+            "time": 270,
+            "packs": 940
         },
         "session": {
-            "current_packs": 828,
+            "current_packs": 940,
             "instances": 8,
             "offline_instances": 0,
             "total_instances": 8,
-            "duration_minutes": 240,
-            "last_update": 1768122292,
+            "duration_minutes": 270,
+            "last_update": 1768124097,
             "last_monitor": 1
         },
         "daily": {
@@ -5854,12 +5854,16 @@
             [
                 1768122292,
                 828
+            ],
+            [
+                1768124097,
+                940
             ]
         ],
         "has_alerted_offline": false,
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768122292
+        "last_heartbeat_check": 1768124097
     },
     "157834363944435713": {
         "username": "fierza.",
@@ -12918,8 +12922,7 @@
             "offline_instances": 0,
             "total_instances": 4,
             "duration_minutes": 0,
-            "last_update": 1768124096,
-            "last_monitor": 1
+            "last_update": 1768124096
         },
         "daily": {
             "date": "2026-01-06",
