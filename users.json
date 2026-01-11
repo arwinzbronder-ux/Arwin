@@ -11060,8 +11060,9 @@
         "friend_code": "6894582447628975",
         "instances": 5,
         "prefix": "Pokemon names",
-        "status": "offline",
+        "status": "online",
         "secondary_status": "offline",
-        "status_ids2": "offline"
+        "status_ids2": "offline",
+        "last_heartbeat_check": 1768154334
     }
 }
