@@ -532,13 +532,12 @@
         "secondary_status": "offline",
         "has_alerted_offline": false,
         "session": {
-            "current_packs": 544,
+            "current_packs": 584,
             "instances": 3,
             "offline_instances": 0,
             "total_instances": 3,
-            "duration_minutes": 331,
-            "last_update": 1768152161,
-            "last_monitor": 1
+            "duration_minutes": 361,
+            "last_update": 1768153967
         },
         "daily": {
             "date": "2026-01-06",
@@ -900,15 +899,19 @@
             [
                 1768152161,
                 544
+            ],
+            [
+                1768153967,
+                584
             ]
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
         "last_heartbeat": {
-            "time": 331,
-            "packs": 544
+            "time": 361,
+            "packs": 584
         },
-        "last_heartbeat_check": 1768152161
+        "last_heartbeat_check": 1768153967
     },
     "694638638746566677": {
         "username": "karaelmas3998",
