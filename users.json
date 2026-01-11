@@ -2225,21 +2225,20 @@
         "status": "online",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 226,
+            "current_packs": 308,
             "instances": 6,
             "offline_instances": 0,
             "total_instances": 6,
-            "duration_minutes": 90,
-            "last_update": 1768162259,
-            "last_monitor": 1
+            "duration_minutes": 120,
+            "last_update": 1768164062
         },
         "daily": {
             "date": "2026-01-06",
             "start_packs": 1848
         },
         "last_heartbeat": {
-            "time": 90,
-            "packs": 226
+            "time": 120,
+            "packs": 308
         },
         "samples": [
             [
@@ -2309,12 +2308,16 @@
             [
                 1768162259,
                 226
+            ],
+            [
+                1768164062,
+                308
             ]
         ],
         "has_alerted_offline": false,
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768162259
+        "last_heartbeat_check": 1768164062
     },
     "409685259437735936": {
         "username": "iraptorxd",
