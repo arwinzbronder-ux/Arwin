@@ -7,13 +7,12 @@
         "status": "online",
         "secondary_status": "online",
         "session": {
-            "current_packs": 2509,
-            "instances": 6,
-            "offline_instances": 0,
+            "current_packs": 2518,
+            "instances": 3,
+            "offline_instances": 3,
             "total_instances": 6,
-            "duration_minutes": 721,
-            "last_update": 1768104067,
-            "last_monitor": 1
+            "duration_minutes": 751,
+            "last_update": 1768105873
         },
         "daily": {
             "date": "2026-01-06",
@@ -397,16 +396,20 @@
             [
                 1768104067,
                 2509
+            ],
+            [
+                1768105873,
+                2518
             ]
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
         "secondary_code": "6270265152175778",
         "last_heartbeat": {
-            "time": 721,
-            "packs": 2509
+            "time": 751,
+            "packs": 2518
         },
-        "last_heartbeat_check": 1768104067
+        "last_heartbeat_check": 1768105873
     },
     "1017762422947323965": {
         "username": "najanaja_44",
