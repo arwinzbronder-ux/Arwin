@@ -6596,17 +6596,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 150,
-            "packs": 280
+            "time": 180,
+            "packs": 330
         },
         "session": {
-            "current_packs": 280,
+            "current_packs": 330,
             "instances": 6,
             "offline_instances": 0,
             "total_instances": 6,
-            "duration_minutes": 150,
-            "last_update": 1768151132,
-            "last_monitor": 1
+            "duration_minutes": 180,
+            "last_update": 1768152935
         },
         "daily": {
             "date": "2026-01-06",
@@ -6909,11 +6908,15 @@
             [
                 1768151132,
                 280
+            ],
+            [
+                1768152935,
+                330
             ]
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768151132
+        "last_heartbeat_check": 1768152935
     },
     "_global_stats": {
         "daily_god_packs": 0,
