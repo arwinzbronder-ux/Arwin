@@ -11063,6 +11063,24 @@
         "status": "online",
         "secondary_status": "offline",
         "status_ids2": "offline",
-        "last_heartbeat_check": 1768154334
+        "last_heartbeat_check": 1768154418,
+        "session": {
+            "current_packs": 0,
+            "instances": 5,
+            "offline_instances": 0,
+            "total_instances": 5,
+            "duration_minutes": 0,
+            "last_update": 1768154418
+        },
+        "samples": [
+            [
+                1768154418,
+                0
+            ]
+        ],
+        "last_heartbeat": {
+            "time": 0,
+            "packs": 0
+        }
     }
 }
