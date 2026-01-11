@@ -7033,7 +7033,7 @@
         "secondary_code": "3225129689567626",
         "instances": 8,
         "prefix": "A",
-        "status": "online",
+        "status": "offline",
         "secondary_status": "offline",
         "session": {
             "current_packs": 313,
