@@ -3181,17 +3181,16 @@
         "secondary_status": "offline",
         "secondary_code": "2489404685358169",
         "last_heartbeat": {
-            "time": 30,
-            "packs": 32
+            "time": 60,
+            "packs": 64
         },
         "session": {
-            "current_packs": 32,
+            "current_packs": 64,
             "instances": 3,
             "offline_instances": 0,
             "total_instances": 3,
-            "duration_minutes": 30,
-            "last_update": 1768088263,
-            "last_monitor": 1
+            "duration_minutes": 60,
+            "last_update": 1768090066
         },
         "daily": {
             "date": "2026-01-06",
@@ -3401,11 +3400,15 @@
             [
                 1768088263,
                 32
+            ],
+            [
+                1768090066,
+                64
             ]
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768088263
+        "last_heartbeat_check": 1768090066
     },
     "849666089902145586": {
         "username": "pr34ch.",
