@@ -5908,7 +5908,7 @@
                 0
             ]
         ],
-        "has_alerted_offline": true,
+        "has_alerted_offline": false,
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
         "last_heartbeat_check": 1768107687
