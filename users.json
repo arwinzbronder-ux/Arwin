@@ -5606,17 +5606,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 905,
-            "packs": 2476
+            "time": 935,
+            "packs": 2542
         },
         "session": {
-            "current_packs": 2476,
+            "current_packs": 2542,
             "instances": 5,
             "offline_instances": 0,
             "total_instances": 5,
-            "duration_minutes": 905,
-            "last_update": 1768175061,
-            "last_monitor": 1
+            "duration_minutes": 935,
+            "last_update": 1768176863
         },
         "daily": {
             "date": "2026-01-05",
@@ -6006,11 +6005,15 @@
             [
                 1768175061,
                 2476
+            ],
+            [
+                1768176863,
+                2542
             ]
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768175061
+        "last_heartbeat_check": 1768176863
     },
     "461874685030825984": {
         "username": "julinho92",
