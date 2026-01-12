@@ -3550,7 +3550,7 @@
         "friend_code": "4667419267232045",
         "instances": 3,
         "prefix": "rap",
-        "status": "offline",
+        "status": "online",
         "secondary_status": "offline",
         "session": {
             "current_packs": 84,
@@ -4246,7 +4246,7 @@
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
         "has_alerted_offline": false,
-        "last_heartbeat_check": 1768245305,
+        "last_heartbeat_check": 1768247749,
         "last_heartbeat": {
             "time": 30,
             "packs": 84
