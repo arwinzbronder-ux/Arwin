@@ -1821,18 +1821,17 @@
         "status": "online",
         "secondary_status": "online",
         "last_heartbeat": {
-            "time": 753,
-            "packs": 3002
+            "time": 783,
+            "packs": 3086
         },
         "secondary_code": "6945259816716451",
         "session": {
-            "current_packs": 3002,
+            "current_packs": 3086,
             "instances": 6,
             "offline_instances": 0,
             "total_instances": 6,
-            "duration_minutes": 753,
-            "last_update": 1768256376,
-            "last_monitor": 1
+            "duration_minutes": 783,
+            "last_update": 1768258184
         },
         "daily": {
             "date": "2026-01-06",
@@ -1840,10 +1839,6 @@
         },
         "history": [],
         "samples": [
-            [
-                1768167304,
-                2293
-            ],
             [
                 1768169111,
                 2381
@@ -1963,10 +1958,6 @@
             [
                 1768169118.457,
                 2381
-            ],
-            [
-                1768167311.062,
-                2293
             ],
             [
                 1768218418,
@@ -2157,10 +2148,6 @@
                 2381
             ],
             [
-                1768167311.062,
-                2293
-            ],
-            [
                 1768245536.936,
                 2524
             ],
@@ -2285,10 +2272,6 @@
                 2381
             ],
             [
-                1768167311.062,
-                2293
-            ],
-            [
                 1768245536.936,
                 2524
             ],
@@ -2411,10 +2394,6 @@
             [
                 1768169118.457,
                 2381
-            ],
-            [
-                1768167311.062,
-                2293
             ],
             [
                 1768247337,
@@ -2439,12 +2418,16 @@
             [
                 1768256376,
                 3002
+            ],
+            [
+                1768258184,
+                3086
             ]
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
         "has_alerted_offline": false,
-        "last_heartbeat_check": 1768256376
+        "last_heartbeat_check": 1768258184
     },
     "288833945062342657": {
         "username": "insomniaskai",
