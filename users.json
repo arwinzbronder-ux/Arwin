@@ -436,13 +436,12 @@
         "status": "online",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 728,
+            "current_packs": 782,
             "instances": 4,
             "offline_instances": 0,
             "total_instances": 4,
-            "duration_minutes": 481,
-            "last_update": 1768188814,
-            "last_monitor": 1
+            "duration_minutes": 511,
+            "last_update": 1768190618
         },
         "daily": {
             "date": "2026-01-06",
@@ -661,15 +660,19 @@
             [
                 1768188814,
                 728
+            ],
+            [
+                1768190618,
+                782
             ]
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
         "last_heartbeat": {
-            "time": 481,
-            "packs": 728
+            "time": 511,
+            "packs": 782
         },
-        "last_heartbeat_check": 1768188814
+        "last_heartbeat_check": 1768190618
     },
     "475603063948705794": {
         "username": "kysog6646",
@@ -5905,16 +5908,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 540,
-            "packs": 877
+            "time": 570,
+            "packs": 939
         },
         "session": {
-            "current_packs": 877,
+            "current_packs": 939,
             "instances": 4,
             "offline_instances": 0,
             "total_instances": 4,
-            "duration_minutes": 540,
-            "last_update": 1768188744,
+            "duration_minutes": 570,
+            "last_update": 1768190545,
             "last_monitor": 1
         },
         "daily": {
@@ -6275,11 +6278,15 @@
             [
                 1768188744,
                 877
+            ],
+            [
+                1768190545,
+                939
             ]
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768188744
+        "last_heartbeat_check": 1768190545
     },
     "553693689302482945": {
         "username": "skyttzi",
@@ -7045,8 +7052,7 @@
             "offline_instances": 0,
             "total_instances": 7,
             "duration_minutes": 270,
-            "last_update": 1768190543,
-            "last_monitor": 1
+            "last_update": 1768190543
         },
         "daily": {
             "date": "2026-01-06",
