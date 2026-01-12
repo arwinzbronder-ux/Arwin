@@ -1412,17 +1412,17 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 361,
-            "packs": 1826
+            "time": 391,
+            "packs": 1952
         },
         "secondary_code": "6945259816716451",
         "session": {
-            "current_packs": 1826,
+            "current_packs": 1952,
             "instances": 6,
             "offline_instances": 0,
             "total_instances": 6,
-            "duration_minutes": 361,
-            "last_update": 1768232878,
+            "duration_minutes": 391,
+            "last_update": 1768234685,
             "last_monitor": 1
         },
         "daily": {
@@ -1802,12 +1802,16 @@
             [
                 1768232878,
                 1826
+            ],
+            [
+                1768234685,
+                1952
             ]
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
         "has_alerted_offline": false,
-        "last_heartbeat_check": 1768232878
+        "last_heartbeat_check": 1768234685
     },
     "288833945062342657": {
         "username": "insomniaskai",
@@ -13039,8 +13043,7 @@
             "offline_instances": 0,
             "total_instances": 5,
             "duration_minutes": 180,
-            "last_update": 1768234685,
-            "last_monitor": 1
+            "last_update": 1768234685
         },
         "samples": [
             [
