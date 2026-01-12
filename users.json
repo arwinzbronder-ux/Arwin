@@ -8493,9 +8493,8 @@
             "instances": 0,
             "offline_instances": 5,
             "total_instances": 5,
-            "duration_minutes": 150,
-            "last_update": 1768203726,
-            "last_monitor": 1
+            "duration_minutes": 180,
+            "last_update": 1768205530
         },
         "samples": [
             [
@@ -8745,13 +8744,17 @@
             [
                 1768203726,
                 124
+            ],
+            [
+                1768205530,
+                124
             ]
         ],
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768203726,
+        "last_heartbeat_check": 1768205530,
         "has_alerted_offline": true,
         "last_heartbeat": {
-            "time": 150,
+            "time": 180,
             "packs": 124
         }
     },
