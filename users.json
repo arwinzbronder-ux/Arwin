@@ -8449,7 +8449,7 @@
         "secondary_code": null,
         "instances": 10,
         "prefix": "pokemon names",
-        "status": "online",
+        "status": "offline",
         "secondary_status": "offline",
         "status_ids2": "offline",
         "session": {
@@ -8699,10 +8699,6 @@
                 124
             ]
         ],
-        "last_heartbeat": {
-            "time": 60,
-            "packs": 124
-        },
         "secondary_status_ids2": "offline",
         "last_heartbeat_check": 1768198315,
         "has_alerted_offline": false
