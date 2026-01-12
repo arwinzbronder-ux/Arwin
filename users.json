@@ -9899,15 +9899,14 @@
         "status": "online",
         "secondary_status": "offline",
         "status_ids2": "offline",
-        "last_heartbeat_check": 1768241896,
+        "last_heartbeat_check": 1768243098,
         "session": {
-            "current_packs": 1184,
+            "current_packs": 1240,
             "instances": 5,
             "offline_instances": 0,
             "total_instances": 5,
-            "duration_minutes": 300,
-            "last_update": 1768241896,
-            "last_monitor": 1
+            "duration_minutes": 320,
+            "last_update": 1768243098
         },
         "samples": [
             [
@@ -9981,11 +9980,15 @@
             [
                 1768241896,
                 1184
+            ],
+            [
+                1768243098,
+                1240
             ]
         ],
         "last_heartbeat": {
-            "time": 300,
-            "packs": 1184
+            "time": 320,
+            "packs": 1240
         }
     }
 }
