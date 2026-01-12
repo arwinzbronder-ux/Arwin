@@ -9391,12 +9391,12 @@
         "status": "online",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 1306,
+            "current_packs": 1364,
             "instances": 4,
             "offline_instances": 0,
             "total_instances": 4,
-            "duration_minutes": 571,
-            "last_update": 1768259718
+            "duration_minutes": 601,
+            "last_update": 1768261522
         },
         "daily": {
             "date": "2026-01-06",
@@ -9749,15 +9749,19 @@
             [
                 1768259718,
                 1306
+            ],
+            [
+                1768261522,
+                1364
             ]
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
         "last_heartbeat": {
-            "time": 571,
-            "packs": 1306
+            "time": 601,
+            "packs": 1364
         },
-        "last_heartbeat_check": 1768259718
+        "last_heartbeat_check": 1768261522
     },
     "655583863954735124": {
         "username": "isaac5255",
