@@ -10313,7 +10313,10 @@
     },
     "_global_stats": {
         "daily_god_packs": 0,
-        "last_reset_day": "2026-01-05"
+        "last_reset_day": "2026-01-05",
+        "alive_clicks": [
+            1768261107
+        ]
     },
     "111114110569029632": {
         "username": "wr98",
