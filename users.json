@@ -11557,9 +11557,8 @@
             "instances": 0,
             "offline_instances": 5,
             "total_instances": 5,
-            "duration_minutes": 390,
-            "last_update": 1768218162.138,
-            "last_monitor": 1
+            "duration_minutes": 420,
+            "last_update": 1768219959
         },
         "samples": [
             [
@@ -11917,14 +11916,22 @@
             [
                 1768163194.893,
                 0
+            ],
+            [
+                1768219959,
+                124
             ]
         ],
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768218155,
+        "last_heartbeat_check": 1768219959,
         "has_alerted_offline": true,
         "last_heartbeat": {
-            "time": 390,
+            "time": 420,
             "packs": 124
+        },
+        "auto_kicked_state": {
+            "status": "offline",
+            "secondary_status": "offline"
         }
     },
     "721824761797410897": {
