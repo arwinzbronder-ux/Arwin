@@ -12793,17 +12793,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 210,
-            "packs": 334
+            "time": 240,
+            "packs": 380
         },
         "session": {
-            "current_packs": 334,
+            "current_packs": 380,
             "instances": 4,
             "offline_instances": 0,
             "total_instances": 4,
-            "duration_minutes": 210,
-            "last_update": 1768247505,
-            "last_monitor": 1
+            "duration_minutes": 240,
+            "last_update": 1768249307
         },
         "daily": {
             "date": "2026-01-06",
@@ -12816,10 +12815,6 @@
             }
         ],
         "samples": [
-            [
-                1768158110,
-                34
-            ],
             [
                 1768159916,
                 76
@@ -13019,10 +13014,6 @@
             [
                 1768159923.705,
                 76
-            ],
-            [
-                1768158118.918,
-                34
             ],
             [
                 1768234924,
@@ -13411,11 +13402,15 @@
             [
                 1768247505,
                 334
+            ],
+            [
+                1768249307,
+                380
             ]
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768247505
+        "last_heartbeat_check": 1768249307
     },
     "553693689302482945": {
         "username": "skyttzi",
