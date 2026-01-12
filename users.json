@@ -2372,17 +2372,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 150,
-            "packs": 548
+            "time": 180,
+            "packs": 666
         },
         "session": {
-            "current_packs": 548,
+            "current_packs": 666,
             "instances": 7,
             "offline_instances": 0,
             "total_instances": 7,
-            "duration_minutes": 150,
-            "last_update": 1768183664,
-            "last_monitor": 1
+            "duration_minutes": 180,
+            "last_update": 1768185466
         },
         "daily": {
             "date": "2026-01-06",
@@ -2738,11 +2737,15 @@
             [
                 1768183664,
                 548
+            ],
+            [
+                1768185466,
+                666
             ]
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768183664
+        "last_heartbeat_check": 1768185466
     },
     "287558941540352001": {
         "username": "bassrv",
@@ -3383,17 +3386,16 @@
         "status": "offline",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 1263,
-            "packs": 3382
+            "time": 1293,
+            "packs": 3474
         },
         "session": {
-            "current_packs": 3382,
+            "current_packs": 3474,
             "instances": 8,
             "offline_instances": 0,
             "total_instances": 8,
-            "duration_minutes": 1263,
-            "last_update": 1768183660,
-            "last_monitor": 1
+            "duration_minutes": 1293,
+            "last_update": 1768185465
         },
         "daily": {
             "date": "2026-01-06",
@@ -3760,12 +3762,16 @@
             [
                 1768183660,
                 3382
+            ],
+            [
+                1768185465,
+                3474
             ]
         ],
         "has_alerted_offline": false,
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768183660
+        "last_heartbeat_check": 1768185465
     },
     "157834363944435713": {
         "username": "fierza.",
