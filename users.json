@@ -12467,7 +12467,7 @@
         "friend_code": "2924724348069222",
         "instances": 5,
         "prefix": "Sad / Yuyu",
-        "status": "offline",
+        "status": "online",
         "secondary_status": "offline",
         "status_ids2": "offline",
         "session": {
@@ -12773,7 +12773,7 @@
                 0
             ]
         ],
-        "last_heartbeat_check": 1768236177,
+        "last_heartbeat_check": 1768236242,
         "has_alerted_offline": false,
         "secondary_status_ids2": "offline",
         "last_heartbeat": {
