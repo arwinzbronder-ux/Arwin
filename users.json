@@ -9413,13 +9413,12 @@
         "secondary_status": "offline",
         "status_ids2": "offline",
         "session": {
-            "current_packs": 83,
+            "current_packs": 196,
             "instances": 4,
             "offline_instances": 1,
             "total_instances": 5,
-            "duration_minutes": 30,
-            "last_update": 1768242613,
-            "last_monitor": 1
+            "duration_minutes": 60,
+            "last_update": 1768244410
         },
         "samples": [
             [
@@ -9429,15 +9428,19 @@
             [
                 1768242613,
                 83
+            ],
+            [
+                1768244410,
+                196
             ]
         ],
         "last_heartbeat": {
-            "time": 30,
-            "packs": 83
+            "time": 60,
+            "packs": 196
         },
         "has_alerted_offline": true,
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768242613
+        "last_heartbeat_check": 1768244410
     },
     "_vip_timers": {
         "0032578716202499": 1767964624,
