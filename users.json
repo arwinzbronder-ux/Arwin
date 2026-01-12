@@ -10889,17 +10889,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 451,
-            "packs": 1250
+            "time": 481,
+            "packs": 1320
         },
         "session": {
-            "current_packs": 1250,
+            "current_packs": 1320,
             "instances": 6,
             "offline_instances": 0,
             "total_instances": 6,
-            "duration_minutes": 451,
-            "last_update": 1768253754,
-            "last_monitor": 1
+            "duration_minutes": 481,
+            "last_update": 1768255557
         },
         "daily": {
             "date": "2026-01-06",
@@ -10907,10 +10906,6 @@
         },
         "history": [],
         "samples": [
-            [
-                1768163762,
-                632
-            ],
             [
                 1768165567,
                 679
@@ -11030,10 +11025,6 @@
             [
                 1768165573.967,
                 679
-            ],
-            [
-                1768163768.531,
-                632
             ],
             [
                 1768220367,
@@ -11224,10 +11215,6 @@
                 679
             ],
             [
-                1768163768.531,
-                632
-            ],
-            [
                 1768244741.811,
                 930
             ],
@@ -11350,10 +11337,6 @@
             [
                 1768165573.967,
                 679
-            ],
-            [
-                1768163768.531,
-                632
             ],
             [
                 1768246539,
@@ -11502,11 +11485,15 @@
             [
                 1768253754,
                 1250
+            ],
+            [
+                1768255557,
+                1320
             ]
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768253754
+        "last_heartbeat_check": 1768255557
     },
     "_global_stats": {
         "daily_god_packs": 0,
