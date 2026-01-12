@@ -15063,13 +15063,12 @@
         "status": "online",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 854,
+            "current_packs": 912,
             "instances": 4,
             "offline_instances": 0,
             "total_instances": 4,
-            "duration_minutes": 330,
-            "last_update": 1768245284.2,
-            "last_monitor": 1
+            "duration_minutes": 360,
+            "last_update": 1768247082
         },
         "daily": {
             "date": "2026-01-06",
@@ -15079,34 +15078,6 @@
         "has_alerted_offline": false,
         "history": [],
         "samples": [
-            [
-                1768145238,
-                234
-            ],
-            [
-                1768147043,
-                313
-            ],
-            [
-                1768148849,
-                384
-            ],
-            [
-                1768150655,
-                458
-            ],
-            [
-                1768152461,
-                530
-            ],
-            [
-                1768154264,
-                597
-            ],
-            [
-                1768156071,
-                658
-            ],
             [
                 1768157876,
                 714
@@ -15210,34 +15181,6 @@
             [
                 1768157883.153,
                 714
-            ],
-            [
-                1768156077.816,
-                658
-            ],
-            [
-                1768154271.585,
-                597
-            ],
-            [
-                1768152467.672,
-                530
-            ],
-            [
-                1768150662.377,
-                458
-            ],
-            [
-                1768148857.405,
-                384
-            ],
-            [
-                1768147050.464,
-                313
-            ],
-            [
-                1768145245.171,
-                234
             ],
             [
                 1768225454,
@@ -15542,15 +15485,19 @@
             [
                 1768165105.374,
                 953
+            ],
+            [
+                1768247082,
+                912
             ]
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
         "last_heartbeat": {
-            "time": 330,
-            "packs": 854
+            "time": 360,
+            "packs": 912
         },
-        "last_heartbeat_check": 1768245277
+        "last_heartbeat_check": 1768247082
     },
     "655583863954735124": {
         "username": "isaac5255",
