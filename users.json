@@ -8070,67 +8070,18 @@
         "status": "online",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 3876,
+            "current_packs": 3970,
             "instances": 5,
             "offline_instances": 0,
             "total_instances": 5,
-            "duration_minutes": 1626,
-            "last_update": 1768218306.6,
-            "last_monitor": 1
+            "duration_minutes": 1656,
+            "last_update": 1768220101
         },
         "daily": {
             "date": "2026-01-05",
             "start_packs": 1136
         },
         "samples": [
-            [
-                1768120747,
-                0
-            ],
-            [
-                1768122519,
-                74
-            ],
-            [
-                1768124321,
-                172
-            ],
-            [
-                1768126122,
-                282
-            ],
-            [
-                1768127924,
-                398
-            ],
-            [
-                1768129725,
-                522
-            ],
-            [
-                1768129733.304,
-                522
-            ],
-            [
-                1768127931.091,
-                398
-            ],
-            [
-                1768126130.045,
-                282
-            ],
-            [
-                1768124328.23,
-                172
-            ],
-            [
-                1768122526.3,
-                74
-            ],
-            [
-                1768120754.707,
-                0
-            ],
             [
                 1768131527,
                 634
@@ -8490,14 +8441,18 @@
             [
                 1768145947.539,
                 1394
+            ],
+            [
+                1768220101,
+                3970
             ]
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768218299,
+        "last_heartbeat_check": 1768220101,
         "last_heartbeat": {
-            "time": 1626,
-            "packs": 3876
+            "time": 1656,
+            "packs": 3970
         }
     },
     "461874685030825984": {
