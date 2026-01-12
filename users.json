@@ -16637,15 +16637,14 @@
         "status": "online",
         "secondary_status": "offline",
         "status_ids2": "offline",
-        "last_heartbeat_check": 1768250310,
+        "last_heartbeat_check": 1768251512,
         "session": {
-            "current_packs": 1554,
+            "current_packs": 1606,
             "instances": 5,
             "offline_instances": 0,
             "total_instances": 5,
-            "duration_minutes": 440,
-            "last_update": 1768250310,
-            "last_monitor": 1
+            "duration_minutes": 460,
+            "last_update": 1768251512
         },
         "samples": [
             [
@@ -16979,11 +16978,15 @@
             [
                 1768250310,
                 1554
+            ],
+            [
+                1768251512,
+                1606
             ]
         ],
         "last_heartbeat": {
-            "time": 440,
-            "packs": 1554
+            "time": 460,
+            "packs": 1606
         }
     }
 }
