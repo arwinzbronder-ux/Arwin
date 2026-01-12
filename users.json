@@ -11207,9 +11207,9 @@
             "time": 90,
             "packs": 370
         },
-        "has_alerted_offline": true,
+        "has_alerted_offline": false,
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768240773
+        "last_heartbeat_check": 1768240839
     },
     "_vip_timers": {
         "0032578716202499": 1767964624,
