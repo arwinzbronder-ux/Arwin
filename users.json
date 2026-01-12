@@ -428,13 +428,12 @@
         "status": "online",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 624,
+            "current_packs": 666,
             "instances": 4,
             "offline_instances": 0,
             "total_instances": 4,
-            "duration_minutes": 420,
-            "last_update": 1768185203,
-            "last_monitor": 1
+            "duration_minutes": 451,
+            "last_update": 1768187010
         },
         "daily": {
             "date": "2026-01-06",
@@ -645,15 +644,19 @@
             [
                 1768185203,
                 624
+            ],
+            [
+                1768187010,
+                666
             ]
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
         "last_heartbeat": {
-            "time": 420,
-            "packs": 624
+            "time": 451,
+            "packs": 666
         },
-        "last_heartbeat_check": 1768185203
+        "last_heartbeat_check": 1768187010
     },
     "475603063948705794": {
         "username": "kysog6646",
