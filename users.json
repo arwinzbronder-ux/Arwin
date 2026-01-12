@@ -5210,7 +5210,8 @@
             "offline_instances": 0,
             "total_instances": 4,
             "duration_minutes": 874,
-            "last_update": 1768176515
+            "last_update": 1768176515,
+            "last_monitor": 1
         },
         "daily": {
             "date": "2026-01-06",
