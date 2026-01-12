@@ -11,9 +11,8 @@
             "instances": 0,
             "offline_instances": 6,
             "total_instances": 6,
-            "duration_minutes": 331,
-            "last_update": 1768258777,
-            "last_monitor": 1
+            "duration_minutes": 361,
+            "last_update": 1768260576
         },
         "daily": {
             "date": "2026-01-06",
@@ -22,10 +21,6 @@
         "has_alerted_offline": true,
         "history": [],
         "samples": [
-            [
-                1768169356,
-                1528
-            ],
             [
                 1768171160,
                 1622
@@ -155,10 +150,6 @@
                 1622
             ],
             [
-                1768169362.811,
-                1528
-            ],
-            [
                 1768238931,
                 0
             ],
@@ -255,10 +246,6 @@
                 1622
             ],
             [
-                1768169362.811,
-                1528
-            ],
-            [
                 1768246129,
                 342
             ],
@@ -347,10 +334,6 @@
                 1622
             ],
             [
-                1768169362.811,
-                1528
-            ],
-            [
                 1768246136.291,
                 342
             ],
@@ -435,10 +418,6 @@
                 1622
             ],
             [
-                1768169362.811,
-                1528
-            ],
-            [
                 1768247938,
                 426
             ],
@@ -465,18 +444,22 @@
             [
                 1768258777,
                 792
+            ],
+            [
+                1768260576,
+                792
             ]
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
         "secondary_code": "6270265152175778",
-        "last_heartbeat_check": 1768258777,
+        "last_heartbeat_check": 1768260576,
         "auto_kicked_state": {
-            "status": "online",
-            "secondary_status": "online"
+            "status": "offline",
+            "secondary_status": "offline"
         },
         "last_heartbeat": {
-            "time": 331,
+            "time": 361,
             "packs": 792
         }
     },
