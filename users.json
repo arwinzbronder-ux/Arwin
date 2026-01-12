@@ -9007,7 +9007,7 @@
         "secondary_code": null,
         "instances": 4,
         "prefix": "pokemon names",
-        "status": "offline",
+        "status": "online",
         "secondary_status": "offline",
         "session": {
             "current_packs": 1426,
@@ -9413,7 +9413,7 @@
             "time": 661,
             "packs": 1426
         },
-        "last_heartbeat_check": 1768179537
+        "last_heartbeat_check": 1768225320
     },
     "655583863954735124": {
         "username": "isaac5255",
