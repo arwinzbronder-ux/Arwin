@@ -9349,27 +9349,30 @@
         "secondary_status": "offline",
         "status_ids2": "offline",
         "session": {
-            "current_packs": 0,
-            "instances": 5,
-            "offline_instances": 0,
+            "current_packs": 83,
+            "instances": 4,
+            "offline_instances": 1,
             "total_instances": 5,
-            "duration_minutes": 0,
-            "last_update": 1768240843,
-            "last_monitor": 1
+            "duration_minutes": 30,
+            "last_update": 1768242613
         },
         "samples": [
             [
                 1768240843,
                 0
+            ],
+            [
+                1768242613,
+                83
             ]
         ],
         "last_heartbeat": {
-            "time": 0,
-            "packs": 0
+            "time": 30,
+            "packs": 83
         },
         "has_alerted_offline": true,
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768242610
+        "last_heartbeat_check": 1768242613
     },
     "_vip_timers": {
         "0032578716202499": 1767964624,
