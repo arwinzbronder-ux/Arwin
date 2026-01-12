@@ -8365,7 +8365,7 @@
         "secondary_code": null,
         "instances": 10,
         "prefix": "pokemon names",
-        "status": "offline",
+        "status": "online",
         "secondary_status": "offline",
         "status_ids2": "offline",
         "session": {
@@ -8608,7 +8608,7 @@
             "packs": 0
         },
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768169618,
+        "last_heartbeat_check": 1768194648,
         "has_alerted_offline": false
     },
     "721824761797410897": {
