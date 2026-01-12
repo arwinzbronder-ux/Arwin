@@ -5583,12 +5583,8 @@
         "secondary_code": null,
         "instances": 5,
         "prefix": "randompokemon",
-        "status": "online",
+        "status": "offline",
         "secondary_status": "offline",
-        "last_heartbeat": {
-            "time": 1326,
-            "packs": 3362
-        },
         "session": {
             "current_packs": 3362,
             "instances": 5,
