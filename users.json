@@ -4158,7 +4158,7 @@
         "friend_code": "7429238101683230",
         "instances": 7,
         "prefix": "bass",
-        "status": "offline",
+        "status": "online",
         "secondary_status": "offline",
         "session": {
             "current_packs": 170,
@@ -5274,7 +5274,7 @@
         },
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768179698
+        "last_heartbeat_check": 1768256070
     },
     "275988818631327745": {
         "username": "bloo_64",
