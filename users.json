@@ -14079,15 +14079,14 @@
         "status": "online",
         "secondary_status": "offline",
         "status_ids2": "offline",
-        "last_heartbeat_check": 1768223814,
+        "last_heartbeat_check": 1768223902,
         "session": {
             "current_packs": 0,
             "instances": 5,
             "offline_instances": 0,
             "total_instances": 5,
             "duration_minutes": 0,
-            "last_update": 1768154425.501,
-            "last_monitor": 1
+            "last_update": 1768223902
         },
         "samples": [
             [
@@ -14096,6 +14095,10 @@
             ],
             [
                 1768154425.501,
+                0
+            ],
+            [
+                1768223902,
                 0
             ]
         ],
