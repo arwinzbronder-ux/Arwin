@@ -1929,8 +1929,7 @@
             "offline_instances": 0,
             "total_instances": 6,
             "duration_minutes": 0,
-            "last_update": 1768177868,
-            "last_monitor": 1
+            "last_update": 1768178161
         },
         "daily": {
             "date": "2026-01-06",
@@ -2220,6 +2219,10 @@
             [
                 1768177868,
                 0
+            ],
+            [
+                1768178161,
+                0
             ]
         ],
         "status_ids2": "offline",
@@ -2229,7 +2232,7 @@
             "packs": 0
         },
         "has_alerted_offline": false,
-        "last_heartbeat_check": 1768177868
+        "last_heartbeat_check": 1768178161
     },
     "396799589513953282": {
         "username": ".komorebi2",
