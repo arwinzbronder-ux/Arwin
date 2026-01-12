@@ -6070,7 +6070,7 @@
         "secondary_code": "2452383463979723",
         "instances": 5,
         "prefix": "dai",
-        "status": "offline",
+        "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
             "time": 512,
@@ -6577,7 +6577,7 @@
                 445
             ]
         ],
-        "last_heartbeat_check": 1768189249
+        "last_heartbeat_check": 1768232752
     },
     "1056944043688476682": {
         "username": "libra_2828",
