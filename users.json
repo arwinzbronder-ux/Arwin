@@ -3290,7 +3290,7 @@
         "friend_code": "4667419267232045",
         "instances": 3,
         "prefix": "rap",
-        "status": "offline",
+        "status": "online",
         "secondary_status": "offline",
         "session": {
             "current_packs": 0,
@@ -3486,7 +3486,7 @@
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
         "has_alerted_offline": false,
-        "last_heartbeat_check": 1768247813,
+        "last_heartbeat_check": 1768257296,
         "last_heartbeat": {
             "time": 0,
             "packs": 0
@@ -9897,17 +9897,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 481,
-            "packs": 1320
+            "time": 511,
+            "packs": 1392
         },
         "session": {
-            "current_packs": 1320,
+            "current_packs": 1392,
             "instances": 6,
             "offline_instances": 0,
             "total_instances": 6,
-            "duration_minutes": 481,
-            "last_update": 1768255557,
-            "last_monitor": 1
+            "duration_minutes": 511,
+            "last_update": 1768257360
         },
         "daily": {
             "date": "2026-01-06",
@@ -9915,10 +9914,6 @@
         },
         "history": [],
         "samples": [
-            [
-                1768165567,
-                679
-            ],
             [
                 1768167371,
                 727
@@ -10030,10 +10025,6 @@
             [
                 1768167379.002,
                 727
-            ],
-            [
-                1768165573.967,
-                679
             ],
             [
                 1768220367,
@@ -10220,10 +10211,6 @@
                 727
             ],
             [
-                1768165573.967,
-                679
-            ],
-            [
                 1768244741.811,
                 930
             ],
@@ -10342,10 +10329,6 @@
             [
                 1768167379.002,
                 727
-            ],
-            [
-                1768165573.967,
-                679
             ],
             [
                 1768246539,
@@ -10476,10 +10459,6 @@
                 727
             ],
             [
-                1768165573.967,
-                679
-            ],
-            [
                 1768248343,
                 1060
             ],
@@ -10498,11 +10477,15 @@
             [
                 1768255557,
                 1320
+            ],
+            [
+                1768257360,
+                1392
             ]
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768255557
+        "last_heartbeat_check": 1768257360
     },
     "_global_stats": {
         "daily_god_packs": 0,
