@@ -8701,7 +8701,7 @@
         ],
         "secondary_status_ids2": "offline",
         "last_heartbeat_check": 1768198315,
-        "has_alerted_offline": false
+        "has_alerted_offline": true
     },
     "721824761797410897": {
         "username": "starman275",
