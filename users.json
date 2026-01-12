@@ -12056,19 +12056,14 @@
         "secondary_status": "offline",
         "status_ids2": "offline",
         "session": {
-            "current_packs": 0,
+            "current_packs": 50,
             "instances": 5,
             "offline_instances": 0,
             "total_instances": 5,
-            "duration_minutes": 0,
-            "last_update": 1768254881,
-            "last_monitor": 1
+            "duration_minutes": 30,
+            "last_update": 1768256657
         },
         "samples": [
-            [
-                1768165319,
-                838
-            ],
             [
                 1768167124,
                 852
@@ -12238,10 +12233,6 @@
                 852
             ],
             [
-                1768165326.202,
-                838
-            ],
-            [
                 1768236177,
                 0
             ],
@@ -12386,10 +12377,6 @@
                 852
             ],
             [
-                1768165326.202,
-                838
-            ],
-            [
                 1768245184.949,
                 387
             ],
@@ -12510,10 +12497,6 @@
                 852
             ],
             [
-                1768165326.202,
-                838
-            ],
-            [
                 1768245184.949,
                 387
             ],
@@ -12632,10 +12615,6 @@
             [
                 1768167132.385,
                 852
-            ],
-            [
-                1768165326.202,
-                838
             ],
             [
                 1768246983,
@@ -12660,14 +12639,18 @@
             [
                 1768254881,
                 0
+            ],
+            [
+                1768256657,
+                50
             ]
         ],
-        "last_heartbeat_check": 1768254881,
+        "last_heartbeat_check": 1768256657,
         "has_alerted_offline": false,
         "secondary_status_ids2": "offline",
         "last_heartbeat": {
-            "time": 0,
-            "packs": 0
+            "time": 30,
+            "packs": 50
         }
     },
     "151796642654191617": {
