@@ -26643,5 +26643,14 @@
             ]
         ],
         "secondary_status_ids2": "offline"
+    },
+    "303616375224795136": {
+        "username": "dergoettliche",
+        "friend_code": "3768789038959582",
+        "instances": 8,
+        "prefix": "pokemon names",
+        "status": "offline",
+        "secondary_status": "offline",
+        "status_ids2": "offline"
     }
 }
