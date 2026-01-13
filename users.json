@@ -26312,19 +26312,23 @@
         "status": "online",
         "secondary_status": "offline",
         "status_ids2": "offline",
-        "last_heartbeat_check": 1768347777,
+        "last_heartbeat_check": 1768348467,
         "session": {
             "current_packs": 0,
             "instances": 8,
             "offline_instances": 0,
             "total_instances": 8,
             "duration_minutes": 0,
-            "last_update": 1768347777,
+            "last_update": 1768348467,
             "last_monitor": 1
         },
         "samples": [
             [
                 1768347777,
+                0
+            ],
+            [
+                1768348467,
                 0
             ]
         ],
