@@ -1109,7 +1109,7 @@
         "friend_code": "0888904208075358",
         "instances": 5,
         "prefix": "naja",
-        "status": "offline",
+        "status": "online",
         "secondary_status": "offline",
         "session": {
             "current_packs": 1348,
@@ -3449,7 +3449,7 @@
             "time": 812,
             "packs": 1348
         },
-        "last_heartbeat_check": 1768289347,
+        "last_heartbeat_check": 1768333671,
         "has_alerted_offline": true
     },
     "475603063948705794": {
