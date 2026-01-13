@@ -6626,13 +6626,12 @@
         "status": "online",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 1687,
+            "current_packs": 1747,
             "instances": 4,
             "offline_instances": 0,
             "total_instances": 4,
-            "duration_minutes": 752,
-            "last_update": 1768271363,
-            "last_monitor": 1
+            "duration_minutes": 783,
+            "last_update": 1768273168
         },
         "daily": {
             "date": "2026-01-06",
@@ -6641,10 +6640,6 @@
         "has_alerted_offline": false,
         "history": [],
         "samples": [
-            [
-                1768181929,
-                2594
-            ],
             [
                 1768183733,
                 2656
@@ -6724,10 +6719,6 @@
             [
                 1768183740.691,
                 2656
-            ],
-            [
-                1768181936.271,
-                2594
             ],
             [
                 1768226217,
@@ -6858,10 +6849,6 @@
                 2656
             ],
             [
-                1768181936.271,
-                2594
-            ],
-            [
                 1768246099,
                 868
             ],
@@ -6954,10 +6941,6 @@
                 2656
             ],
             [
-                1768181936.271,
-                2594
-            ],
-            [
                 1768246106.902,
                 868
             ],
@@ -7046,10 +7029,6 @@
                 2656
             ],
             [
-                1768181936.271,
-                2594
-            ],
-            [
                 1768247904,
                 924
             ],
@@ -7104,15 +7083,19 @@
             [
                 1768271363,
                 1687
+            ],
+            [
+                1768273168,
+                1747
             ]
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
         "last_heartbeat": {
-            "time": 752,
-            "packs": 1687
+            "time": 783,
+            "packs": 1747
         },
-        "last_heartbeat_check": 1768271363
+        "last_heartbeat_check": 1768273168
     },
     "307883135285067776": {
         "username": "tilero",
