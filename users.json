@@ -4457,17 +4457,16 @@
         "secondary_code": "3728578745352937",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 210,
-            "packs": 851
+            "time": 240,
+            "packs": 981
         },
         "session": {
-            "current_packs": 851,
+            "current_packs": 981,
             "instances": 8,
             "offline_instances": 0,
             "total_instances": 8,
-            "duration_minutes": 210,
-            "last_update": 1768266855,
-            "last_monitor": 1
+            "duration_minutes": 240,
+            "last_update": 1768268656
         },
         "daily": {
             "date": "2026-01-06",
@@ -4510,12 +4509,16 @@
             [
                 1768266855,
                 851
+            ],
+            [
+                1768268656,
+                981
             ]
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
         "has_alerted_offline": false,
-        "last_heartbeat_check": 1768266855
+        "last_heartbeat_check": 1768268656
     },
     "1059812834445377587": {
         "username": "daizy.",
