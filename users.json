@@ -21052,9 +21052,10 @@
                 0
             ]
         ],
-        "has_alerted_offline": false,
+        "has_alerted_offline": true,
         "status_ids2": "offline",
-        "secondary_status_ids2": "offline"
+        "secondary_status_ids2": "offline",
+        "last_heartbeat_check": 1768312959
     },
     "157834363944435713": {
         "username": "fierza.",
