@@ -8808,17 +8808,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 631,
-            "packs": 1666
+            "time": 661,
+            "packs": 1738
         },
         "session": {
-            "current_packs": 1666,
+            "current_packs": 1738,
             "instances": 6,
             "offline_instances": 0,
             "total_instances": 6,
-            "duration_minutes": 631,
-            "last_update": 1768264576,
-            "last_monitor": 1
+            "duration_minutes": 661,
+            "last_update": 1768266379
         },
         "daily": {
             "date": "2026-01-06",
@@ -8826,10 +8825,6 @@
         },
         "history": [],
         "samples": [
-            [
-                1768174590,
-                913
-            ],
             [
                 1768176395,
                 967
@@ -8901,10 +8896,6 @@
             [
                 1768176402.715,
                 967
-            ],
-            [
-                1768174597.276,
-                913
             ],
             [
                 1768220367,
@@ -9071,10 +9062,6 @@
                 967
             ],
             [
-                1768174597.276,
-                913
-            ],
-            [
                 1768244741.811,
                 930
             ],
@@ -9173,10 +9160,6 @@
             [
                 1768176402.715,
                 967
-            ],
-            [
-                1768174597.276,
-                913
             ],
             [
                 1768246539,
@@ -9287,10 +9270,6 @@
                 967
             ],
             [
-                1768174597.276,
-                913
-            ],
-            [
                 1768248343,
                 1060
             ],
@@ -9329,11 +9308,15 @@
             [
                 1768264576,
                 1666
+            ],
+            [
+                1768266379,
+                1738
             ]
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768264576
+        "last_heartbeat_check": 1768266379
     },
     "_global_stats": {
         "daily_god_packs": 0,
