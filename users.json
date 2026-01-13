@@ -3449,8 +3449,8 @@
             "time": 812,
             "packs": 1348
         },
-        "last_heartbeat_check": 1768333671,
-        "has_alerted_offline": true
+        "last_heartbeat_check": 1768333770,
+        "has_alerted_offline": false
     },
     "475603063948705794": {
         "username": "kysog6646",
