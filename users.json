@@ -9243,13 +9243,12 @@
         "status": "online",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 2333,
+            "current_packs": 2435,
             "instances": 4,
             "offline_instances": 0,
             "total_instances": 4,
-            "duration_minutes": 660,
-            "last_update": 1768297720,
-            "last_monitor": 1
+            "duration_minutes": 690,
+            "last_update": 1768299521
         },
         "samples": [
             [
@@ -9463,13 +9462,17 @@
             [
                 1768297720,
                 2333
+            ],
+            [
+                1768299521,
+                2435
             ]
         ],
         "last_heartbeat": {
-            "time": 660,
-            "packs": 2333
+            "time": 690,
+            "packs": 2435
         },
-        "last_heartbeat_check": 1768297720,
+        "last_heartbeat_check": 1768299521,
         "status_ids2": "offline",
         "secondary_status_ids2": "offline"
     },
