@@ -32488,7 +32488,7 @@
         "secondary_code": null,
         "instances": 4,
         "prefix": "fcb",
-        "status": "offline",
+        "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
             "time": 1050,
@@ -34861,7 +34861,7 @@
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768297948
+        "last_heartbeat_check": 1768321244
     },
     "553693689302482945": {
         "username": "skyttzi",
