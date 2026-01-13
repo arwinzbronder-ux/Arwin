@@ -28353,7 +28353,7 @@
         "instances": 8,
         "prefix": "A",
         "status": "offline",
-        "secondary_status": "online",
+        "secondary_status": "offline",
         "session": {
             "current_packs": 290,
             "instances": 7,
@@ -28366,10 +28366,6 @@
         "daily": {
             "date": "2026-01-06",
             "start_packs": 0
-        },
-        "last_heartbeat": {
-            "time": 90,
-            "packs": 290
         },
         "history": [],
         "samples": [
@@ -29196,8 +29192,7 @@
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
-        "has_alerted_offline": false,
-        "last_heartbeat_check": 1768330222
+        "has_alerted_offline": false
     },
     "1134310504324677713": {
         "username": "cynicalchery",
