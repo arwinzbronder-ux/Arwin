@@ -9360,7 +9360,8 @@
             "offline_instances": 0,
             "total_instances": 4,
             "duration_minutes": 570,
-            "last_update": 1768292319
+            "last_update": 1768292319,
+            "last_monitor": 1
         },
         "samples": [
             [
