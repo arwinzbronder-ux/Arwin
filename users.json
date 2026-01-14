@@ -16080,7 +16080,7 @@
         "secondary_code": "3225129689567626",
         "instances": 8,
         "prefix": "A",
-        "status": "online",
+        "status": "offline",
         "secondary_status": "offline",
         "session": {
             "current_packs": 140,
@@ -16341,7 +16341,8 @@
         "last_heartbeat": {
             "time": 30,
             "packs": 140
-        }
+        },
+        "kicked_due_to_timeout": true
     },
     "1134310504324677713": {
         "username": "cynicalchery",
