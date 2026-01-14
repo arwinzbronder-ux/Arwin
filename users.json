@@ -13523,7 +13523,7 @@
         "secondary_code": null,
         "instances": 4,
         "prefix": "randomnames",
-        "status": "online",
+        "status": "offline",
         "secondary_status": "offline",
         "session": {
             "current_packs": 1212,
@@ -13931,12 +13931,7 @@
             ]
         ],
         "status_ids2": "offline",
-        "secondary_status_ids2": "offline",
-        "last_heartbeat": {
-            "time": 541,
-            "packs": 1212
-        },
-        "last_heartbeat_check": 1768356391
+        "secondary_status_ids2": "offline"
     },
     "307883135285067776": {
         "username": "tilero",
