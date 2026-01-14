@@ -24501,14 +24501,14 @@
         "status": "online",
         "secondary_status": "offline",
         "status_ids2": "offline",
-        "last_heartbeat_check": 1768352039,
+        "last_heartbeat_check": 1768353841,
         "session": {
-            "current_packs": 210,
+            "current_packs": 312,
             "instances": 8,
             "offline_instances": 0,
             "total_instances": 8,
-            "duration_minutes": 60,
-            "last_update": 1768352039,
+            "duration_minutes": 90,
+            "last_update": 1768353841,
             "last_monitor": 1
         },
         "samples": [
@@ -24527,11 +24527,15 @@
             [
                 1768352039,
                 210
+            ],
+            [
+                1768353841,
+                312
             ]
         ],
         "last_heartbeat": {
-            "time": 60,
-            "packs": 210
+            "time": 90,
+            "packs": 312
         }
     }
 }
