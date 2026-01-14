@@ -14023,12 +14023,12 @@
         "status": "online",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 2470,
+            "current_packs": 2530,
             "instances": 4,
             "offline_instances": 0,
             "total_instances": 4,
-            "duration_minutes": 1201,
-            "last_update": 1768408236,
+            "duration_minutes": 1231,
+            "last_update": 1768410040,
             "last_monitor": 1
         },
         "samples": [
@@ -14399,13 +14399,17 @@
             [
                 1768408236,
                 2470
+            ],
+            [
+                1768410040,
+                2530
             ]
         ],
         "last_heartbeat": {
-            "time": 1201,
-            "packs": 2470
+            "time": 1231,
+            "packs": 2530
         },
-        "last_heartbeat_check": 1768408236,
+        "last_heartbeat_check": 1768410040,
         "status_ids2": "offline",
         "secondary_status_ids2": "offline"
     },
