@@ -16080,8 +16080,8 @@
         "secondary_code": "3225129689567626",
         "instances": 8,
         "prefix": "A",
-        "status": "offline",
-        "secondary_status": "offline",
+        "status": "online",
+        "secondary_status": "online",
         "session": {
             "current_packs": 140,
             "instances": 9,
@@ -16337,7 +16337,7 @@
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
         "has_alerted_offline": false,
-        "last_heartbeat_check": 1768398584,
+        "last_heartbeat_check": 1768401423,
         "last_heartbeat": {
             "time": 30,
             "packs": 140
