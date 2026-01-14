@@ -4072,7 +4072,7 @@
         "friend_code": "8345438294594251",
         "instances": 4,
         "prefix": "PipiSim",
-        "status": "offline",
+        "status": "online",
         "secondary_status": "offline",
         "secondary_code": "2489404685358169",
         "session": {
@@ -5936,7 +5936,7 @@
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768275800,
+        "last_heartbeat_check": 1768351185,
         "has_alerted_offline": false,
         "last_heartbeat": {
             "time": 631,
