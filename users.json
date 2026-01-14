@@ -4600,16 +4600,16 @@
         "secondary_code": "3728578745352937",
         "secondary_status": "online",
         "last_heartbeat": {
-            "time": 1262,
-            "packs": 3304
+            "time": 1292,
+            "packs": 3364
         },
         "session": {
-            "current_packs": 3304,
+            "current_packs": 3364,
             "instances": 6,
             "offline_instances": 0,
             "total_instances": 6,
-            "duration_minutes": 1262,
-            "last_update": 1768418659,
+            "duration_minutes": 1292,
+            "last_update": 1768420469,
             "last_monitor": 1
         },
         "daily": {
@@ -4909,12 +4909,16 @@
             [
                 1768418659,
                 3304
+            ],
+            [
+                1768420469,
+                3364
             ]
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
         "has_alerted_offline": false,
-        "last_heartbeat_check": 1768418659
+        "last_heartbeat_check": 1768420469
     },
     "1059812834445377587": {
         "username": "daizy.",
