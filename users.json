@@ -25731,14 +25731,14 @@
         "status": "online",
         "secondary_status": "offline",
         "status_ids2": "offline",
-        "last_heartbeat_check": 1768348467,
+        "last_heartbeat_check": 1768350238,
         "session": {
-            "current_packs": 0,
+            "current_packs": 100,
             "instances": 8,
             "offline_instances": 0,
             "total_instances": 8,
-            "duration_minutes": 0,
-            "last_update": 1768348467,
+            "duration_minutes": 30,
+            "last_update": 1768350238,
             "last_monitor": 1
         },
         "samples": [
@@ -25749,11 +25749,15 @@
             [
                 1768348467,
                 0
+            ],
+            [
+                1768350238,
+                100
             ]
         ],
         "last_heartbeat": {
-            "time": 0,
-            "packs": 0
+            "time": 30,
+            "packs": 100
         }
     }
 }
