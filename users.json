@@ -2658,12 +2658,12 @@
         "secondary_status": "online",
         "secondary_code": "2489404685358169",
         "session": {
-            "current_packs": 42,
+            "current_packs": 96,
             "instances": 3,
             "offline_instances": 0,
             "total_instances": 3,
-            "duration_minutes": 30,
-            "last_update": 1768415050,
+            "duration_minutes": 60,
+            "last_update": 1768416854,
             "last_monitor": 1
         },
         "daily": {
@@ -2758,15 +2758,19 @@
             [
                 1768415050,
                 42
+            ],
+            [
+                1768416854,
+                96
             ]
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
         "has_alerted_offline": false,
-        "last_heartbeat_check": 1768415050,
+        "last_heartbeat_check": 1768416854,
         "last_heartbeat": {
-            "time": 30,
-            "packs": 42
+            "time": 60,
+            "packs": 96
         }
     },
     "849666089902145586": {
@@ -4552,16 +4556,16 @@
         "secondary_code": "3728578745352937",
         "secondary_status": "online",
         "last_heartbeat": {
-            "time": 1172,
-            "packs": 3098
+            "time": 1232,
+            "packs": 3236
         },
         "session": {
-            "current_packs": 3098,
+            "current_packs": 3236,
             "instances": 6,
             "offline_instances": 0,
             "total_instances": 6,
-            "duration_minutes": 1172,
-            "last_update": 1768413247,
+            "duration_minutes": 1232,
+            "last_update": 1768416856,
             "last_monitor": 1
         },
         "daily": {
@@ -4857,12 +4861,16 @@
             [
                 1768413247,
                 3098
+            ],
+            [
+                1768416856,
+                3236
             ]
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
         "has_alerted_offline": false,
-        "last_heartbeat_check": 1768415081
+        "last_heartbeat_check": 1768416856
     },
     "1059812834445377587": {
         "username": "daizy.",
