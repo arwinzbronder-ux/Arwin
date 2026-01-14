@@ -14786,11 +14786,12 @@
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768425772,
+        "last_heartbeat_check": 1768427574,
         "last_heartbeat": {
             "time": 1741,
             "packs": 3270
-        }
+        },
+        "has_alerted_offline": true
     },
     "553693689302482945": {
         "username": "skyttzi",
