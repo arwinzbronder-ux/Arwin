@@ -14575,7 +14575,7 @@
         "secondary_code": null,
         "instances": 5,
         "prefix": "randompokemon",
-        "status": "offline",
+        "status": "online",
         "secondary_status": "offline",
         "session": {
             "current_packs": 4374,
@@ -17134,7 +17134,7 @@
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768227308,
+        "last_heartbeat_check": 1768381696,
         "last_heartbeat": {
             "time": 1776,
             "packs": 4374
