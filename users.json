@@ -14289,7 +14289,7 @@
             "offline_instances": 0,
             "total_instances": 6,
             "duration_minutes": 0,
-            "last_update": 1768403458,
+            "last_update": 1768404376,
             "last_monitor": 1
         },
         "daily": {
@@ -14557,11 +14557,15 @@
             [
                 1768403458,
                 0
+            ],
+            [
+                1768404376,
+                0
             ]
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768403458,
+        "last_heartbeat_check": 1768404376,
         "last_heartbeat": {
             "time": 0,
             "packs": 0
