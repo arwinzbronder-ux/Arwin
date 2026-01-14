@@ -5466,12 +5466,8 @@
         "friend_code": "3573393864935944",
         "instances": 7,
         "prefix": "pokemon names",
-        "status": "online",
+        "status": "offline",
         "secondary_status": "offline",
-        "last_heartbeat": {
-            "time": 630,
-            "packs": 2484
-        },
         "session": {
             "current_packs": 2484,
             "instances": 7,
@@ -5974,8 +5970,7 @@
             ]
         ],
         "status_ids2": "offline",
-        "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768375707
+        "secondary_status_ids2": "offline"
     },
     "287558941540352001": {
         "username": "bassrv",
