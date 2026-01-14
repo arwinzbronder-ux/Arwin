@@ -6556,16 +6556,16 @@
         "secondary_code": "3728578745352937",
         "secondary_status": "online",
         "last_heartbeat": {
-            "time": 390,
-            "packs": 869
+            "time": 420,
+            "packs": 955
         },
         "session": {
-            "current_packs": 869,
+            "current_packs": 955,
             "instances": 6,
             "offline_instances": 0,
             "total_instances": 6,
-            "duration_minutes": 390,
-            "last_update": 1768366351,
+            "duration_minutes": 420,
+            "last_update": 1768368153,
             "last_monitor": 1
         },
         "daily": {
@@ -6757,12 +6757,16 @@
             [
                 1768366351,
                 869
+            ],
+            [
+                1768368153,
+                955
             ]
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
         "has_alerted_offline": false,
-        "last_heartbeat_check": 1768366351
+        "last_heartbeat_check": 1768368153
     },
     "1059812834445377587": {
         "username": "daizy.",
