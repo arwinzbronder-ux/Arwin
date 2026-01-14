@@ -18365,19 +18365,15 @@
         "secondary_status": "offline",
         "status_ids2": "offline",
         "session": {
-            "current_packs": 502,
+            "current_packs": 566,
             "instances": 4,
             "offline_instances": 0,
             "total_instances": 4,
-            "duration_minutes": 241,
-            "last_update": 1768426218,
+            "duration_minutes": 271,
+            "last_update": 1768428027,
             "last_monitor": 1
         },
         "samples": [
-            [
-                1768337444,
-                1221
-            ],
             [
                 1768339250,
                 1289
@@ -18545,10 +18541,6 @@
             [
                 1768339258.368,
                 1289
-            ],
-            [
-                1768337452.988,
-                1221
             ],
             [
                 1768377165,
@@ -18779,10 +18771,6 @@
                 1289
             ],
             [
-                1768337452.988,
-                1221
-            ],
-            [
                 1768422607,
                 382
             ],
@@ -18793,10 +18781,19 @@
             [
                 1768426218,
                 502
+            ],
+            [
+                1768428027,
+                566
             ]
         ],
         "has_alerted_offline": false,
-        "secondary_status_ids2": "offline"
+        "secondary_status_ids2": "offline",
+        "last_heartbeat_check": 1768428027,
+        "last_heartbeat": {
+            "time": 271,
+            "packs": 566
+        }
     },
     "151796642654191617": {
         "username": "nickka00",
