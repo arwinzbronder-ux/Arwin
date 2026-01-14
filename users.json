@@ -2631,9 +2631,10 @@
         "friend_code": "6270265152175778",
         "instances": 1,
         "prefix": "leter",
-        "status": "online",
+        "status": "offline",
         "secondary_status": "offline",
-        "last_heartbeat_check": 1768245983
+        "last_heartbeat_check": 1768245983,
+        "kicked_due_to_timeout": true
     },
     "693132470174089296": {
         "username": "zekasilva",
