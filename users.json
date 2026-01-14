@@ -13315,7 +13315,7 @@
         "secondary_code": null,
         "instances": 4,
         "prefix": "randomnames",
-        "status": "offline",
+        "status": "online",
         "secondary_status": "offline",
         "session": {
             "current_packs": 1264,
@@ -14172,7 +14172,7 @@
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768358197,
+        "last_heartbeat_check": 1768402939,
         "last_heartbeat": {
             "time": 571,
             "packs": 1264
