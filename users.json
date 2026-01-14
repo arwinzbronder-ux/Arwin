@@ -8855,12 +8855,8 @@
         "secondary_code": "2452383463979723",
         "instances": 5,
         "prefix": "dai",
-        "status": "online",
-        "secondary_status": "online",
-        "last_heartbeat": {
-            "time": 663,
-            "packs": 1098
-        },
+        "status": "offline",
+        "secondary_status": "offline",
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
         "session": {
@@ -9249,8 +9245,7 @@
                 1768358633,
                 1098
             ]
-        ],
-        "last_heartbeat_check": 1768358633
+        ]
     },
     "1056944043688476682": {
         "username": "libra_2828",
