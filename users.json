@@ -13987,27 +13987,15 @@
         "status": "online",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 2412,
+            "current_packs": 2470,
             "instances": 4,
             "offline_instances": 0,
             "total_instances": 4,
-            "duration_minutes": 1171,
-            "last_update": 1768406433,
+            "duration_minutes": 1201,
+            "last_update": 1768408236,
             "last_monitor": 1
         },
         "samples": [
-            [
-                1768313926,
-                3283
-            ],
-            [
-                1768315726,
-                3391
-            ],
-            [
-                1768317527,
-                3491
-            ],
             [
                 1768319327,
                 3599
@@ -14071,18 +14059,6 @@
             [
                 1768319337.73,
                 3599
-            ],
-            [
-                1768317536.655,
-                3491
-            ],
-            [
-                1768315736.276,
-                3391
-            ],
-            [
-                1768313934.639,
-                3283
             ],
             [
                 1768333733,
@@ -14317,18 +14293,6 @@
                 3599
             ],
             [
-                1768317536.655,
-                3491
-            ],
-            [
-                1768315736.276,
-                3391
-            ],
-            [
-                1768313934.639,
-                3283
-            ],
-            [
                 1768377591,
                 1239
             ],
@@ -14395,13 +14359,17 @@
             [
                 1768406433,
                 2412
+            ],
+            [
+                1768408236,
+                2470
             ]
         ],
         "last_heartbeat": {
-            "time": 1171,
-            "packs": 2412
+            "time": 1201,
+            "packs": 2470
         },
-        "last_heartbeat_check": 1768406433,
+        "last_heartbeat_check": 1768408236,
         "status_ids2": "offline",
         "secondary_status_ids2": "offline"
     },
