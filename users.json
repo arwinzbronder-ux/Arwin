@@ -17000,7 +17000,7 @@
         "friend_code": "3768789038959582",
         "instances": 8,
         "prefix": "pokemon names",
-        "status": "offline",
+        "status": "online",
         "secondary_status": "offline",
         "status_ids2": "offline",
         "session": {
@@ -17054,6 +17054,7 @@
                 0
             ]
         ],
-        "secondary_status_ids2": "offline"
+        "secondary_status_ids2": "offline",
+        "last_heartbeat_check": 1768409330
     }
 }
