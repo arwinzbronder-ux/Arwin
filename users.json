@@ -8773,16 +8773,16 @@
         "secondary_code": "3728578745352937",
         "secondary_status": "online",
         "last_heartbeat": {
-            "time": 210,
-            "packs": 446
+            "time": 240,
+            "packs": 510
         },
         "session": {
-            "current_packs": 446,
+            "current_packs": 510,
             "instances": 6,
             "offline_instances": 0,
             "total_instances": 6,
-            "duration_minutes": 210,
-            "last_update": 1768355537,
+            "duration_minutes": 240,
+            "last_update": 1768357340,
             "last_monitor": 1
         },
         "daily": {
@@ -8950,12 +8950,16 @@
             [
                 1768355537,
                 446
+            ],
+            [
+                1768357340,
+                510
             ]
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
         "has_alerted_offline": false,
-        "last_heartbeat_check": 1768355537
+        "last_heartbeat_check": 1768357340
     },
     "1059812834445377587": {
         "username": "daizy.",
