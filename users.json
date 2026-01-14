@@ -8041,16 +8041,16 @@
         "secondary_code": "3728578745352937",
         "secondary_status": "online",
         "last_heartbeat": {
-            "time": 751,
-            "packs": 1964
+            "time": 781,
+            "packs": 2062
         },
         "session": {
-            "current_packs": 1964,
+            "current_packs": 2062,
             "instances": 6,
             "offline_instances": 0,
             "total_instances": 6,
-            "duration_minutes": 751,
-            "last_update": 1768387981,
+            "duration_minutes": 781,
+            "last_update": 1768389783,
             "last_monitor": 1
         },
         "daily": {
@@ -8290,12 +8290,16 @@
             [
                 1768387981,
                 1964
+            ],
+            [
+                1768389783,
+                2062
             ]
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
         "has_alerted_offline": false,
-        "last_heartbeat_check": 1768387981
+        "last_heartbeat_check": 1768389783
     },
     "1059812834445377587": {
         "username": "daizy.",
