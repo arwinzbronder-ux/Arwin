@@ -3231,16 +3231,16 @@
         "status": "online",
         "secondary_status": "offline",
         "last_heartbeat": {
-            "time": 510,
-            "packs": 1884
+            "time": 540,
+            "packs": 2024
         },
         "session": {
-            "current_packs": 1884,
+            "current_packs": 2024,
             "instances": 7,
             "offline_instances": 0,
             "total_instances": 7,
-            "duration_minutes": 510,
-            "last_update": 1768368502,
+            "duration_minutes": 540,
+            "last_update": 1768370303,
             "last_monitor": 1
         },
         "daily": {
@@ -3649,11 +3649,15 @@
             [
                 1768368502,
                 1884
+            ],
+            [
+                1768370303,
+                2024
             ]
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768368502
+        "last_heartbeat_check": 1768370303
     },
     "287558941540352001": {
         "username": "bassrv",
