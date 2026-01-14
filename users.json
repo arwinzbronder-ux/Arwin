@@ -3545,7 +3545,7 @@
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
         "has_alerted_offline": false,
-        "last_heartbeat_check": 1768415244
+        "last_heartbeat_check": 1768417045
     },
     "396799589513953282": {
         "username": ".komorebi2",
