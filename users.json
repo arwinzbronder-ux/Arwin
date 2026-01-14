@@ -13685,7 +13685,7 @@
         "secondary_code": null,
         "instances": 4,
         "prefix": "fcb",
-        "status": "offline",
+        "status": "online",
         "secondary_status": "offline",
         "session": {
             "current_packs": 3364,
@@ -14174,7 +14174,7 @@
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768429376,
+        "last_heartbeat_check": 1768430316,
         "last_heartbeat": {
             "time": 1801,
             "packs": 3364
