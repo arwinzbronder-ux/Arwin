@@ -4850,12 +4850,12 @@
         "status": "offline",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 100,
+            "current_packs": 192,
             "instances": 7,
             "offline_instances": 0,
             "total_instances": 7,
-            "duration_minutes": 30,
-            "last_update": 1768431150,
+            "duration_minutes": 60,
+            "last_update": 1768432959,
             "last_monitor": 1
         },
         "daily": {
@@ -5131,15 +5131,19 @@
             [
                 1768431150,
                 100
+            ],
+            [
+                1768432959,
+                192
             ]
         ],
         "last_heartbeat": {
-            "time": 30,
-            "packs": 100
+            "time": 60,
+            "packs": 192
         },
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768431150
+        "last_heartbeat_check": 1768432959
     },
     "275988818631327745": {
         "username": "bloo_64",
