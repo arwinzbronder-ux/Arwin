@@ -15402,7 +15402,7 @@
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768511034
+        "last_heartbeat_check": 1768512834
     },
     "655583863954735124": {
         "username": "isaac5255",
@@ -16233,8 +16233,13 @@
             ]
         ],
         "status_ids2": "offline",
-        "secondary_status_ids2": "offline",
-        "has_alerted_offline": false
+        "secondary_status_ids2": "online",
+        "has_alerted_offline": false,
+        "last_heartbeat_check": 1768512506,
+        "last_heartbeat": {
+            "time": 271,
+            "packs": 1050
+        }
     },
     "1134310504324677713": {
         "username": "cynicalchery",
