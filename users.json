@@ -8777,10 +8777,10 @@
                 0
             ]
         ],
-        "has_alerted_offline": false,
+        "has_alerted_offline": true,
         "status_ids2": "online",
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768481244,
+        "last_heartbeat_check": 1768481538,
         "last_heartbeat": {
             "time": 0,
             "packs": 0
@@ -27716,7 +27716,8 @@
         "7170219859688868": 1768458020,
         "6093979636888967": 1768459296,
         "7007376880251956": 1768463291,
-        "7919120249343611": 1768481504
+        "7919120249343611": 1768481504,
+        "4971759959595494": 1768481505
     },
     "254666812548055041": {
         "username": "endersproxy",
