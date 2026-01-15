@@ -2041,12 +2041,12 @@
         "secondary_status": "offline",
         "secondary_code": "6662255096992516",
         "session": {
-            "current_packs": 0,
+            "current_packs": 109,
             "instances": 4,
             "offline_instances": 0,
             "total_instances": 4,
-            "duration_minutes": 0,
-            "last_update": 1768493668,
+            "duration_minutes": 30,
+            "last_update": 1768495458,
             "last_monitor": 2
         },
         "daily": {
@@ -2131,15 +2131,19 @@
             [
                 1768493668,
                 0
+            ],
+            [
+                1768495458,
+                109
             ]
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "online",
         "has_alerted_offline": false,
-        "last_heartbeat_check": 1768493668,
+        "last_heartbeat_check": 1768495458,
         "last_heartbeat": {
-            "time": 0,
-            "packs": 0
+            "time": 30,
+            "packs": 109
         }
     },
     "1040255662569033788": {
@@ -4801,7 +4805,7 @@
         "friend_code": "7429238101683230",
         "instances": 7,
         "prefix": "bass",
-        "status": "offline",
+        "status": "online",
         "secondary_status": "offline",
         "session": {
             "current_packs": 0,
@@ -6028,7 +6032,8 @@
             ]
         ],
         "status_ids2": "offline",
-        "secondary_status_ids2": "offline"
+        "secondary_status_ids2": "offline",
+        "last_heartbeat_check": 1768495444
     },
     "275988818631327745": {
         "username": "bloo_64",
