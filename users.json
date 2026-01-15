@@ -8013,10 +8013,10 @@
                 0
             ]
         ],
-        "has_alerted_offline": false,
+        "has_alerted_offline": true,
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768490977,
+        "last_heartbeat_check": 1768491152,
         "last_heartbeat": {
             "time": 0,
             "packs": 0
@@ -19485,7 +19485,7 @@
         "secondary_code": null,
         "instances": 6,
         "prefix": "Isaac",
-        "status": "online",
+        "status": "offline",
         "secondary_status": "offline",
         "session": {
             "current_packs": 60,
@@ -19913,11 +19913,7 @@
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768490889,
-        "last_heartbeat": {
-            "time": 30,
-            "packs": 60
-        }
+        "last_heartbeat_check": 1768490889
     },
     "_global_stats": {
         "daily_god_packs": 0,
@@ -23669,8 +23665,8 @@
             "instances": 4,
             "offline_instances": 0,
             "total_instances": 4,
-            "duration_minutes": 120,
-            "last_update": 1768489332,
+            "duration_minutes": 150,
+            "last_update": 1768491138,
             "last_monitor": 1
         },
         "samples": [
@@ -24137,17 +24133,21 @@
             [
                 1768489332,
                 20
+            ],
+            [
+                1768491138,
+                20
             ]
         ],
         "has_alerted_offline": false,
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768489332,
+        "last_heartbeat_check": 1768491138,
         "auto_kicked_state": {
             "status": "offline",
             "secondary_status": "offline"
         },
         "last_heartbeat": {
-            "time": 120,
+            "time": 150,
             "packs": 20
         }
     },
