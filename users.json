@@ -22463,7 +22463,7 @@
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768485858
+        "last_heartbeat_check": 1768487637
     },
     "655583863954735124": {
         "username": "isaac5255",
@@ -22471,7 +22471,7 @@
         "secondary_code": null,
         "instances": 6,
         "prefix": "Isaac",
-        "status": "online",
+        "status": "offline",
         "secondary_status": "offline",
         "session": {
             "current_packs": 0,
@@ -22895,7 +22895,7 @@
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768487628,
+        "last_heartbeat_check": 1768487616,
         "last_heartbeat": {
             "time": 0,
             "packs": 0
