@@ -17598,8 +17598,8 @@
         "secondary_code": "3225129689567626",
         "instances": 8,
         "prefix": "A",
-        "status": "online",
-        "secondary_status": "online",
+        "status": "offline",
+        "secondary_status": "offline",
         "session": {
             "current_packs": 0,
             "instances": 9,
@@ -17941,13 +17941,8 @@
             ]
         ],
         "status_ids2": "offline",
-        "secondary_status_ids2": "online",
-        "has_alerted_offline": false,
-        "last_heartbeat_check": 1768495427,
-        "last_heartbeat": {
-            "time": 0,
-            "packs": 0
-        }
+        "secondary_status_ids2": "offline",
+        "has_alerted_offline": false
     },
     "1134310504324677713": {
         "username": "cynicalchery",
