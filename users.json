@@ -2042,7 +2042,7 @@
             "offline_instances": 0,
             "total_instances": 4,
             "duration_minutes": 0,
-            "last_update": 1768493390,
+            "last_update": 1768493668,
             "last_monitor": 2
         },
         "daily": {
@@ -2123,12 +2123,16 @@
             [
                 1768493390,
                 0
+            ],
+            [
+                1768493668,
+                0
             ]
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "online",
         "has_alerted_offline": false,
-        "last_heartbeat_check": 1768493390,
+        "last_heartbeat_check": 1768493668,
         "last_heartbeat": {
             "time": 0,
             "packs": 0
