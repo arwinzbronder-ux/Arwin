@@ -4809,7 +4809,7 @@
         "friend_code": "7429238101683230",
         "instances": 7,
         "prefix": "bass",
-        "status": "offline",
+        "status": "online",
         "secondary_status": "offline",
         "session": {
             "current_packs": 0,
@@ -5037,7 +5037,7 @@
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768495563,
+        "last_heartbeat_check": 1768496236,
         "last_heartbeat": {
             "time": 0,
             "packs": 0
@@ -17598,7 +17598,7 @@
             "offline_instances": 0,
             "total_instances": 9,
             "duration_minutes": 0,
-            "last_update": 1768495443,
+            "last_update": 1768496259,
             "last_monitor": 1
         },
         "daily": {
@@ -17930,11 +17930,20 @@
             [
                 1768495443,
                 0
+            ],
+            [
+                1768496259,
+                0
             ]
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "online",
-        "has_alerted_offline": false
+        "has_alerted_offline": false,
+        "last_heartbeat_check": 1768496259,
+        "last_heartbeat": {
+            "time": 0,
+            "packs": 0
+        }
     },
     "1134310504324677713": {
         "username": "cynicalchery",
