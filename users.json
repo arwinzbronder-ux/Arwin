@@ -4,8 +4,8 @@
         "friend_code": "1851355530368517",
         "instances": 7,
         "prefix": "rillen",
-        "status": "online",
-        "secondary_status": "online",
+        "status": "offline",
+        "secondary_status": "offline",
         "session": {
             "current_packs": 2129,
             "instances": 6,
@@ -357,12 +357,7 @@
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
-        "secondary_code": "6270265152175778",
-        "last_heartbeat_check": 1768458571,
-        "last_heartbeat": {
-            "time": 633,
-            "packs": 2129
-        }
+        "secondary_code": "6270265152175778"
     },
     "1017762422947323965": {
         "username": "najanaja_44",
