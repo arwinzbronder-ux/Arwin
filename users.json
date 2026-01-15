@@ -2041,12 +2041,12 @@
         "secondary_status": "offline",
         "secondary_code": "6662255096992516",
         "session": {
-            "current_packs": 109,
+            "current_packs": 0,
             "instances": 4,
             "offline_instances": 0,
             "total_instances": 4,
-            "duration_minutes": 30,
-            "last_update": 1768495458,
+            "duration_minutes": 0,
+            "last_update": 1768496189,
             "last_monitor": 2
         },
         "daily": {
@@ -2135,15 +2135,19 @@
             [
                 1768495458,
                 109
+            ],
+            [
+                1768496189,
+                0
             ]
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "online",
         "has_alerted_offline": false,
-        "last_heartbeat_check": 1768495458,
+        "last_heartbeat_check": 1768496189,
         "last_heartbeat": {
-            "time": 30,
-            "packs": 109
+            "time": 0,
+            "packs": 0
         }
     },
     "1040255662569033788": {
@@ -17929,7 +17933,7 @@
             ]
         ],
         "status_ids2": "offline",
-        "secondary_status_ids2": "offline",
+        "secondary_status_ids2": "online",
         "has_alerted_offline": false
     },
     "1134310504324677713": {
@@ -20607,7 +20611,12 @@
         "7919120249343611": 1768481504,
         "4971759959595494": 1768481581,
         "3885488783993291": 1768487369,
-        "8220145373558725": 1768494624
+        "8220145373558725": 1768494624,
+        "7786676916330684": 1768496174,
+        "6798199629734149": 1768496175,
+        "8843423122060559": 1768496176,
+        "7013041472831941": 1768496178,
+        "7162943602455028": 1768496179
     },
     "254666812548055041": {
         "username": "endersproxy",
