@@ -4014,11 +4014,12 @@
                 1402
             ]
         ],
-        "last_heartbeat_check": 1768517244,
+        "last_heartbeat_check": 1768519052,
         "last_heartbeat": {
             "time": 452,
             "packs": 1402
-        }
+        },
+        "has_alerted_offline": true
     },
     "1056944043688476682": {
         "username": "libra_2828",
