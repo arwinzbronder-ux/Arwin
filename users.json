@@ -2163,12 +2163,12 @@
         "secondary_status": "online",
         "secondary_code": "6945259816716451",
         "session": {
-            "current_packs": 833,
+            "current_packs": 634,
             "instances": 6,
             "offline_instances": 0,
             "total_instances": 6,
-            "duration_minutes": 120,
-            "last_update": 1768496469,
+            "duration_minutes": 90,
+            "last_update": 1768494660,
             "last_monitor": 1
         },
         "daily": {
@@ -2492,19 +2492,15 @@
             [
                 1768494660,
                 634
-            ],
-            [
-                1768496469,
-                833
             ]
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
         "has_alerted_offline": false,
-        "last_heartbeat_check": 1768496469,
+        "last_heartbeat_check": 1768494660,
         "last_heartbeat": {
-            "time": 120,
-            "packs": 833
+            "time": 90,
+            "packs": 634
         }
     },
     "288833945062342657": {
@@ -4825,7 +4821,7 @@
             "offline_instances": 0,
             "total_instances": 7,
             "duration_minutes": 0,
-            "last_update": 1768496297,
+            "last_update": 1768495563,
             "last_monitor": 1
         },
         "daily": {
@@ -5041,15 +5037,11 @@
             [
                 1768495563,
                 0
-            ],
-            [
-                1768496297,
-                0
             ]
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768496297,
+        "last_heartbeat_check": 1768496236,
         "last_heartbeat": {
             "time": 0,
             "packs": 0
@@ -20636,7 +20628,7 @@
         "7786676916330684": 1768496174,
         "6798199629734149": 1768496175,
         "8843423122060559": 1768496176,
-        "7013041472831941": 1768496295,
+        "7013041472831941": 1768496178,
         "7162943602455028": 1768496179
     },
     "254666812548055041": {
