@@ -16649,8 +16649,8 @@
             ]
         ],
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768518879,
-        "has_alerted_offline": true
+        "last_heartbeat_check": 1768518902,
+        "has_alerted_offline": false
     },
     "303616375224795136": {
         "username": "dergoettliche",
