@@ -12924,7 +12924,7 @@
             "date": "2026-01-06",
             "start_packs": 0
         },
-        "has_alerted_offline": false,
+        "has_alerted_offline": true,
         "history": [],
         "samples": [
             [
@@ -13246,7 +13246,7 @@
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768440901,
+        "last_heartbeat_check": 1768442709,
         "last_heartbeat": {
             "time": 632,
             "packs": 1624
