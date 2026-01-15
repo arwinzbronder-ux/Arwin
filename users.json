@@ -365,7 +365,7 @@
         "friend_code": "0888904208075358",
         "instances": 5,
         "prefix": "naja",
-        "status": "offline",
+        "status": "online",
         "secondary_status": "offline",
         "session": {
             "current_packs": 46,
@@ -430,7 +430,7 @@
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
         "has_alerted_offline": false,
-        "last_heartbeat_check": 1768455885,
+        "last_heartbeat_check": 1768457341,
         "last_heartbeat": {
             "time": 30,
             "packs": 46
@@ -15808,7 +15808,7 @@
         "0923564117305342": 1768455489,
         "1699555053332042": 1768457056,
         "9523660602305440": 1768457116,
-        "1440921379117353": 1768457266
+        "1440921379117353": 1768457290
     },
     "254666812548055041": {
         "username": "endersproxy",
