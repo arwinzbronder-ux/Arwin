@@ -11238,12 +11238,12 @@
         "status": "offline",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 1654,
-            "instances": 0,
-            "offline_instances": 4,
+            "current_packs": 0,
+            "instances": 4,
+            "offline_instances": 0,
             "total_instances": 4,
-            "duration_minutes": 843,
-            "last_update": 1768453555,
+            "duration_minutes": 0,
+            "last_update": 1768457966,
             "last_monitor": 1
         },
         "daily": {
@@ -11596,11 +11596,19 @@
             [
                 1768453555,
                 1654
+            ],
+            [
+                1768457966,
+                0
             ]
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768457939
+        "last_heartbeat_check": 1768457939,
+        "last_heartbeat": {
+            "time": 0,
+            "packs": 0
+        }
     },
     "307883135285067776": {
         "username": "tilero",
