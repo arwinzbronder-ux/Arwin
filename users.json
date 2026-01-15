@@ -14779,8 +14779,8 @@
         "secondary_code": "3225129689567626",
         "instances": 8,
         "prefix": "A",
-        "status": "online",
-        "secondary_status": "online",
+        "status": "offline",
+        "secondary_status": "offline",
         "session": {
             "current_packs": 3260,
             "instances": 9,
@@ -15112,11 +15112,6 @@
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
         "has_alerted_offline": false,
-        "last_heartbeat_check": 1768447407,
-        "last_heartbeat": {
-            "time": 843,
-            "packs": 3260
-        },
         "kicked_due_to_timeout": true
     },
     "1134310504324677713": {
