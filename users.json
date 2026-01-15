@@ -21903,11 +21903,11 @@
             ]
         ],
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768498682,
+        "last_heartbeat_check": 1768500483,
         "last_heartbeat": {
             "time": 30,
             "packs": 156
         },
-        "has_alerted_offline": true
+        "has_alerted_offline": false
     }
 }
