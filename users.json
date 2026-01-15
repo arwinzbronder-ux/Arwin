@@ -28217,7 +28217,7 @@
         "friend_code": "2924724348069222",
         "instances": 5,
         "prefix": "Sad / Yuyu",
-        "status": "online",
+        "status": "offline",
         "secondary_status": "offline",
         "status_ids2": "offline",
         "session": {
@@ -28793,7 +28793,8 @@
         "last_heartbeat": {
             "time": 934,
             "packs": 2169
-        }
+        },
+        "kicked_due_to_timeout": true
     },
     "151796642654191617": {
         "username": "nickka00",
