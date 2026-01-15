@@ -8563,7 +8563,7 @@
             "offline_instances": 0,
             "total_instances": 3,
             "duration_minutes": 0,
-            "last_update": 1768481257,
+            "last_update": 1768481919,
             "last_monitor": 2
         },
         "daily": {
@@ -8778,6 +8778,10 @@
             ],
             [
                 1768481257,
+                0
+            ],
+            [
+                1768481919,
                 0
             ]
         ],
