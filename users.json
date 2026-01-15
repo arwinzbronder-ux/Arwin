@@ -967,11 +967,11 @@
         "secondary_code": "6662255096992516",
         "session": {
             "current_packs": 0,
-            "instances": 4,
-            "offline_instances": 0,
+            "instances": 3,
+            "offline_instances": 1,
             "total_instances": 4,
             "duration_minutes": 0,
-            "last_update": 1768457177,
+            "last_update": 1768457538,
             "last_monitor": 1
         },
         "daily": {
@@ -991,6 +991,10 @@
             ],
             [
                 1768457177,
+                0
+            ],
+            [
+                1768457538,
                 0
             ]
         ],
