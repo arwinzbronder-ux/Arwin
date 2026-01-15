@@ -2186,7 +2186,7 @@
             "offline_instances": 0,
             "total_instances": 4,
             "duration_minutes": 0,
-            "last_update": 1768486363,
+            "last_update": 1768487034,
             "last_monitor": 1
         },
         "daily": {
@@ -2251,11 +2251,20 @@
             [
                 1768486363,
                 0
+            ],
+            [
+                1768487034,
+                0
             ]
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "online",
-        "has_alerted_offline": false
+        "has_alerted_offline": false,
+        "last_heartbeat_check": 1768487034,
+        "last_heartbeat": {
+            "time": 0,
+            "packs": 0
+        }
     },
     "1040255662569033788": {
         "username": "jerry223608",
