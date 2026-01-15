@@ -15106,7 +15106,7 @@
         "secondary_code": null,
         "instances": 4,
         "prefix": "CheryGP",
-        "status": "online",
+        "status": "offline",
         "secondary_status": "offline",
         "session": {
             "current_packs": 3596,
@@ -15519,11 +15519,6 @@
                 3596
             ]
         ],
-        "last_heartbeat": {
-            "time": 1833,
-            "packs": 3596
-        },
-        "last_heartbeat_check": 1768446121,
         "status_ids2": "offline",
         "secondary_status_ids2": "offline"
     },
