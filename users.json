@@ -20263,7 +20263,7 @@
         "prefix": "pokemon names",
         "status": "offline",
         "secondary_status": "offline",
-        "status_ids2": "online",
+        "status_ids2": "offline",
         "session": {
             "current_packs": 836,
             "instances": 7,
@@ -20636,11 +20636,6 @@
             ]
         ],
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768507702,
-        "last_heartbeat": {
-            "time": 180,
-            "packs": 836
-        },
         "has_alerted_offline": true
     }
 }
