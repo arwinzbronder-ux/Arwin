@@ -27146,7 +27146,7 @@
         "friend_code": "6894582447628975",
         "instances": 5,
         "prefix": "Pokemon names",
-        "status": "online",
+        "status": "offline",
         "secondary_status": "offline",
         "status_ids2": "offline",
         "session": {
@@ -27549,11 +27549,7 @@
             ]
         ],
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768488627,
-        "last_heartbeat": {
-            "time": 0,
-            "packs": 0
-        }
+        "last_heartbeat_check": 1768488627
     },
     "303616375224795136": {
         "username": "dergoettliche",
