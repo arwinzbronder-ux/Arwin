@@ -3863,12 +3863,7 @@
         ],
         "has_alerted_offline": false,
         "status_ids2": "offline",
-        "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768442333,
-        "last_heartbeat": {
-            "time": 180,
-            "packs": 502
-        }
+        "secondary_status_ids2": "offline"
     },
     "409685259437735936": {
         "username": "iraptorxd",
@@ -4634,12 +4629,12 @@
         "status": "online",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 806,
+            "current_packs": 942,
             "instances": 7,
             "offline_instances": 0,
             "total_instances": 7,
-            "duration_minutes": 210,
-            "last_update": 1768442225,
+            "duration_minutes": 240,
+            "last_update": 1768444026,
             "last_monitor": 1
         },
         "daily": {
@@ -4944,14 +4939,18 @@
             [
                 1768442225,
                 806
+            ],
+            [
+                1768444026,
+                942
             ]
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768442225,
+        "last_heartbeat_check": 1768444026,
         "last_heartbeat": {
-            "time": 210,
-            "packs": 806
+            "time": 240,
+            "packs": 942
         }
     },
     "287558941540352001": {
