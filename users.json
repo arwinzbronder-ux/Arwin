@@ -20700,19 +20700,15 @@
         "secondary_status": "offline",
         "status_ids2": "offline",
         "session": {
-            "current_packs": 409,
+            "current_packs": 521,
             "instances": 4,
             "offline_instances": 0,
             "total_instances": 4,
-            "duration_minutes": 120,
-            "last_update": 1768499214,
+            "duration_minutes": 150,
+            "last_update": 1768501019,
             "last_monitor": 1
         },
         "samples": [
-            [
-                1768410172,
-                599
-            ],
             [
                 1768411744,
                 0
@@ -20760,10 +20756,6 @@
             [
                 1768411763.014,
                 0
-            ],
-            [
-                1768410191.055,
-                599
             ],
             [
                 1768422607,
@@ -20958,10 +20950,6 @@
                 0
             ],
             [
-                1768410191.055,
-                599
-            ],
-            [
                 1768460565,
                 1807
             ],
@@ -21094,10 +21082,6 @@
                 0
             ],
             [
-                1768410191.055,
-                599
-            ],
-            [
                 1768465988,
                 2095
             ],
@@ -21148,14 +21132,18 @@
             [
                 1768499214,
                 409
+            ],
+            [
+                1768501019,
+                521
             ]
         ],
         "has_alerted_offline": false,
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768499214,
+        "last_heartbeat_check": 1768501019,
         "last_heartbeat": {
-            "time": 120,
-            "packs": 409
+            "time": 150,
+            "packs": 521
         }
     },
     "151796642654191617": {
