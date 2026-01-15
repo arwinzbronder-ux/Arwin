@@ -1741,7 +1741,7 @@
             "offline_instances": 0,
             "total_instances": 3,
             "duration_minutes": 0,
-            "last_update": 1768470735,
+            "last_update": 1768471012,
             "last_monitor": 1
         },
         "daily": {
@@ -2108,10 +2108,19 @@
             [
                 1768470735,
                 0
+            ],
+            [
+                1768471012,
+                0
             ]
         ],
         "status_ids2": "online",
-        "secondary_status_ids2": "offline"
+        "secondary_status_ids2": "offline",
+        "last_heartbeat_check": 1768471012,
+        "last_heartbeat": {
+            "time": 0,
+            "packs": 0
+        }
     },
     "694638638746566677": {
         "username": "karaelmas3998",
