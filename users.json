@@ -4805,7 +4805,7 @@
         "friend_code": "7429238101683230",
         "instances": 7,
         "prefix": "bass",
-        "status": "online",
+        "status": "offline",
         "secondary_status": "offline",
         "session": {
             "current_packs": 0,
@@ -8762,12 +8762,12 @@
         "status_ids2": "online",
         "secondary_status_ids2": "online",
         "session": {
-            "current_packs": 130,
+            "current_packs": 206,
             "instances": 5,
             "offline_instances": 0,
             "total_instances": 5,
-            "duration_minutes": 60,
-            "last_update": 1768493722,
+            "duration_minutes": 90,
+            "last_update": 1768495531,
             "last_monitor": 2
         },
         "samples": [
@@ -8782,12 +8782,16 @@
             [
                 1768493722,
                 130
+            ],
+            [
+                1768495531,
+                206
             ]
         ],
-        "last_heartbeat_check": 1768493722,
+        "last_heartbeat_check": 1768495531,
         "last_heartbeat": {
-            "time": 60,
-            "packs": 130
+            "time": 90,
+            "packs": 206
         }
     },
     "1056944043688476682": {
