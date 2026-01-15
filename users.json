@@ -4413,12 +4413,12 @@
         "status": "offline",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 448,
+            "current_packs": 508,
             "instances": 3,
             "offline_instances": 0,
             "total_instances": 3,
-            "duration_minutes": 211,
-            "last_update": 1768507985,
+            "duration_minutes": 241,
+            "last_update": 1768509790,
             "last_monitor": 2
         },
         "daily": {
@@ -4698,15 +4698,19 @@
             [
                 1768507985,
                 448
+            ],
+            [
+                1768509790,
+                508
             ]
         ],
         "has_alerted_offline": false,
         "status_ids2": "online",
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768507985,
+        "last_heartbeat_check": 1768509790,
         "last_heartbeat": {
-            "time": 211,
-            "packs": 448
+            "time": 241,
+            "packs": 508
         }
     },
     "520672416632930304": {
