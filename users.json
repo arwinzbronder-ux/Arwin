@@ -4227,12 +4227,12 @@
         "status": "offline",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 0,
+            "current_packs": 84,
             "instances": 7,
             "offline_instances": 0,
             "total_instances": 7,
-            "duration_minutes": 0,
-            "last_update": 1768515126,
+            "duration_minutes": 30,
+            "last_update": 1768516891,
             "last_monitor": 2
         },
         "daily": {
@@ -4608,15 +4608,19 @@
             [
                 1768515126,
                 0
+            ],
+            [
+                1768516891,
+                84
             ]
         ],
         "has_alerted_offline": false,
         "status_ids2": "online",
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768515116,
+        "last_heartbeat_check": 1768516891,
         "last_heartbeat": {
-            "time": 0,
-            "packs": 0
+            "time": 30,
+            "packs": 84
         }
     },
     "157834363944435713": {
