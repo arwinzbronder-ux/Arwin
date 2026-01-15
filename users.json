@@ -8781,10 +8781,10 @@
                 0
             ]
         ],
-        "has_alerted_offline": true,
+        "has_alerted_offline": false,
         "status_ids2": "online",
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768481538,
+        "last_heartbeat_check": 1768481906,
         "last_heartbeat": {
             "time": 0,
             "packs": 0
