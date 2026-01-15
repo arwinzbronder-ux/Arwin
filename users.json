@@ -27155,7 +27155,7 @@
             "offline_instances": 0,
             "total_instances": 5,
             "duration_minutes": 0,
-            "last_update": 1768487980,
+            "last_update": 1768488696,
             "last_monitor": 1
         },
         "samples": [
@@ -27546,10 +27546,18 @@
             [
                 1768487980,
                 0
+            ],
+            [
+                1768488696,
+                0
             ]
         ],
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768488627
+        "last_heartbeat_check": 1768488696,
+        "last_heartbeat": {
+            "time": 0,
+            "packs": 0
+        }
     },
     "303616375224795136": {
         "username": "dergoettliche",
