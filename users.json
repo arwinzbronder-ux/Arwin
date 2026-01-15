@@ -13,7 +13,7 @@
             "total_instances": 7,
             "duration_minutes": 0,
             "last_update": 1768503162,
-            "last_monitor": 1
+            "last_monitor": 2
         },
         "daily": {
             "date": "2026-01-06",
@@ -1395,7 +1395,7 @@
             ]
         ],
         "status_ids2": "offline",
-        "secondary_status_ids2": "online",
+        "secondary_status_ids2": "offline",
         "has_alerted_offline": false,
         "last_heartbeat_check": 1768501580,
         "last_heartbeat": {
@@ -15824,12 +15824,12 @@
         "status": "online",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 438,
+            "current_packs": 546,
             "instances": 6,
             "offline_instances": 0,
             "total_instances": 6,
-            "duration_minutes": 120,
-            "last_update": 1768501429,
+            "duration_minutes": 150,
+            "last_update": 1768503234,
             "last_monitor": 1
         },
         "daily": {
@@ -16213,14 +16213,18 @@
             [
                 1768501429,
                 438
+            ],
+            [
+                1768503234,
+                546
             ]
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768501429,
+        "last_heartbeat_check": 1768503234,
         "last_heartbeat": {
-            "time": 120,
-            "packs": 438
+            "time": 150,
+            "packs": 546
         }
     },
     "_global_stats": {
