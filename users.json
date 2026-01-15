@@ -11599,16 +11599,7 @@
             ]
         ],
         "status_ids2": "offline",
-        "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768453555,
-        "last_heartbeat": {
-            "time": 843,
-            "packs": 1654
-        },
-        "auto_kicked_state": {
-            "status": "offline",
-            "secondary_status": "offline"
-        }
+        "secondary_status_ids2": "offline"
     },
     "307883135285067776": {
         "username": "tilero",
