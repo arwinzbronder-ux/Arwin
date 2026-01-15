@@ -19253,7 +19253,7 @@
         "prefix": "Pokemon names",
         "status": "offline",
         "secondary_status": "offline",
-        "status_ids2": "online",
+        "status_ids2": "offline",
         "session": {
             "current_packs": 50,
             "instances": 5,
@@ -19437,12 +19437,7 @@
                 50
             ]
         ],
-        "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768511923,
-        "last_heartbeat": {
-            "time": 20,
-            "packs": 50
-        }
+        "secondary_status_ids2": "offline"
     },
     "303616375224795136": {
         "username": "dergoettliche",
