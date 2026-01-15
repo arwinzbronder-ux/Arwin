@@ -4817,7 +4817,7 @@
         "friend_code": "7429238101683230",
         "instances": 7,
         "prefix": "bass",
-        "status": "online",
+        "status": "offline",
         "secondary_status": "offline",
         "session": {
             "current_packs": 0,
@@ -5048,12 +5048,7 @@
             ]
         ],
         "status_ids2": "offline",
-        "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768496297,
-        "last_heartbeat": {
-            "time": 0,
-            "packs": 0
-        }
+        "secondary_status_ids2": "offline"
     },
     "275988818631327745": {
         "username": "bloo_64",
@@ -5347,12 +5342,12 @@
         "status": "offline",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 202,
+            "current_packs": 0,
             "instances": 7,
             "offline_instances": 0,
             "total_instances": 7,
-            "duration_minutes": 60,
-            "last_update": 1768494934,
+            "duration_minutes": 0,
+            "last_update": 1768496751,
             "last_monitor": 1
         },
         "daily": {
@@ -5684,15 +5679,19 @@
             [
                 1768494934,
                 202
+            ],
+            [
+                1768496751,
+                0
             ]
         ],
         "has_alerted_offline": false,
         "status_ids2": "online",
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768494934,
+        "last_heartbeat_check": 1768496751,
         "last_heartbeat": {
-            "time": 60,
-            "packs": 202
+            "time": 0,
+            "packs": 0
         }
     },
     "157834363944435713": {
@@ -20633,11 +20632,11 @@
         "4971759959595494": 1768481581,
         "3885488783993291": 1768487369,
         "8220145373558725": 1768494624,
-        "7786676916330684": 1768496174,
-        "6798199629734149": 1768496648,
+        "7786676916330684": 1768496669,
+        "6798199629734149": 1768496175,
         "8843423122060559": 1768496626,
         "7013041472831941": 1768496295,
-        "7162943602455028": 1768496653
+        "7162943602455028": 1768496179
     },
     "254666812548055041": {
         "username": "endersproxy",
