@@ -13,7 +13,7 @@
             "total_instances": 6,
             "duration_minutes": 633,
             "last_update": 1768458592.659,
-            "last_monitor": 1
+            "last_monitor": 2
         },
         "daily": {
             "date": "2026-01-06",
@@ -1047,7 +1047,7 @@
                 2399
             ]
         ],
-        "status_ids2": "online",
+        "status_ids2": "offline",
         "secondary_status_ids2": "offline",
         "secondary_code": "6270265152175778"
     },
