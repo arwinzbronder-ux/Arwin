@@ -5573,7 +5573,7 @@
         "friend_code": "3304610426842804",
         "instances": 7,
         "prefix": "Jaus",
-        "status": "online",
+        "status": "offline",
         "secondary_status": "offline",
         "session": {
             "current_packs": 2052,
@@ -5989,12 +5989,7 @@
         ],
         "has_alerted_offline": true,
         "status_ids2": "offline",
-        "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768445703,
-        "last_heartbeat": {
-            "time": 661,
-            "packs": 2052
-        }
+        "secondary_status_ids2": "offline"
     },
     "157834363944435713": {
         "username": "fierza.",
