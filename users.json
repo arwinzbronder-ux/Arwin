@@ -20866,12 +20866,12 @@
         "secondary_status": "offline",
         "status_ids2": "online",
         "session": {
-            "current_packs": 310,
+            "current_packs": 472,
             "instances": 8,
             "offline_instances": 0,
             "total_instances": 8,
-            "duration_minutes": 60,
-            "last_update": 1768500495,
+            "duration_minutes": 90,
+            "last_update": 1768502284,
             "last_monitor": 2
         },
         "samples": [
@@ -21218,13 +21218,17 @@
             [
                 1768500495,
                 310
+            ],
+            [
+                1768502284,
+                472
             ]
         ],
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768500483,
+        "last_heartbeat_check": 1768502284,
         "last_heartbeat": {
-            "time": 60,
-            "packs": 310
+            "time": 90,
+            "packs": 472
         },
         "has_alerted_offline": false
     }
