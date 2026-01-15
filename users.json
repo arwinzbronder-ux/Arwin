@@ -20535,11 +20535,11 @@
             ]
         ],
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768504100,
+        "last_heartbeat_check": 1768505901,
         "last_heartbeat": {
             "time": 120,
             "packs": 602
         },
-        "has_alerted_offline": false
+        "has_alerted_offline": true
     }
 }
