@@ -1314,12 +1314,12 @@
         "secondary_status": "offline",
         "secondary_code": "6662255096992516",
         "session": {
-            "current_packs": 95,
+            "current_packs": 0,
             "instances": 4,
             "offline_instances": 0,
             "total_instances": 4,
-            "duration_minutes": 30,
-            "last_update": 1768509107,
+            "duration_minutes": 0,
+            "last_update": 1768510288,
             "last_monitor": 2
         },
         "daily": {
@@ -1440,11 +1440,20 @@
             [
                 1768509107,
                 95
+            ],
+            [
+                1768510288,
+                0
             ]
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
-        "has_alerted_offline": false
+        "has_alerted_offline": false,
+        "last_heartbeat_check": 1768510288,
+        "last_heartbeat": {
+            "time": 0,
+            "packs": 0
+        }
     },
     "1040255662569033788": {
         "username": "jerry223608",
