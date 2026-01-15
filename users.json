@@ -5987,10 +5987,10 @@
                 2052
             ]
         ],
-        "has_alerted_offline": false,
+        "has_alerted_offline": true,
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768445386,
+        "last_heartbeat_check": 1768445703,
         "last_heartbeat": {
             "time": 661,
             "packs": 2052
