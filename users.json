@@ -16738,12 +16738,7 @@
             ]
         ],
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768520056,
-        "has_alerted_offline": false,
-        "last_heartbeat": {
-            "time": 20,
-            "packs": 54
-        }
+        "has_alerted_offline": false
     },
     "303616375224795136": {
         "username": "dergoettliche",
