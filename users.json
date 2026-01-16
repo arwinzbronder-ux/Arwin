@@ -3626,10 +3626,10 @@
                 1032
             ]
         ],
-        "has_alerted_offline": false,
+        "has_alerted_offline": true,
         "status_ids2": "online",
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768526049,
+        "last_heartbeat_check": 1768526561,
         "last_heartbeat": {
             "time": 512,
             "packs": 1032
