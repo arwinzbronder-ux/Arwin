@@ -2576,14 +2576,9 @@
                 340
             ]
         ],
-        "status_ids2": "online",
+        "status_ids2": "offline",
         "secondary_status_ids2": "offline",
-        "has_alerted_offline": false,
-        "last_heartbeat_check": 1768580870,
-        "last_heartbeat": {
-            "time": 90,
-            "packs": 340
-        }
+        "has_alerted_offline": false
     },
     "396799589513953282": {
         "username": ".komorebi2",
