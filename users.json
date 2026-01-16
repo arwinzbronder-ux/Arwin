@@ -4035,8 +4035,8 @@
         "friend_code": "7429238101683230",
         "instances": 7,
         "prefix": "bass",
-        "status": "online",
-        "secondary_status": "online",
+        "status": "offline",
+        "secondary_status": "offline",
         "session": {
             "current_packs": 602,
             "instances": 7,
