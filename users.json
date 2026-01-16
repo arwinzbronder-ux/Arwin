@@ -1604,12 +1604,12 @@
         "secondary_status": "online",
         "secondary_code": "6945259816716451",
         "session": {
-            "current_packs": 4254,
+            "current_packs": 4062,
             "instances": 6,
             "offline_instances": 0,
             "total_instances": 6,
-            "duration_minutes": 693,
-            "last_update": 1768530846,
+            "duration_minutes": 663,
+            "last_update": 1768529039,
             "last_monitor": 1
         },
         "daily": {
@@ -2005,19 +2005,15 @@
             [
                 1768529039,
                 4062
-            ],
-            [
-                1768530846,
-                4254
             ]
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
         "has_alerted_offline": false,
-        "last_heartbeat_check": 1768530846,
+        "last_heartbeat_check": 1768529039,
         "last_heartbeat": {
-            "time": 693,
-            "packs": 4254
+            "time": 663,
+            "packs": 4062
         }
     },
     "288833945062342657": {
@@ -12928,7 +12924,7 @@
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768529038
+        "last_heartbeat_check": 1768530847
     },
     "655583863954735124": {
         "username": "isaac5255",
