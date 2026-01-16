@@ -1624,12 +1624,12 @@
         "secondary_status": "online",
         "secondary_code": "6945259816716451",
         "session": {
-            "current_packs": 4450,
+            "current_packs": 4660,
             "instances": 6,
             "offline_instances": 0,
             "total_instances": 6,
-            "duration_minutes": 723,
-            "last_update": 1768532655,
+            "duration_minutes": 753,
+            "last_update": 1768534466,
             "last_monitor": 1
         },
         "daily": {
@@ -2029,15 +2029,19 @@
             [
                 1768532655,
                 4450
+            ],
+            [
+                1768534466,
+                4660
             ]
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
         "has_alerted_offline": false,
-        "last_heartbeat_check": 1768532655,
+        "last_heartbeat_check": 1768534466,
         "last_heartbeat": {
-            "time": 723,
-            "packs": 4450
+            "time": 753,
+            "packs": 4660
         }
     },
     "288833945062342657": {
@@ -13354,12 +13358,12 @@
         "status": "offline",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 784,
+            "current_packs": 682,
             "instances": 7,
             "offline_instances": 0,
             "total_instances": 7,
-            "duration_minutes": 241,
-            "last_update": 1768534447,
+            "duration_minutes": 210,
+            "last_update": 1768532634,
             "last_monitor": 2
         },
         "daily": {
@@ -13519,19 +13523,15 @@
             [
                 1768532634,
                 682
-            ],
-            [
-                1768534447,
-                784
             ]
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "online",
         "has_alerted_offline": false,
-        "last_heartbeat_check": 1768534447,
+        "last_heartbeat_check": 1768532634,
         "last_heartbeat": {
-            "time": 241,
-            "packs": 784
+            "time": 210,
+            "packs": 682
         }
     },
     "1134310504324677713": {
