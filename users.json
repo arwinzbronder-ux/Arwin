@@ -4036,12 +4036,12 @@
         "status_ids2": "online",
         "secondary_status_ids2": "online",
         "session": {
-            "current_packs": 1492,
+            "current_packs": 1532,
             "instances": 4,
             "offline_instances": 1,
             "total_instances": 5,
-            "duration_minutes": 513,
-            "last_update": 1768520877,
+            "duration_minutes": 543,
+            "last_update": 1768522686,
             "last_monitor": 2
         },
         "samples": [
@@ -4112,12 +4112,16 @@
             [
                 1768520877,
                 1492
+            ],
+            [
+                1768522686,
+                1532
             ]
         ],
-        "last_heartbeat_check": 1768520877,
+        "last_heartbeat_check": 1768522686,
         "last_heartbeat": {
-            "time": 513,
-            "packs": 1492
+            "time": 543,
+            "packs": 1532
         },
         "has_alerted_offline": true
     },
