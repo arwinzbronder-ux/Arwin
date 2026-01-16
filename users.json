@@ -2442,11 +2442,11 @@
         "secondary_status": "offline",
         "session": {
             "current_packs": 0,
-            "instances": 5,
+            "instances": 4,
             "offline_instances": 0,
-            "total_instances": 5,
+            "total_instances": 4,
             "duration_minutes": 0,
-            "last_update": 1768523580,
+            "last_update": 1768573981,
             "last_monitor": 2
         },
         "daily": {
@@ -2489,12 +2489,20 @@
             [
                 1768523580,
                 0
+            ],
+            [
+                1768573981,
+                0
             ]
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
         "has_alerted_offline": false,
-        "last_heartbeat_check": 1768573915
+        "last_heartbeat_check": 1768573981,
+        "last_heartbeat": {
+            "time": 0,
+            "packs": 0
+        }
     },
     "396799589513953282": {
         "username": ".komorebi2",
