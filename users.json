@@ -2167,7 +2167,7 @@
         "friend_code": "4928118289932284",
         "instances": 5,
         "prefix": "pokemon names",
-        "status": "online",
+        "status": "offline",
         "secondary_status": "offline",
         "session": {
             "current_packs": 3324,
@@ -2376,9 +2376,9 @@
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
         "last_heartbeat_check": 1768557982,
-        "last_heartbeat": {
-            "time": 662,
-            "packs": 3324
+        "auto_kicked_state": {
+            "status": "online",
+            "secondary_status": "offline"
         }
     },
     "409685259437735936": {
