@@ -13382,7 +13382,7 @@
             "offline_instances": 0,
             "total_instances": 7,
             "duration_minutes": 0,
-            "last_update": 1768585800,
+            "last_update": 1768586011,
             "last_monitor": 2
         },
         "daily": {
@@ -13562,12 +13562,16 @@
             [
                 1768585800,
                 0
+            ],
+            [
+                1768586011,
+                0
             ]
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "online",
         "has_alerted_offline": false,
-        "last_heartbeat_check": 1768585800,
+        "last_heartbeat_check": 1768586011,
         "last_heartbeat": {
             "time": 0,
             "packs": 0
