@@ -3221,12 +3221,12 @@
         "status": "online",
         "secondary_status": "online",
         "session": {
-            "current_packs": 378,
+            "current_packs": 490,
             "instances": 7,
             "offline_instances": 0,
             "total_instances": 7,
-            "duration_minutes": 90,
-            "last_update": 1768586025,
+            "duration_minutes": 120,
+            "last_update": 1768587832,
             "last_monitor": 2
         },
         "daily": {
@@ -3462,14 +3462,18 @@
             [
                 1768586025,
                 378
+            ],
+            [
+                1768587832,
+                490
             ]
         ],
         "status_ids2": "online",
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768586025,
+        "last_heartbeat_check": 1768587832,
         "last_heartbeat": {
-            "time": 90,
-            "packs": 378
+            "time": 120,
+            "packs": 490
         }
     },
     "275988818631327745": {
