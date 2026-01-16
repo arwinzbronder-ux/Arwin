@@ -4357,8 +4357,8 @@
                 4232
             ]
         ],
-        "status_ids2": "online",
-        "secondary_status_ids2": "online",
+        "status_ids2": "offline",
+        "secondary_status_ids2": "offline",
         "has_alerted_offline": false,
         "last_heartbeat_check": 1768590239,
         "last_heartbeat": {
@@ -13771,7 +13771,7 @@
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768590446
+        "last_heartbeat_check": 1768592246
     },
     "655583863954735124": {
         "username": "isaac5255",
