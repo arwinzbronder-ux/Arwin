@@ -4058,13 +4058,8 @@
             ]
         ],
         "has_alerted_offline": false,
-        "status_ids2": "online",
-        "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768525920,
-        "last_heartbeat": {
-            "time": 180,
-            "packs": 550
-        }
+        "status_ids2": "offline",
+        "secondary_status_ids2": "offline"
     },
     "157834363944435713": {
         "username": "fierza.",
