@@ -3381,7 +3381,7 @@
                 0
             ]
         ],
-        "status_ids2": "offline",
+        "status_ids2": "online",
         "secondary_status_ids2": "offline",
         "last_heartbeat_check": 1768496975,
         "last_heartbeat": {
