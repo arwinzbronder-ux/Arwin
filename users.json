@@ -1435,7 +1435,7 @@
         "instances": 4,
         "prefix": "Garca",
         "status": "offline",
-        "secondary_status": "online",
+        "secondary_status": "offline",
         "secondary_code": "2572088340351976",
         "session": {
             "current_packs": 661,
@@ -1638,14 +1638,9 @@
                 661
             ]
         ],
-        "status_ids2": "online",
+        "status_ids2": "offline",
         "secondary_status_ids2": "offline",
-        "has_alerted_offline": false,
-        "last_heartbeat_check": 1768539961,
-        "last_heartbeat": {
-            "time": 270,
-            "packs": 661
-        }
+        "has_alerted_offline": false
     },
     "1040255662569033788": {
         "username": "jerry223608",
