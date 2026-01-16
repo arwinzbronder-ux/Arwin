@@ -7,12 +7,12 @@
         "status": "offline",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 3042,
+            "current_packs": 3116,
             "instances": 6,
             "offline_instances": 0,
             "total_instances": 6,
-            "duration_minutes": 632,
-            "last_update": 1768547414,
+            "duration_minutes": 696,
+            "last_update": 1768551250,
             "last_monitor": 2
         },
         "daily": {
@@ -365,11 +365,20 @@
             [
                 1768547414,
                 3042
+            ],
+            [
+                1768551250,
+                3116
             ]
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
-        "secondary_code": "6270265152175778"
+        "secondary_code": "6270265152175778",
+        "last_heartbeat_check": 1768551250,
+        "last_heartbeat": {
+            "time": 696,
+            "packs": 3116
+        }
     },
     "1017762422947323965": {
         "username": "najanaja_44",
