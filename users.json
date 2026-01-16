@@ -1676,7 +1676,7 @@
             "offline_instances": 0,
             "total_instances": 7,
             "duration_minutes": 0,
-            "last_update": 1768553636,
+            "last_update": 1768554260,
             "last_monitor": 1
         },
         "daily": {
@@ -1800,12 +1800,20 @@
             [
                 1768553636,
                 0
+            ],
+            [
+                1768554260,
+                0
             ]
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
         "has_alerted_offline": false,
-        "last_heartbeat_check": 1768554168
+        "last_heartbeat_check": 1768554260,
+        "last_heartbeat": {
+            "time": 0,
+            "packs": 0
+        }
     },
     "288833945062342657": {
         "username": "insomniaskai",
