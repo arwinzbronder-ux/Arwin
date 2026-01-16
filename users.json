@@ -16862,11 +16862,7 @@
         ],
         "secondary_status_ids2": "offline",
         "has_alerted_offline": false,
-        "last_heartbeat_check": 1768582351,
-        "auto_kicked_state": {
-            "status": "offline",
-            "secondary_status": "offline"
-        },
+        "last_heartbeat_check": 1768584154,
         "last_heartbeat": {
             "time": 30,
             "packs": 0
