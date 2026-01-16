@@ -4207,8 +4207,8 @@
                 1956
             ]
         ],
-        "has_alerted_offline": true,
-        "last_heartbeat_check": 1768537165,
+        "has_alerted_offline": false,
+        "last_heartbeat_check": 1768549058,
         "last_heartbeat": {
             "time": 784,
             "packs": 1956
