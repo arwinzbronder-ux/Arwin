@@ -2877,12 +2877,12 @@
         "status": "offline",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 1250,
-            "instances": 7,
+            "current_packs": 0,
+            "instances": 1,
             "offline_instances": 0,
-            "total_instances": 7,
-            "duration_minutes": 300,
-            "last_update": 1768538301,
+            "total_instances": 1,
+            "duration_minutes": 0,
+            "last_update": 1768586004,
             "last_monitor": 2
         },
         "daily": {
@@ -3183,11 +3183,20 @@
             [
                 1768538301,
                 1250
+            ],
+            [
+                1768586004,
+                0
             ]
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
-        "has_alerted_offline": false
+        "has_alerted_offline": false,
+        "last_heartbeat_check": 1768586004,
+        "last_heartbeat": {
+            "time": 0,
+            "packs": 0
+        }
     },
     "287558941540352001": {
         "username": "bassrv",
