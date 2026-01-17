@@ -787,12 +787,12 @@
                 1400
             ]
         ],
-        "status_ids2": "online",
+        "status_ids2": "offline",
         "secondary_status_ids2": "offline",
         "last_heartbeat_check": 1768622953,
-        "last_heartbeat": {
-            "time": 962,
-            "packs": 1400
+        "auto_kicked_state": {
+            "status": "offline",
+            "secondary_status": "offline"
         }
     },
     "694638638746566677": {
