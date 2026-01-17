@@ -3934,13 +3934,8 @@
             ]
         ],
         "status_ids2": "offline",
-        "secondary_status_ids2": "online",
-        "has_alerted_offline": false,
-        "last_heartbeat_check": 1768645856,
-        "last_heartbeat": {
-            "time": 571,
-            "packs": 2141
-        }
+        "secondary_status_ids2": "offline",
+        "has_alerted_offline": false
     },
     "1059812834445377587": {
         "username": "daizy.",
