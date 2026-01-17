@@ -599,7 +599,7 @@
         "prefix": "normal pokemon name",
         "status": "offline",
         "secondary_status": "offline",
-        "has_alerted_offline": false,
+        "has_alerted_offline": true,
         "session": {
             "current_packs": 1400,
             "instances": 3,
@@ -1381,7 +1381,7 @@
         ],
         "status_ids2": "online",
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768628374,
+        "last_heartbeat_check": 1768684017,
         "auto_kicked_state": {
             "status": "offline",
             "secondary_status": "offline"
