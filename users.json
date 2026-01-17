@@ -26439,12 +26439,7 @@
             ]
         ],
         "has_alerted_offline": false,
-        "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768660570,
-        "last_heartbeat": {
-            "time": 330,
-            "packs": 463
-        }
+        "secondary_status_ids2": "offline"
     },
     "151796642654191617": {
         "username": "nickka00",
