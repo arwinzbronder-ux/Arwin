@@ -3076,12 +3076,12 @@
         "status": "offline",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 1760,
+            "current_packs": 1858,
             "instances": 7,
             "offline_instances": 0,
             "total_instances": 7,
-            "duration_minutes": 541,
-            "last_update": 1768610370,
+            "duration_minutes": 571,
+            "last_update": 1768612172,
             "last_monitor": 2
         },
         "daily": {
@@ -3353,15 +3353,19 @@
             [
                 1768610370,
                 1760
+            ],
+            [
+                1768612172,
+                1858
             ]
         ],
         "has_alerted_offline": false,
         "status_ids2": "online",
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768610367,
+        "last_heartbeat_check": 1768612172,
         "last_heartbeat": {
-            "time": 541,
-            "packs": 1760
+            "time": 571,
+            "packs": 1858
         }
     },
     "157834363944435713": {
