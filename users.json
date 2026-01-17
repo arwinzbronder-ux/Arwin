@@ -12862,7 +12862,7 @@
         "secondary_code": null,
         "instances": 6,
         "prefix": "Isaac",
-        "status": "online",
+        "status": "offline",
         "secondary_status": "offline",
         "session": {
             "current_packs": 3460,
@@ -12979,7 +12979,8 @@
         "last_heartbeat": {
             "time": 661,
             "packs": 3460
-        }
+        },
+        "kicked_due_to_timeout": true
     },
     "_global_stats": {
         "daily_god_packs": 0,
