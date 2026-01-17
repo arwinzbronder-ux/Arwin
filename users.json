@@ -2766,12 +2766,12 @@
         ],
         "status_ids2": "online",
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768628952,
+        "last_heartbeat_check": 1768630759,
         "last_heartbeat": {
             "time": 60,
             "packs": 202
         },
-        "has_alerted_offline": true
+        "has_alerted_offline": false
     },
     "275988818631327745": {
         "username": "bloo_64",
