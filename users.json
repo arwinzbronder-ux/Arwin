@@ -2980,13 +2980,8 @@
                 2617
             ]
         ],
-        "status_ids2": "online",
-        "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768622143,
-        "last_heartbeat": {
-            "time": 692,
-            "packs": 2617
-        }
+        "status_ids2": "offline",
+        "secondary_status_ids2": "offline"
     },
     "275988818631327745": {
         "username": "bloo_64",
