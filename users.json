@@ -2821,11 +2821,11 @@
         "secondary_status": "offline",
         "session": {
             "current_packs": 38,
-            "instances": 3,
-            "offline_instances": 0,
+            "instances": 2,
+            "offline_instances": 1,
             "total_instances": 3,
-            "duration_minutes": 60,
-            "last_update": 1768631873,
+            "duration_minutes": 90,
+            "last_update": 1768633688,
             "last_monitor": 2
         },
         "daily": {
@@ -3089,6 +3089,10 @@
             [
                 1768631873,
                 38
+            ],
+            [
+                1768633688,
+                38
             ]
         ],
         "has_alerted_offline": true,
@@ -3098,6 +3102,10 @@
         "auto_kicked_state": {
             "status": "offline",
             "secondary_status": "offline"
+        },
+        "last_heartbeat": {
+            "time": 90,
+            "packs": 38
         }
     },
     "520672416632930304": {
