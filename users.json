@@ -19962,35 +19962,15 @@
         "secondary_status": "offline",
         "status_ids2": "offline",
         "session": {
-            "current_packs": 381,
+            "current_packs": 470,
             "instances": 4,
             "offline_instances": 1,
             "total_instances": 5,
-            "duration_minutes": 120,
-            "last_update": 1768670773,
+            "duration_minutes": 150,
+            "last_update": 1768672589,
             "last_monitor": 1
         },
         "samples": [
-            [
-                1768574600,
-                110
-            ],
-            [
-                1768576411,
-                110
-            ],
-            [
-                1768578217,
-                113
-            ],
-            [
-                1768580017,
-                194
-            ],
-            [
-                1768581822,
-                340
-            ],
             [
                 1768583627,
                 474
@@ -20328,26 +20308,6 @@
                 474
             ],
             [
-                1768581829.691,
-                340
-            ],
-            [
-                1768580024.647,
-                194
-            ],
-            [
-                1768578224.951,
-                113
-            ],
-            [
-                1768576420.707,
-                110
-            ],
-            [
-                1768574607.155,
-                110
-            ],
-            [
                 1768663309,
                 0
             ],
@@ -20370,14 +20330,18 @@
             [
                 1768670773,
                 381
+            ],
+            [
+                1768672589,
+                470
             ]
         ],
         "has_alerted_offline": true,
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768670773,
+        "last_heartbeat_check": 1768672589,
         "last_heartbeat": {
-            "time": 120,
-            "packs": 381
+            "time": 150,
+            "packs": 470
         }
     },
     "151796642654191617": {
