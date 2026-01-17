@@ -371,14 +371,9 @@
                 2938
             ]
         ],
-        "status_ids2": "online",
-        "secondary_status_ids2": "online",
-        "secondary_code": "6270265152175778",
-        "last_heartbeat_check": 1768636297,
-        "last_heartbeat": {
-            "time": 871,
-            "packs": 2938
-        }
+        "status_ids2": "offline",
+        "secondary_status_ids2": "offline",
+        "secondary_code": "6270265152175778"
     },
     "1017762422947323965": {
         "username": "najanaja_44",
@@ -13526,12 +13521,12 @@
         "status": "offline",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 1210,
+            "current_packs": 1284,
             "instances": 4,
             "offline_instances": 0,
             "total_instances": 4,
-            "duration_minutes": 630,
-            "last_update": 1768636228,
+            "duration_minutes": 660,
+            "last_update": 1768638030,
             "last_monitor": 2
         },
         "samples": [
@@ -13866,14 +13861,18 @@
             [
                 1768636228,
                 1210
+            ],
+            [
+                1768638030,
+                1284
             ]
         ],
         "status_ids2": "online",
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768636228,
+        "last_heartbeat_check": 1768638030,
         "last_heartbeat": {
-            "time": 630,
-            "packs": 1210
+            "time": 660,
+            "packs": 1284
         }
     },
     "193557944200200192": {
