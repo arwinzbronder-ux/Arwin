@@ -2741,11 +2741,12 @@
         ],
         "status_ids2": "online",
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768627145,
+        "last_heartbeat_check": 1768628952,
         "last_heartbeat": {
             "time": 30,
             "packs": 96
-        }
+        },
+        "has_alerted_offline": true
     },
     "275988818631327745": {
         "username": "bloo_64",
