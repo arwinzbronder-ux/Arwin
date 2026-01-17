@@ -3284,10 +3284,10 @@
                 1554
             ]
         ],
-        "has_alerted_offline": false,
+        "has_alerted_offline": true,
         "status_ids2": "online",
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768606757,
+        "last_heartbeat_check": 1768608561,
         "last_heartbeat": {
             "time": 481,
             "packs": 1554
