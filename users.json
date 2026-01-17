@@ -1090,14 +1090,9 @@
                 1149
             ]
         ],
-        "status_ids2": "online",
+        "status_ids2": "offline",
         "secondary_status_ids2": "offline",
-        "has_alerted_offline": false,
-        "last_heartbeat_check": 1768619218,
-        "last_heartbeat": {
-            "time": 390,
-            "packs": 1149
-        }
+        "has_alerted_offline": false
     },
     "1040255662569033788": {
         "username": "jerry223608",
