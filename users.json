@@ -1219,12 +1219,12 @@
         "secondary_status": "online",
         "secondary_code": "6945259816716451",
         "session": {
-            "current_packs": 316,
+            "current_packs": 454,
             "instances": 6,
             "offline_instances": 0,
             "total_instances": 6,
-            "duration_minutes": 60,
-            "last_update": 1768655484,
+            "duration_minutes": 90,
+            "last_update": 1768657292,
             "last_monitor": 1
         },
         "daily": {
@@ -1496,15 +1496,19 @@
             [
                 1768655484,
                 316
+            ],
+            [
+                1768657292,
+                454
             ]
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
         "has_alerted_offline": false,
-        "last_heartbeat_check": 1768655484,
+        "last_heartbeat_check": 1768657292,
         "last_heartbeat": {
-            "time": 60,
-            "packs": 316
+            "time": 90,
+            "packs": 454
         }
     },
     "288833945062342657": {
@@ -13116,8 +13120,8 @@
         "secondary_code": null,
         "instances": 6,
         "prefix": "Isaac",
-        "status": "online",
-        "secondary_status": "online",
+        "status": "offline",
+        "secondary_status": "offline",
         "session": {
             "current_packs": 0,
             "instances": 6,
