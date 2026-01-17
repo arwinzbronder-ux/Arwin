@@ -23886,9 +23886,9 @@
                 0
             ]
         ],
-        "has_alerted_offline": false,
+        "has_alerted_offline": true,
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768663570,
+        "last_heartbeat_check": 1768665347,
         "last_heartbeat": {
             "time": 0,
             "packs": 0
