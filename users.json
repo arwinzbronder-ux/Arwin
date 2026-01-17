@@ -4540,13 +4540,8 @@
             ]
         ],
         "has_alerted_offline": false,
-        "status_ids2": "online",
-        "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768684028,
-        "last_heartbeat": {
-            "time": 481,
-            "packs": 1028
-        }
+        "status_ids2": "offline",
+        "secondary_status_ids2": "offline"
     },
     "520672416632930304": {
         "username": "ichesterftw",
