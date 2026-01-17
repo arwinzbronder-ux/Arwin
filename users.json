@@ -3235,10 +3235,10 @@
                 332
             ]
         ],
-        "has_alerted_offline": false,
+        "has_alerted_offline": true,
         "status_ids2": "online",
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768650843,
+        "last_heartbeat_check": 1768652243,
         "last_heartbeat": {
             "time": 150,
             "packs": 332
