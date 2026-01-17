@@ -5409,12 +5409,12 @@
         "secondary_code": "3728578745352937",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 221,
+            "current_packs": 308,
             "instances": 6,
             "offline_instances": 0,
             "total_instances": 6,
-            "duration_minutes": 90,
-            "last_update": 1768676497,
+            "duration_minutes": 120,
+            "last_update": 1768678300,
             "last_monitor": 2
         },
         "daily": {
@@ -5666,15 +5666,19 @@
             [
                 1768676497,
                 221
+            ],
+            [
+                1768678300,
+                308
             ]
         ],
         "status_ids2": "online",
         "secondary_status_ids2": "online",
         "has_alerted_offline": false,
-        "last_heartbeat_check": 1768676497,
+        "last_heartbeat_check": 1768678300,
         "last_heartbeat": {
-            "time": 90,
-            "packs": 221
+            "time": 120,
+            "packs": 308
         }
     },
     "1059812834445377587": {
