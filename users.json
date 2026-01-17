@@ -3324,10 +3324,10 @@
                 1664
             ]
         ],
-        "has_alerted_offline": true,
+        "has_alerted_offline": false,
         "status_ids2": "online",
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768608561,
+        "last_heartbeat_check": 1768610367,
         "last_heartbeat": {
             "time": 511,
             "packs": 1664
