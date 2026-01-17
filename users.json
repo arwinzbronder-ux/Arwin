@@ -23493,7 +23493,7 @@
             "offline_instances": 0,
             "total_instances": 4,
             "duration_minutes": 0,
-            "last_update": 1768663309,
+            "last_update": 1768663570,
             "last_monitor": 1
         },
         "samples": [
@@ -23876,11 +23876,15 @@
             [
                 1768663309,
                 0
+            ],
+            [
+                1768663570,
+                0
             ]
         ],
         "has_alerted_offline": false,
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768663309,
+        "last_heartbeat_check": 1768663570,
         "last_heartbeat": {
             "time": 0,
             "packs": 0
