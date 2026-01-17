@@ -18869,7 +18869,7 @@
                 0
             ]
         ],
-        "has_alerted_offline": false,
+        "has_alerted_offline": true,
         "secondary_status_ids2": "offline",
         "last_heartbeat": {
             "time": 0,
