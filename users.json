@@ -3109,11 +3109,7 @@
         "has_alerted_offline": true,
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768633684,
-        "auto_kicked_state": {
-            "status": "offline",
-            "secondary_status": "offline"
-        },
+        "last_heartbeat_check": 1768635484,
         "last_heartbeat": {
             "time": 90,
             "packs": 38
