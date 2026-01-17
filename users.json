@@ -20163,8 +20163,8 @@
             ]
         ],
         "secondary_status_ids2": "offline",
-        "has_alerted_offline": true,
-        "last_heartbeat_check": 1768660119,
+        "has_alerted_offline": false,
+        "last_heartbeat_check": 1768678793,
         "last_heartbeat": {
             "time": 810,
             "packs": 1096
