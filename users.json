@@ -20633,7 +20633,8 @@
             ]
         ],
         "secondary_status_ids2": "offline",
-        "has_alerted_offline": true
+        "has_alerted_offline": false,
+        "last_heartbeat_check": 1768671989
     },
     "303616375224795136": {
         "username": "dergoettliche",
