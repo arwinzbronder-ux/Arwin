@@ -2867,7 +2867,7 @@
         "friend_code": "3026098662380858",
         "instances": 3,
         "prefix": "pokemon name",
-        "status": "online",
+        "status": "offline",
         "secondary_status": "offline",
         "session": {
             "current_packs": 48,
@@ -3155,8 +3155,7 @@
         ],
         "has_alerted_offline": true,
         "status_ids2": "offline",
-        "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768641747
+        "secondary_status_ids2": "offline"
     },
     "520672416632930304": {
         "username": "ichesterftw",
