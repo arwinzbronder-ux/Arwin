@@ -3343,10 +3343,10 @@
                 2587
             ]
         ],
-        "has_alerted_offline": false,
+        "has_alerted_offline": true,
         "status_ids2": "online",
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768626610,
+        "last_heartbeat_check": 1768627486,
         "last_heartbeat": {
             "time": 812,
             "packs": 2587
