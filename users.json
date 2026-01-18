@@ -18433,13 +18433,13 @@
                 1136
             ]
         ],
-        "has_alerted_offline": false,
+        "has_alerted_offline": true,
         "secondary_status_ids2": "offline",
         "last_heartbeat": {
             "time": 513,
             "packs": 1136
         },
-        "last_heartbeat_check": 1768717845
+        "last_heartbeat_check": 1768719658
     },
     "151796642654191617": {
         "username": "nickka00",
