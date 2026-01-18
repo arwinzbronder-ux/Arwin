@@ -3915,7 +3915,7 @@
         "status": "offline",
         "secondary_status": "offline",
         "status_ids2": "online",
-        "secondary_status_ids2": "offline",
+        "secondary_status_ids2": "online",
         "session": {
             "current_packs": 26,
             "instances": 5,
