@@ -18191,7 +18191,7 @@
         "prefix": "Sad / Yuyu",
         "status": "offline",
         "secondary_status": "offline",
-        "status_ids2": "online",
+        "status_ids2": "offline",
         "session": {
             "current_packs": 1997,
             "instances": 4,
@@ -18464,12 +18464,7 @@
             ]
         ],
         "has_alerted_offline": true,
-        "secondary_status_ids2": "offline",
-        "last_heartbeat": {
-            "time": 786,
-            "packs": 1997
-        },
-        "last_heartbeat_check": 1768734172
+        "secondary_status_ids2": "offline"
     },
     "151796642654191617": {
         "username": "nickka00",
