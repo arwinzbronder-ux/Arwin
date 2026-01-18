@@ -2778,13 +2778,13 @@
                 393
             ]
         ],
-        "status_ids2": "online",
+        "status_ids2": "offline",
         "secondary_status_ids2": "offline",
         "has_alerted_offline": false,
         "last_heartbeat_check": 1768707257,
-        "last_heartbeat": {
-            "time": 150,
-            "packs": 393
+        "auto_kicked_state": {
+            "status": "offline",
+            "secondary_status": "offline"
         }
     },
     "396799589513953282": {
