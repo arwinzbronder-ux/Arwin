@@ -3478,14 +3478,9 @@
                 3322
             ]
         ],
-        "status_ids2": "online",
+        "status_ids2": "offline",
         "secondary_status_ids2": "offline",
-        "has_alerted_offline": false,
-        "last_heartbeat_check": 1768724959,
-        "last_heartbeat": {
-            "time": 870,
-            "packs": 3322
-        }
+        "has_alerted_offline": false
     },
     "287558941540352001": {
         "username": "bassrv",
