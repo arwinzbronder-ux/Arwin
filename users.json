@@ -4316,12 +4316,12 @@
         "secondary_code": "3728578745352937",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 3589,
+            "current_packs": 3708,
             "instances": 6,
             "offline_instances": 0,
             "total_instances": 6,
-            "duration_minutes": 991,
-            "last_update": 1768748125,
+            "duration_minutes": 1021,
+            "last_update": 1768749928,
             "last_monitor": 2
         },
         "daily": {
@@ -4505,15 +4505,19 @@
             [
                 1768748125,
                 3589
+            ],
+            [
+                1768749928,
+                3708
             ]
         ],
         "status_ids2": "online",
         "secondary_status_ids2": "online",
         "has_alerted_offline": false,
-        "last_heartbeat_check": 1768748125,
+        "last_heartbeat_check": 1768749928,
         "last_heartbeat": {
-            "time": 991,
-            "packs": 3589
+            "time": 1021,
+            "packs": 3708
         }
     },
     "1059812834445377587": {
