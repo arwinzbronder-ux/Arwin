@@ -659,14 +659,9 @@
                 650
             ]
         ],
-        "status_ids2": "online",
+        "status_ids2": "offline",
         "secondary_status_ids2": "offline",
-        "has_alerted_offline": false,
-        "last_heartbeat_check": 1768699108,
-        "last_heartbeat": {
-            "time": 360,
-            "packs": 650
-        }
+        "has_alerted_offline": false
     },
     "475603063948705794": {
         "username": "kysog6646",
