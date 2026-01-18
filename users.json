@@ -974,13 +974,8 @@
                 740
             ]
         ],
-        "status_ids2": "online",
-        "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768718305,
-        "last_heartbeat": {
-            "time": 571,
-            "packs": 740
-        }
+        "status_ids2": "offline",
+        "secondary_status_ids2": "offline"
     },
     "694638638746566677": {
         "username": "karaelmas3998",
