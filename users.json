@@ -4138,11 +4138,12 @@
         ],
         "status_ids2": "online",
         "secondary_status_ids2": "offline",
-        "has_alerted_offline": true,
+        "has_alerted_offline": false,
         "last_heartbeat": {
             "time": 1321,
             "packs": 4550
-        }
+        },
+        "last_heartbeat_check": 1768770119
     },
     "1059812834445377587": {
         "username": "daizy.",
