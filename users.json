@@ -1980,7 +1980,7 @@
             "offline_instances": 0,
             "total_instances": 5,
             "duration_minutes": 0,
-            "last_update": 1768772765,
+            "last_update": 1768773096,
             "last_monitor": 2
         },
         "daily": {
@@ -2067,12 +2067,16 @@
             [
                 1768772765,
                 0
+            ],
+            [
+                1768773096,
+                0
             ]
         ],
         "status_ids2": "online",
         "secondary_status_ids2": "offline",
         "has_alerted_offline": false,
-        "last_heartbeat_check": 1768772765,
+        "last_heartbeat_check": 1768773096,
         "auto_kicked_state": {
             "status": "offline",
             "secondary_status": "offline"
