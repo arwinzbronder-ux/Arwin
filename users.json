@@ -5603,11 +5603,12 @@
                 1631
             ]
         ],
-        "has_alerted_offline": true,
+        "has_alerted_offline": false,
         "last_heartbeat": {
             "time": 692,
             "packs": 1631
-        }
+        },
+        "last_heartbeat_check": 1768718537
     },
     "1056944043688476682": {
         "username": "libra_2828",
