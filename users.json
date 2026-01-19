@@ -8,11 +8,11 @@
         "secondary_status": "offline",
         "session": {
             "current_packs": 443,
-            "instances": 6,
-            "offline_instances": 0,
+            "instances": 0,
+            "offline_instances": 6,
             "total_instances": 6,
-            "duration_minutes": 150,
-            "last_update": 1768858247,
+            "duration_minutes": 180,
+            "last_update": 1768860063,
             "last_monitor": 2
         },
         "daily": {
@@ -273,6 +273,10 @@
             [
                 1768858247,
                 443
+            ],
+            [
+                1768860063,
+                443
             ]
         ],
         "status_ids2": "offline",
@@ -282,6 +286,10 @@
         "auto_kicked_state": {
             "status": "offline",
             "secondary_status": "offline"
+        },
+        "last_heartbeat": {
+            "time": 180,
+            "packs": 443
         }
     },
     "1017762422947323965": {
