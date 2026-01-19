@@ -11033,7 +11033,8 @@
         ],
         "status_ids2": "online",
         "secondary_status_ids2": "offline",
-        "has_alerted_offline": false
+        "has_alerted_offline": true,
+        "last_heartbeat_check": 1768845230
     },
     "1134310504324677713": {
         "username": "cynicalchery",
