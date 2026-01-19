@@ -9757,7 +9757,7 @@
             "offline_instances": 0,
             "total_instances": 4,
             "duration_minutes": 0,
-            "last_update": 1768799196,
+            "last_update": 1768804184,
             "last_monitor": 2
         },
         "daily": {
@@ -9774,10 +9774,18 @@
             [
                 1768799196,
                 0
+            ],
+            [
+                1768804184,
+                0
             ]
         ],
         "status_ids2": "offline",
-        "secondary_status_ids2": "offline"
+        "secondary_status_ids2": "offline",
+        "last_heartbeat": {
+            "time": 0,
+            "packs": 0
+        }
     },
     "307883135285067776": {
         "username": "tilero",
