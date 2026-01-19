@@ -1264,14 +1264,9 @@
                 1090
             ]
         ],
-        "status_ids2": "online",
+        "status_ids2": "offline",
         "secondary_status_ids2": "offline",
-        "has_alerted_offline": false,
-        "last_heartbeat_check": 1768824820,
-        "last_heartbeat": {
-            "time": 601,
-            "packs": 1090
-        }
+        "has_alerted_offline": false
     },
     "849666089902145586": {
         "username": "pr34ch.",
