@@ -3451,7 +3451,7 @@
             "offline_instances": 0,
             "total_instances": 5,
             "duration_minutes": 0,
-            "last_update": 1768813527,
+            "last_update": 1768813712,
             "last_monitor": 1
         },
         "samples": [
@@ -3626,13 +3626,18 @@
             [
                 1768813527,
                 0
+            ],
+            [
+                1768813712,
+                0
             ]
         ],
         "has_alerted_offline": false,
         "last_heartbeat": {
             "time": 0,
             "packs": 0
-        }
+        },
+        "last_heartbeat_check": 1768813712
     },
     "1056944043688476682": {
         "username": "libra_2828",
