@@ -3443,7 +3443,7 @@
         "prefix": "dai",
         "status": "offline",
         "secondary_status": "offline",
-        "status_ids2": "online",
+        "status_ids2": "offline",
         "secondary_status_ids2": "offline",
         "session": {
             "current_packs": 902,
