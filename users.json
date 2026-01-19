@@ -251,14 +251,9 @@
                 2735
             ]
         ],
-        "status_ids2": "online",
+        "status_ids2": "offline",
         "secondary_status_ids2": "offline",
-        "secondary_code": "6270265152175778",
-        "last_heartbeat_check": 1768814953,
-        "last_heartbeat": {
-            "time": 841,
-            "packs": 2735
-        }
+        "secondary_code": "6270265152175778"
     },
     "1017762422947323965": {
         "username": "najanaja_44",
