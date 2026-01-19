@@ -2827,14 +2827,9 @@
                 2514
             ]
         ],
-        "status_ids2": "online",
+        "status_ids2": "offline",
         "secondary_status_ids2": "offline",
-        "has_alerted_offline": false,
-        "last_heartbeat_check": 1768794411,
-        "last_heartbeat": {
-            "time": 692,
-            "packs": 2514
-        }
+        "has_alerted_offline": false
     },
     "275988818631327745": {
         "username": "bloo_64",
