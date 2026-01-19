@@ -808,12 +808,12 @@
         "secondary_status": "offline",
         "secondary_code": "2572088340351976",
         "session": {
-            "current_packs": 1234,
+            "current_packs": 1136,
             "instances": 4,
             "offline_instances": 0,
             "total_instances": 4,
-            "duration_minutes": 390,
-            "last_update": 1768787659,
+            "duration_minutes": 360,
+            "last_update": 1768785856,
             "last_monitor": 2
         },
         "daily": {
@@ -1186,19 +1186,15 @@
             [
                 1768785856,
                 1136
-            ],
-            [
-                1768787659,
-                1234
             ]
         ],
         "status_ids2": "online",
         "secondary_status_ids2": "offline",
         "has_alerted_offline": false,
-        "last_heartbeat_check": 1768787659,
+        "last_heartbeat_check": 1768785856,
         "last_heartbeat": {
-            "time": 390,
-            "packs": 1234
+            "time": 360,
+            "packs": 1136
         }
     },
     "1040255662569033788": {
@@ -2760,13 +2756,13 @@
         "status": "offline",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 1344,
+            "current_packs": 0,
             "instances": 3,
-            "offline_instances": 1,
-            "total_instances": 4,
-            "duration_minutes": 601,
-            "last_update": 1768784934,
-            "last_monitor": 1
+            "offline_instances": 0,
+            "total_instances": 3,
+            "duration_minutes": 0,
+            "last_update": 1768787659,
+            "last_monitor": 2
         },
         "daily": {
             "date": "2026-01-06",
@@ -2857,12 +2853,20 @@
             [
                 1768784934,
                 1344
+            ],
+            [
+                1768787659,
+                0
             ]
         ],
         "has_alerted_offline": false,
         "status_ids2": "online",
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768787656
+        "last_heartbeat_check": 1768787656,
+        "last_heartbeat": {
+            "time": 0,
+            "packs": 0
+        }
     },
     "520672416632930304": {
         "username": "ichesterftw",
