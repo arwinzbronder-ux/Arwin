@@ -11567,14 +11567,9 @@
                 666
             ]
         ],
-        "status_ids2": "online",
+        "status_ids2": "offline",
         "secondary_status_ids2": "offline",
-        "has_alerted_offline": false,
-        "last_heartbeat_check": 1768800808,
-        "last_heartbeat": {
-            "time": 240,
-            "packs": 666
-        }
+        "has_alerted_offline": false
     },
     "1134310504324677713": {
         "username": "cynicalchery",
