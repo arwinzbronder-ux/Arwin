@@ -2129,7 +2129,7 @@
                 3321
             ]
         ],
-        "status_ids2": "offline",
+        "status_ids2": "online",
         "secondary_status_ids2": "offline",
         "has_alerted_offline": false
     },
