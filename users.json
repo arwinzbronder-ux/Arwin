@@ -828,12 +828,12 @@
         "secondary_status": "offline",
         "secondary_code": "2572088340351976",
         "session": {
-            "current_packs": 1590,
+            "current_packs": 1690,
             "instances": 4,
             "offline_instances": 0,
             "total_instances": 4,
-            "duration_minutes": 510,
-            "last_update": 1768794871,
+            "duration_minutes": 540,
+            "last_update": 1768796674,
             "last_monitor": 2
         },
         "daily": {
@@ -1222,15 +1222,19 @@
             [
                 1768794871,
                 1590
+            ],
+            [
+                1768796674,
+                1690
             ]
         ],
         "status_ids2": "online",
         "secondary_status_ids2": "offline",
         "has_alerted_offline": false,
-        "last_heartbeat_check": 1768794871,
+        "last_heartbeat_check": 1768796674,
         "last_heartbeat": {
-            "time": 510,
-            "packs": 1590
+            "time": 540,
+            "packs": 1690
         }
     },
     "1040255662569033788": {
@@ -2867,12 +2871,12 @@
         "status": "offline",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 180,
+            "current_packs": 240,
             "instances": 3,
             "offline_instances": 0,
             "total_instances": 3,
-            "duration_minutes": 120,
-            "last_update": 1768794844,
+            "duration_minutes": 150,
+            "last_update": 1768796649,
             "last_monitor": 2
         },
         "daily": {
@@ -2984,15 +2988,19 @@
             [
                 1768794844,
                 180
+            ],
+            [
+                1768796649,
+                240
             ]
         ],
         "has_alerted_offline": false,
         "status_ids2": "online",
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768794844,
+        "last_heartbeat_check": 1768796649,
         "last_heartbeat": {
-            "time": 120,
-            "packs": 180
+            "time": 150,
+            "packs": 240
         }
     },
     "520672416632930304": {
