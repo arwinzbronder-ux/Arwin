@@ -1180,10 +1180,10 @@
         "session": {
             "current_packs": 1090,
             "instances": 0,
-            "offline_instances": 3,
-            "total_instances": 3,
-            "duration_minutes": 631,
-            "last_update": 1768826628,
+            "offline_instances": 4,
+            "total_instances": 4,
+            "duration_minutes": 661,
+            "last_update": 1768828427,
             "last_monitor": 1
         },
         "daily": {
@@ -1274,13 +1274,17 @@
             [
                 1768826628,
                 1090
+            ],
+            [
+                1768828427,
+                1090
             ]
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
         "has_alerted_offline": true,
         "last_heartbeat": {
-            "time": 631,
+            "time": 661,
             "packs": 1090
         }
     },
