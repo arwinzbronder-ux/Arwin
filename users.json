@@ -9353,12 +9353,12 @@
         "status": "offline",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 1990,
+            "current_packs": 2064,
             "instances": 4,
             "offline_instances": 0,
             "total_instances": 4,
-            "duration_minutes": 721,
-            "last_update": 1768847450,
+            "duration_minutes": 751,
+            "last_update": 1768849254,
             "last_monitor": 2
         },
         "daily": {
@@ -9475,15 +9475,19 @@
             [
                 1768847450,
                 1990
+            ],
+            [
+                1768849254,
+                2064
             ]
         ],
         "status_ids2": "online",
         "secondary_status_ids2": "offline",
         "last_heartbeat": {
-            "time": 721,
-            "packs": 1990
+            "time": 751,
+            "packs": 2064
         },
-        "last_heartbeat_check": 1768847450
+        "last_heartbeat_check": 1768849254
     },
     "307883135285067776": {
         "username": "tilero",
