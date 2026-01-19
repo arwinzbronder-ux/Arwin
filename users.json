@@ -10629,11 +10629,11 @@
         "secondary_status": "offline",
         "session": {
             "current_packs": 0,
-            "instances": 8,
-            "offline_instances": 1,
+            "instances": 9,
+            "offline_instances": 0,
             "total_instances": 9,
             "duration_minutes": 0,
-            "last_update": 1768845234,
+            "last_update": 1768845597,
             "last_monitor": 2
         },
         "daily": {
@@ -11032,6 +11032,10 @@
             ],
             [
                 1768845234,
+                0
+            ],
+            [
+                1768845597,
                 0
             ]
         ],
