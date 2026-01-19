@@ -10294,7 +10294,7 @@
         "instances": 6,
         "prefix": "Isaac",
         "status": "online",
-        "secondary_status": "offline",
+        "secondary_status": "online",
         "session": {
             "current_packs": 105,
             "instances": 6,
