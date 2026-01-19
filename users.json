@@ -19,7 +19,7 @@
             "date": "2026-01-06",
             "start_packs": 1189
         },
-        "has_alerted_offline": false,
+        "has_alerted_offline": true,
         "history": [],
         "samples": [
             [
