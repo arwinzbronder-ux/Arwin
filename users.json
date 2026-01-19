@@ -2856,7 +2856,7 @@
             ]
         ],
         "has_alerted_offline": true,
-        "status_ids2": "offline",
+        "status_ids2": "online",
         "secondary_status_ids2": "offline"
     },
     "520672416632930304": {
