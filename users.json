@@ -9704,13 +9704,8 @@
                 0
             ]
         ],
-        "status_ids2": "online",
-        "secondary_status_ids2": "offline",
-        "last_heartbeat": {
-            "time": 0,
-            "packs": 0
-        },
-        "last_heartbeat_check": 1768799196
+        "status_ids2": "offline",
+        "secondary_status_ids2": "offline"
     },
     "307883135285067776": {
         "username": "tilero",
