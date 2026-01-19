@@ -872,7 +872,7 @@
             "offline_instances": 0,
             "total_instances": 4,
             "duration_minutes": 0,
-            "last_update": 1768842554,
+            "last_update": 1768843440,
             "last_monitor": 2
         },
         "daily": {
@@ -1005,12 +1005,16 @@
             [
                 1768842554,
                 0
+            ],
+            [
+                1768843440,
+                0
             ]
         ],
         "status_ids2": "online",
         "secondary_status_ids2": "offline",
         "has_alerted_offline": false,
-        "last_heartbeat_check": 1768842554,
+        "last_heartbeat_check": 1768843440,
         "auto_kicked_state": {
             "status": "offline",
             "secondary_status": "offline"
