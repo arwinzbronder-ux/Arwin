@@ -19,7 +19,7 @@
             "date": "2026-01-06",
             "start_packs": 1189
         },
-        "has_alerted_offline": true,
+        "has_alerted_offline": false,
         "history": [],
         "samples": [
             [
@@ -282,7 +282,7 @@
         "status_ids2": "online",
         "secondary_status_ids2": "offline",
         "secondary_code": "6270265152175778",
-        "last_heartbeat_check": 1768858247,
+        "last_heartbeat_check": 1768860907,
         "auto_kicked_state": {
             "status": "offline",
             "secondary_status": "offline"
