@@ -840,12 +840,12 @@
         "secondary_status": "offline",
         "secondary_code": "2572088340351976",
         "session": {
-            "current_packs": 1892,
+            "current_packs": 1994,
             "instances": 4,
             "offline_instances": 0,
             "total_instances": 4,
-            "duration_minutes": 600,
-            "last_update": 1768800280,
+            "duration_minutes": 630,
+            "last_update": 1768802082,
             "last_monitor": 2
         },
         "daily": {
@@ -1246,15 +1246,19 @@
             [
                 1768800280,
                 1892
+            ],
+            [
+                1768802082,
+                1994
             ]
         ],
         "status_ids2": "online",
         "secondary_status_ids2": "offline",
         "has_alerted_offline": false,
-        "last_heartbeat_check": 1768800280,
+        "last_heartbeat_check": 1768802082,
         "last_heartbeat": {
-            "time": 600,
-            "packs": 1892
+            "time": 630,
+            "packs": 1994
         }
     },
     "1040255662569033788": {
