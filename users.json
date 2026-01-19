@@ -1022,7 +1022,7 @@
         "instances": 7,
         "prefix": "jerry",
         "status": "offline",
-        "secondary_status": "offline",
+        "secondary_status": "online",
         "secondary_code": "6945259816716451",
         "session": {
             "current_packs": 2,
