@@ -13118,12 +13118,12 @@
         "secondary_status": "offline",
         "status_ids2": "online",
         "session": {
-            "current_packs": 3843,
+            "current_packs": 3913,
             "instances": 4,
             "offline_instances": 1,
             "total_instances": 5,
-            "duration_minutes": 2542,
-            "last_update": 1768839577,
+            "duration_minutes": 2572,
+            "last_update": 1768841385,
             "last_monitor": 2
         },
         "samples": [
@@ -13410,15 +13410,19 @@
             [
                 1768839577,
                 3843
+            ],
+            [
+                1768841385,
+                3913
             ]
         ],
         "has_alerted_offline": true,
         "secondary_status_ids2": "offline",
         "last_heartbeat": {
-            "time": 2542,
-            "packs": 3843
+            "time": 2572,
+            "packs": 3913
         },
-        "last_heartbeat_check": 1768839577
+        "last_heartbeat_check": 1768841385
     },
     "151796642654191617": {
         "username": "nickka00",
