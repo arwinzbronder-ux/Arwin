@@ -1272,13 +1272,13 @@
                 2062
             ]
         ],
-        "status_ids2": "online",
+        "status_ids2": "offline",
         "secondary_status_ids2": "offline",
         "has_alerted_offline": false,
         "last_heartbeat_check": 1768805689,
-        "last_heartbeat": {
-            "time": 691,
-            "packs": 2062
+        "auto_kicked_state": {
+            "status": "offline",
+            "secondary_status": "offline"
         }
     },
     "1040255662569033788": {
