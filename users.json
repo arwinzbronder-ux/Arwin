@@ -1175,11 +1175,11 @@
         "secondary_code": "2489404685358169",
         "session": {
             "current_packs": 1090,
-            "instances": 3,
-            "offline_instances": 0,
+            "instances": 0,
+            "offline_instances": 3,
             "total_instances": 3,
-            "duration_minutes": 601,
-            "last_update": 1768824820,
+            "duration_minutes": 631,
+            "last_update": 1768826628,
             "last_monitor": 2
         },
         "daily": {
@@ -1266,11 +1266,19 @@
             [
                 1768824820,
                 1090
+            ],
+            [
+                1768826628,
+                1090
             ]
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
-        "has_alerted_offline": true
+        "has_alerted_offline": true,
+        "last_heartbeat": {
+            "time": 631,
+            "packs": 1090
+        }
     },
     "849666089902145586": {
         "username": "pr34ch.",
