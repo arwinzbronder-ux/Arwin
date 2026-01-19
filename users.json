@@ -12752,12 +12752,12 @@
         "status": "online",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 2341,
+            "current_packs": 2440,
             "instances": 6,
             "offline_instances": 0,
             "total_instances": 6,
-            "duration_minutes": 721,
-            "last_update": 1768784344,
+            "duration_minutes": 751,
+            "last_update": 1768786148,
             "last_monitor": 1
         },
         "daily": {
@@ -12941,16 +12941,20 @@
             [
                 1768784344,
                 2341
+            ],
+            [
+                1768786148,
+                2440
             ]
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
         "has_alerted_offline": false,
         "last_heartbeat": {
-            "time": 721,
-            "packs": 2341
+            "time": 751,
+            "packs": 2440
         },
-        "last_heartbeat_check": 1768784344
+        "last_heartbeat_check": 1768786148
     },
     "_global_stats": {
         "daily_god_packs": 0,
@@ -15310,8 +15314,7 @@
         "7593025354282544": 1768776458,
         "6774886447561734": 1768778350,
         "8147459505144865": 1768781985,
-        "5258365379861814": 1768784956,
-        "3479754325620104": 1768786122
+        "5258365379861814": 1768784956
     },
     "254666812548055041": {
         "username": "endersproxy",
