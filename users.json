@@ -9930,14 +9930,9 @@
                 368
             ]
         ],
-        "status_ids2": "online",
+        "status_ids2": "offline",
         "secondary_status_ids2": "offline",
-        "has_alerted_offline": false,
-        "last_heartbeat_check": 1768821480,
-        "last_heartbeat": {
-            "time": 210,
-            "packs": 368
-        }
+        "has_alerted_offline": false
     },
     "553693689302482945": {
         "username": "skyttzi",
