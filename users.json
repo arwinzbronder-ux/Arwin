@@ -14576,7 +14576,7 @@
         "secondary_code": null,
         "instances": 5,
         "prefix": "JoeMama",
-        "status": "offline",
+        "status": "online",
         "secondary_status": "offline",
         "status_ids2": "offline",
         "session": {
@@ -14631,7 +14631,8 @@
             ]
         ],
         "has_alerted_offline": false,
-        "secondary_status_ids2": "offline"
+        "secondary_status_ids2": "offline",
+        "last_heartbeat_check": 1768791911
     },
     "_vip_timers": {
         "0032578716202499": 1767964624,
