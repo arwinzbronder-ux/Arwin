@@ -1475,11 +1475,12 @@
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
-        "has_alerted_offline": true,
+        "has_alerted_offline": false,
         "last_heartbeat": {
             "time": 865,
             "packs": 1090
-        }
+        },
+        "last_heartbeat_check": 1768862782
     },
     "849666089902145586": {
         "username": "pr34ch.",
