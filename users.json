@@ -1356,7 +1356,7 @@
         "instances": 4,
         "prefix": "PipiSim",
         "status": "offline",
-        "secondary_status": "offline",
+        "secondary_status": "online",
         "secondary_code": "2489404685358169",
         "session": {
             "current_packs": 1090,
