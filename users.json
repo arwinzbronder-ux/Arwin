@@ -13005,12 +13005,12 @@
         "secondary_code": "3728578745352937",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 158,
+            "current_packs": 249,
             "instances": 5,
             "offline_instances": 0,
             "total_instances": 5,
-            "duration_minutes": 60,
-            "last_update": 1768939911,
+            "duration_minutes": 90,
+            "last_update": 1768941713,
             "last_monitor": 2
         },
         "daily": {
@@ -13019,10 +13019,6 @@
         },
         "history": [],
         "samples": [
-            [
-                1768851208,
-                4537
-            ],
             [
                 1768853011,
                 4622
@@ -13360,10 +13356,6 @@
                 4622
             ],
             [
-                1768851216.158,
-                4537
-            ],
-            [
                 1768928824,
                 3526
             ],
@@ -13580,10 +13572,6 @@
                 4622
             ],
             [
-                1768851216.158,
-                4537
-            ],
-            [
                 1768938108,
                 81
             ],
@@ -13784,10 +13772,6 @@
                 4622
             ],
             [
-                1768851216.158,
-                4537
-            ],
-            [
                 1768938116.06,
                 81
             ],
@@ -13984,22 +13968,22 @@
                 4622
             ],
             [
-                1768851216.158,
-                4537
-            ],
-            [
                 1768939911,
                 158
+            ],
+            [
+                1768941713,
+                249
             ]
         ],
         "status_ids2": "online",
         "secondary_status_ids2": "online",
         "has_alerted_offline": false,
         "last_heartbeat": {
-            "time": 60,
-            "packs": 158
+            "time": 90,
+            "packs": 249
         },
-        "last_heartbeat_check": 1768939911
+        "last_heartbeat_check": 1768941713
     },
     "1059812834445377587": {
         "username": "daizy.",
