@@ -11487,14 +11487,9 @@
                 836
             ]
         ],
-        "status_ids2": "online",
+        "status_ids2": "offline",
         "secondary_status_ids2": "offline",
-        "has_alerted_offline": false,
-        "last_heartbeat_check": 1768901812,
-        "last_heartbeat": {
-            "time": 331,
-            "packs": 836
-        }
+        "has_alerted_offline": false
     },
     "_global_stats": {
         "daily_god_packs": 0,
