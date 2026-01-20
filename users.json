@@ -7,12 +7,12 @@
         "status": "offline",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 325,
+            "current_packs": 434,
             "instances": 6,
             "offline_instances": 0,
             "total_instances": 6,
-            "duration_minutes": 101,
-            "last_update": 1768942988,
+            "duration_minutes": 133,
+            "last_update": 1768944903,
             "last_monitor": 2
         },
         "daily": {
@@ -22,10 +22,6 @@
         "has_alerted_offline": false,
         "history": [],
         "samples": [
-            [
-                1768854638,
-                300
-            ],
             [
                 1768856443,
                 408
@@ -227,10 +223,6 @@
                 408
             ],
             [
-                1768854645.412,
-                300
-            ],
-            [
                 1768936932,
                 0
             ],
@@ -339,10 +331,6 @@
                 408
             ],
             [
-                1768854645.412,
-                300
-            ],
-            [
                 1768860071.039,
                 443
             ],
@@ -445,10 +433,6 @@
             [
                 1768856450.856,
                 408
-            ],
-            [
-                1768854645.412,
-                300
             ],
             [
                 1768938918,
@@ -559,16 +543,16 @@
                 408
             ],
             [
-                1768854645.412,
-                300
-            ],
-            [
                 1768941010,
                 220
             ],
             [
                 1768942988,
                 325
+            ],
+            [
+                1768944903,
+                434
             ]
         ],
         "status_ids2": "online",
@@ -576,10 +560,10 @@
         "secondary_code": "6270265152175778",
         "ign": "Packchaser BK",
         "secondary_ign": "Morre",
-        "last_heartbeat_check": 1768942988,
+        "last_heartbeat_check": 1768944903,
         "last_heartbeat": {
-            "time": 101,
-            "packs": 325
+            "time": 133,
+            "packs": 434
         }
     },
     "1017762422947323965": {
