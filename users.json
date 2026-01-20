@@ -2327,12 +2327,12 @@
         "secondary_status": "offline",
         "secondary_code": "2572088340351976",
         "session": {
-            "current_packs": 265,
+            "current_packs": 352,
             "instances": 4,
             "offline_instances": 0,
             "total_instances": 4,
-            "duration_minutes": 90,
-            "last_update": 1768945891,
+            "duration_minutes": 120,
+            "last_update": 1768947693,
             "last_monitor": 2
         },
         "daily": {
@@ -2346,10 +2346,6 @@
             }
         ],
         "samples": [
-            [
-                1768856881,
-                0
-            ],
             [
                 1768862399,
                 0
@@ -2567,10 +2563,6 @@
                 0
             ],
             [
-                1768856888.787,
-                0
-            ],
-            [
                 1768930648,
                 0
             ],
@@ -2719,10 +2711,6 @@
                 0
             ],
             [
-                1768856888.787,
-                0
-            ],
-            [
                 1768938701,
                 377
             ],
@@ -2859,10 +2847,6 @@
                 0
             ],
             [
-                1768856888.787,
-                0
-            ],
-            [
                 1768938709.978,
                 377
             ],
@@ -2971,10 +2955,6 @@
                 0
             ],
             [
-                1768856888.787,
-                0
-            ],
-            [
                 1768940513,
                 0
             ],
@@ -2989,15 +2969,19 @@
             [
                 1768945891,
                 265
+            ],
+            [
+                1768947693,
+                352
             ]
         ],
         "status_ids2": "online",
         "secondary_status_ids2": "offline",
         "has_alerted_offline": false,
-        "last_heartbeat_check": 1768945891,
+        "last_heartbeat_check": 1768947693,
         "last_heartbeat": {
-            "time": 90,
-            "packs": 265
+            "time": 120,
+            "packs": 352
         }
     },
     "1040255662569033788": {
