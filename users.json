@@ -11142,12 +11142,12 @@
         "status": "offline",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 1654,
+            "current_packs": 0,
             "instances": 4,
             "offline_instances": 0,
             "total_instances": 4,
-            "duration_minutes": 751,
-            "last_update": 1768884166,
+            "duration_minutes": 0,
+            "last_update": 1768925492,
             "last_monitor": 1
         },
         "daily": {
@@ -11365,14 +11365,19 @@
             [
                 1768884166,
                 1654
+            ],
+            [
+                1768925492,
+                0
             ]
         ],
         "status_ids2": "online",
         "secondary_status_ids2": "offline",
         "last_heartbeat": {
-            "time": 751,
-            "packs": 1654
-        }
+            "time": 0,
+            "packs": 0
+        },
+        "last_heartbeat_check": 1768925492
     },
     "655583863954735124": {
         "username": "isaac5255",
