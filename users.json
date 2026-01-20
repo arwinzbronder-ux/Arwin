@@ -23310,12 +23310,12 @@
         "status": "online",
         "secondary_status": "online",
         "session": {
-            "current_packs": 1209,
+            "current_packs": 1335,
             "instances": 6,
             "offline_instances": 0,
             "total_instances": 6,
-            "duration_minutes": 301,
-            "last_update": 1768947474,
+            "duration_minutes": 331,
+            "last_update": 1768949278,
             "last_monitor": 1
         },
         "daily": {
@@ -23324,10 +23324,6 @@
         },
         "history": [],
         "samples": [
-            [
-                1768858443,
-                1041
-            ],
             [
                 1768860246,
                 1161
@@ -23475,10 +23471,6 @@
             [
                 1768860253.325,
                 1161
-            ],
-            [
-                1768858450.791,
-                1041
             ],
             [
                 1768926790.157,
@@ -23649,10 +23641,6 @@
                 1161
             ],
             [
-                1768858450.791,
-                1041
-            ],
-            [
                 1768928595.384,
                 165
             ],
@@ -23807,10 +23795,6 @@
             [
                 1768860253.325,
                 1161
-            ],
-            [
-                1768858450.791,
-                1041
             ],
             [
                 1768928595.384,
@@ -24039,15 +24023,19 @@
             [
                 1768947474,
                 1209
+            ],
+            [
+                1768949278,
+                1335
             ]
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
         "has_alerted_offline": false,
-        "last_heartbeat_check": 1768947474,
+        "last_heartbeat_check": 1768949278,
         "last_heartbeat": {
-            "time": 301,
-            "packs": 1209
+            "time": 331,
+            "packs": 1335
         }
     },
     "_global_stats": {
