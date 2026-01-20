@@ -27395,19 +27395,15 @@
         "secondary_status": "offline",
         "status_ids2": "offline",
         "session": {
-            "current_packs": 0,
+            "current_packs": 66,
             "instances": 4,
             "offline_instances": 0,
             "total_instances": 4,
-            "duration_minutes": 0,
-            "last_update": 1768950429,
+            "duration_minutes": 30,
+            "last_update": 1768952207,
             "last_monitor": 1
         },
         "samples": [
-            [
-                1768861362,
-                4615
-            ],
             [
                 1768863177,
                 4679
@@ -27685,10 +27681,6 @@
                 4679
             ],
             [
-                1768861369.478,
-                4615
-            ],
-            [
                 1768928486,
                 593
             ],
@@ -27873,10 +27865,6 @@
                 4679
             ],
             [
-                1768861369.478,
-                4615
-            ],
-            [
                 1768894057.163,
                 5760
             ],
@@ -28041,10 +28029,6 @@
                 4679
             ],
             [
-                1768861369.478,
-                4615
-            ],
-            [
                 1768937560.622,
                 689
             ],
@@ -28201,10 +28185,6 @@
                 4679
             ],
             [
-                1768861369.478,
-                4615
-            ],
-            [
                 1768939367,
                 707
             ],
@@ -28231,11 +28211,19 @@
             [
                 1768950429,
                 0
+            ],
+            [
+                1768952207,
+                66
             ]
         ],
         "has_alerted_offline": false,
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768950439
+        "last_heartbeat_check": 1768950439,
+        "last_heartbeat": {
+            "time": 30,
+            "packs": 66
+        }
     },
     "151796642654191617": {
         "username": "nickka00",
