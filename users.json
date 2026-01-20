@@ -7995,12 +7995,12 @@
         "status": "offline",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 704,
+            "current_packs": 834,
             "instances": 7,
             "offline_instances": 0,
             "total_instances": 7,
-            "duration_minutes": 150,
-            "last_update": 1768941201,
+            "duration_minutes": 180,
+            "last_update": 1768943002,
             "last_monitor": 1
         },
         "daily": {
@@ -8014,10 +8014,6 @@
             }
         ],
         "samples": [
-            [
-                1768852864,
-                480
-            ],
             [
                 1768854665,
                 592
@@ -8187,10 +8183,6 @@
                 592
             ],
             [
-                1768852873.316,
-                480
-            ],
-            [
                 1768932225,
                 0
             ],
@@ -8307,10 +8299,6 @@
                 592
             ],
             [
-                1768852873.316,
-                480
-            ],
-            [
                 1768937606.673,
                 436
             ],
@@ -8411,10 +8399,6 @@
                 592
             ],
             [
-                1768852873.316,
-                480
-            ],
-            [
                 1768887679.524,
                 1936
             ],
@@ -8495,24 +8479,24 @@
                 592
             ],
             [
-                1768852873.316,
-                480
-            ],
-            [
                 1768939400,
                 564
             ],
             [
                 1768941201,
                 704
+            ],
+            [
+                1768943002,
+                834
             ]
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
         "has_alerted_offline": false,
         "last_heartbeat": {
-            "time": 150,
-            "packs": 704
+            "time": 180,
+            "packs": 834
         }
     },
     "287558941540352001": {
