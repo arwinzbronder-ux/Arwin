@@ -21039,12 +21039,12 @@
             ]
         ],
         "status_ids2": "offline",
-        "secondary_status_ids2": "online",
+        "secondary_status_ids2": "offline",
         "has_alerted_offline": false,
         "last_heartbeat_check": 1768925963,
-        "last_heartbeat": {
-            "time": 391,
-            "packs": 1722
+        "auto_kicked_state": {
+            "status": "offline",
+            "secondary_status": "offline"
         }
     },
     "1134310504324677713": {
