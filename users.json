@@ -3611,7 +3611,7 @@
             "offline_instances": 0,
             "total_instances": 5,
             "duration_minutes": 0,
-            "last_update": 1768906564,
+            "last_update": 1768907609,
             "last_monitor": 2
         },
         "samples": [
@@ -3930,10 +3930,14 @@
             [
                 1768906564,
                 0
+            ],
+            [
+                1768907609,
+                0
             ]
         ],
         "has_alerted_offline": false,
-        "last_heartbeat_check": 1768906564,
+        "last_heartbeat_check": 1768907609,
         "last_heartbeat": {
             "time": 0,
             "packs": 0
