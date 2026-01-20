@@ -3587,7 +3587,7 @@
         "prefix": "dai",
         "status": "offline",
         "secondary_status": "offline",
-        "status_ids2": "offline",
+        "status_ids2": "online",
         "secondary_status_ids2": "offline",
         "session": {
             "current_packs": 1673,
