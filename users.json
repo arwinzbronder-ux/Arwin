@@ -27774,19 +27774,15 @@
         "status": "offline",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 12227,
+            "current_packs": 12291,
             "instances": 4,
             "offline_instances": 0,
             "total_instances": 4,
-            "duration_minutes": 5708,
-            "last_update": 1768940878,
+            "duration_minutes": 5738,
+            "last_update": 1768942681,
             "last_monitor": 2
         },
         "samples": [
-            [
-                1768852532,
-                9177
-            ],
             [
                 1768854335,
                 9241
@@ -28116,10 +28112,6 @@
                 9241
             ],
             [
-                1768852539.077,
-                9177
-            ],
-            [
                 1768928257,
                 11767
             ],
@@ -28332,10 +28324,6 @@
                 9241
             ],
             [
-                1768852539.077,
-                9177
-            ],
-            [
                 1768937279.651,
                 12105
             ],
@@ -28522,10 +28510,6 @@
             [
                 1768854342.252,
                 9241
-            ],
-            [
-                1768852539.077,
-                9177
             ],
             [
                 1768939075,
@@ -28724,20 +28708,20 @@
                 9241
             ],
             [
-                1768852539.077,
-                9177
-            ],
-            [
                 1768940878,
                 12227
+            ],
+            [
+                1768942681,
+                12291
             ]
         ],
         "status_ids2": "online",
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768940878,
+        "last_heartbeat_check": 1768942681,
         "last_heartbeat": {
-            "time": 5708,
-            "packs": 12227
+            "time": 5738,
+            "packs": 12291
         }
     },
     "193557944200200192": {
