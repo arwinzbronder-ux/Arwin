@@ -14436,12 +14436,12 @@
         "secondary_status": "offline",
         "status_ids2": "online",
         "session": {
-            "current_packs": 58,
+            "current_packs": 130,
             "instances": 4,
             "offline_instances": 0,
             "total_instances": 4,
-            "duration_minutes": 20,
-            "last_update": 1768919641,
+            "duration_minutes": 40,
+            "last_update": 1768920843,
             "last_monitor": 2
         },
         "samples": [
@@ -14668,15 +14668,19 @@
             [
                 1768919641,
                 58
+            ],
+            [
+                1768920843,
+                130
             ]
         ],
         "secondary_status_ids2": "offline",
         "has_alerted_offline": false,
         "last_heartbeat": {
-            "time": 20,
-            "packs": 58
+            "time": 40,
+            "packs": 130
         },
-        "last_heartbeat_check": 1768919641
+        "last_heartbeat_check": 1768920843
     },
     "303616375224795136": {
         "username": "dergoettliche",
