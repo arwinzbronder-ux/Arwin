@@ -11783,7 +11783,7 @@
             ]
         ],
         "status_ids2": "online",
-        "secondary_status_ids2": "offline",
+        "secondary_status_ids2": "online",
         "has_alerted_offline": false,
         "last_heartbeat_check": 1768925007,
         "last_heartbeat": {
