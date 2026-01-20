@@ -8443,12 +8443,12 @@
         "status": "offline",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 2052,
+            "current_packs": 2220,
             "instances": 7,
             "offline_instances": 0,
             "total_instances": 7,
-            "duration_minutes": 336,
-            "last_update": 1768944341,
+            "duration_minutes": 366,
+            "last_update": 1768946146,
             "last_monitor": 1
         },
         "daily": {
@@ -8896,14 +8896,18 @@
             [
                 1768944341,
                 2052
+            ],
+            [
+                1768946146,
+                2220
             ]
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
         "has_alerted_offline": false,
         "last_heartbeat": {
-            "time": 336,
-            "packs": 2052
+            "time": 366,
+            "packs": 2220
         }
     },
     "275988818631327745": {
