@@ -8320,12 +8320,12 @@
         "status": "offline",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 2568,
+            "current_packs": 2745,
             "instances": 7,
             "offline_instances": 0,
             "total_instances": 7,
-            "duration_minutes": 426,
-            "last_update": 1768949757,
+            "duration_minutes": 456,
+            "last_update": 1768951562,
             "last_monitor": 1
         },
         "daily": {
@@ -8334,10 +8334,6 @@
         },
         "history": [],
         "samples": [
-            [
-                1768860999,
-                0
-            ],
             [
                 1768861775,
                 0
@@ -8409,10 +8405,6 @@
             [
                 1768926290.03,
                 207
-            ],
-            [
-                1768861006.301,
-                0
             ],
             [
                 1768888842.372,
@@ -8531,10 +8523,6 @@
                 207
             ],
             [
-                1768861006.301,
-                0
-            ],
-            [
                 1768888842.372,
                 2274
             ],
@@ -8625,10 +8613,6 @@
             [
                 1768926290.03,
                 207
-            ],
-            [
-                1768861006.301,
-                0
             ],
             [
                 1768888842.372,
@@ -8785,11 +8769,19 @@
             [
                 1768949757,
                 2568
+            ],
+            [
+                1768951562,
+                2745
             ]
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
-        "has_alerted_offline": false
+        "has_alerted_offline": false,
+        "last_heartbeat": {
+            "time": 456,
+            "packs": 2745
+        }
     },
     "275988818631327745": {
         "username": "bloo_64",
