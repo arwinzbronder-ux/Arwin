@@ -4402,7 +4402,7 @@
         "friend_code": "4928118289932284",
         "instances": 5,
         "prefix": "PRCH",
-        "status": "online",
+        "status": "offline",
         "secondary_status": "offline",
         "session": {
             "current_packs": 2719,
@@ -6566,8 +6566,7 @@
         "has_alerted_offline": false,
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
-        "ign": "brizzy505",
-        "last_heartbeat_check": 1768952592
+        "ign": "brizzy505"
     },
     "409685259437735936": {
         "username": "iraptorxd",
