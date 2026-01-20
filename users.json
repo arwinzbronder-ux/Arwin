@@ -1416,7 +1416,7 @@
         "instances": 4,
         "prefix": "PipiSim",
         "status": "offline",
-        "secondary_status": "online",
+        "secondary_status": "offline",
         "secondary_code": "2489404685358169",
         "session": {
             "current_packs": 294,
@@ -1556,11 +1556,11 @@
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
         "has_alerted_offline": false,
-        "last_heartbeat": {
-            "time": 120,
-            "packs": 294
-        },
-        "last_heartbeat_check": 1768869963
+        "last_heartbeat_check": 1768869963,
+        "auto_kicked_state": {
+            "status": "offline",
+            "secondary_status": "online"
+        }
     },
     "849666089902145586": {
         "username": "pr34ch.",
