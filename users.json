@@ -3230,12 +3230,12 @@
             ]
         ],
         "has_alerted_offline": false,
-        "status_ids2": "online",
+        "status_ids2": "offline",
         "secondary_status_ids2": "offline",
         "last_heartbeat_check": 1768906335,
-        "last_heartbeat": {
-            "time": 1173,
-            "packs": 3655
+        "auto_kicked_state": {
+            "status": "offline",
+            "secondary_status": "offline"
         }
     },
     "157834363944435713": {
