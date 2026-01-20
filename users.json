@@ -1992,7 +1992,8 @@
         "last_heartbeat": {
             "time": 30,
             "packs": 176
-        }
+        },
+        "secondary_code": "7112772790107955"
     },
     "396799589513953282": {
         "username": ".komorebi2",
