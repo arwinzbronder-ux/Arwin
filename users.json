@@ -28493,7 +28493,7 @@
                 0
             ]
         ],
-        "has_alerted_offline": true,
+        "has_alerted_offline": false,
         "secondary_status_ids2": "offline"
     },
     "151796642654191617": {
