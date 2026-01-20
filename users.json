@@ -2164,12 +2164,12 @@
         "secondary_status": "online",
         "secondary_code": "6945259816716451",
         "session": {
-            "current_packs": 2299,
+            "current_packs": 2465,
             "instances": 6,
             "offline_instances": 0,
             "total_instances": 6,
-            "duration_minutes": 391,
-            "last_update": 1768929944,
+            "duration_minutes": 421,
+            "last_update": 1768931751,
             "last_monitor": 1
         },
         "daily": {
@@ -2385,15 +2385,19 @@
             [
                 1768929944,
                 2299
+            ],
+            [
+                1768931751,
+                2465
             ]
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
         "has_alerted_offline": false,
-        "last_heartbeat_check": 1768929944,
+        "last_heartbeat_check": 1768931751,
         "last_heartbeat": {
-            "time": 391,
-            "packs": 2299
+            "time": 421,
+            "packs": 2465
         }
     },
     "288833945062342657": {
@@ -19585,12 +19589,12 @@
         "secondary_status": "offline",
         "status_ids2": "online",
         "session": {
-            "current_packs": 471,
+            "current_packs": 537,
             "instances": 4,
             "offline_instances": 0,
             "total_instances": 4,
-            "duration_minutes": 140,
-            "last_update": 1768930549,
+            "duration_minutes": 160,
+            "last_update": 1768931751,
             "last_monitor": 2
         },
         "samples": [
@@ -19717,15 +19721,19 @@
             [
                 1768930549,
                 471
+            ],
+            [
+                1768931751,
+                537
             ]
         ],
         "secondary_status_ids2": "offline",
         "has_alerted_offline": false,
         "last_heartbeat": {
-            "time": 140,
-            "packs": 471
+            "time": 160,
+            "packs": 537
         },
-        "last_heartbeat_check": 1768930549
+        "last_heartbeat_check": 1768931751
     },
     "303616375224795136": {
         "username": "dergoettliche",
