@@ -27640,18 +27640,14 @@
         "status_ids2": "offline",
         "session": {
             "current_packs": 0,
-            "instances": 0,
-            "offline_instances": 5,
-            "total_instances": 5,
-            "duration_minutes": 30,
-            "last_update": 1768948401,
+            "instances": 4,
+            "offline_instances": 0,
+            "total_instances": 4,
+            "duration_minutes": 0,
+            "last_update": 1768950429,
             "last_monitor": 2
         },
         "samples": [
-            [
-                1768859546,
-                4557
-            ],
             [
                 1768861362,
                 4615
@@ -27937,10 +27933,6 @@
                 4615
             ],
             [
-                1768859553.186,
-                4557
-            ],
-            [
                 1768928486,
                 593
             ],
@@ -28129,10 +28121,6 @@
                 4615
             ],
             [
-                1768859553.186,
-                4557
-            ],
-            [
                 1768894057.163,
                 5760
             ],
@@ -28301,10 +28289,6 @@
                 4615
             ],
             [
-                1768859553.186,
-                4557
-            ],
-            [
                 1768937560.622,
                 689
             ],
@@ -28465,10 +28449,6 @@
                 4615
             ],
             [
-                1768859553.186,
-                4557
-            ],
-            [
                 1768939367,
                 707
             ],
@@ -28491,10 +28471,18 @@
             [
                 1768948401,
                 0
+            ],
+            [
+                1768950429,
+                0
             ]
         ],
         "has_alerted_offline": false,
-        "secondary_status_ids2": "offline"
+        "secondary_status_ids2": "offline",
+        "last_heartbeat": {
+            "time": 0,
+            "packs": 0
+        }
     },
     "151796642654191617": {
         "username": "nickka00",
