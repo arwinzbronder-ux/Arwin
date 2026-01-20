@@ -27041,12 +27041,12 @@
         "status": "offline",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 2097,
+            "current_packs": 2185,
             "instances": 8,
             "offline_instances": 1,
             "total_instances": 9,
-            "duration_minutes": 632,
-            "last_update": 1768940419,
+            "duration_minutes": 662,
+            "last_update": 1768942226,
             "last_monitor": 1
         },
         "daily": {
@@ -27055,10 +27055,6 @@
         },
         "history": [],
         "samples": [
-            [
-                1768850982,
-                304
-            ],
             [
                 1768852789,
                 406
@@ -27308,10 +27304,6 @@
                 406
             ],
             [
-                1768850990.28,
-                304
-            ],
-            [
                 1768927776,
                 1722
             ],
@@ -27484,10 +27476,6 @@
                 406
             ],
             [
-                1768850990.28,
-                304
-            ],
-            [
                 1768938612,
                 2009
             ],
@@ -27644,10 +27632,6 @@
                 406
             ],
             [
-                1768850990.28,
-                304
-            ],
-            [
                 1768925970.987,
                 1722
             ],
@@ -27772,12 +27756,12 @@
                 406
             ],
             [
-                1768850990.28,
-                304
-            ],
-            [
                 1768940419,
                 2097
+            ],
+            [
+                1768942226,
+                2185
             ]
         ],
         "status_ids2": "offline",
@@ -27785,8 +27769,8 @@
         "has_alerted_offline": true,
         "last_heartbeat_check": 1768933192,
         "last_heartbeat": {
-            "time": 632,
-            "packs": 2097
+            "time": 662,
+            "packs": 2185
         }
     },
     "1134310504324677713": {
