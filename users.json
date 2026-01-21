@@ -4277,12 +4277,12 @@
         "status": "offline",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 3465,
+            "current_packs": 3641,
             "instances": 6,
             "offline_instances": 0,
             "total_instances": 6,
-            "duration_minutes": 631,
-            "last_update": 1768990515,
+            "duration_minutes": 661,
+            "last_update": 1768992320,
             "last_monitor": 2
         },
         "daily": {
@@ -4621,16 +4621,20 @@
             [
                 1768990515,
                 3465
+            ],
+            [
+                1768992320,
+                3641
             ]
         ],
         "has_alerted_offline": false,
         "status_ids2": "online",
         "secondary_status_ids2": "offline",
         "ign": "brizzy505",
-        "last_heartbeat_check": 1768990515,
+        "last_heartbeat_check": 1768992320,
         "last_heartbeat": {
-            "time": 631,
-            "packs": 3465
+            "time": 661,
+            "packs": 3641
         }
     },
     "409685259437735936": {
