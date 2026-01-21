@@ -5204,7 +5204,8 @@
         "last_heartbeat": {
             "time": 420,
             "packs": 1883
-        }
+        },
+        "ign": "Pogo"
     },
     "287558941540352001": {
         "username": "bassrv",
