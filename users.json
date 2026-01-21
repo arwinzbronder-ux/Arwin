@@ -2008,12 +2008,12 @@
         "secondary_status": "offline",
         "secondary_code": "2572088340351976",
         "session": {
-            "current_packs": 1550,
+            "current_packs": 1655,
             "instances": 4,
             "offline_instances": 0,
             "total_instances": 4,
-            "duration_minutes": 480,
-            "last_update": 1768969326,
+            "duration_minutes": 510,
+            "last_update": 1768971129,
             "last_monitor": 2
         },
         "daily": {
@@ -2027,10 +2027,6 @@
             }
         ],
         "samples": [
-            [
-                1768880393,
-                794
-            ],
             [
                 1768882196,
                 883
@@ -2160,10 +2156,6 @@
                 883
             ],
             [
-                1768880401.406,
-                794
-            ],
-            [
                 1768930648,
                 0
             ],
@@ -2268,10 +2260,6 @@
                 883
             ],
             [
-                1768880401.406,
-                794
-            ],
-            [
                 1768938701,
                 377
             ],
@@ -2364,10 +2352,6 @@
                 883
             ],
             [
-                1768880401.406,
-                794
-            ],
-            [
                 1768938709.978,
                 377
             ],
@@ -2430,10 +2414,6 @@
             [
                 1768882204.778,
                 883
-            ],
-            [
-                1768880401.406,
-                794
             ],
             [
                 1768940513,
@@ -2502,15 +2482,19 @@
             [
                 1768969326,
                 1550
+            ],
+            [
+                1768971129,
+                1655
             ]
         ],
         "status_ids2": "online",
         "secondary_status_ids2": "offline",
         "has_alerted_offline": false,
-        "last_heartbeat_check": 1768969326,
+        "last_heartbeat_check": 1768971129,
         "last_heartbeat": {
-            "time": 480,
-            "packs": 1550
+            "time": 510,
+            "packs": 1655
         }
     },
     "1040255662569033788": {
