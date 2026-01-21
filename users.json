@@ -4220,18 +4220,7 @@
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
-        "has_alerted_offline": false,
-        "last_heartbeat_check": 1768989088,
-        "auto_kicked_state": {
-            "status": "offline",
-            "secondary_status": "offline",
-            "status_ids2": "offline",
-            "secondary_status_ids2": "offline"
-        },
-        "last_heartbeat": {
-            "time": 661,
-            "packs": 1446
-        }
+        "has_alerted_offline": false
     },
     "849666089902145586": {
         "username": "pr34ch.",
