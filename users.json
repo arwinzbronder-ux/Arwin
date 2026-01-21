@@ -20245,14 +20245,9 @@
                 1672
             ]
         ],
-        "status_ids2": "online",
+        "status_ids2": "offline",
         "secondary_status_ids2": "offline",
-        "has_alerted_offline": false,
-        "last_heartbeat_check": 1768996739,
-        "last_heartbeat": {
-            "time": 870,
-            "packs": 1672
-        }
+        "has_alerted_offline": false
     },
     "553693689302482945": {
         "username": "skyttzi",
