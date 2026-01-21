@@ -9762,19 +9762,15 @@
         "status_ids2": "online",
         "secondary_status_ids2": "online",
         "session": {
-            "current_packs": 0,
+            "current_packs": 82,
             "instances": 5,
             "offline_instances": 0,
             "total_instances": 5,
-            "duration_minutes": 0,
-            "last_update": 1768964098,
+            "duration_minutes": 30,
+            "last_update": 1768965875,
             "last_monitor": 2
         },
         "samples": [
-            [
-                1768875331,
-                1470
-            ],
             [
                 1768877139,
                 1532
@@ -9904,10 +9900,6 @@
                 1532
             ],
             [
-                1768875339.407,
-                1470
-            ],
-            [
                 1768927475,
                 864
             ],
@@ -10020,10 +10012,6 @@
                 1532
             ],
             [
-                1768875339.407,
-                1470
-            ],
-            [
                 1768938322,
                 1268
             ],
@@ -10120,10 +10108,6 @@
                 1532
             ],
             [
-                1768875339.407,
-                1470
-            ],
-            [
                 1768938330.085,
                 1268
             ],
@@ -10216,10 +10200,6 @@
                 1532
             ],
             [
-                1768875339.407,
-                1470
-            ],
-            [
                 1768940129,
                 1345
             ],
@@ -10278,13 +10258,17 @@
             [
                 1768964098,
                 0
+            ],
+            [
+                1768965875,
+                82
             ]
         ],
         "has_alerted_offline": false,
-        "last_heartbeat_check": 1768964098,
+        "last_heartbeat_check": 1768965875,
         "last_heartbeat": {
-            "time": 0,
-            "packs": 0
+            "time": 30,
+            "packs": 82
         }
     },
     "1056944043688476682": {
