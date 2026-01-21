@@ -3829,12 +3829,12 @@
         "status": "online",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 252,
+            "current_packs": 466,
             "instances": 6,
             "offline_instances": 0,
             "total_instances": 6,
-            "duration_minutes": 30,
-            "last_update": 1769009962,
+            "duration_minutes": 60,
+            "last_update": 1769011765,
             "last_monitor": 1
         },
         "daily": {
@@ -3941,6 +3941,10 @@
             [
                 1769009962,
                 252
+            ],
+            [
+                1769011765,
+                466
             ]
         ],
         "status_ids2": "offline",
@@ -3948,10 +3952,10 @@
         "has_alerted_offline": false,
         "secondary_code": "7112772790107955",
         "ign": "iRapXD",
-        "last_heartbeat_check": 1769009962,
+        "last_heartbeat_check": 1769011765,
         "last_heartbeat": {
-            "time": 30,
-            "packs": 252
+            "time": 60,
+            "packs": 466
         }
     },
     "396799589513953282": {
@@ -18642,19 +18646,15 @@
         "secondary_status": "offline",
         "status_ids2": "online",
         "session": {
-            "current_packs": 7318,
+            "current_packs": 7336,
             "instances": 4,
             "offline_instances": 0,
             "total_instances": 4,
-            "duration_minutes": 992,
-            "last_update": 1769009971,
+            "duration_minutes": 1023,
+            "last_update": 1769011776,
             "last_monitor": 2
         },
         "samples": [
-            [
-                1768921243,
-                536
-            ],
             [
                 1768923054,
                 553
@@ -18674,10 +18674,6 @@
             [
                 1768923061.627,
                 553
-            ],
-            [
-                1768921250.685,
-                536
             ],
             [
                 1768928486,
@@ -18736,10 +18732,6 @@
                 553
             ],
             [
-                1768921250.685,
-                536
-            ],
-            [
                 1768937560.622,
                 689
             ],
@@ -18776,10 +18768,6 @@
                 553
             ],
             [
-                1768921250.685,
-                536
-            ],
-            [
                 1768937560.622,
                 689
             ],
@@ -18814,10 +18802,6 @@
             [
                 1768923061.627,
                 553
-            ],
-            [
-                1768921250.685,
-                536
             ],
             [
                 1768939367,
@@ -19064,10 +19048,6 @@
                 553
             ],
             [
-                1768921250.685,
-                536
-            ],
-            [
                 1768986500,
                 1788
             ],
@@ -19122,14 +19102,18 @@
             [
                 1769009971,
                 7318
+            ],
+            [
+                1769011776,
+                7336
             ]
         ],
         "has_alerted_offline": false,
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1769009971,
+        "last_heartbeat_check": 1769011776,
         "last_heartbeat": {
-            "time": 992,
-            "packs": 7318
+            "time": 1023,
+            "packs": 7336
         }
     },
     "151796642654191617": {
