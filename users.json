@@ -2396,12 +2396,12 @@
         "secondary_status": "offline",
         "secondary_code": "2572088340351976",
         "session": {
-            "current_packs": 760,
+            "current_packs": 829,
             "instances": 4,
             "offline_instances": 0,
             "total_instances": 4,
-            "duration_minutes": 270,
-            "last_update": 1769031871,
+            "duration_minutes": 300,
+            "last_update": 1769033673,
             "last_monitor": 2
         },
         "daily": {
@@ -2415,10 +2415,6 @@
             }
         ],
         "samples": [
-            [
-                1768942285,
-                86
-            ],
             [
                 1768944088,
                 176
@@ -2610,10 +2606,6 @@
             [
                 1768944097.119,
                 176
-            ],
-            [
-                1768942294.069,
-                86
             ],
             [
                 1768987348,
@@ -2832,10 +2824,6 @@
                 176
             ],
             [
-                1768942294.069,
-                86
-            ],
-            [
                 1769028266,
                 604
             ],
@@ -2846,16 +2834,20 @@
             [
                 1769031871,
                 760
+            ],
+            [
+                1769033673,
+                829
             ]
         ],
         "status_ids2": "online",
         "secondary_status_ids2": "offline",
         "has_alerted_offline": false,
         "last_heartbeat": {
-            "time": 270,
-            "packs": 760
+            "time": 300,
+            "packs": 829
         },
-        "last_heartbeat_check": 1769031871
+        "last_heartbeat_check": 1769033673
     },
     "1040255662569033788": {
         "username": "jerry223608",
