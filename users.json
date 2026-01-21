@@ -18595,13 +18595,8 @@
                 1488
             ]
         ],
-        "status_ids2": "online",
-        "secondary_status_ids2": "offline",
-        "last_heartbeat": {
-            "time": 571,
-            "packs": 1488
-        },
-        "last_heartbeat_check": 1768959749
+        "status_ids2": "offline",
+        "secondary_status_ids2": "offline"
     },
     "655583863954735124": {
         "username": "isaac5255",
