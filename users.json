@@ -4508,12 +4508,12 @@
         "status": "online",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 2589,
+            "current_packs": 2775,
             "instances": 6,
             "offline_instances": 0,
             "total_instances": 6,
-            "duration_minutes": 390,
-            "last_update": 1769031604,
+            "duration_minutes": 420,
+            "last_update": 1769033408,
             "last_monitor": 1
         },
         "daily": {
@@ -4896,6 +4896,10 @@
             [
                 1769031604,
                 2589
+            ],
+            [
+                1769033408,
+                2775
             ]
         ],
         "status_ids2": "offline",
@@ -4903,10 +4907,10 @@
         "has_alerted_offline": false,
         "secondary_code": "7112772790107955",
         "ign": "iRapXD",
-        "last_heartbeat_check": 1769031604,
+        "last_heartbeat_check": 1769033408,
         "last_heartbeat": {
-            "time": 390,
-            "packs": 2589
+            "time": 420,
+            "packs": 2775
         }
     },
     "396799589513953282": {
