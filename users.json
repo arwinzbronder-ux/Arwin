@@ -438,12 +438,12 @@
         "status": "offline",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 1324,
+            "current_packs": 1388,
             "instances": 4,
             "offline_instances": 0,
             "total_instances": 4,
-            "duration_minutes": 541,
-            "last_update": 1768961919,
+            "duration_minutes": 571,
+            "last_update": 1768963723,
             "last_monitor": 2
         },
         "daily": {
@@ -452,10 +452,6 @@
         },
         "history": [],
         "samples": [
-            [
-                1768873650,
-                1737
-            ],
             [
                 1768875453,
                 1890
@@ -577,10 +573,6 @@
                 1890
             ],
             [
-                1768873657.219,
-                1737
-            ],
-            [
                 1768929472,
                 0
             ],
@@ -659,10 +651,6 @@
             [
                 1768875461.288,
                 1890
-            ],
-            [
-                1768873657.219,
-                1737
             ],
             [
                 1768936669.253,
@@ -747,10 +735,6 @@
             [
                 1768875461.288,
                 1890
-            ],
-            [
-                1768873657.219,
-                1737
             ],
             [
                 1768938473.616,
@@ -851,15 +835,19 @@
             [
                 1768961919,
                 1324
+            ],
+            [
+                1768963723,
+                1388
             ]
         ],
         "status_ids2": "online",
         "secondary_status_ids2": "offline",
         "has_alerted_offline": false,
-        "last_heartbeat_check": 1768961919,
+        "last_heartbeat_check": 1768963723,
         "last_heartbeat": {
-            "time": 541,
-            "packs": 1324
+            "time": 571,
+            "packs": 1388
         },
         "ign": "DR.G"
     },
