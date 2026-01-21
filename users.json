@@ -3554,7 +3554,7 @@
         "friend_code": "4667419267232045",
         "instances": 3,
         "prefix": "rap",
-        "status": "offline",
+        "status": "online",
         "secondary_status": "offline",
         "session": {
             "current_packs": 358,
@@ -4462,7 +4462,8 @@
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
         "has_alerted_offline": false,
-        "secondary_code": "7112772790107955"
+        "secondary_code": "7112772790107955",
+        "last_heartbeat_check": 1768963776
     },
     "396799589513953282": {
         "username": ".komorebi2",
