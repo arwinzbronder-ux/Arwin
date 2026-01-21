@@ -10378,19 +10378,15 @@
         "status_ids2": "online",
         "secondary_status_ids2": "online",
         "session": {
-            "current_packs": 2046,
-            "instances": 5,
-            "offline_instances": 0,
+            "current_packs": 2111,
+            "instances": 4,
+            "offline_instances": 1,
             "total_instances": 5,
-            "duration_minutes": 873,
-            "last_update": 1768960013,
+            "duration_minutes": 904,
+            "last_update": 1768961826,
             "last_monitor": 2
         },
         "samples": [
-            [
-                1768871715,
-                1316
-            ],
             [
                 1768873523,
                 1398
@@ -10536,10 +10532,6 @@
                 1398
             ],
             [
-                1768871722.758,
-                1316
-            ],
-            [
                 1768927475,
                 864
             ],
@@ -10660,10 +10652,6 @@
                 1398
             ],
             [
-                1768871722.758,
-                1316
-            ],
-            [
                 1768938322,
                 1268
             ],
@@ -10768,10 +10756,6 @@
                 1398
             ],
             [
-                1768871722.758,
-                1316
-            ],
-            [
                 1768938330.085,
                 1268
             ],
@@ -10872,10 +10856,6 @@
                 1398
             ],
             [
-                1768871722.758,
-                1316
-            ],
-            [
                 1768940129,
                 1345
             ],
@@ -10922,13 +10902,17 @@
             [
                 1768960013,
                 2046
+            ],
+            [
+                1768961826,
+                2111
             ]
         ],
         "has_alerted_offline": true,
         "last_heartbeat_check": 1768961821,
         "last_heartbeat": {
-            "time": 873,
-            "packs": 2046
+            "time": 904,
+            "packs": 2111
         }
     },
     "1056944043688476682": {
