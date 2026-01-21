@@ -25484,19 +25484,15 @@
         "secondary_status": "offline",
         "status_ids2": "offline",
         "session": {
-            "current_packs": 66,
+            "current_packs": 144,
             "instances": 4,
             "offline_instances": 0,
             "total_instances": 4,
-            "duration_minutes": 30,
-            "last_update": 1768952207,
+            "duration_minutes": 60,
+            "last_update": 1768954006,
             "last_monitor": 1
         },
         "samples": [
-            [
-                1768863177,
-                4679
-            ],
             [
                 1768864994,
                 4733
@@ -25766,10 +25762,6 @@
                 4733
             ],
             [
-                1768863185.194,
-                4679
-            ],
-            [
                 1768928486,
                 593
             ],
@@ -25950,10 +25942,6 @@
                 4733
             ],
             [
-                1768863185.194,
-                4679
-            ],
-            [
                 1768894057.163,
                 5760
             ],
@@ -26114,10 +26102,6 @@
                 4733
             ],
             [
-                1768863185.194,
-                4679
-            ],
-            [
                 1768937560.622,
                 689
             ],
@@ -26270,10 +26254,6 @@
                 4733
             ],
             [
-                1768863185.194,
-                4679
-            ],
-            [
                 1768939367,
                 707
             ],
@@ -26304,14 +26284,18 @@
             [
                 1768952207,
                 66
+            ],
+            [
+                1768954006,
+                144
             ]
         ],
         "has_alerted_offline": false,
         "secondary_status_ids2": "offline",
         "last_heartbeat_check": 1768950439,
         "last_heartbeat": {
-            "time": 30,
-            "packs": 66
+            "time": 60,
+            "packs": 144
         }
     },
     "151796642654191617": {
