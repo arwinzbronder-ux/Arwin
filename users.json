@@ -4605,7 +4605,7 @@
         "friend_code": "4667419267232045",
         "instances": 3,
         "prefix": "rap",
-        "status": "offline",
+        "status": "online",
         "secondary_status": "offline",
         "session": {
             "current_packs": 400,
@@ -4714,7 +4714,8 @@
         "secondary_status_ids2": "offline",
         "has_alerted_offline": false,
         "secondary_code": "7112772790107955",
-        "ign": "iRapXD"
+        "ign": "iRapXD",
+        "last_heartbeat_check": 1769007824
     },
     "396799589513953282": {
         "username": ".komorebi2",
