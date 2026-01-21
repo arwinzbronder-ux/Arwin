@@ -21383,19 +21383,15 @@
         "secondary_status": "offline",
         "status_ids2": "online",
         "session": {
-            "current_packs": 1136,
+            "current_packs": 1239,
             "instances": 4,
             "offline_instances": 0,
             "total_instances": 4,
-            "duration_minutes": 421,
-            "last_update": 1768975669,
+            "duration_minutes": 451,
+            "last_update": 1768977474,
             "last_monitor": 2
         },
         "samples": [
-            [
-                1768886753,
-                5580
-            ],
             [
                 1768890425,
                 5671
@@ -21561,10 +21557,6 @@
                 5671
             ],
             [
-                1768886760.412,
-                5580
-            ],
-            [
                 1768928486,
                 593
             ],
@@ -21693,10 +21685,6 @@
                 5671
             ],
             [
-                1768886760.412,
-                5580
-            ],
-            [
                 1768894057.163,
                 5760
             ],
@@ -21805,10 +21793,6 @@
                 5671
             ],
             [
-                1768886760.412,
-                5580
-            ],
-            [
                 1768937560.622,
                 689
             ],
@@ -21909,10 +21893,6 @@
                 5671
             ],
             [
-                1768886760.412,
-                5580
-            ],
-            [
                 1768939367,
                 707
             ],
@@ -21995,14 +21975,18 @@
             [
                 1768975669,
                 1136
+            ],
+            [
+                1768977474,
+                1239
             ]
         ],
         "has_alerted_offline": false,
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768975669,
+        "last_heartbeat_check": 1768977474,
         "last_heartbeat": {
-            "time": 421,
-            "packs": 1136
+            "time": 451,
+            "packs": 1239
         }
     },
     "151796642654191617": {
