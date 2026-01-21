@@ -5733,7 +5733,7 @@
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
-        "has_alerted_offline": false
+        "has_alerted_offline": true
     },
     "275988818631327745": {
         "username": "bloo_64",
