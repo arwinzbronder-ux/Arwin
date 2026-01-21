@@ -27079,19 +27079,15 @@
         "secondary_status": "offline",
         "status_ids2": "online",
         "session": {
-            "current_packs": 1788,
+            "current_packs": 1888,
             "instances": 4,
             "offline_instances": 0,
             "total_instances": 4,
-            "duration_minutes": 601,
-            "last_update": 1768986500,
+            "duration_minutes": 631,
+            "last_update": 1768988306,
             "last_monitor": 2
         },
         "samples": [
-            [
-                1768897672,
-                23
-            ],
             [
                 1768899486,
                 68
@@ -27217,10 +27213,6 @@
                 68
             ],
             [
-                1768897680.038,
-                23
-            ],
-            [
                 1768928486,
                 593
             ],
@@ -27329,10 +27321,6 @@
                 68
             ],
             [
-                1768897680.038,
-                23
-            ],
-            [
                 1768937560.622,
                 689
             ],
@@ -27421,10 +27409,6 @@
                 68
             ],
             [
-                1768897680.038,
-                23
-            ],
-            [
                 1768937560.622,
                 689
             ],
@@ -27511,10 +27495,6 @@
             [
                 1768899493.061,
                 68
-            ],
-            [
-                1768897680.038,
-                23
             ],
             [
                 1768939367,
@@ -27813,20 +27793,20 @@
                 68
             ],
             [
-                1768897680.038,
-                23
-            ],
-            [
                 1768986500,
                 1788
+            ],
+            [
+                1768988306,
+                1888
             ]
         ],
         "has_alerted_offline": false,
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1768986500,
+        "last_heartbeat_check": 1768988306,
         "last_heartbeat": {
-            "time": 601,
-            "packs": 1788
+            "time": 631,
+            "packs": 1888
         }
     },
     "151796642654191617": {
