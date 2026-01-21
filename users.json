@@ -14959,7 +14959,7 @@
             "start_packs": 1186
         },
         "last_offline_alert": 1767653746,
-        "has_alerted_offline": false,
+        "has_alerted_offline": true,
         "history": [],
         "samples": [
             [
@@ -15233,7 +15233,7 @@
         ],
         "status_ids2": "online",
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1769007134,
+        "last_heartbeat_check": 1769008938,
         "last_heartbeat": {
             "time": 60,
             "packs": 120
