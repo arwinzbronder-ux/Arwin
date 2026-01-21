@@ -2818,12 +2818,12 @@
         "secondary_status": "online",
         "secondary_code": "6945259816716451",
         "session": {
-            "current_packs": 4645,
+            "current_packs": 4811,
             "instances": 6,
             "offline_instances": 0,
             "total_instances": 6,
-            "duration_minutes": 813,
-            "last_update": 1768955247,
+            "duration_minutes": 843,
+            "last_update": 1768957054,
             "last_monitor": 1
         },
         "daily": {
@@ -3131,15 +3131,19 @@
             [
                 1768955247,
                 4645
+            ],
+            [
+                1768957054,
+                4811
             ]
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
         "has_alerted_offline": false,
-        "last_heartbeat_check": 1768955247,
+        "last_heartbeat_check": 1768957054,
         "last_heartbeat": {
-            "time": 813,
-            "packs": 4645
+            "time": 843,
+            "packs": 4811
         }
     },
     "288833945062342657": {
