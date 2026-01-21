@@ -773,14 +773,9 @@
                 1843
             ]
         ],
-        "status_ids2": "online",
+        "status_ids2": "offline",
         "secondary_status_ids2": "offline",
         "has_alerted_offline": false,
-        "last_heartbeat_check": 1768976356,
-        "last_heartbeat": {
-            "time": 781,
-            "packs": 1843
-        },
         "ign": "DR.G"
     },
     "475603063948705794": {
