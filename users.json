@@ -5198,12 +5198,12 @@
         "status": "offline",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 1534,
+            "current_packs": 1681,
             "instances": 7,
             "offline_instances": 0,
             "total_instances": 7,
-            "duration_minutes": 300,
-            "last_update": 1769036557,
+            "duration_minutes": 330,
+            "last_update": 1769038359,
             "last_monitor": 2
         },
         "daily": {
@@ -5548,16 +5548,20 @@
             [
                 1769036557,
                 1534
+            ],
+            [
+                1769038359,
+                1681
             ]
         ],
         "status_ids2": "online",
         "secondary_status_ids2": "offline",
         "has_alerted_offline": false,
         "ign": "Pogo",
-        "last_heartbeat_check": 1769036557,
+        "last_heartbeat_check": 1769038359,
         "last_heartbeat": {
-            "time": 300,
-            "packs": 1534
+            "time": 330,
+            "packs": 1681
         }
     },
     "287558941540352001": {
