@@ -442,12 +442,12 @@
         "status": "offline",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 1388,
+            "current_packs": 1451,
             "instances": 4,
             "offline_instances": 0,
             "total_instances": 4,
-            "duration_minutes": 571,
-            "last_update": 1768963723,
+            "duration_minutes": 601,
+            "last_update": 1768965528,
             "last_monitor": 2
         },
         "daily": {
@@ -843,15 +843,19 @@
             [
                 1768963723,
                 1388
+            ],
+            [
+                1768965528,
+                1451
             ]
         ],
         "status_ids2": "online",
         "secondary_status_ids2": "offline",
         "has_alerted_offline": false,
-        "last_heartbeat_check": 1768963723,
+        "last_heartbeat_check": 1768965528,
         "last_heartbeat": {
-            "time": 571,
-            "packs": 1388
+            "time": 601,
+            "packs": 1451
         },
         "ign": "DR.G"
     },
