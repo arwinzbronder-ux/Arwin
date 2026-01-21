@@ -3172,7 +3172,7 @@
             "offline_instances": 0,
             "total_instances": 3,
             "duration_minutes": 0,
-            "last_update": 1768956399,
+            "last_update": 1768956665,
             "last_monitor": 1
         },
         "daily": {
@@ -3247,12 +3247,16 @@
             [
                 1768956399,
                 0
+            ],
+            [
+                1768956665,
+                0
             ]
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
         "has_alerted_offline": false,
-        "last_heartbeat_check": 1768956516,
+        "last_heartbeat_check": 1768956665,
         "last_heartbeat": {
             "time": 0,
             "packs": 0
