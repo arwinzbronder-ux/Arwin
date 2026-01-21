@@ -12453,11 +12453,11 @@
         "secondary_status_ids2": "offline",
         "session": {
             "current_packs": 0,
-            "instances": 5,
-            "offline_instances": 0,
+            "instances": 4,
+            "offline_instances": 1,
             "total_instances": 5,
             "duration_minutes": 0,
-            "last_update": 1768991294,
+            "last_update": 1768992946,
             "last_monitor": 2
         },
         "samples": [
@@ -13076,9 +13076,17 @@
             [
                 1768991294,
                 0
+            ],
+            [
+                1768992946,
+                0
             ]
         ],
-        "has_alerted_offline": true
+        "has_alerted_offline": true,
+        "last_heartbeat": {
+            "time": 0,
+            "packs": 0
+        }
     },
     "1056944043688476682": {
         "username": "libra_2828",
