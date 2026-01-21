@@ -25243,7 +25243,7 @@
             ]
         ],
         "secondary_status_ids2": "offline",
-        "has_alerted_offline": false,
+        "has_alerted_offline": true,
         "last_heartbeat": {
             "time": 20,
             "packs": 64
