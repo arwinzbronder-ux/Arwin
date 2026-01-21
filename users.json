@@ -12490,7 +12490,7 @@
             "offline_instances": 0,
             "total_instances": 5,
             "duration_minutes": 0,
-            "last_update": 1768991133,
+            "last_update": 1768991294,
             "last_monitor": 2
         },
         "samples": [
@@ -13105,10 +13105,14 @@
             [
                 1768991133,
                 0
+            ],
+            [
+                1768991294,
+                0
             ]
         ],
         "has_alerted_offline": false,
-        "last_heartbeat_check": 1768991133,
+        "last_heartbeat_check": 1768991294,
         "auto_kicked_state": {
             "status": "offline",
             "secondary_status": "offline",
