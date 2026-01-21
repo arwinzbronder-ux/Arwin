@@ -13082,7 +13082,7 @@
                 0
             ]
         ],
-        "has_alerted_offline": true,
+        "has_alerted_offline": false,
         "last_heartbeat": {
             "time": 0,
             "packs": 0
