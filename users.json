@@ -8124,12 +8124,12 @@
                 1290
             ]
         ],
-        "has_alerted_offline": false,
+        "has_alerted_offline": true,
         "last_heartbeat": {
             "time": 602,
             "packs": 1290
         },
-        "last_heartbeat_check": 1769029371
+        "last_heartbeat_check": 1769031179
     },
     "1056944043688476682": {
         "username": "libra_2828",
