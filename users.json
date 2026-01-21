@@ -5205,7 +5205,8 @@
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
         "has_alerted_offline": false,
-        "secondary_code": "7112772790107955"
+        "secondary_code": "7112772790107955",
+        "ign": "iRapXD"
     },
     "396799589513953282": {
         "username": ".komorebi2",
