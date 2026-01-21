@@ -9633,7 +9633,8 @@
         ],
         "has_alerted_offline": true,
         "status_ids2": "offline",
-        "secondary_status_ids2": "offline"
+        "secondary_status_ids2": "offline",
+        "ign": "iChesterFTW"
     },
     "157834363944435713": {
         "username": "fierza.",
