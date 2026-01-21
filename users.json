@@ -8646,12 +8646,12 @@
         "secondary_code": "3728578745352937",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 1892,
+            "current_packs": 1957,
             "instances": 5,
             "offline_instances": 0,
             "total_instances": 5,
-            "duration_minutes": 630,
-            "last_update": 1768974155,
+            "duration_minutes": 660,
+            "last_update": 1768975958,
             "last_monitor": 2
         },
         "daily": {
@@ -8660,10 +8660,6 @@
         },
         "history": [],
         "samples": [
-            [
-                1768885570,
-                1149
-            ],
             [
                 1768887372,
                 1249
@@ -8849,10 +8845,6 @@
                 1249
             ],
             [
-                1768885577.769,
-                1149
-            ],
-            [
                 1768928824,
                 3526
             ],
@@ -8993,10 +8985,6 @@
                 1249
             ],
             [
-                1768885577.769,
-                1149
-            ],
-            [
                 1768938108,
                 81
             ],
@@ -9121,10 +9109,6 @@
                 1249
             ],
             [
-                1768885577.769,
-                1149
-            ],
-            [
                 1768938116.06,
                 81
             ],
@@ -9245,10 +9229,6 @@
                 1249
             ],
             [
-                1768885577.769,
-                1149
-            ],
-            [
                 1768939911,
                 158
             ],
@@ -9327,16 +9307,20 @@
             [
                 1768974155,
                 1892
+            ],
+            [
+                1768975958,
+                1957
             ]
         ],
         "status_ids2": "online",
         "secondary_status_ids2": "online",
         "has_alerted_offline": false,
         "last_heartbeat": {
-            "time": 630,
-            "packs": 1892
+            "time": 660,
+            "packs": 1957
         },
-        "last_heartbeat_check": 1768974155
+        "last_heartbeat_check": 1768975958
     },
     "1059812834445377587": {
         "username": "daizy.",
