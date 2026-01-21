@@ -7,12 +7,12 @@
         "status": "offline",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 3110,
+            "current_packs": 0,
             "instances": 6,
             "offline_instances": 0,
             "total_instances": 6,
-            "duration_minutes": 894,
-            "last_update": 1768990561,
+            "duration_minutes": 0,
+            "last_update": 1769022352,
             "last_monitor": 2
         },
         "daily": {
@@ -289,13 +289,22 @@
             [
                 1768990561,
                 3110
+            ],
+            [
+                1769022352,
+                0
             ]
         ],
         "status_ids2": "online",
         "secondary_status_ids2": "online",
         "secondary_code": "6270265152175778",
         "ign": "Packchaser BK",
-        "secondary_ign": "Morre"
+        "secondary_ign": "Morre",
+        "last_heartbeat_check": 1769022352,
+        "last_heartbeat": {
+            "time": 0,
+            "packs": 0
+        }
     },
     "1017762422947323965": {
         "username": "najanaja_44",
