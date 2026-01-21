@@ -4605,7 +4605,7 @@
         "friend_code": "4667419267232045",
         "instances": 3,
         "prefix": "rap",
-        "status": "offline",
+        "status": "online",
         "secondary_status": "offline",
         "session": {
             "current_packs": 0,
@@ -4719,7 +4719,7 @@
         "has_alerted_offline": false,
         "secondary_code": "7112772790107955",
         "ign": "iRapXD",
-        "last_heartbeat_check": 1769007824,
+        "last_heartbeat_check": 1769008124,
         "last_heartbeat": {
             "time": 0,
             "packs": 0
