@@ -9307,8 +9307,8 @@
             "instances": 5,
             "offline_instances": 0,
             "total_instances": 5,
-            "duration_minutes": 210,
-            "last_update": 1768976730,
+            "duration_minutes": 241,
+            "last_update": 1768978534,
             "last_monitor": 1
         },
         "samples": [
@@ -9747,6 +9747,10 @@
             [
                 1768976730,
                 345
+            ],
+            [
+                1768978534,
+                345
             ]
         ],
         "has_alerted_offline": false,
@@ -9758,7 +9762,7 @@
             "secondary_status_ids2": "online"
         },
         "last_heartbeat": {
-            "time": 210,
+            "time": 241,
             "packs": 345
         }
     },
