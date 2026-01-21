@@ -9361,10 +9361,11 @@
                 294
             ]
         ],
-        "has_alerted_offline": true,
+        "has_alerted_offline": false,
         "status_ids2": "online",
         "secondary_status_ids2": "offline",
-        "ign": "iChesterFTW"
+        "ign": "iChesterFTW",
+        "last_heartbeat_check": 1769008458
     },
     "157834363944435713": {
         "username": "fierza.",
