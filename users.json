@@ -4600,14 +4600,9 @@
             ]
         ],
         "has_alerted_offline": false,
-        "status_ids2": "online",
+        "status_ids2": "offline",
         "secondary_status_ids2": "offline",
-        "ign": "brizzy505",
-        "last_heartbeat_check": 1768995928,
-        "last_heartbeat": {
-            "time": 721,
-            "packs": 3987
-        }
+        "ign": "brizzy505"
     },
     "409685259437735936": {
         "username": "iraptorxd",
