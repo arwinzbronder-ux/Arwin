@@ -6282,12 +6282,12 @@
         "secondary_code": "3728578745352937",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 4921,
+            "current_packs": 4983,
             "instances": 5,
             "offline_instances": 0,
             "total_instances": 5,
-            "duration_minutes": 1622,
-            "last_update": 1769033632,
+            "duration_minutes": 1652,
+            "last_update": 1769035435,
             "last_monitor": 2
         },
         "daily": {
@@ -6296,10 +6296,6 @@
         },
         "history": [],
         "samples": [
-            [
-                1768945318,
-                436
-            ],
             [
                 1768947122,
                 520
@@ -6475,10 +6471,6 @@
             [
                 1768947130.37,
                 520
-            ],
-            [
-                1768945325.976,
-                436
             ],
             [
                 1768986771,
@@ -6753,10 +6745,6 @@
                 520
             ],
             [
-                1768945325.976,
-                436
-            ],
-            [
                 1769028224,
                 4702
             ],
@@ -6771,16 +6759,20 @@
             [
                 1769033632,
                 4921
+            ],
+            [
+                1769035435,
+                4983
             ]
         ],
         "status_ids2": "online",
         "secondary_status_ids2": "online",
         "has_alerted_offline": false,
         "last_heartbeat": {
-            "time": 1622,
-            "packs": 4921
+            "time": 1652,
+            "packs": 4983
         },
-        "last_heartbeat_check": 1769033632,
+        "last_heartbeat_check": 1769035435,
         "ign": "Fierza",
         "secondary_ign": "Ashley"
     },
