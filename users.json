@@ -5504,12 +5504,12 @@
         "status_ids2": "online",
         "secondary_status_ids2": "online",
         "session": {
-            "current_packs": 1192,
+            "current_packs": 1252,
             "instances": 5,
             "offline_instances": 0,
             "total_instances": 5,
-            "duration_minutes": 542,
-            "last_update": 1769025756,
+            "duration_minutes": 572,
+            "last_update": 1769027564,
             "last_monitor": 2
         },
         "samples": [
@@ -5816,14 +5816,18 @@
             [
                 1769025756,
                 1192
+            ],
+            [
+                1769027564,
+                1252
             ]
         ],
         "has_alerted_offline": false,
         "last_heartbeat": {
-            "time": 542,
-            "packs": 1192
+            "time": 572,
+            "packs": 1252
         },
-        "last_heartbeat_check": 1769025756
+        "last_heartbeat_check": 1769027564
     },
     "1056944043688476682": {
         "username": "libra_2828",
