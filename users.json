@@ -2916,12 +2916,12 @@
         "secondary_status": "online",
         "secondary_code": "6945259816716451",
         "session": {
-            "current_packs": 718,
+            "current_packs": 906,
             "instances": 8,
             "offline_instances": 0,
             "total_instances": 8,
-            "duration_minutes": 120,
-            "last_update": 1769017681,
+            "duration_minutes": 150,
+            "last_update": 1769019492,
             "last_monitor": 1
         },
         "daily": {
@@ -3233,15 +3233,19 @@
             [
                 1769017681,
                 718
+            ],
+            [
+                1769019492,
+                906
             ]
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
         "has_alerted_offline": false,
-        "last_heartbeat_check": 1769017681,
+        "last_heartbeat_check": 1769019492,
         "last_heartbeat": {
-            "time": 120,
-            "packs": 718
+            "time": 150,
+            "packs": 906
         }
     },
     "288833945062342657": {
@@ -18714,7 +18718,7 @@
         "prefix": "DG",
         "status": "offline",
         "secondary_status": "offline",
-        "status_ids2": "offline",
+        "status_ids2": "online",
         "session": {
             "current_packs": 590,
             "instances": 3,
