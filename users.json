@@ -4710,16 +4710,11 @@
                 400
             ]
         ],
-        "status_ids2": "online",
+        "status_ids2": "offline",
         "secondary_status_ids2": "offline",
         "has_alerted_offline": false,
         "secondary_code": "7112772790107955",
-        "ign": "iRapXD",
-        "last_heartbeat_check": 1769007250,
-        "last_heartbeat": {
-            "time": 90,
-            "packs": 400
-        }
+        "ign": "iRapXD"
     },
     "396799589513953282": {
         "username": ".komorebi2",
