@@ -414,12 +414,12 @@
         "status": "offline",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 210,
+            "current_packs": 262,
             "instances": 4,
             "offline_instances": 0,
             "total_instances": 4,
-            "duration_minutes": 120,
-            "last_update": 1769029650,
+            "duration_minutes": 150,
+            "last_update": 1769031455,
             "last_monitor": 2
         },
         "daily": {
@@ -731,16 +731,20 @@
             [
                 1769029650,
                 210
+            ],
+            [
+                1769031455,
+                262
             ]
         ],
         "status_ids2": "online",
         "secondary_status_ids2": "offline",
         "has_alerted_offline": false,
         "ign": "DR.G",
-        "last_heartbeat_check": 1769029650,
+        "last_heartbeat_check": 1769031455,
         "last_heartbeat": {
-            "time": 120,
-            "packs": 210
+            "time": 150,
+            "packs": 262
         }
     },
     "475603063948705794": {
