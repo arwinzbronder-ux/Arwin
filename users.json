@@ -4049,12 +4049,12 @@
         "status": "offline",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 1082,
+            "current_packs": 1192,
             "instances": 7,
             "offline_instances": 0,
             "total_instances": 7,
-            "duration_minutes": 270,
-            "last_update": 1768974854,
+            "duration_minutes": 300,
+            "last_update": 1768976656,
             "last_monitor": 2
         },
         "daily": {
@@ -4275,17 +4275,21 @@
             [
                 1768974854,
                 1082
+            ],
+            [
+                1768976656,
+                1192
             ]
         ],
         "status_ids2": "online",
         "secondary_status_ids2": "offline",
         "has_alerted_offline": false,
         "last_heartbeat": {
-            "time": 270,
-            "packs": 1082
+            "time": 300,
+            "packs": 1192
         },
         "ign": "Pogo",
-        "last_heartbeat_check": 1768974854
+        "last_heartbeat_check": 1768976656
     },
     "287558941540352001": {
         "username": "bassrv",
