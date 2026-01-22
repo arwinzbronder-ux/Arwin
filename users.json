@@ -20910,7 +20910,7 @@
         "prefix": "DG",
         "status": "offline",
         "secondary_status": "offline",
-        "status_ids2": "online",
+        "status_ids2": "offline",
         "session": {
             "current_packs": 1118,
             "instances": 7,
@@ -20995,11 +20995,6 @@
             ]
         ],
         "secondary_status_ids2": "offline",
-        "has_alerted_offline": false,
-        "last_heartbeat_check": 1769041312,
-        "last_heartbeat": {
-            "time": 360,
-            "packs": 1118
-        }
+        "has_alerted_offline": false
     }
 }
