@@ -19413,7 +19413,7 @@
         "ign": "Tsetsuno",
         "status": "offline",
         "secondary_status": "offline",
-        "status_ids2": "offline",
+        "status_ids2": "online",
         "last_heartbeat_check": 1769099999,
         "secondary_status_ids2": "offline",
         "session": {
