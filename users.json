@@ -13885,7 +13885,7 @@
             "start_packs": 1186
         },
         "last_offline_alert": 1767653746,
-        "has_alerted_offline": true,
+        "has_alerted_offline": false,
         "history": [],
         "samples": [
             [
@@ -14190,7 +14190,8 @@
             ]
         ],
         "status_ids2": "online",
-        "secondary_status_ids2": "offline"
+        "secondary_status_ids2": "offline",
+        "last_heartbeat_check": 1769090345
     },
     "655583863954735124": {
         "username": "isaac5255",
