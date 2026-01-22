@@ -3188,8 +3188,8 @@
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
-        "has_alerted_offline": true,
-        "last_heartbeat_check": 1769071877
+        "has_alerted_offline": false,
+        "last_heartbeat_check": 1769072000
     },
     "288833945062342657": {
         "username": "insomniaskai",
