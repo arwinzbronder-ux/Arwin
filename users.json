@@ -2619,7 +2619,7 @@
         "friend_code": "7951677911105601",
         "instances": 7,
         "prefix": "jerry",
-        "status": "offline",
+        "status": "online",
         "secondary_status": "offline",
         "secondary_code": "6945259816716451",
         "session": {
@@ -2969,7 +2969,7 @@
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
         "has_alerted_offline": false,
-        "last_heartbeat_check": 1769081022,
+        "last_heartbeat_check": 1769084279,
         "last_heartbeat": {
             "time": 150,
             "packs": 1074
