@@ -20014,8 +20014,8 @@
             "instances": 2,
             "offline_instances": 1,
             "total_instances": 3,
-            "duration_minutes": 360,
-            "last_update": 1769066367,
+            "duration_minutes": 390,
+            "last_update": 1769068171,
             "last_monitor": 1
         },
         "samples": [
@@ -20142,6 +20142,10 @@
             [
                 1769066367,
                 369
+            ],
+            [
+                1769068171,
+                369
             ]
         ],
         "secondary_status_ids2": "offline",
@@ -20154,7 +20158,7 @@
             "secondary_status_ids2": "offline"
         },
         "last_heartbeat": {
-            "time": 360,
+            "time": 390,
             "packs": 369
         }
     }
