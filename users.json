@@ -2611,12 +2611,12 @@
         "secondary_status": "online",
         "secondary_code": "6945259816716451",
         "session": {
-            "current_packs": 640,
+            "current_packs": 854,
             "instances": 8,
             "offline_instances": 0,
             "total_instances": 8,
-            "duration_minutes": 90,
-            "last_update": 1769077400,
+            "duration_minutes": 120,
+            "last_update": 1769079210,
             "last_monitor": 1
         },
         "daily": {
@@ -2944,15 +2944,19 @@
             [
                 1769077400,
                 640
+            ],
+            [
+                1769079210,
+                854
             ]
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
         "has_alerted_offline": false,
-        "last_heartbeat_check": 1769077400,
+        "last_heartbeat_check": 1769079210,
         "last_heartbeat": {
-            "time": 90,
-            "packs": 640
+            "time": 120,
+            "packs": 854
         }
     },
     "288833945062342657": {
