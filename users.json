@@ -3339,15 +3339,10 @@
                 506
             ]
         ],
-        "status_ids2": "online",
+        "status_ids2": "offline",
         "secondary_status_ids2": "offline",
         "has_alerted_offline": false,
-        "kicked_due_to_timeout": true,
-        "last_heartbeat_check": 1769089626,
-        "last_heartbeat": {
-            "time": 330,
-            "packs": 506
-        }
+        "kicked_due_to_timeout": true
     },
     "849666089902145586": {
         "username": "pr34ch.",
