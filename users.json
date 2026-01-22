@@ -7,12 +7,12 @@
         "status": "offline",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 812,
+            "current_packs": 897,
             "instances": 6,
             "offline_instances": 0,
             "total_instances": 6,
-            "duration_minutes": 287,
-            "last_update": 1769124184,
+            "duration_minutes": 317,
+            "last_update": 1769125985,
             "last_monitor": 2
         },
         "daily": {
@@ -405,6 +405,10 @@
             [
                 1769124184,
                 812
+            ],
+            [
+                1769125985,
+                897
             ]
         ],
         "status_ids2": "online",
@@ -412,10 +416,10 @@
         "secondary_code": "6270265152175778",
         "ign": "Packchaser BK",
         "secondary_ign": "Morre",
-        "last_heartbeat_check": 1769124184,
+        "last_heartbeat_check": 1769125985,
         "last_heartbeat": {
-            "time": 287,
-            "packs": 812
+            "time": 317,
+            "packs": 897
         }
     },
     "1017762422947323965": {
