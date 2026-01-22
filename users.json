@@ -3994,7 +3994,7 @@
         "friend_code": "4667419267232045",
         "instances": 3,
         "prefix": "rptr",
-        "status": "online",
+        "status": "offline",
         "secondary_status": "offline",
         "session": {
             "current_packs": 0,
@@ -4412,7 +4412,8 @@
         "last_heartbeat": {
             "time": 0,
             "packs": 0
-        }
+        },
+        "kicked_due_to_timeout": true
     },
     "396799589513953282": {
         "username": ".komorebi2",
