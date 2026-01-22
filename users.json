@@ -5660,12 +5660,12 @@
         "secondary_code": "3728578745352937",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 5661,
+            "current_packs": 5731,
             "instances": 5,
             "offline_instances": 0,
             "total_instances": 5,
-            "duration_minutes": 1952,
-            "last_update": 1769053467,
+            "duration_minutes": 1982,
+            "last_update": 1769055269,
             "last_monitor": 2
         },
         "daily": {
@@ -5674,14 +5674,6 @@
         },
         "history": [],
         "samples": [
-            [
-                1768963341,
-                1373
-            ],
-            [
-                1768965143,
-                1454
-            ],
             [
                 1768966946,
                 1541
@@ -5769,14 +5761,6 @@
             [
                 1768966953.293,
                 1541
-            ],
-            [
-                1768965151.591,
-                1454
-            ],
-            [
-                1768963348.973,
-                1373
             ],
             [
                 1768986771,
@@ -6007,14 +5991,6 @@
                 1541
             ],
             [
-                1768965151.591,
-                1454
-            ],
-            [
-                1768963348.973,
-                1373
-            ],
-            [
                 1769028224,
                 4702
             ],
@@ -6073,16 +6049,20 @@
             [
                 1769053467,
                 5661
+            ],
+            [
+                1769055269,
+                5731
             ]
         ],
         "status_ids2": "online",
         "secondary_status_ids2": "online",
         "has_alerted_offline": false,
         "last_heartbeat": {
-            "time": 1952,
-            "packs": 5661
+            "time": 1982,
+            "packs": 5731
         },
-        "last_heartbeat_check": 1769053467,
+        "last_heartbeat_check": 1769055269,
         "ign": "Fierza",
         "secondary_ign": "Ashley"
     },
