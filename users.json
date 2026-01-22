@@ -5729,14 +5729,9 @@
             ]
         ],
         "has_alerted_offline": false,
-        "status_ids2": "online",
+        "status_ids2": "offline",
         "secondary_status_ids2": "offline",
-        "ign": "iChesterFTW",
-        "last_heartbeat_check": 1769060336,
-        "last_heartbeat": {
-            "time": 330,
-            "packs": 1018
-        }
+        "ign": "iChesterFTW"
     },
     "157834363944435713": {
         "username": "fierza.",
