@@ -2036,12 +2036,12 @@
         "status": "online",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 2498,
+            "current_packs": 2709,
             "instances": 6,
             "offline_instances": 0,
             "total_instances": 6,
-            "duration_minutes": 390,
-            "last_update": 1769112707,
+            "duration_minutes": 420,
+            "last_update": 1769114513,
             "last_monitor": 1
         },
         "daily": {
@@ -2240,6 +2240,10 @@
             [
                 1769112707,
                 2498
+            ],
+            [
+                1769114513,
+                2709
             ]
         ],
         "status_ids2": "offline",
@@ -2247,10 +2251,10 @@
         "has_alerted_offline": false,
         "secondary_code": "7112772790107955",
         "ign": "iRapXD",
-        "last_heartbeat_check": 1769112707,
+        "last_heartbeat_check": 1769114513,
         "last_heartbeat": {
-            "time": 390,
-            "packs": 2498
+            "time": 420,
+            "packs": 2709
         },
         "kicked_due_to_timeout": true
     },
