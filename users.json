@@ -2800,14 +2800,9 @@
                 1957
             ]
         ],
-        "status_ids2": "online",
+        "status_ids2": "offline",
         "secondary_status_ids2": "offline",
-        "has_alerted_offline": false,
-        "last_heartbeat": {
-            "time": 691,
-            "packs": 1957
-        },
-        "last_heartbeat_check": 1769057112
+        "has_alerted_offline": false
     },
     "1040255662569033788": {
         "username": "jerry223608",
