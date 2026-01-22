@@ -6339,8 +6339,8 @@
                 155
             ]
         ],
-        "has_alerted_offline": true,
-        "last_heartbeat_check": 1769088193,
+        "has_alerted_offline": false,
+        "last_heartbeat_check": 1769090002,
         "last_heartbeat": {
             "time": 60,
             "packs": 155
