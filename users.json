@@ -5614,12 +5614,12 @@
         "status_ids2": "online",
         "secondary_status_ids2": "online",
         "session": {
-            "current_packs": 492,
+            "current_packs": 566,
             "instances": 4,
             "offline_instances": 1,
             "total_instances": 5,
-            "duration_minutes": 211,
-            "last_update": 1769097237,
+            "duration_minutes": 241,
+            "last_update": 1769099046,
             "last_monitor": 2
         },
         "samples": [
@@ -5866,13 +5866,17 @@
             [
                 1769097237,
                 492
+            ],
+            [
+                1769099046,
+                566
             ]
         ],
         "has_alerted_offline": true,
-        "last_heartbeat_check": 1769097237,
+        "last_heartbeat_check": 1769099046,
         "last_heartbeat": {
-            "time": 211,
-            "packs": 492
+            "time": 241,
+            "packs": 566
         }
     },
     "1056944043688476682": {
