@@ -381,12 +381,12 @@
         "status": "offline",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 1621,
+            "current_packs": 1693,
             "instances": 4,
             "offline_instances": 1,
             "total_instances": 5,
-            "duration_minutes": 872,
-            "last_update": 1769074758,
+            "duration_minutes": 902,
+            "last_update": 1769076563,
             "last_monitor": 1
         },
         "daily": {
@@ -526,6 +526,10 @@
             [
                 1769074758,
                 1621
+            ],
+            [
+                1769076563,
+                1693
             ]
         ],
         "status_ids2": "offline",
@@ -533,8 +537,8 @@
         "has_alerted_offline": true,
         "ign": "DR.G",
         "last_heartbeat": {
-            "time": 872,
-            "packs": 1621
+            "time": 902,
+            "packs": 1693
         }
     },
     "475603063948705794": {
