@@ -3761,7 +3761,7 @@
             "offline_instances": 0,
             "total_instances": 6,
             "duration_minutes": 0,
-            "last_update": 1769038301,
+            "last_update": 1769089288,
             "last_monitor": 1
         },
         "daily": {
@@ -4160,6 +4160,10 @@
             [
                 1769038301,
                 0
+            ],
+            [
+                1769089288,
+                0
             ]
         ],
         "status_ids2": "offline",
@@ -4167,7 +4171,7 @@
         "has_alerted_offline": false,
         "secondary_code": "7112772790107955",
         "ign": "iRapXD",
-        "last_heartbeat_check": 1769089204,
+        "last_heartbeat_check": 1769089288,
         "last_heartbeat": {
             "time": 0,
             "packs": 0
