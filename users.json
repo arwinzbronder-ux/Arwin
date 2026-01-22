@@ -5553,12 +5553,12 @@
         "status": "offline",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 920,
+            "current_packs": 1018,
             "instances": 7,
             "offline_instances": 0,
             "total_instances": 7,
-            "duration_minutes": 300,
-            "last_update": 1769058532,
+            "duration_minutes": 330,
+            "last_update": 1769060336,
             "last_monitor": 2
         },
         "daily": {
@@ -5722,16 +5722,20 @@
             [
                 1769058532,
                 920
+            ],
+            [
+                1769060336,
+                1018
             ]
         ],
         "has_alerted_offline": false,
         "status_ids2": "online",
         "secondary_status_ids2": "offline",
         "ign": "iChesterFTW",
-        "last_heartbeat_check": 1769058532,
+        "last_heartbeat_check": 1769060336,
         "last_heartbeat": {
-            "time": 300,
-            "packs": 920
+            "time": 330,
+            "packs": 1018
         }
     },
     "157834363944435713": {
