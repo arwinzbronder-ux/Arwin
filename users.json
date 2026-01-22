@@ -17371,7 +17371,7 @@
         "prefix": "DG",
         "status": "offline",
         "secondary_status": "offline",
-        "status_ids2": "offline",
+        "status_ids2": "online",
         "session": {
             "current_packs": 351,
             "instances": 7,
