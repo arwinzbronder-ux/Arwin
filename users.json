@@ -1473,12 +1473,12 @@
         "status": "offline",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 3515,
+            "current_packs": 0,
             "instances": 6,
             "offline_instances": 0,
             "total_instances": 6,
-            "duration_minutes": 751,
-            "last_update": 1769084267,
+            "duration_minutes": 0,
+            "last_update": 1769122656,
             "last_monitor": 2
         },
         "daily": {
@@ -1865,12 +1865,21 @@
             [
                 1769084267,
                 3515
+            ],
+            [
+                1769122656,
+                0
             ]
         ],
         "has_alerted_offline": false,
         "status_ids2": "online",
         "secondary_status_ids2": "offline",
-        "ign": "brizzy505"
+        "ign": "brizzy505",
+        "last_heartbeat_check": 1769122656,
+        "last_heartbeat": {
+            "time": 0,
+            "packs": 0
+        }
     },
     "409685259437735936": {
         "username": "iraptorxd",
