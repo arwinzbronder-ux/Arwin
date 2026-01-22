@@ -6642,12 +6642,12 @@
                 1688
             ]
         ],
-        "has_alerted_offline": true,
+        "has_alerted_offline": false,
         "last_heartbeat": {
             "time": 874,
             "packs": 1688
         },
-        "last_heartbeat_check": 1769045637
+        "last_heartbeat_check": 1769046431
     },
     "1056944043688476682": {
         "username": "libra_2828",
