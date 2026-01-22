@@ -3199,12 +3199,12 @@
         "secondary_status": "offline",
         "secondary_code": "2489404685358169",
         "session": {
-            "current_packs": 0,
+            "current_packs": 44,
             "instances": 2,
             "offline_instances": 0,
             "total_instances": 2,
-            "duration_minutes": 0,
-            "last_update": 1769069824,
+            "duration_minutes": 30,
+            "last_update": 1769071596,
             "last_monitor": 2
         },
         "daily": {
@@ -3475,16 +3475,20 @@
             [
                 1769069824,
                 0
+            ],
+            [
+                1769071596,
+                44
             ]
         ],
         "status_ids2": "online",
         "secondary_status_ids2": "offline",
         "has_alerted_offline": false,
         "kicked_due_to_timeout": true,
-        "last_heartbeat_check": 1769069824,
+        "last_heartbeat_check": 1769071596,
         "last_heartbeat": {
-            "time": 0,
-            "packs": 0
+            "time": 30,
+            "packs": 44
         }
     },
     "849666089902145586": {
@@ -4731,12 +4735,12 @@
         "status": "offline",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 2527,
+            "current_packs": 2695,
             "instances": 7,
             "offline_instances": 0,
             "total_instances": 7,
-            "duration_minutes": 541,
-            "last_update": 1769069791,
+            "duration_minutes": 571,
+            "last_update": 1769071597,
             "last_monitor": 2
         },
         "daily": {
@@ -4996,16 +5000,20 @@
             [
                 1769069791,
                 2527
+            ],
+            [
+                1769071597,
+                2695
             ]
         ],
         "status_ids2": "online",
         "secondary_status_ids2": "offline",
         "has_alerted_offline": false,
         "last_heartbeat": {
-            "time": 541,
-            "packs": 2527
+            "time": 571,
+            "packs": 2695
         },
-        "last_heartbeat_check": 1769069791
+        "last_heartbeat_check": 1769071597
     },
     "275988818631327745": {
         "username": "bloo_64",
