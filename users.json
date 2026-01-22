@@ -12472,12 +12472,12 @@
         "status": "offline",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 4168,
+            "current_packs": 4230,
             "instances": 4,
             "offline_instances": 0,
             "total_instances": 4,
-            "duration_minutes": 1623,
-            "last_update": 1769053544,
+            "duration_minutes": 1653,
+            "last_update": 1769055347,
             "last_monitor": 2
         },
         "daily": {
@@ -12487,14 +12487,6 @@
         "has_alerted_offline": false,
         "history": [],
         "samples": [
-            [
-                1768963331,
-                290
-            ],
-            [
-                1768965135,
-                362
-            ],
             [
                 1768966938,
                 436
@@ -12582,14 +12574,6 @@
             [
                 1768966946.548,
                 436
-            ],
-            [
-                1768965143.03,
-                362
-            ],
-            [
-                1768963339.818,
-                290
             ],
             [
                 1768986778,
@@ -12820,14 +12804,6 @@
                 436
             ],
             [
-                1768965143.03,
-                362
-            ],
-            [
-                1768963339.818,
-                290
-            ],
-            [
                 1769028292,
                 3264
             ],
@@ -12886,15 +12862,19 @@
             [
                 1769053544,
                 4168
+            ],
+            [
+                1769055347,
+                4230
             ]
         ],
         "status_ids2": "online",
         "secondary_status_ids2": "offline",
         "last_heartbeat": {
-            "time": 1623,
-            "packs": 4168
+            "time": 1653,
+            "packs": 4230
         },
-        "last_heartbeat_check": 1769053544
+        "last_heartbeat_check": 1769055347
     },
     "307883135285067776": {
         "username": "tilero",
