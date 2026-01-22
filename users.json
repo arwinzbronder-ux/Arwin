@@ -19403,8 +19403,9 @@
         "instances": 8,
         "prefix": "LordGP",
         "ign": "Tsetsuno",
-        "status": "offline",
+        "status": "online",
         "secondary_status": "offline",
-        "status_ids2": "offline"
+        "status_ids2": "offline",
+        "last_heartbeat_check": 1769099999
     }
 }
