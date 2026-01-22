@@ -575,12 +575,13 @@
         ],
         "status_ids2": "online",
         "secondary_status_ids2": "offline",
-        "has_alerted_offline": true,
+        "has_alerted_offline": false,
         "ign": "DR.G",
         "last_heartbeat": {
             "time": 1112,
             "packs": 2227
-        }
+        },
+        "last_heartbeat_check": 1769110104
     },
     "475603063948705794": {
         "username": "kysog6646",
