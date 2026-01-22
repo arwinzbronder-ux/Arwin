@@ -3013,12 +3013,12 @@
         "secondary_status": "offline",
         "secondary_code": "2489404685358169",
         "session": {
-            "current_packs": 456,
+            "current_packs": 506,
             "instances": 2,
             "offline_instances": 0,
             "total_instances": 2,
-            "duration_minutes": 300,
-            "last_update": 1769087823,
+            "duration_minutes": 330,
+            "last_update": 1769089626,
             "last_monitor": 2
         },
         "daily": {
@@ -3329,16 +3329,20 @@
             [
                 1769087823,
                 456
+            ],
+            [
+                1769089626,
+                506
             ]
         ],
         "status_ids2": "online",
         "secondary_status_ids2": "offline",
         "has_alerted_offline": false,
         "kicked_due_to_timeout": true,
-        "last_heartbeat_check": 1769087823,
+        "last_heartbeat_check": 1769089626,
         "last_heartbeat": {
-            "time": 300,
-            "packs": 456
+            "time": 330,
+            "packs": 506
         }
     },
     "849666089902145586": {
