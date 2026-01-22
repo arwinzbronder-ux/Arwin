@@ -1942,7 +1942,7 @@
         "friend_code": "4667419267232045",
         "instances": 3,
         "prefix": "rptr",
-        "status": "online",
+        "status": "offline",
         "secondary_status": "offline",
         "session": {
             "current_packs": 3931,
@@ -2184,11 +2184,6 @@
         "has_alerted_offline": false,
         "secondary_code": "7112772790107955",
         "ign": "iRapXD",
-        "last_heartbeat_check": 1769125339,
-        "last_heartbeat": {
-            "time": 601,
-            "packs": 3931
-        },
         "kicked_due_to_timeout": true
     },
     "396799589513953282": {
