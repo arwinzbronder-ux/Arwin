@@ -158,12 +158,12 @@
         "status": "offline",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 600,
+            "current_packs": 652,
             "instances": 4,
             "offline_instances": 0,
             "total_instances": 4,
-            "duration_minutes": 360,
-            "last_update": 1769131728,
+            "duration_minutes": 390,
+            "last_update": 1769133532,
             "last_monitor": 2
         },
         "daily": {
@@ -387,6 +387,10 @@
             [
                 1769131728,
                 600
+            ],
+            [
+                1769133532,
+                652
             ]
         ],
         "status_ids2": "online",
@@ -394,10 +398,10 @@
         "has_alerted_offline": false,
         "ign": "DR.G",
         "last_heartbeat": {
-            "time": 360,
-            "packs": 600
+            "time": 390,
+            "packs": 652
         },
-        "last_heartbeat_check": 1769131728
+        "last_heartbeat_check": 1769133532
     },
     "475603063948705794": {
         "username": "kysog6646",
@@ -17068,7 +17072,7 @@
         "prefix": "DG",
         "status": "offline",
         "secondary_status": "offline",
-        "status_ids2": "online",
+        "status_ids2": "offline",
         "session": {
             "current_packs": 294,
             "instances": 7,
@@ -17269,12 +17273,7 @@
             ]
         ],
         "secondary_status_ids2": "offline",
-        "has_alerted_offline": false,
-        "last_heartbeat": {
-            "time": 90,
-            "packs": 294
-        },
-        "last_heartbeat_check": 1769131970
+        "has_alerted_offline": false
     },
     "603346638358052870": {
         "username": "lordchaosz1",
