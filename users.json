@@ -10365,7 +10365,8 @@
         "instances": 6,
         "prefix": "blue",
         "status": "offline",
-        "secondary_status": "offline"
+        "secondary_status": "offline",
+        "personal_file": "l4_o6ob.txt"
     },
     "1291615786573627414": {
         "username": "ronniecheng90_77858",
