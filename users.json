@@ -158,12 +158,12 @@
         "status": "offline",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 600,
+            "current_packs": 652,
             "instances": 4,
             "offline_instances": 0,
             "total_instances": 4,
-            "duration_minutes": 360,
-            "last_update": 1769131728,
+            "duration_minutes": 390,
+            "last_update": 1769133532,
             "last_monitor": 2
         },
         "daily": {
@@ -387,6 +387,10 @@
             [
                 1769131728,
                 600
+            ],
+            [
+                1769133532,
+                652
             ]
         ],
         "status_ids2": "online",
@@ -394,10 +398,10 @@
         "has_alerted_offline": false,
         "ign": "DR.G",
         "last_heartbeat": {
-            "time": 360,
-            "packs": 600
+            "time": 390,
+            "packs": 652
         },
-        "last_heartbeat_check": 1769131728
+        "last_heartbeat_check": 1769133532
     },
     "475603063948705794": {
         "username": "kysog6646",
@@ -408,12 +412,12 @@
         "secondary_status": "offline",
         "has_alerted_offline": false,
         "session": {
-            "current_packs": 468,
+            "current_packs": 504,
             "instances": 3,
             "offline_instances": 0,
             "total_instances": 3,
-            "duration_minutes": 421,
-            "last_update": 1769131725,
+            "duration_minutes": 451,
+            "last_update": 1769133530,
             "last_monitor": 2
         },
         "daily": {
@@ -480,14 +484,18 @@
             [
                 1769131725,
                 468
+            ],
+            [
+                1769133530,
+                504
             ]
         ],
         "status_ids2": "online",
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1769131725,
+        "last_heartbeat_check": 1769133530,
         "last_heartbeat": {
-            "time": 421,
-            "packs": 468
+            "time": 451,
+            "packs": 504
         }
     },
     "694638638746566677": {
