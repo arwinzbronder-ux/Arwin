@@ -2625,7 +2625,8 @@
         "status": "offline",
         "secondary_status": "offline",
         "last_heartbeat_check": 1768245983,
-        "kicked_due_to_timeout": true
+        "kicked_due_to_timeout": true,
+        "personal_file": "kl9eaaa893srm.txt"
     },
     "693132470174089296": {
         "username": "zekasilva",
