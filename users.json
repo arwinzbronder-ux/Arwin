@@ -28128,7 +28128,8 @@
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
-        "has_alerted_offline": false
+        "has_alerted_offline": false,
+        "personal_file": "a5a5c5si2.txt"
     },
     "_global_stats": {
         "daily_god_packs": 0,
