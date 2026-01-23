@@ -17036,7 +17036,7 @@
         "prefix": "DG",
         "status": "offline",
         "secondary_status": "offline",
-        "status_ids2": "online",
+        "status_ids2": "offline",
         "session": {
             "current_packs": 1084,
             "instances": 3,
@@ -17349,12 +17349,7 @@
             ]
         ],
         "secondary_status_ids2": "offline",
-        "has_alerted_offline": false,
-        "last_heartbeat_check": 1769183640,
-        "last_heartbeat": {
-            "time": 780,
-            "packs": 1084
-        }
+        "has_alerted_offline": false
     },
     "603346638358052870": {
         "username": "lordchaosz1",
