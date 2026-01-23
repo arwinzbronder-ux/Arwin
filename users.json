@@ -17729,7 +17729,7 @@
         "status": "offline",
         "secondary_status": "offline",
         "status_ids2": "online",
-        "last_heartbeat_check": 1769146808,
+        "last_heartbeat_check": 1769148615,
         "secondary_status_ids2": "offline",
         "session": {
             "current_packs": 2286,
@@ -17853,6 +17853,7 @@
         "last_heartbeat": {
             "time": 722,
             "packs": 2286
-        }
+        },
+        "has_alerted_offline": true
     }
 }
