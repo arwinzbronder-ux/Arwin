@@ -10162,8 +10162,8 @@
             "instances": 0,
             "offline_instances": 5,
             "total_instances": 5,
-            "duration_minutes": 3518,
-            "last_update": 1769167197,
+            "duration_minutes": 3548,
+            "last_update": 1769169001,
             "last_monitor": 1
         },
         "daily": {
@@ -10564,12 +10564,16 @@
             [
                 1769167197,
                 7324
+            ],
+            [
+                1769169001,
+                7324
             ]
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
         "last_heartbeat": {
-            "time": 3518,
+            "time": 3548,
             "packs": 7324
         }
     },
