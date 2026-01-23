@@ -3789,13 +3789,14 @@
         ],
         "status_ids2": "online",
         "secondary_status_ids2": "online",
-        "has_alerted_offline": true,
+        "has_alerted_offline": false,
         "ign": "Fierza",
         "secondary_ign": "Ashley",
         "last_heartbeat": {
             "time": 4116,
             "packs": 11750
-        }
+        },
+        "last_heartbeat_check": 1769193349
     },
     "1059812834445377587": {
         "username": "daizy.",
