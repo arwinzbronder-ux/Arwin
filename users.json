@@ -11619,7 +11619,10 @@
             "time": 330,
             "packs": 1163
         },
-        "personal_file": "tftecweirhs.txt"
+        "personal_file": "tftecweirhs.txt",
+        "excluded_ids": [
+            "2583864630020783"
+        ]
     },
     "157834363944435713": {
         "username": "fierza.",
