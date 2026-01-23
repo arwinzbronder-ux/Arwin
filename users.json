@@ -32477,7 +32477,8 @@
             ]
         ],
         "has_alerted_offline": false,
-        "secondary_status_ids2": "offline"
+        "secondary_status_ids2": "offline",
+        "personal_file": "satn7r2ma5.txt"
     },
     "_vip_timers": {
         "0032578716202499": 1767964624,
