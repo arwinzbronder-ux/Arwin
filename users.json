@@ -434,12 +434,12 @@
         "status": "offline",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 448,
+            "current_packs": 496,
             "instances": 4,
             "offline_instances": 0,
             "total_instances": 4,
-            "duration_minutes": 270,
-            "last_update": 1769126314,
+            "duration_minutes": 300,
+            "last_update": 1769128120,
             "last_monitor": 2
         },
         "daily": {
@@ -651,6 +651,10 @@
             [
                 1769126314,
                 448
+            ],
+            [
+                1769128120,
+                496
             ]
         ],
         "status_ids2": "online",
@@ -658,10 +662,10 @@
         "has_alerted_offline": false,
         "ign": "DR.G",
         "last_heartbeat": {
-            "time": 270,
-            "packs": 448
+            "time": 300,
+            "packs": 496
         },
-        "last_heartbeat_check": 1769126314
+        "last_heartbeat_check": 1769128120
     },
     "475603063948705794": {
         "username": "kysog6646",
