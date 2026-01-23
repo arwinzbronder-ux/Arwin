@@ -5900,12 +5900,12 @@
         "status": "offline",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 568,
+            "current_packs": 670,
             "instances": 7,
             "offline_instances": 0,
             "total_instances": 7,
-            "duration_minutes": 150,
-            "last_update": 1769202069,
+            "duration_minutes": 180,
+            "last_update": 1769203870,
             "last_monitor": 2
         },
         "daily": {
@@ -5919,10 +5919,6 @@
             }
         ],
         "samples": [
-            [
-                1769112380,
-                573
-            ],
             [
                 1769114182,
                 723
@@ -6132,10 +6128,6 @@
                 723
             ],
             [
-                1769112388.593,
-                573
-            ],
-            [
                 1769198466,
                 350
             ],
@@ -6246,10 +6238,6 @@
             [
                 1769114189.663,
                 723
-            ],
-            [
-                1769112388.593,
-                573
             ],
             [
                 1769200267,
@@ -6368,22 +6356,22 @@
                 723
             ],
             [
-                1769112388.593,
-                573
-            ],
-            [
                 1769202069,
                 568
+            ],
+            [
+                1769203870,
+                670
             ]
         ],
         "status_ids2": "online",
         "secondary_status_ids2": "offline",
         "has_alerted_offline": false,
         "ign": "Pogo",
-        "last_heartbeat_check": 1769202069,
+        "last_heartbeat_check": 1769203870,
         "last_heartbeat": {
-            "time": 150,
-            "packs": 568
+            "time": 180,
+            "packs": 670
         }
     },
     "287558941540352001": {
