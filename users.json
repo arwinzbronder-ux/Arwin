@@ -7084,7 +7084,10 @@
             "time": 571,
             "packs": 3171
         },
-        "personal_file": "crph43..txt"
+        "personal_file": "crph43..txt",
+        "excluded_ids": [
+            "2583864630020783"
+        ]
     },
     "409685259437735936": {
         "username": "iraptorxd",
