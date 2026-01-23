@@ -759,8 +759,8 @@
         "friend_code": "7951677911105601",
         "instances": 7,
         "prefix": "jerry",
-        "status": "online",
-        "secondary_status": "online",
+        "status": "offline",
+        "secondary_status": "offline",
         "secondary_code": "6945259816716451",
         "session": {
             "current_packs": 5312,
@@ -993,12 +993,7 @@
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
         "has_alerted_offline": false,
-        "kicked_due_to_timeout": true,
-        "last_heartbeat_check": 1769137681,
-        "last_heartbeat": {
-            "time": 815,
-            "packs": 5312
-        }
+        "kicked_due_to_timeout": true
     },
     "288833945062342657": {
         "username": "insomniaskai",
