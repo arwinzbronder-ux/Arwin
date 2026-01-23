@@ -2399,15 +2399,10 @@
                 4028
             ]
         ],
-        "status_ids2": "online",
+        "status_ids2": "offline",
         "secondary_status_ids2": "offline",
         "has_alerted_offline": false,
-        "ign": "Pogo",
-        "last_heartbeat_check": 1769153810,
-        "last_heartbeat": {
-            "time": 810,
-            "packs": 4028
-        }
+        "ign": "Pogo"
     },
     "287558941540352001": {
         "username": "bassrv",
