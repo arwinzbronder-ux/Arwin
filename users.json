@@ -1182,12 +1182,12 @@
         "secondary_status": "offline",
         "secondary_code": "2489404685358169",
         "session": {
-            "current_packs": 980,
+            "current_packs": 1010,
             "instances": 3,
             "offline_instances": 0,
             "total_instances": 3,
-            "duration_minutes": 420,
-            "last_update": 1769174109,
+            "duration_minutes": 450,
+            "last_update": 1769175912,
             "last_monitor": 2
         },
         "daily": {
@@ -1566,12 +1566,20 @@
             [
                 1769174109,
                 980
+            ],
+            [
+                1769175912,
+                1010
             ]
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
         "has_alerted_offline": false,
-        "kicked_due_to_timeout": true
+        "kicked_due_to_timeout": true,
+        "last_heartbeat": {
+            "time": 450,
+            "packs": 1010
+        }
     },
     "849666089902145586": {
         "username": "pr34ch.",
