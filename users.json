@@ -17439,6 +17439,7 @@
                 2459
             ]
         ],
-        "has_alerted_offline": true
+        "has_alerted_offline": false,
+        "last_heartbeat_check": 1769183071
     }
 }
