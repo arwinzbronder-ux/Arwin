@@ -3423,8 +3423,8 @@
         "prefix": "dai",
         "status": "offline",
         "secondary_status": "offline",
-        "status_ids2": "online",
-        "secondary_status_ids2": "online",
+        "status_ids2": "offline",
+        "secondary_status_ids2": "offline",
         "session": {
             "current_packs": 2389,
             "instances": 4,
@@ -3764,12 +3764,7 @@
                 2389
             ]
         ],
-        "has_alerted_offline": true,
-        "last_heartbeat_check": 1769135198,
-        "last_heartbeat": {
-            "time": 843,
-            "packs": 2389
-        }
+        "has_alerted_offline": true
     },
     "1056944043688476682": {
         "username": "libra_2828",
