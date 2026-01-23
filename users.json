@@ -12522,7 +12522,8 @@
             "time": 180,
             "packs": 511
         },
-        "last_heartbeat_check": 1769204132
+        "last_heartbeat_check": 1769204132,
+        "personal_file": "zfer.ai.txt"
     },
     "1059812834445377587": {
         "username": "daizy.",
