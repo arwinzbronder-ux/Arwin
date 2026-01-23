@@ -8533,7 +8533,8 @@
         "has_alerted_offline": false,
         "secondary_code": "7112772790107955",
         "ign": "iRapXD",
-        "kicked_due_to_timeout": true
+        "kicked_due_to_timeout": true,
+        "personal_file": "pixortrad.txt"
     },
     "396799589513953282": {
         "username": ".komorebi2",
