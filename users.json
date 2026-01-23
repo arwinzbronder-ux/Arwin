@@ -11148,12 +11148,12 @@
         "status": "offline",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 1039,
+            "current_packs": 1087,
             "instances": 4,
             "offline_instances": 0,
             "total_instances": 4,
-            "duration_minutes": 660,
-            "last_update": 1769147260,
+            "duration_minutes": 690,
+            "last_update": 1769149061,
             "last_monitor": 2
         },
         "daily": {
@@ -11538,16 +11538,20 @@
             [
                 1769147260,
                 1039
+            ],
+            [
+                1769149061,
+                1087
             ]
         ],
         "status_ids2": "online",
         "secondary_status_ids2": "offline",
         "has_alerted_offline": false,
         "last_heartbeat": {
-            "time": 660,
-            "packs": 1039
+            "time": 690,
+            "packs": 1087
         },
-        "last_heartbeat_check": 1769147260
+        "last_heartbeat_check": 1769149061
     },
     "553693689302482945": {
         "username": "skyttzi",
