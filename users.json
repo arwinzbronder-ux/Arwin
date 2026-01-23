@@ -36368,5 +36368,10 @@
         "status": "offline",
         "secondary_status": "offline",
         "status_ids2": "offline"
+    },
+    "936650468631920690": {
+        "friend_code": null,
+        "status": "offline",
+        "personal_file": "8vlxea.txt"
     }
 }
