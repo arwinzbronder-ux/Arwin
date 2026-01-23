@@ -4187,11 +4187,12 @@
                 0
             ]
         ],
-        "has_alerted_offline": false,
+        "has_alerted_offline": true,
         "last_heartbeat": {
             "time": 0,
             "packs": 0
-        }
+        },
+        "last_heartbeat_check": 1769170138
     },
     "1056944043688476682": {
         "username": "libra_2828",
