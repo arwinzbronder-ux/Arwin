@@ -15793,12 +15793,12 @@
         "secondary_status": "offline",
         "status_ids2": "online",
         "session": {
-            "current_packs": 238,
+            "current_packs": 348,
             "instances": 7,
             "offline_instances": 0,
             "total_instances": 7,
-            "duration_minutes": 60,
-            "last_update": 1769192865,
+            "duration_minutes": 90,
+            "last_update": 1769194667,
             "last_monitor": 2
         },
         "samples": [
@@ -16117,15 +16117,19 @@
             [
                 1769192865,
                 238
+            ],
+            [
+                1769194667,
+                348
             ]
         ],
         "secondary_status_ids2": "offline",
         "has_alerted_offline": false,
         "last_heartbeat": {
-            "time": 60,
-            "packs": 238
+            "time": 90,
+            "packs": 348
         },
-        "last_heartbeat_check": 1769192865
+        "last_heartbeat_check": 1769194667
     },
     "603346638358052870": {
         "username": "lordchaosz1",
