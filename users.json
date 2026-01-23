@@ -9972,10 +9972,10 @@
         "session": {
             "current_packs": 7324,
             "instances": 0,
-            "offline_instances": 4,
-            "total_instances": 4,
-            "duration_minutes": 2916,
-            "last_update": 1769131119,
+            "offline_instances": 5,
+            "total_instances": 5,
+            "duration_minutes": 2946,
+            "last_update": 1769132919,
             "last_monitor": 1
         },
         "daily": {
@@ -10296,12 +10296,16 @@
             [
                 1769131119,
                 7324
+            ],
+            [
+                1769132919,
+                7324
             ]
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
         "last_heartbeat": {
-            "time": 2916,
+            "time": 2946,
             "packs": 7324
         }
     },
