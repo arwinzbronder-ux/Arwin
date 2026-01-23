@@ -852,7 +852,8 @@
         "last_heartbeat": {
             "time": 90,
             "packs": 276
-        }
+        },
+        "personal_file": "300bk.txt"
     },
     "1017762422947323965": {
         "username": "najanaja_44",
