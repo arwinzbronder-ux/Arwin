@@ -948,7 +948,7 @@
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
-        "has_alerted_offline": true,
+        "has_alerted_offline": false,
         "last_heartbeat_check": 1769152861,
         "auto_kicked_state": {
             "status": "offline",
