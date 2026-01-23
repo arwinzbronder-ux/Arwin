@@ -8790,7 +8790,8 @@
             ]
         ],
         "status_ids2": "offline",
-        "secondary_status_ids2": "offline"
+        "secondary_status_ids2": "offline",
+        "personal_file": "k2o.meibor.txt"
     },
     "233334865024516097": {
         "username": "jeremau5",
