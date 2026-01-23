@@ -966,13 +966,7 @@
         "status_ids2": "offline",
         "secondary_status_ids2": "online",
         "has_alerted_offline": false,
-        "last_heartbeat_check": 1769152861,
-        "auto_kicked_state": {
-            "status": "offline",
-            "secondary_status": "offline",
-            "status_ids2": "offline",
-            "secondary_status_ids2": "online"
-        },
+        "last_heartbeat_check": 1769197876,
         "last_heartbeat": {
             "time": 0,
             "packs": 0
