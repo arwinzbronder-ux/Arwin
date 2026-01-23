@@ -179,16 +179,11 @@
                 2209
             ]
         ],
-        "status_ids2": "online",
-        "secondary_status_ids2": "online",
+        "status_ids2": "offline",
+        "secondary_status_ids2": "offline",
         "secondary_code": "6270265152175778",
         "ign": "Packchaser BK",
-        "secondary_ign": "Morre",
-        "last_heartbeat_check": 1769151291,
-        "last_heartbeat": {
-            "time": 739,
-            "packs": 2209
-        }
+        "secondary_ign": "Morre"
     },
     "1017762422947323965": {
         "username": "najanaja_44",
