@@ -12900,7 +12900,7 @@
             "offline_instances": 0,
             "total_instances": 10,
             "duration_minutes": 0,
-            "last_update": 1769192606,
+            "last_update": 1769192996,
             "last_monitor": 1
         },
         "daily": {
@@ -12912,12 +12912,20 @@
             [
                 1769192606,
                 0
+            ],
+            [
+                1769192996,
+                0
             ]
         ],
         "status_ids2": "offline",
         "secondary_status_ids2": "offline",
         "has_alerted_offline": false,
-        "last_heartbeat_check": 1769192893
+        "last_heartbeat_check": 1769192996,
+        "last_heartbeat": {
+            "time": 0,
+            "packs": 0
+        }
     },
     "1134310504324677713": {
         "username": "cynicalchery",
