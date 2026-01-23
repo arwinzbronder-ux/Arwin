@@ -16309,9 +16309,9 @@
                 549
             ]
         ],
-        "has_alerted_offline": true,
+        "has_alerted_offline": false,
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1769140483
+        "last_heartbeat_check": 1769140549
     },
     "_vip_timers": {
         "0032578716202499": 1767964624,
