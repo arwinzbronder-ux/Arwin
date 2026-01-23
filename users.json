@@ -12998,12 +12998,12 @@
         "status": "offline",
         "secondary_status": "offline",
         "session": {
-            "current_packs": 5494,
+            "current_packs": 5554,
             "instances": 4,
             "offline_instances": 0,
             "total_instances": 4,
-            "duration_minutes": 2584,
-            "last_update": 1769193127,
+            "duration_minutes": 2614,
+            "last_update": 1769194931,
             "last_monitor": 2
         },
         "samples": [
@@ -13250,14 +13250,18 @@
             [
                 1769193127,
                 5494
+            ],
+            [
+                1769194931,
+                5554
             ]
         ],
         "status_ids2": "online",
         "secondary_status_ids2": "offline",
-        "last_heartbeat_check": 1769193127,
+        "last_heartbeat_check": 1769194931,
         "last_heartbeat": {
-            "time": 2584,
-            "packs": 5494
+            "time": 2614,
+            "packs": 5554
         }
     },
     "193557944200200192": {
