@@ -13245,7 +13245,9 @@
     "_global_stats": {
         "daily_god_packs": 0,
         "last_reset_day": "2026-01-05",
-        "alive_clicks": [],
+        "alive_clicks": [
+            1769151726
+        ],
         "alive_clicks_ids2": []
     },
     "111114110569029632": {
