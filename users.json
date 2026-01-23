@@ -3654,14 +3654,9 @@
                 11675
             ]
         ],
-        "status_ids2": "online",
-        "secondary_status_ids2": "online",
+        "status_ids2": "offline",
+        "secondary_status_ids2": "offline",
         "has_alerted_offline": false,
-        "last_heartbeat": {
-            "time": 4085,
-            "packs": 11675
-        },
-        "last_heartbeat_check": 1769181459,
         "ign": "Fierza",
         "secondary_ign": "Ashley"
     },
